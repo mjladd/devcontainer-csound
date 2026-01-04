@@ -7,7 +7,6 @@
 <CsInstruments>
  nchnls    =         2
 
-
            instr     1908
  ax        init      p5                   ; LORENZ ATTRACTOR
  ay        init      p6
