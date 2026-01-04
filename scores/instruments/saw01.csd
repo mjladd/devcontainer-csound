@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=saw01.aiff -r44100 -k441
+-o saw01.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>

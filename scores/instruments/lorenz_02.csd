@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 
 <CsOptions>
---output=lorenz_02.aiff  -r44100 -k441
+-o lorenz_02.aiff
 </CsOptions>
 
 <CsInstruments>
@@ -26,7 +26,7 @@
  ax        =         axnew
  ay        =         aynew
  az        =         aznew
-           outs      ax*kampenv*ipanl,ay*kampenv*ipanr
+           out       ax*kampenv*ipanl, ay*kampenv*ipanr
            endin
 
 

@@ -78,11 +78,11 @@ kcps=cpspch(p4) ; p4 is the pitch value passed from the .sco file
 amp line 10000,p3,0 ; p3 is the duration passed from the .sco file
 asignal1,asignal2 loscil amp, kcps, 1,
 asignal3,asignal4 loscil amp, kcps, 2,
-outs asignal1+asignal3,asignal2 + asignal4
+out asignal1+asignal3, asignal2+asignal4
 endin
 ```
 
-The instr , outs, and endin statements are crucial to whether or not your code compiles.
+The instr, out, and endin statements are crucial to whether or not your code compiles.
 
 By adding the two sound files together you commence the attempt at morphing their characteristics. What you need to do next depends on how the sound files were sampled, and how you want Csound to morph their qualities.
 
@@ -110,7 +110,7 @@ kcps = cpspch(p4)     ; p4 is the pitch value passed from the .sco file
 amp line 10000, p3, 0 ; p3 is the duration passed from the .sco file
 asignal1, asignal2 loscil amp, kcps, 1, 392, 1, 1, 5000
 asignal3, asignal4 loscil amp, kcps, 2, 1760, 1, 1, 5000
-outs asignal1 + asignal3, asignal2 + asignal4
+out asignal1 + asignal3, asignal2 + asignal4
 endin
 ```
 
@@ -165,7 +165,7 @@ asig oscil ampdbl(90), cpspch(9.00),1
 ; the signal statement says to oscillate the sine wave, found in table 1
 ; of the score file, at middle C, at an amplitude of 90 decibels.
 
-outs asig,asig
+out asig, asig
 
 ; says to output the same signal to each channel for
 ; review in stereo
@@ -192,7 +192,7 @@ Beethoven Had Rough Beginnings
 
 Have you ever seen a picture of an original notated score by the great Ludwig Van Beethoven? Page after page contain scratch outs of ideas he wanted to change. The important thing to remember: Beethoven corrected and perfected. Thus, don’t be ashamed if you have to take extra time to debug your code. Every time you debug you learn how unlimited your compositional possibilities can be if you code by the rules.
 
-outs asignal1, asignal2
+out asignal1, asignal2
 endin
 
 Now we know that we need two signals, both of which will be given stereo presentation.
@@ -200,7 +200,7 @@ Now we know that we need two signals, both of which will be given stereo present
 ```csound
 asignal1 oscil kamp1,cpspch(p4),1
 asignal2 oscil kamp2, cpspch(p4)*1.4987,2
-outs asignal1, asignal2
+out asignal1, asignal2
 endin
 ```
 
@@ -215,7 +215,7 @@ kamp1 line ampdb(p5), p3, 0
 kamp2 line 0, p3, ampdb(p5)
 asignal1 oscil kamp1, cpspch(p4), 1
 asignal2 oscil kamp2, cpspch(p4) * 1.4987, 2
-outs asignal1, asignal2
+out asignal1, asignal2
 endin
 ```
 
@@ -238,7 +238,7 @@ kamp1 line ampdb(p5),p3,0
 kamp2 line 0,p3,ampdb(p5)
 asignal1 oscil kamp1,cpspch(p4),1
 asignal2 oscil kamp2, cpspch(p4)*1.4987,2
-outs asignal1, asignal2
+out asignal1, asignal2
 endin
 ```
 
@@ -413,7 +413,7 @@ i1 = octpch(i4)
 k1 randh 1.5, 5
 kemp = p5*1000
 asig oscil kemp, cpsoct(i1+k1),1
-outs asig, asig
+out asig, asig
 
 endin
 
@@ -459,7 +459,7 @@ asig1 oscil p4*95, k2,2
 counter2:
 k3 expseg cpspch(p6),0.25,cpspch(p5),0.25,cpspch(p6)
 asig2 oscil p4*6.25, k3, 1
-outs asig1,asig2
+out asig1, asig2
 endin
 ;.sco file code
 f1 0 2049 -12 20
@@ -494,7 +494,7 @@ Notes occasionally shift in volume dynamics. A p5 parameter can designate the lo
 Exploring parameters and logical switches is necessary to become a better builder of virtual instruments.
 PARAMETERS, SWITCHES, AND THOUGHT
 
-outs a1,a2
+out a1, a2
 endin
 
 Above, beginning at the end of your next, and most complex, orchestra file, ask yourself a musical question.
@@ -561,7 +561,7 @@ atr oscil xamp, xcps, ifn
 ;all oscils will use a GEN 11 ifn for a buzzing effect
 a1 = a9l+a7l+atl+apoundl+amonk1l+amonk2l
 a2 = a9r+a7r+atr+apoundr+amonk1r+amonk2r
-outs a1,a2
+out a1, a2
 endin
 
 What chant those Monks of styrofoam? What is repression expressed in the pound of percussion?
@@ -657,7 +657,7 @@ a2a=a9r+a7r+atr+apoundr+amonk1r+amonk2r
 amodel oscil 12000,440,1
 a1 balance a1a,amodel
 a2 balance a2a,amodel
-outs a1,a2
+out a1, a2
 endin
 
 ;and the score file for styrofoam

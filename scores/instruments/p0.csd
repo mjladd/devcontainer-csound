@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=p0.aiff -r44100 -k441
+-o p0.aiff
 </CsOptions>
 
 <CsInstruments>

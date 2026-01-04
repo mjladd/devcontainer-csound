@@ -7,7 +7,7 @@
 
 <CSoundSynthesizer>
 <CsOptions>
-;	-+S1 -+C1 -b80
+-o ghosts3.aiff
 </CsOptions>
 
 <CsScore>
@@ -16,21 +16,21 @@
 ; 	use functions (1-9)to load soundfiles
 ;	strt	table	GEN	file		skip format	channel
 ;======================================================================================
-f1	0	131072	1	"basmrmba.wav"  0	  4	    1	; 151 Hz
-f2	0	131072	1	"blood.wav"	    0	  4	    1	; 194 Hz
-f3	0	131072	1	"perc_1.wav"	0	  4	    1	; 259 Hz
-f4	0	131072	1	"perc_4.wav"	0	  4	    1	; 884 Hz
-f5	0	131072	1	"analog.wav"	0	  4	    1	; 108 Hz
-f6	0	131072	1	"a3.wav"	    0	  4	    1	; 711 Hz
-f7	0	131072	1	"tambura.wav"	0	  4	    1	; 1250 Hz
-f8	0	131072	1	"talk.wav"	    0	  4	    1	; 237 Hz
-f9 	0 	131072	1	"talk.wav"      0.001 4	    1	; offset by .001  
-f10	0	131072	1	"barren.wav"	0	  4	    1	; 44 Hz
-f11	0	131072	1	"marmbabck.wav"	0	  4	    1	; 151 Hz
-f12	0	131072	1	"marBck.wav"	0	  4	    1	; 1552 Hz
-f13	0	131072	1	"perc_4Bck.wav"	0	  4	    1	; 884 Hz
-f14	0	131072	1	"glassBk.wav"	0	  4	    1	; 6359 Hz
-f15	0	131072	1	"noise.wav"	    0	  4     1	;
+f1	0	262144	1	"../samples/whisp.aiff"	      0	 4	1	; mapped to existing sample
+f2	0	131072	1	"../samples/apoc.aiff"	       0	 4	1
+f3	0	131072	1	"../samples/sa_beat1.aif"	     0	 4	1
+f4	0	131072	1	"../samples/glass.aiff"	      0	 4	1
+f5	0	2097152	1	"../samples/prayer_bell.aif"	 0	 4	1
+f6	0	524288	1	"../samples/female.aiff"	     0	 4	1
+f7	0	131072	1	"../samples/glass.aif"	       0	 4	1
+f8	0	262144	1	"../samples/whisp.aiff"	      0	 4	1
+f9 	0 	262144	1	"../samples/whisp.aiff"	 0.001 4	1	; offset by .001
+f10	0	131072	1	"../samples/apoc.aiff"	       0	 4	1
+f11	0	524288	1	"../samples/female.aiff"	     0	 4	1
+f12	0	131072	1	"../samples/glass.aif"	       0	 4	1
+f13	0	131072	1	"../samples/glass.aiff"	      0	 4	1
+f14	0	2097152	1	"../samples/prayer_bell.aif"  0	 4	1
+f15	0	131072	1	"../samples/sa_beat1.aif"	   0	 4	1
 ;=======================================================================================
 
 
@@ -104,7 +104,7 @@ i1	165	20	2833	165
 i1	177	39	2000	65
 
 ;-------------------------------------------------------
-;    	high req fof 
+;    	high req fof
 ;-------------------------------------------------------
 ;	strt	dur	amp	fund1	fund2	formant
 ;-------------------------------------------------------
@@ -122,7 +122,7 @@ i3	45	5	.2	-.2	10	0
 i3	78	6	.5	.5	10	0
 i3	79	10	1	.5	8	0
 i3	79.25	9.25	1	.5	9	0
-i3	79.75	15	.5	.25	2	0	
+i3	79.75	15	.5	.25	2	0
 i3	125	12	.6	.33	11	3
 i3	150	12.25	.4	.5	10	0
 i3	150.25	12.5	.3	.4	10	0
@@ -147,16 +147,16 @@ i4	162	12	220	227	202
 ;	strt	dur	freq	ifna	ifnb
 ;-------------------------------------------
 ;	p2	p3	p4	p5	p6
-i7	.8	20	150	9	8
-i7	41	7	212	13	13
-i7	55     	10     	123.47	14	11
-i7	59	12	172	14	13
-i7	62	10	55	9	8
-i7	115	15	233.2	13	13
-i7	119	8	200	14	14
-i7 	135	10	150	11	12
-i7	162	15	253.2	12	12
-i7	163	15	200	13	13
+i7	.8	20	150	51	50
+i7	41	7	212	51	50
+i7	55     	10     	123.47	51	50
+i7	59	12	172	51	50
+i7	62	10	55	51	50
+i7	115	15	233.2	51	50
+i7	119	8	200	51	50
+i7 	135	10	150	51	50
+i7	162	15	253.2	51	50
+i7	163	15	200	51	50
 
 
 ;----------------------------------------------------------
@@ -173,7 +173,7 @@ i7	163	15	200	13	13
 ;----------------------------------------------------------------------------------
 ;	str	dur	amp	freq	atk	rel	cf1	cf2	bw1	bw2
 ;-----------------------------------------------------------------------------------
-i10	0	2	.75	15000	.35	1	70	4000	10	100 
+i10	0	2	.75	15000	.35	1	70	4000	10	100
 i10	170	10	.75	15000	.35	1	70	4000	100	10
 
 ;------------------------------------------------------------------------------------------
@@ -195,16 +195,16 @@ i11	180	20	220	62	57	  .13       .5          90   0     440
 ;	strt	dur	amp	strfn	endfn	scpsfn	ecpsfn	window	rndwin	density	ifnsamp
 ;--------------------------------------------------------------------------------------
 ;	p2	p3	p4	p5	p6	p7	p8	p9	p10	p11	p12
-i12	168	10	1.4	1	1	1	1	2000	150	25	12
-i12 	185	20	1  	1  	1  	1  	1	2000	200	10	11
-i12	199	5	1.2	1	1	1	1	2000	170	20	10
+i12	168	10	1.4	1	1	1	1	1024	150	25	12
+i12 	185	20	1  	1  	1  	1  	1	1024	200	10	11
+i12	199	5	1.2	1	1	1	1	1024	170	20	10
 
 ;--------------------------------------------------------------------------------------
 ; 	rachet score
 ;--------------------------------------------------------------------------------------
-;	strt	dur    	amp     pch	lfohz	gtfn	envfn	panfn	ctoff	Q        
+;	strt	dur    	amp     pch	lfohz	gtfn	envfn	panfn	ctoff	Q
 ;--------------------------------------------------------------------------------------
-;	p2	p3	p4      p5	p6	p7	p8	p9	p10	p11  
+;	p2	p3	p4      p5	p6	p7	p8	p9	p10	p11
 i13	30	6	16000	10.09	16	94	93	91	0	12
 i13	34	4	17000	11.05	16	94	93	92	0	12
 i13	186	4	18000	7.09	16	94	93	92	0	12
@@ -229,8 +229,8 @@ nchnls = 2
 ;-----------------------------------
 
 	instr 1
-; 	amplitude control 
-kenv1	linseg	0, 	p3*.2,	p4, 	p3*.6,	p4,  p3*.2, 	0	
+; 	amplitude control
+kenv1	linseg	0, 	p3*.2,	p4, 	p3*.6,	p4,  p3*.2, 	0
 
 ;	opcode		delay	amp	dur	ifn
 kosc	oscil1i		0,	1000,	p3,	40	;oscil resonator 1
@@ -238,7 +238,7 @@ kosc2	oscil1i		0,	1000,	p3,	41	;oscil resonator 2
 
 ; 	spectral control over time
 ;	opcode		ia, 		dur1, 	ib		dur2	 ic		dur3	ic
-actr5	expseg		p5, 		p3*.8,	p5,		p3*.1, 	 p5*1.43, 	p3*.1,	p5*1.42	
+actr5	expseg		p5, 		p3*.8,	p5,		p3*.1, 	 p5*1.43, 	p3*.1,	p5*1.42
 actr7	expseg		p5*1.26, 	p3*.6,	p5*1.26,	p3*.2,	 p5*1.65,	p3*.2,	p5*1.65
 actr4	expseg		p5*1.07,	p3*.3,	p5*1.07,	p3*.4,	 p5*1.48,	p3*.3,	p5*1.48
 actr8	expseg		p5*1.19,	p3*.4,	p5*1.19,	p3*.2,   p5*1.5,	p3*.4,	p5*1.5
@@ -261,23 +261,23 @@ a8	oscil	kenv1, 	actr8, 	30
 asum_1 	= a1+a3+a5+a7
 asum_2	= a2+a4+a6+a8
 
-;	opcode	 asig	 kcutoff  kreson   iord    ksep		
+;	opcode	 asig	 kcutoff  kreson   iord    ksep
 afilt_1 vlowres  asum_1, 2000,	  kosc,	   1,      550  ;resonator 1
 afilt_2 vlowres  asum_2, 2000,	  kosc2,   1,      410	;resonator 2
 
 alpf1	tone	afilt_1, 1000
 alpf2	tone	afilt_2, 1000
-	outs	alpf1, alpf2 
+	out	alpf1, alpf2
 	endin
 
 
 ;----------------
-; high freq fof 
+; high freq fof
 ;----------------
 
 	instr 2
 ;	opcode	ia	dur1	ib	dur2	ic
-aamp	linseg	0,	p3*.3,	p4,	p3*.7,	0 
+aamp	linseg	0,	p3*.3,	p4,	p3*.7,	0
 afun1	expseg	p5,	p3*.8,	p5,	p3*.2,	p6
 afun2	expseg	p6,	p3*.8,	p5,	p3*.2,	p6
 aform	linseg	20,	p3*.5,	820,	p3*.5,	20
@@ -286,11 +286,11 @@ aform	linseg	20,	p3*.5,	820,	p3*.5,	20
 a1	fof	aamp,	afun1,	aform, 	0,   40,   .003,  .02,  .007, 25,    11,   100,   p3,   0,   1
 a2	fof 	aamp,	afun2,	aform, 	0,   40,   .003,  .02,  .007, 25,    11,   100,   p3,   0,   1
 
-	outs	a1*.2, a2*.2
+	out	a1*.2, a2*.2
 	endin
 
 ;------------------------------------------------
-; load samples into fog with control over pitch 
+; load samples into fog with control over pitch
 ;------------------------------------------------
 
         instr 3
@@ -301,22 +301,22 @@ a2      phasor  i1*p5   			;cps for phasor speed
 a3	linseg  0,	p3*.01,	.9,	p3*.9,	.9,	p3*.09,	0
 
 ;		ia	dur	ib	dur	ic
-aoct	linseg	0,	p3*.6,	0,	p3*.4,	p7
+koct	linseg	0,	p3*.6,	0,	p3*.4,	p7
 
 ;		amp	dens	trans phs   oct   band   rise   dur   dec   olaps fna  fnb  tdur  phase mode
-a1      fog     10000,  100,    p4,   a2,   aoct, 0,    .01,   .02,   .01,  2,    10,   100,  p3,   0,    1
-        outs    a1*a3*1.1, a1*a3*1.1
+a1      fog     10000,  100,    p4,   a2,   koct, 0,    .01,   .02,   .01,  2,    10,   100,  p3,   0,    1
+		out     a1*a3*1.1, a1*a3*1.1
         endin
 
 
 ;------------------------------------------------
-; 	ins4 fof 
+; 	ins4 fof
 ;------------------------------------------------
 
 	instr 4
 ;	opcode	ia	dur1	ib	dur2	ic
-amp1	linseg	0,	p3*.3,	9000,	p3*.7,	0 
-amp2	linseg	0,	p3*.2,	9000,	p3*.8,	0 
+amp1	linseg	0,	p3*.3,	9000,	p3*.7,	0
+amp2	linseg	0,	p3*.2,	9000,	p3*.8,	0
 afun1	expseg	300,	p3*.8,	p4,	p3*.2,	325
 afun2	expseg	280,	p3*.8,	p5,	p3*.2,	250
 aform	linseg	20,	p3*.5,	p6,	p3*.5,	20
@@ -325,13 +325,13 @@ aform	linseg	20,	p3*.5,	p6,	p3*.5,	20
 a1	fof	amp1,	afun1,	aform, 	0,   90,   .003,  .02,  .007, 25,    51,    50,   p3,   0,   1
 a2	fof 	amp2,	afun2,	aform, 	0,   103,  .003,  .02,  .007, 25,    51,    50,   p3,   0,   1
 
-	outs      a1*.8, a2*.8
+	out       a1*.8, a2*.8
 	endin
 
 
 
 ;-------------------------------
-; load sample and slide formant       
+; load sample and slide formant
 ;-------------------------------
 
         instr 7
@@ -355,20 +355,20 @@ ktwist2 linseg  1, 	p3, 	1.1          ; slide formant right
 
 ;		amp	fund	 formant  oct  band  rise  dur    dec   olaps ifna ifnb tdur  phase mode
 a1      fof     kenv,   kf0,     ktwist,  0,   0,    .003, kdur,  kdec, 250,  p5,   100,  p3,   0,    1
-a2      fof     kenv,   kf0,     ktwist2, 0,   0,    .003, kdur,  kdec, 250,  p6,   100,  p3,   0,    1  
-        outs    a1, a2
+a2      fof     kenv,   kf0,     ktwist2, 0,   0,    .003, kdur,  kdec, 250,  p6,   100,  p3,   0,    1
+		out     a1, a2
         endin
 
 
 
 ;------------------------
-; long vocals stretched 
+; long vocals stretched
 ;------------------------
 
 	instr 8
 idur = 	p3
-ifq  = 	p4 
-	 
+ifq  = 	p4
+
 ; 	JITTER
 k50 	randi 	.01,  1/.05,   .8135
 k60 	randi 	.01,  1/.111,  .3111
@@ -384,14 +384,14 @@ kenv 	linseg 	10,	p3*.02,	10000,	p3*.02,	8000,	p3*.96,	0
 
 kf0	= kfund+kjitter
 kforms	linseg 	1,	p3,	2
- 
+
 ;		amp	fund	formant  oct  band  rise  dur    dec   olaps ifna ifnb  tdur  phase mode
 a1 	fof 	kenv,  	kf0, 	kforms,  0,   0,    .003, kdur,  kdec, 600,  p5,   100, idur, 0,    1
 a2 	fof 	kenv, 	kf0, 	kforms,  0,   0,    .003, kdur,  kdec, 600,  p6,   100, idur, 0,    1
 
 afilt1	tone	a1, 	2000
 afilt2	tone	a2,	2010
-	outs 	afilt1, afilt2
+	out 	afilt1, afilt2
 	endin
 
 
@@ -405,7 +405,7 @@ anoise    rand	p5
 kcf       expon	p8, p3, p9
 kbw       line	p10, p3, p11
 afilt     reson	anoise, kcf, kbw, 2
-          outs	afilt*kenv, afilt*kenv
+		out 	afilt*kenv, afilt*kenv
           endin
 
 ;---------------------------------
@@ -425,8 +425,8 @@ aoutl   =       arezl*asin2l*2    					; Modulate amplitude
 asin1r  oscili  1, 	krt, 	60, 	.25+p7  			; Controls modulation frequency
 asin2r  oscili  1, 	krt/2, 	60, 	.25   				; Sine 1 is for filter Fco
 arezr   rezzy   anz, 	(asin1r+1)*p6*krt+p11, 	p9, 	p10 		; Make sine postive and add base fqc
-aoutr   =       arezl*asin2r*2  
-        outs    aoutl*kamp, aoutr*kamp   
+aoutr   =       arezl*asin2r*2
+		out     aoutl*kamp, aoutr*kamp
         endin
 
 ;---------------------------------
@@ -438,15 +438,15 @@ atwarp	line	p5,	p3,	p6    ; TIME SCALING
 asamp	line 	p7,	p3,	p8    ; PITCH SCALING
 
 ;		amp	twarp	ptch	sndfn	strt	winsize	rndwin	olap	winfn	timemode
-a1      sndwarp p4,	atwarp,	asamp,	p12,	0,	p9,	p10,	p11,	70,	0 
-        outs     a1, a1
+a1      sndwarp p4,	atwarp,	asamp,	p12,	0,	p9,	p10,	p11,	70,	0
+		out      a1, a1
         endin
 
 
 ;---------------------------------
 ;   rachet
-;---------------------------------   
-     
+;---------------------------------
+
 	instr 13
 icf	=	cpspch(p5)
 ifc	=	(p10 == 0 ? sr/4:p10)              ; HPF cutoff default: SR/4
@@ -468,9 +468,9 @@ asig	atone	asig,	ifc                           	; sharp filter
 asig	balance	asig,	anoise
 
 asig	=	asig*kgate*kenv                  	; env post-balance
-aleft	=	sqrt(kpan)
-aright	=	sqrt(1-kpan)
-	outs	asig*aleft, asig*aright
+kleft	=	sqrt(kpan)
+kright	=	sqrt(1-kpan)
+	out	asig*kleft, asig*kright
 	endin
 
 

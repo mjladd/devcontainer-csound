@@ -1,12 +1,16 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441 -B4096 -b2048
+-o 13_scannedSimple.aiff
 </CsOptions>
 
 <CsInstruments>
 	instr	1
 a0	=		0
+sr = 44100
+ksmps = 100
+nchnls = 1
+0dbfs = 1
 ;	scanu	init,irate,ifnvel,ifnmass,ifnstif,ifncentr,ifndamp
 ;             kmass,kstif,kcentr,kdamp,ileft,iright,kx,ky,ain,idisp,id
 	scanu	1, .01, 6, 2, 3, 4, 5, 2, .1, .1, -.01, .1, .5, 0, 0, a0, 0, 2
@@ -23,6 +27,7 @@ f1 0 128 7 0 64 1 64 0
 f2 0 128 -7 1 128 1
 ; Spring matrices
 f3 0 16384 -23 "circularstring-128.mat"
+f3 0 16384 -23 "scores/scanned_synthesis/surfaces/circularstring-128.matrix"
 ; Centering force
 f4  0 128 -7 0 128 2
 ; Damping

@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=mjl_xanadu.aiff -r44100 -k441
+-o mjl_xanadu.aiff
 </CsOptions>
 <CsInstruments>
 sr          =           44100
@@ -10,13 +10,13 @@ nchnls      =           2
 ;
 ;-----------------------------------------------------------
 ;INSTRUMENT 3 : NEW FM ALGORITHM, MODIFIED TO PRODUCE LARGE TIMBRE
-;               SHIFTS USING MODULATION OF I AND R. DETUNED CHORUSING EMPLOYED. 
+;               SHIFTS USING MODULATION OF I AND R. DETUNED CHORUSING EMPLOYED.
 ;-----------------------------------------------------------
             instr       3
 ishift      =           .00666667               ;shift it 8/1200.
 ipch        =           cpspch(p5)              ;convert parameter 5 to cps.
 ioct        =           octpch(p5)              ;convert parameter 5 to oct.
-kadsr       linseg      0, p3/3, 1.0, p3/3, 1.0, p3/3, 0 ;ADSR envelope 
+kadsr       linseg      0, p3/3, 1.0, p3/3, 1.0, p3/3, 0 ;ADSR envelope
 kmodi       linseg      0, p3/3, 5, p3/3, 3, p3/3, 0 ;ADSR envelope for I
 kmodr       linseg      p6, p3, p7              ;r moves from p6->p7 in p3 sec.
 a1          =           kmodi*(kmodr-1/kmodr)/2
@@ -28,9 +28,38 @@ a4          =           exp(-0.5*a3+ao1)
 ao2         oscil       a2*ipch, ipch, 2        ;cosine
 aoutl       oscil       1000*kadsr*a4, ao2+cpsoct(ioct+ishift), 1 ;fnl outleft
 aoutr       oscil       1000*kadsr*a4, ao2+cpsoct(ioct-ishift), 1 ;fnl outright
-            outs        aoutl, aoutr
-            endin       
+            out         aoutl, aoutr
+            endin
+
+instr 1
+ipch = cpspch(p5)
+kenv linseg 0, p3*0.05, 1, p3*0.9, 1, p3*0.05, 0
+aout oscili 8000*kenv, ipch, 1
+out aout, aout
+endin
+
+instr 2
+ipch = cpspch(p5)
+kenv linseg 0, p3*0.05, 1, p3*0.9, 1, p3*0.05, 0
+aout oscili 6000*kenv, ipch, 2
+out aout, aout
+endin
+
 </CsInstruments>
+instr 1
+ipch = cpspch(p5)
+kenv linseg 0, p3*0.05, 1, p3*0.9, 1, p3*0.05, 0
+aout oscili 8000*kenv, ipch, 1
+out aout, aout
+endin
+
+instr 2
+ipch = cpspch(p5)
+kenv linseg 0, p3*0.05, 1, p3*0.9, 1, p3*0.05, 0
+aout oscili 6000*kenv, ipch, 2
+out aout, aout
+endin
+
 <CsScore>
 ;       SCORE FOR FINAL PROJECT IN DIGITAL AUDIO PROCESSING
 ;       ---------------------------------------------------
@@ -41,13 +70,13 @@ aoutr       oscil       1000*kadsr*a4, ao2+cpsoct(ioct-ishift), 1 ;fnl outright
 ;           THE FIRST PART OF THE SCORE WILL SPECIFY ALL FUNCTION
 ;       TABLES USED IN THE PIECE. THE SECOND PART SPECIFIES
 ;       THE INSTRUMENTS AND NOTES. THE LATTER IS DIVIDED INTO
-;       7 SECTIONS, EACH PLAYING A CHORD ON A DIFFERENT 
+;       7 SECTIONS, EACH PLAYING A CHORD ON A DIFFERENT
 ;                 INSTRUMENT.
 ;       THE CHORDS ARE UNCOMMON GUITAR CHORDS THAT USE THE OPEN
 ;       B AND E STRINGS OFTEN. THESE WILL BE TRANSPOSED BY
 ;       OCTAVES ON SOME CHORDS.
 
-;       EACH INSTRUMENT WILL PLAY A CHORD FOR 15 SECONDS. THE 
+;       EACH INSTRUMENT WILL PLAY A CHORD FOR 15 SECONDS. THE
 ;                 TIMBRE
 ;       OF THE INSTRUMENT WILL CHANGE IN THAT INTERVAL AND JOIN
 ;       WITH THE NEXT INSTRUMENT/CHORD SEQUENCE. INSTRUMENT 3
@@ -57,7 +86,7 @@ aoutr       oscil       1000*kadsr*a4, ao2+cpsoct(ioct-ishift), 1 ;fnl outright
 
 ;   The Function Tables
 ;   -------------------
-;All functions are post-normalized (max value is 1) if p4 is 
+;All functions are post-normalized (max value is 1) if p4 is
 ;POSITIVE.
 
 f1 0 8192 10 1      ;sine wave

@@ -1,8 +1,12 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=markley_scan.aiff -r44100 -k441
+-o markley_scan.aiff
 </CsOptions>
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
+ nchnls = 1
+ 0dbfs = 1
 
 		instr 1
 kmass		line		p11, p3, p12

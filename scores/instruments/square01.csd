@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=square01.aiff -r44100 -k441
+-o square01.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>

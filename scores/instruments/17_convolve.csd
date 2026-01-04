@@ -5,23 +5,25 @@
 </CsOptions>
 
 <CsInstruments>
-		strset 	10, "hellorcb.aif"
- 		strset 	11, "120_BT_Fast_Satellite.wav"
- 		strset 	12, "door3.con"
- 		strset 	13, "cymbal.con"
- 		strset 	14, "gaussReverb.con"
- 		strset 	15, "120_BT_Fast_Satellite.con"
- 
- 		instr  	1  
+        strset 	10, "scores/samples/glass.aiff"
+ 		strset 	11, "scores/samples/female.aiff"
+ 		strset 	12, "scores/samples/prayer_bell.aif"
+ 		strset 	13, "scores/samples/glass.aiff"
+ 		strset 	14, "scores/samples/female.aiff"
+ 		strset 	15, "scores/samples/glass.aiff"
+
+ 		instr  	1
  iscale 	= 		p4
  itrans 	= 		p5
  isource	=		p6
  ifilter	= 		p7
- aa 		diskin2  	isource, itrans
- ab 		convolve 	aa, ifilter
+ Ssrc    	strget 	isource
+ Sflt    	strget 	ifilter
+ aa 		diskin2  	Ssrc, itrans
+ ab 		pconvolve 	aa, Sflt, 2048
  		out		ab*iscale
     		endin
-    		
+
 </CsInstruments>
 <CsScore>
 ; ==========================================
@@ -43,7 +45,7 @@
    i1  0     12   .01    0.6   11      14
   s
    i1  0     5    .01   1.5   11      15
-      
+
 </CsScore>
 
 </CsoundSynthesizer>

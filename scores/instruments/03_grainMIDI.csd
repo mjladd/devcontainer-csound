@@ -1,10 +1,14 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441 -M0 ;-Fplkbass.mid
+-o 03_grainMIDI.aiff -+rtmidi=null
 </CsOptions>
 
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
+ nchnls = 1
+ 0dbfs = 32768
 ctrlinit  1,  10,0,  11,10,  12,64,   13,40,   14,40
 
 instr     1

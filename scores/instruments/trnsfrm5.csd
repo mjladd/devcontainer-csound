@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=trnsfrm5.aiff -r44100 -k441
+-o trnsfrm5.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>
@@ -58,9 +58,9 @@ kfade	linseg	0, ifad1, 1, ifad2, 0					; xfade control
 asig1 	= 		kfade * (a1 + a2 + a3)					; xfade applied to transwv1
 asig2 	= 		(1 - kfade) * (a4 + a5 + a6)				; inverted xfade applied to transwv2
 
-k4		oscil	1, 1/p3, p12							; pan controller
-		outs1	(asig1 + asig2) * k4					; left output of direct audio
-		outs2	(asig1 + asig2) * (1-k4)					; right output of direct audio
+k4		oscil	1, 1/p3, p12						; pan controller
+		outch	1, (asig1 + asig2) * k4					; left output of direct audio
+		outch	2, (asig1 + asig2) * (1-k4)					; right output of direct audio
 garvbsig 	= 		garvbsig + asig1 + asig2					; add audio to audio receiver prior to pan
 		endin
 
@@ -70,8 +70,8 @@ garvbsig 	= 		garvbsig + asig1 + asig2					; add audio to audio receiver prior t
 irvbtime 	= 		p4									; seconds for signal to decay 60 dB
 
 asig2	reverb	garvbsig, irvbtime						; put global sig into reverb
-		outs1	asig2								; output reverb signal left
-		outs2	asig2								; output reverb signal right
+		outch	1, asig2								; output reverb signal left
+		outch	2, asig2								; output reverb signal right
 garvbsig 	= 		0									; reinitialize
 		endin
 

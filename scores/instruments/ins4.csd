@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=ins4.aiff -r44100 -k441
+-o ins4.aiff
 </CsOptions>
 
 <CsInstruments>
@@ -20,13 +20,13 @@ afreq	linseg  20, 	p3*.2, 	p6, 	p3*.8, 	20
 ;	opcode	amp,	 fund	form	oct  band  rise	 dur   dec   olaps  ifna  ifnb	otdur
 a1      fof	aamp*p7, afund,	afreq, 	0,   0,	   .1,   .12, .009,  100,   24,    23,    p3,    0,    1
 
-        outs	a1*.05, a1*.05
+        out	a1*.05, a1*.05
         endin
 
 </CsInstruments>
 <CsScore>
 ;****************************
-;     Instr 4 
+;     Instr 4
 ;****************************
 ;	strt	table	GEN	prmtr
 f23	0	1024 	19	.5     .5	270	.5

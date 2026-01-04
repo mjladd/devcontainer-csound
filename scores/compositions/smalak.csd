@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 <CsOptions>
 ;;; set command line options here
---output=smalak.aiff  -r44100 -k441
+-o smalak.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>
@@ -10,6 +10,7 @@ sr		=		44100
 kr		=		4410
 ksmps	=		10
 nchnls	=		1
+0dbfs	=		32768
 
 
 		instr 109							; P-FIELD FM

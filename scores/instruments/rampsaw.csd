@@ -1,9 +1,8 @@
 <CsoundSynthesizer>
 <CsOptions>
 ;;; set command line options here
---output=rampsaw.aiff -r44100 -k441
+-o rampsaw.aiff
 </CsOptions>
-<CsLicence>
 </CsLicence>
 <CsInstruments>
 sr = 44100

@@ -4,10 +4,14 @@
 ; XO
 ;-+rtmidi=alsa  --midi-device=hw:1,0 -+rtaudio=alsa -odac -r16000 -k160 ;-O stdout
 ; Mac
---output=sndwarp.aiff -r44100 -k441
+-o sndwarp.aiff
 </CsOptions>
 
 <CsInstruments>
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 32768
 ; Instrument #1 - play an audio file.
 instr 1
   ; Use the audio file defined in Table #1.

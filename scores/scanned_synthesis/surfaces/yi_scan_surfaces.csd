@@ -1,9 +1,12 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=yi_scan_surfaces.aiff -r44100 -k441
+-o yi_scan_surfaces.aiff
 </CsOptions>
 <CsInstruments>
+sr = 44100
+ksmps = 100
 nchnls=2
+0dbfs = 32768
 
 ga1 init 0
 ga2	init 0
@@ -204,7 +207,7 @@ ga2 = ga2 + aout
 
 	instr 20	;reverb
 aout	nreverb	ga1 * .7, 4, .8
-outs aout + ga1, aout + ga1
+out aout + ga1, aout + ga1
 ga1 = 0
 ga2 = 0
 	endin

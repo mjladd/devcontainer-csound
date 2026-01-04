@@ -1,10 +1,13 @@
 <CsoundSynthesizer>
 
 <CsOptions>
---output=cass_quad_scan.aiff -r44100 -k441
+-o cass_quad_scan.aiff
 </CsOptions>
 
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
+ 0dbfs = 32768
 
 ; SCANNED SYNTHESIS
 nchnls    =         2
@@ -25,7 +28,7 @@ a3b       delay     a3, 2
 a4b       delay     a4, 3
 aleft     reverb    a1+(a3b*.7)+(a4b*.3), .3
 aright    reverb    a2b+(a3b*.3)+(a4b*.7), .3
-          outs      aleft*kenv2, aright*kenv2
+          out       aleft*kenv2, aright*kenv2
           endin
 </CsInstruments>
 <CsScore>

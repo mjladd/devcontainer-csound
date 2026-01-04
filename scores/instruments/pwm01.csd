@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=pwmd01.aiff -r44100 -k441
+-o pwmd01.aiff
 </CsOptions>
 <CsLicence>
 Copyright 2024: All Rights Reserved

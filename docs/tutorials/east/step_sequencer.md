@@ -99,7 +99,7 @@ ilength  =  ftlen(ifpch)
  avco2  vco  1, kpch * .994, iwave, .5, 1, 1/(cpspch(7.00))
  avco  =  (avco1 + avco2) * .5 * iamp
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avco * agate, avco * agate
+out   avco * agate, avco * agate
 endin
 
 ; 501.sco
@@ -146,7 +146,7 @@ ilenv  =  ftlen(ifenv)
  avco2  vco  1, kpch * .994, iwave, .5, 1, 1/(cpspch(7.00))
  avco  =  (avco1 + avco2) * .5 * iamp * atenv
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avco * agate, avco * agate
+out   avco * agate, avco * agate
 endin
 
 ; 502.sco
@@ -199,7 +199,7 @@ ilenv  =  ftlen(ifenv)
  avco2  vco  1, kpch * .994, iwave, .5, 1, 1/(cpspch(7.00))
  avco  =  (avco1 + avco2) * .5 * iamp * atenv * atacc
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avco * agate, avco * agate
+ out  avco * agate, avco * agate
 endin
 
 ; 503.sco
@@ -256,7 +256,7 @@ ilenv  =  ftlen(ifenv)
  avco2  vco  1, kpch * .994, iwave, .5, 1, 1/(cpspch(7.00))
  avco  =  (avco1 + avco2) * .5 * iamp * atenv * atacc
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avco * (sqrt(1-atpan)) * agate, avco * sqrt(atpan) * agate
+out   avco * (sqrt(1-atpan)) * agate, avco * sqrt(atpan) * agate
 endin
 
 ; 504.sco
@@ -318,7 +318,7 @@ ilpwm  =  ftlen(ifpwm)
  avco2  vco  1, kpch * .994, iwave, ktpwm, 1, 1/(cpspch(7.00))
  avco  =  (avco1 + avco2) * .5 * iamp * atenv * atacc
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avco * (sqrt(1-atpan)) * agate, avco * sqrt(atpan) * agate
+ out  avco * (sqrt(1-atpan)) * agate, avco * sqrt(atpan) * agate
 endin
 
 ; 505.sco
@@ -388,7 +388,7 @@ ilvcf  =  ftlen(ifvcf)
  avcf  moogvcf  avco, atvcf, 0
  avcf  =  avcf * iamp * atenv * atacc
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avcf * (sqrt(1-atpan)) * agate, avcf * sqrt(atpan) * agate
+out   avcf * (sqrt(1-atpan)) * agate, avcf * sqrt(atpan) * agate
 endin
 
 ; 506.sco
@@ -464,7 +464,7 @@ ires  =  ftlen(ifres)
  avcf  moogvcf  avco, atvcf, atres
  avcf  =  avcf * iamp * atenv * atacc
  agate  linseg  0, .015625, 1, idur - .03125, 1, .015625, 0
- outs  avcf * (sqrt(1-atpan)) * agate, avcf * sqrt(atpan) * agate
+ out  avcf * (sqrt(1-atpan)) * agate, avcf * sqrt(atpan) * agate
 endin
 
 ; 507.sco

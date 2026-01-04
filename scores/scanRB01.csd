@@ -1,10 +1,14 @@
 <CsoundSynthesizer>
 
 <CsOptions>
---output=scan_rb01.aiff -r44100 -k441
+-o scan_rb01.aiff
 </CsOptions>
 
 <CsInstruments>
+sr = 44100  ;Sample Rate
+ksmps = 32
+nchnls = 1  ;Number of Channels
+0dbfs  = 1  ;Max amplitude
    instr 1
  icondfn = p7
  imasf = p8

@@ -1,8 +1,12 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=reznick_scan.aiff -r44100 -k441
+-o reznick_scan.aiff
 </CsOptions>
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
+ nchnls = 1
+ 0dbfs = 1
 
 instr 1
 idisp = p6

@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 <CsOptions>
 ;;; set command line options here
---output=in_valencia.aiff  -r44100 -k441
+-o in_valencia.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>
@@ -14,6 +14,7 @@ sr = 44100
 kr =  4410
 ksmps =	10
 nchnls = 2
+0dbfs = 32768
 
 garvb1	init	0
 
@@ -41,7 +42,7 @@ afilt1	butterbp anois,	 p10*.66,	p11*kbwenv
 afilt2	butterbp afilt1, p10,	p11*kbwenv
 afilt3	butterhp afilt2, p12
 abal	balance	 afilt3, anois
-	outs	 abal*p14, abal*p15
+	out	 abal*p14, abal*p15
 	garvb1 = garvb1+abal*p13
 	endin
 
@@ -74,7 +75,7 @@ afilt1	butterbp amix,	ibff,	ibwth*kfenv
 afilt2	butterlp amix,	ilff;*kfenv
 afmix	=		afilt1 +afilt2
 abal	balance	afmix,	asig1
-		outs	abal*ipanl,	abal*ipanr
+		out	abal*ipanl,	abal*ipanr
 garvb1	=		garvb1+abal*irsend
 		endin
 ;KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
@@ -104,7 +105,7 @@ afilt3	butterhp afilt2,	ihff
 abal	balance	 afilt3,	anois
 kpanl	expseg	 .0001,	iatt,	.005,	idec,	.0001,	isus,	iclmx,	idec2,	.005,	iris,	.3,	irel,	1
 kpanr	=		1 - kpanl
-		outs	abal*kpanl,	abal*kpanr
+		out	abal*kpanl,	abal*kpanr
 garvb1	=		garvb1+abal*irsend
 
 endin
@@ -139,7 +140,7 @@ afmix	=		 afilt1 + afilt2
 abal	balance	 afmix,	asig1
 kpanr	expseg	 .0001,	iatt,	.002,	idec,	.0001,	isus,	iclmx,	idec2,	.0055,	iris,	.25,	irel,	1
 kpanl	=		 1 - kpanr
-		outs	 abal*kpanl,	abal*kpanr
+		out	 abal*kpanl,	abal*kpanr
 garvb1	=		 garvb1+abal*irsend
 
 		endin
@@ -173,7 +174,7 @@ amix	=		asig1+asig2+asig3+asig4
 kbfenv	expseg	 .1,	iatt,	1,	idec,	.9,	isus,	.8,	irel,	.1
 abfilt	butterbp amix,	ibff*kbfenv,	ibwth
 abal	balance	 abfilt,	asig1
-		outs	 abal*ipanl,	abal*ipanr
+		out	 abal*ipanl,	abal*ipanr
 garvb1	=		 garvb1+abal*irsend
 		endin
 
@@ -205,7 +206,7 @@ ahfilt	butterhp abfilt,	ihff	; HIGHPASS CUTOFF AT 1500Hz
 abal	balance	 ahfilt,	asig1
 kpanl	oscil	 .5,	3/p3,	1	; STEREO PAN
 kpanr	=		 1 - kpanl
-		outs	 abal*kpanl,	abal*kpanr*.6
+		out	 abal*kpanl,	abal*kpanr*.6
 garvb1	=		 garvb1+abal*irsend
 endin
 
@@ -217,7 +218,7 @@ irvbtime =	p4
 idfs	 =	p5
 
 asig	reverb2	garvb1,	irvbtime,	idfs
-	outs	asig, asig
+	out	asig, asig
 garvb1	=	0
 
 		endin

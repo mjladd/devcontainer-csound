@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=rezon.aiff -r44100 -k441
+-o rezon.aiff
 </CsOptions>
 <CsLicence>
 Copyright 2024: All Rights Reserved

@@ -1,14 +1,18 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441 -B4096 -b2048
+-o 14_scanned2pathsReson.aiff
 </CsOptions>
 
 <CsInstruments>
+	sr = 44100
+	ksmps = 100
+	nchnls = 1
+	0dbfs = 1
 		instr 	2
 iamp 	= 		ampdb(p4)
 iamp 	= 		iamp*.5
-a0		soundin	"120_BT_Fast_Satellite.wav"
+a0		soundin	"scores/samples/sa_beat1.aif"
 a1 		=		a0/30000
 		scanu	1,.01,6,2,33,44,5,2,.01,.05,-.05,.1,.5,0,0,a1,0,0
 a2		scans	iamp, cpspch(p5), 7, 0
@@ -23,7 +27,7 @@ f1 0 128 7 0 64 1 64 0
 ; Masses
 f2 0 128 -7 1 128 1
 ; Spring matrices
-f33 0 16384 -23 "string-128.mat"
+f33 0 16384 -23 "scores/scanned_synthesis/surfaces/string-128.matrix"
 ; Centering force
 f44 0 128 -7 4 64 0 64 4
 ; Damping

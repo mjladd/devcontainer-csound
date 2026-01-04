@@ -1,11 +1,14 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441
+-o 02_grain.aiff
 </CsOptions>
 
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
  nchnls    =         1
+ 0dbfs = 32768
  
            instr     2
  k2        linseg    p5, p3/2, p9, p3/2, p5

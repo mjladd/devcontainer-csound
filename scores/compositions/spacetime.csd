@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=spacetime.aiff  -r44100 -k441
+-o spacetime.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>
@@ -29,6 +29,7 @@ sr		=		44100
 kr		=		4410
 ksmps	=		10
 nchnls	=		2
+0dbfs	=		32768
 
 
 gatic	init		0
@@ -50,7 +51,7 @@ isee		=		p8
 
 asig		oscil	1,1,1
 ksig		linseg	ia, idur1, ibe, idur2, isee
-		outs		asig, asig
+		out		asig, asig
 gkntrl	=		ksig
 		endin
 
@@ -78,7 +79,7 @@ apre		comb		abrst, irvt*gkntrl, ilpt
 atic		comb		adly*8, irvt2*gkntrl, ilpt2
 al		butterbp	(apre*iprp)+(atic*itcp), icofl-(300*gkntrl), ibw-(174*gkntrl)
 ar		butterbp	(apre*(1-iprp))+(atic*(1-itcp)), icofr-(300*gkntrl), ibw-(74*gkntrl)
-		outs 	al, ar
+		out 	al, ar
 
 gatic	=		al+ar
 
@@ -112,7 +113,7 @@ atc2		comb		adly2*5, irvt2, ilpt2
 atoc		=		atc1+atc2
 al		butterbp	(apre*iprp)+(atoc*itcp), icofl-(300*gkntrl), ibw-(100*gkntrl)
 ar		butterbp	(apre*(1-iprp))+(atoc*(1-itcp)), icofr-(300*gkntrl), ibw-(100*gkntrl)
-outs 	al, ar
+out 	al, ar
 
 gatoc	=		al+ar
 
@@ -145,7 +146,7 @@ al		=		atic+abrst+abzz1+abrst2
 ar		=		atic+abrst+abzz2+abrst2
 
 
-		outs  	al, ar
+		out   	al, ar
 
 gaplly	=		al+ar
 
@@ -258,7 +259,7 @@ kmenvr	linseg	imr, imrisr, im2r, imdurr, im2r, imdcyr, im3r
 afml		foscil	iamp*kaenvl+ktrml, kpenv+kvibl, kcenv, kmenvl, index*gkntrl, ifn
 afmr		foscil	iamp*kaenvr+ktrmr, kpenv+kvibr, kcenv, kmenvr, index*gkntrl, ifn
 
-		outs		afml, afmr
+		out		afml, afmr
 gapndra	=		afml+afmr
 		endin
 
@@ -312,7 +313,7 @@ arevout  =         allp5 * ioutputscale
 
 
 
-          outs      arevout, arevout
+		  out       arevout, arevout
 
 
 

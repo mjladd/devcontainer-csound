@@ -1,12 +1,15 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441
+-o 01_osc.aiff
 </CsOptions>
 
 <CsInstruments>
-
- nchnls    =         1					; OUTPUT CHANNELS
+ sr = 44100
+ ksmps = 100
+ 
+ nchnls    =         1						; OUTPUT CHANNELS
+ 0dbfs = 32768
  
            instr     1					; DEFINE INSTRUMENT 1
  k1        linen     p4, p7, p3, p8		; AMLITUDE ENVELOPE

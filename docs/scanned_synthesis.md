@@ -1,18 +1,6 @@
 # Csound Opcodes for Scanned Synthesis
 
-Scanned Synthesis represents a powerful and efficient technique for animating wavetables
-and controlling them in real-time. Developed by Bill Verplank, Rob Shaw, and Max
-Mathews between 1998 and 1999 at Interval Research, Inc. it is based on the
-psychoacoustics of how we hear and appreciate timbres and on our motor control (haptic)
-abilities to manipulate timbres during live performance.  Scanned Synthesis involves a
-slow dynamic system whose frequencies of vibration are below about 15 Hz. The ear
-cannot hear the low frequencies of the dynamic system.  So, to make audible frequencies,
-the "shape" of the dynamic system, along a closed path, is scanned periodically. The
-"shape" is converted to a sound wave whose pitch is determined by the speed of the
-scanning function. Pitch control is completely separate from the dynamic system control.
-Thus timbre and pitch are independent.  This system can be looked upon as a dynamic
-wave table. The model can be compared to a slowly vibrating string, or a two
-dimensional surface obeying the wave equation.
+Scanned Synthesis represents a powerful and efficient technique for animating wavetables and controlling them in real-time. Developed by Bill Verplank, Rob Shaw, and Max Mathews between 1998 and 1999 at Interval Research, Inc. it is based on the psychoacoustics of how we hear and appreciate timbres and on our motor control (haptic) abilities to manipulate timbres during live performance.  Scanned Synthesis involves a slow dynamic system whose frequencies of vibration are below about 15 Hz. The ear cannot hear the low frequencies of the dynamic system.  So, to make audible frequencies, the "shape" of the dynamic system, along a closed path, is scanned periodically. The "shape" is converted to a sound wave whose pitch is determined by the speed of the scanning function. Pitch control is completely separate from the dynamic system control. Thus timbre and pitch are independent.  This system can be looked upon as a dynamic wave table. The model can be compared to a slowly vibrating string, or a two dimensional surface obeying the wave equation.
 
 Verplank, Shaw and Mathews studied scanned synthesis chiefly with a finite element model of a generalized string – a collection of masses connected by springs and dampers that can be analyzed with Newton's laws. From there, they generalized a traditional string by adding dampers and springs to each mass.
 

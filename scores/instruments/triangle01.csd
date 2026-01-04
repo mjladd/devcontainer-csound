@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=triangle01.aiff -r44100 -k441
+-o triangle01.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>

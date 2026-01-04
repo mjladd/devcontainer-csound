@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=noise_gliss_pad.aiff -r44100 -k441
+-o noise_gliss_pad.aiff
 </CsOptions>
 <CsInstruments>
 sr        =         44100

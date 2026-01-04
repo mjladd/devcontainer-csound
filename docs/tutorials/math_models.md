@@ -209,7 +209,7 @@ adz    =      ax*ay-ab*az           ;and dz.
 ax     =      ax+ah*adx             ;Update x
 ay     =      ay+ah*ady             ;y
 az     =      az+ah*adz             ;and z
-       outs   ax*kampenv,ay*kampenv ;Scale and output
+       out    ax*kampenv, ay*kampenv ;Scale and output
 ```
 
 The varible h represents the time step and can be used to modify the frequency of the system. Smaller values of h result in a more accurate approximation of the system. As the value of h is increased the approximation becomes less and less accurate until the system becomes unstable when h is somewhat larger than .1. The x and y coordinates are scaled and given as the output for the instrument. Initial values of the coordinates and coefficients are provided in the score.
@@ -237,7 +237,7 @@ adz    =      ab+ax*az-ac*az        ;and dz.
 ax     =      ax+ah*adx             ;Update x
 ay     =      ay+ah*ady             ;y
 az     =      az+ah*adz             ;and z
-       outs   ax*kampenv,ay*kampenv ;Scale and output
+       out    ax*kampenv, ay*kampenv ;Scale and output
 ```
 
 ### Planet Orbiting in a Binary Star System
@@ -291,7 +291,7 @@ kvz       =     kvz+ih*kaz
 kx        =     kx+ih*kvx
 ky        =     ky+ih*kvy
 kz        =     kz+ih*kvz
-          outs  kx*kampenv,ky*kampenv
+          out   kx*kampenv, ky*kampenv
 ```
 
 Note that the one is added to the radius squared to stabilize the system by avoiding division by zero during a close approach between a planet and a star. If computation of an actual star system is desired the gravitational constant should be included. The one added to the radius squared term should also be omitted.

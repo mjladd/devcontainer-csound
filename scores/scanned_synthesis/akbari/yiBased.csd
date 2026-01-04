@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=yi_based.aiff -r44100 -k441
+-o yi_based.aiff
 </CsOptions>
 <CsInstruments>
 /*
@@ -63,7 +63,7 @@ ga1	= ga1 + aout
 
 		instr 20	;reverb
 $xrvb2s(ga1'aoutL'aoutR'.2'6'2000)
-	outs aoutL, aoutR
+	out aoutL, aoutR
 ga1 = 0
 		endin
 

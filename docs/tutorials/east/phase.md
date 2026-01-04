@@ -46,7 +46,7 @@ instr 1
 iphase  =  p4
  kosc1  oscil  1, 1, 2, iphase
  aosc1  oscil  10000, 262, 1
- outs  aosc1 * sqrt(1-kosc1), aosc1 * sqrt(kosc1)
+ out   aosc1 * sqrt(1-kosc1), aosc1 * sqrt(kosc1)
 endin
 
 ; 202.sco
@@ -166,7 +166,7 @@ instr 1
 iphase  =  p4
  aosc1  oscil  10000, 262, 1
  aosc2  oscil  10000, 262, iphase
- outs  aosc1, aosc2
+ out   aosc1, aosc2
 endin
 
 ; 205.sco

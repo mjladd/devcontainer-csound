@@ -1,10 +1,14 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441
+-o 12_waveguideClarinetOpcode.aiff
 </CsOptions>
 
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
+ nchnls = 1
+ 0dbfs = 32768
           instr    1
  ; OUT    OPCODE   AMP,   FREQ, STIFF, ATK,  REL, NOISE, VIBF, VIBAMP, FUN
    asig   wgclar    p4,     p5,  -0.3, 0.1,  0.2,   0.3,  5.6,   0.18,  1

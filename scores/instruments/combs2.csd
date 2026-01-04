@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=combs2.aiff -r44100 -k441
+-o combs2.aiff
 
 </CsOptions>
 <CsLicence>

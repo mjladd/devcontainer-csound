@@ -1,6 +1,6 @@
 <CSoundSynthesizer>
 <CsOptions>
---output=ghosts.aiff -r44100 -k441
+-o ghosts.aiff
 
 </CsOptions>
 <CsInstruments>
@@ -15,6 +15,7 @@ sr = 44100
 kr =  4410
 ksmps = 10
 nchnls = 2
+0dbfs = 32768
 
 
 ;garvbsig    init    0 ; initialize global reverb
@@ -59,12 +60,52 @@ a8    oscil    kenv1,   actr8,    1
 afilt1   tone     a1+a3+a5+a7,   800
 afilt2   tone     a2+a4+a6+a8,   800
 
-    outs     afilt1, afilt2
+    out      afilt1, afilt2
 
 ;    garvbsig1 = garvbsig + afilt1
 ;    garvbsig2 = garvbsig + afilt2
     endin
 
+
+; Named wrapper for instrument 1 using pitch-class or Hz
+; p4: amplitude (raw, 0dbfs=32768), p5: base pitch (pch < 20 or Hz)
+    instr XenakisVoice
+if (p5 < 20) then
+    ibase = cpspch(p5)
+else
+    ibase = p5
+endif
+; amplitude control with 4 envelopes
+kenv1    linseg    0,             p3/4,    p4,     p3/2,    p4,     p3/4,    0
+kenv2    linseg    .00001*p4,     p3/4,    p4,     p3/2,    p4,     p3/4,    .00001*p4
+kenv3    linseg    .00001*p4,     p3/4,    p4,     p3/2,    p4,     p3/4,    .00001*p4
+kenv4    linseg    .00001*p4,     p3/4,    p4,     p3/2,    p4,     p3/4,    .00001*p4
+
+; spectral control over time (use ibase instead of p5)
+actr1    expseg        ibase,        p3*.1,    ibase,         p3*.8,   ibase*1.43,   p3*.1,    ibase*1.42
+actr2    expseg        ibase*1.06,   p3*.2,    ibase*1.06,    p3*.6,   ibase*1.45,   p3*.2,    ibase*1.45
+actr3    expseg        ibase*1.07,   p3*.3,    ibase*1.07,    p3*.4,   ibase*1.48,   p3*.3,    ibase*1.48
+actr4    expseg        ibase*1.09,   p3*.4,    ibase*1.09,    p3*.4,   ibase*1.5,    p3*.2,    ibase*1.5
+actr5    expseg        ibase*.96,    p3*.1,    ibase*.96,     p3*.8,   ibase*.71,    p3*.1,    ibase*.71
+actr6    expseg        ibase*.94,    p3*.25,   ibase*.94,     p3*.5,   ibase*.7,     p3*.25,   ibase*.7
+actr7    expseg        ibase*.92,    p3*.2,    ibase*.92,     p3*.6,   ibase*.68,    p3*.2,    ibase*.68
+actr8    expseg        ibase*.9,     p3*.3,    ibase*.9,      p3*.5,   ibase*.66,    p3*.2,    ibase*.66
+
+; oscillators
+a1    oscil    kenv1,   actr1,    1
+a2    oscil    kenv1,   actr2,    1
+a3    oscil    kenv1,   actr3,    1
+a4    oscil    kenv1,   actr4,    1
+a5    oscil    kenv1,   actr5,    1
+a6    oscil    kenv1,   actr6,    1
+a7    oscil    kenv1,   actr7,    1
+a8    oscil    kenv1,   actr8,    1
+
+afilt1   tone     a1+a3+a5+a7,   800
+afilt2   tone     a2+a4+a6+a8,   800
+
+    out      afilt1, afilt2
+    endin
 
 ;***********************************
 ;        instr 2 phase vocoder     *
@@ -74,12 +115,12 @@ afilt2   tone     a2+a4+a6+a8,   800
 k1  line    0,     p3,     .25
 
 ;    opcode   timpnt   fmod    file
-a1   pvoc     k1,      p4,     "whisp.pv",     1
-a2   pvoc     k1,      p4,     "whisp.pv",     1
+a1   pvoc     k1,      p4,     "../analysis/whisp.pv",     1
+a2   pvoc     k1,      p4,     "../analysis/whisp.pv",     1
 
 ;    opcode    ia    dur1     ib    dur2    ic    dur3    id
 k2   linseg    0,    p3*.25,  .7,   p3*.5,  .7,   p3*.25,  0
-    outs a1*k2, a2*k2
+    out  a1*k2, a2*k2
     endin
 
 
@@ -172,12 +213,12 @@ contin:         if      i(kendg)>ismpsz goto null
         ;    opcode    index    func    mode    off    wrap
                 a1      tablei     adyn,    ifns,    0,    0,    0
 
-                outs1   (a1*agenv*kenv)*(i(kstr)+.5)
-                outs2   (a1*agenv*kenv)*(1-(i(kstr)+.5))
+                outch   1, (a1*agenv*kenv)*(i(kstr)+.5)
+                outch   2, (a1*agenv*kenv)*(1-(i(kstr)+.5))
 null:           a2      = 0
 
 
-                outs    a2, a2
+                out     a2, a2
 ;        garvbsig1  =     garvbsig + (a2*.8)
 ;        garvbsig2  =     garvbsig + (a2*.8)
 ;        garvbsig1  =     garvbsig + (a1*.8)
@@ -194,33 +235,33 @@ endin
 k1       line    0,     p3,     .25
 
 ;    opcode    timpnt    fmod    file
-a1    pvoc    k1,     p4,     "female.pv",     1
+a1    pvoc    k1,     p4,     "../analysis/female.pv",     1
 
 ;    opcode    ia    dur1    ib    dur2    ic    dur3    id
 k2    linseg    0,    p3*.25,    .7,    p3*.5,    .7,    p3*.25,    0
-    outs a1*k2, a1*k2
+    out  a1*k2, a1*k2
     endin
 
     instr 5
 k1       line    0,     p3,     .25
 
 ;    opcode    timpnt    fmod    file
-a1    pvoc    k1,     p4,     "glass.pv",     1
+a1    pvoc    k1,     p4,     "../analysis/glass.pv",     1
 
 ;    opcode    ia    dur1    ib    dur2    ic    dur3    id
 k2    linseg    0,    p3*.25,    .7,    p3*.5,    .7,    p3*.25,    0
-    outs a1*k2, a1*k2
+    out  a1*k2, a1*k2
     endin
 
     instr 6
 k1       line    0,     p3,     .25
 
 ;    opcode    timpnt    fmod    file
-a1    pvoc    k1,     p4,     "whisp.pv",     1
+a1    pvoc    k1,     p4,     "../analysis/whisp.pv",     1
 
 ;    opcode    ia    dur1    ib    dur2    ic    dur3    id
 k2    linseg    0,    p3*.25,    .7,    p3*.5,    .7,    p3*.25,    0
-    outs a1*k2, a1*k2
+    out  a1*k2, a1*k2
     endin
 
 
@@ -312,7 +353,7 @@ ar100   =       ar1+ar10
 k99    linen    .8,    p3*.25,    p3,    p3*.01
 
 ; output a6 with reverb
-        outs     (k99*(a6+(ar100*.03))), (k99*(a6+(ar100*.04)))
+        out      (k99*(a6+(ar100*.03))), (k99*(a6+(ar100*.04)))
         endin
 
 
@@ -355,36 +396,36 @@ f1    0    512    10    1 .8 .7 .5 .4
 ;    p2    p3    p4    p5
 i1    1    12    3000    65
 i1    17    10    2000    65
-i1    20    10    4000    73
-i1    25    11    4000    90
-i1    30    14    4000    66
-i1    42    15    3300    160
-i1    55    7    3700    330
-i1    60    6    2500    165
-i1    63    6    2500    427
-i1    65    8    2500    340
-i1    67    6    2500    390
-i1    70    7    2200    85
-i1    75    10    2100    93
-i1    87    14    2000    65
-i1    90    17    2100    240
-i1    92    18    2000    160
-i1    95    16    200    66
-i1    105    12    3000    65
-i1    121    10    2000    65
-i1    127    10    4000    73
-i1    134    11    4000    90
-i1    140    14    4000    66
-i1    154    12    3300    160
-i1    162    5    3700    330
-i1    162    10    2000    65
-i1    164    4    2500    165
-i1    164    8    2500    330
-i1    165    12    2100    240
-i1    166    10    2500    450
-i1    167    18    2000    160
-i1    168    14    2000    300
-i1    172    6    2000    330
+i "XenakisVoice"    20    10    4000    73
+i "XenakisVoice"    25    11    4000    90
+i "XenakisVoice"    30    14    4000    66
+i "XenakisVoice"    42    15    3300    160
+i "XenakisVoice"    55    7    3700    330
+i "XenakisVoice"    60    6    2500    165
+i "XenakisVoice"    63    6    2500    427
+i "XenakisVoice"    65    8    2500    340
+i "XenakisVoice"    67    6    2500    390
+i "XenakisVoice"    70    7    2200    85
+i "XenakisVoice"    75    10    2100    93
+i "XenakisVoice"    87    14    2000    65
+i "XenakisVoice"    90    17    2100    240
+i "XenakisVoice"    92    18    2000    160
+i "XenakisVoice"    95    16    200    66
+i "XenakisVoice"    105    12    3000    65
+i "XenakisVoice"    121    10    2000    65
+i "XenakisVoice"    127    10    4000    73
+i "XenakisVoice"    134    11    4000    90
+i "XenakisVoice"    140    14    4000    66
+i "XenakisVoice"    154    12    3300    160
+i "XenakisVoice"    162    5    3700    330
+i "XenakisVoice"    162    10    2000    65
+i "XenakisVoice"    164    4    2500    165
+i "XenakisVoice"    164       8    2500    330
+i "XenakisVoice"    165    12    2100    240
+i "XenakisVoice"    166    10    2500    450
+i "XenakisVoice"    167    18    2000    160
+i "XenakisVoice"    168    14    2000    300
+i "XenakisVoice"    172    6    2000    330
 i1    244    15    1500    160
 i1    261    15    1300    330
 i1    274    18    1300    130
@@ -438,10 +479,10 @@ f81     0       4096    8         0     1024     1     2048     1     1024     0
 ;f74     0         8192    1    "sh.wav"          0    4         1     ;sample file
 ;f75     0         8192    1    "glass.wav"      0    4         1     ;sample file
 
-f71     0         32768   1    "whisp.aiff"      0    4         1     ;sample file
-f73     0         65536   1    "apoc.aiff"      0    4         1     ;sample file
-f74     0         8192    1    "female.aiff"      0    4         1     ;sample file
-f75     0         8192    1    "glass.aiff"      0    4         1     ;sample file
+f71     0         262144  1    "../samples/whisp.aiff"      0    4         1     ;sample file
+f73     0         65536   1    "../samples/apoc.aiff"      0    4         1     ;sample file
+f74     0         524288  1    "../samples/female.aiff"      0    4         1     ;sample file
+f75     0         32768   1    "../samples/glass.aiff"      0    4         1     ;sample file
 
 ;line generators for read pointer
 ;        strt    table    GEN        a    n1       b

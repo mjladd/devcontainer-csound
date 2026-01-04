@@ -1,11 +1,14 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k441
+-o 09_lorenzOpcode.aiff
 </CsOptions>
 
 <CsInstruments>
+ sr = 44100
+ ksmps = 100
  nchnls    =         2
+ 0dbfs = 32768
 
                 instr    1
    iampfac		=	     400
@@ -16,8 +19,8 @@
    krv			line     16, p3, irv
    kbv			line     1.9, p3, ibv
    ax, ay, az   lorenz   ksv, krv, kbv, .01, .6, .6, .6, 1
-   				outs     (ax+az)*iampfac, (ay+az)*iampfac
-                endin                                         
+          out      (ax+az)*iampfac, (ay+az)*iampfac
+                endin
 </CsInstruments>
 
 <CsScore>

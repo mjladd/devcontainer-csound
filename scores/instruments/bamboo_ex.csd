@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=bamboo.aiff -r44100 -k441
+-o bamboo.aiff
 </CsOptions>
 <CsInstruments>
 
@@ -12,7 +12,7 @@ instr 1
 ; bamboo is a semi-physical model of a bamboo sound
 ;            kamp  idettack  inum  idamp imaxshake ifreq  ifreq1
 asig  bamboo p4,  0.01,     0,     0,    .25,        p5,    p6
-      outs asig, asig
+      out  asig, asig
 
 endin
 
@@ -20,6 +20,7 @@ endin
 <CsScore>
 
 ;p1    p2    p3   p4     p5
+ 0dbfs = 32768
 ;inst start  dur  amp    freq  freq2
 i1    0      1    20000  2000  2300
 i1    2      1    20000  1200  1500

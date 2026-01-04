@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=mjl_syncgrain_female.aiff -r44100 -k441
+-o mjl_syncgrain_female.aiff
 </CsOptions>
 <CsInstruments>
 
@@ -22,23 +22,23 @@ ipitch = p4
 
 ;asig    syncgrain  1, ifreq, ipitch, igrsize, ips*istr, 1, 2, iolaps
 asig = syncgrain:a(1, ifreq, ipitch, igrsize, ips*istr, 1, 2, iolaps)
-        outs asig, asig
+        out asig, asig
 endin
 
 </CsInstruments>
 <CsScore>
 
 ;f1  0  0  1  "../samples/sa_beat1.aif"  0  0  0
-#f1  0  0  1  "../samples/prayer_bell.aif"  0  0  0
+;f1  0  0  1  "../samples/prayer_bell.aif"  0  0  0
 f1  0  0  1  "../samples/female.aiff"  0  0  0
 f2  0  8192  20  2  1
 
-; instr srt dur amp  
-i1      0   5   1   
-i1      0   5   .05   
-i1      +   5   4	
-i1      +   10   .8	
-i1      20   5   1.8	
+; instr srt dur amp
+i1      0   5   1
+i1      0   5   .05
+i1      +   5   4
+i1      +   10   .8
+i1      20   5   1.8
 e
 </CsScore>
 </CsoundSynthesizer>

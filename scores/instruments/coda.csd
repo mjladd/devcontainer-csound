@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=coda.aiff -r44100 -k441
+-o coda.aiff
 </CsOptions>
 <CsInstruments>
 ; coda.orc                                        ; FM INSTR WITH EXCESSIVE REVERB
@@ -9,6 +9,7 @@ sr        =         44100
 kr        =         4410
 ksmps     =         10
 nchnls    =         2
+0dbfs     =         32768
 
 garvbsig  init      0                             ; GLOBAL AUDIO REVERB SIGNAL
 
@@ -31,8 +32,8 @@ ampmod    oscil     iamp2, 1/p3, 1                ; amp for modulator
 
 amod      oscili    ampmod+iamp1, p6 + k1, 1      ; mod freq for global signal
 gasig     oscili    ampcar, k2 + p5 + amod, 1     ; global signal
-          outs1     gasig * .25                   ; left direct audio output
-          outs2     gasig * .25                   ; right direct audio output
+          outch     1, gasig * .25                   ; left direct audio output
+          outch     2, gasig * .25                   ; right direct audio output
 garvbsig  =         garvbsig + gasig * .25        ; add audio to audio receiver
 ; PRIOR TO PAN
           endin
@@ -43,8 +44,8 @@ garvbsig  =         garvbsig + gasig * .25        ; add audio to audio receiver
 irvbtime  =         p4                            ; seconds for signal to decay
 ; 60 dB
 asig2     reverb    garvbsig, irvbtime            ; put global sig into reverb
-          outs1     asig2                         ; output reverb signal left
-          outs2     asig2                         ; output reverb signal right
+          outch     1, asig2                         ; output reverb signal left
+          outch     2, asig2                         ; output reverb signal right
 garvbsig  =         0                                       ; reinitialize
           endin
 

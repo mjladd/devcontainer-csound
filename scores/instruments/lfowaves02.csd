@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=lfowaves02.aiff -r44100 -k441
+-o lfowaves02.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>

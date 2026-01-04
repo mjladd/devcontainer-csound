@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=akbari_funky_scan.aiff -r44100 -k441
+-o akbari_funky_scan.aiff
 </CsOptions>
 <CsInstruments>
 sr		=	44100
@@ -41,7 +41,7 @@ kgoto	output1
 
 output1:
 
-	outs		asnare*klfo, asnare*(1-klfo)
+		out		asnare*klfo, asnare*(1-klfo)
 garvb	=	garvb + asnare
 
 kgoto	contin
@@ -61,7 +61,7 @@ akick		foscil	kampenv, kpenv, 1, 4, indx, 11
 alpf		butterlp	akick, 80
 kgoto	output2
 output2:
-		outs		alpf, alpf
+		out		alpf, alpf
 garvb	=	garvb + alpf
 
 kgoto contin
@@ -106,7 +106,7 @@ ahhat		oscil		kampenv, ifrq, 10
 afilt2	atone		ahhat, 8000
 afilt1	atone		afilt2, 8000
 
-	outs		afilt1, afilt1
+		out		afilt1, afilt1
 garvb	=	garvb + afilt1
 
 contin:
@@ -151,7 +151,7 @@ a1	scans	ampdb(76),ifrq,7,2
 kexp	expon	(ifrq/2),	p3,	80
 alpf	rezzy	a1,	kexp,	1.2
 
-	outs	a1*kenv,	a1*kenv
+		out	a1*kenv, a1*kenv
 garvb	=	garvb+(a1*kenv)
 
 		endin
@@ -170,7 +170,7 @@ a1,	a2	loscil	p5,	ifrq,	8
 
 kpan	oscil	1,	1/p3,	9
 
-	outs	a1*(1-kpan),	a2*kpan
+		out	a1*(1-kpan), a2*kpan
 
 		endin
 
@@ -191,7 +191,7 @@ ahpf rezzy	garvb,	420,	0,	1
 
 arvb	nreverb	ahpf,	ktime,	khdif
 
-	outs	arvb,	arvb
+		out	arvb, arvb
 
 		endin
 </CsInstruments>

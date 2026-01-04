@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
---output=303emu.aiff -r44100 -k441
+-o 303emu.aiff
 </CsOptions>
 <CsLicence>
 </CsLicence>

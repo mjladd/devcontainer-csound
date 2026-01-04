@@ -19,11 +19,11 @@ Everything following a semicolon on the same line is a comment. The header is fo
 ```csound
       instr 1              ; Instrument 1 begins here
 aout  oscil 10000, 440, 1  ; An oscillator
-      outs  aout, aout     ; Output the results to a stereo sound file
+       out   aout, aout     ; Output the results to a stereo sound file
       endin                ; Instrument 1 ends here
 ```
 
-Every instrument starts with instr # and ends with endin. Each line has a single command or opcode. The main command in this instrument is the oscil opcode. Every opcode has zero or more variables on the left side of the opcode and zero or more parameters on the right side depending on the opcode. The oscil opcode is a simple oscillator. The first parameter for oscil tells how loud the signal should be, in this case 10000. (Note that 16 bits of digital audio translates to about +/- 32000 so that's the maximum loudness) The second parameter for oscil tells what the frequency of the oscillator is, in this case 440 cycles/sec. The third parameter tells the waveform or table of the oscillator. The waveforms are generated in the score which I will discuss later. The result of the oscillator is stored in the variable aout. The outs opcode takes what is in the variable aout and generates some type of output from it. Output is often generated as a sound file although it is possible to generate output in real time so that an instrument could be played from a MIDI keyboard.
+Every instrument starts with instr # and ends with endin. Each line has a single command or opcode. The main command in this instrument is the oscil opcode. Every opcode has zero or more variables on the left side of the opcode and zero or more parameters on the right side depending on the opcode. The oscil opcode is a simple oscillator. The first parameter for oscil tells how loud the signal should be, in this case 10000. (Note that 16 bits of digital audio translates to about +/- 32000 so that's the maximum loudness) The second parameter for oscil tells what the frequency of the oscillator is, in this case 440 cycles/sec. The third parameter tells the waveform or table of the oscillator. The waveforms are generated in the score which I will discuss later. The result of the oscillator is stored in the variable aout. The out opcode takes what is in the variable aout and sends it to the audio output. Output is often generated as a sound file although it is possible to generate output in real time so that an instrument could be played from a MIDI keyboard. For channel-specific routing, use outch.
 
 ## Variables
 
@@ -69,7 +69,7 @@ iamp   =      p4                    ; Amplitude
 ifqc   =      p5                    ; Frequency
 itabl1 =      p6                    ; Waveform Table
 aout   oscil  iamp, ifqc, itabl1    ; An oscillator
-       outs   aout, aout            ; Output the results to a stereo sound file
+       out    aout, aout            ; Output the results to a stereo sound file
        endin                        ; Instrument 1 ends here
 
 ; SCORE
@@ -102,7 +102,7 @@ itabl1 =      p6            ; Waveform
 ; Attack Decay Sustain Release Envelope
 kamp   linseg 0, .1, 1, .2, .8, p3-.5, .8, .2, 0
 aout   oscil  iamp, ifqc, itabl1                  ; An oscillator
-       outs   aout*kamp, aout*kamp                ; Output the results to a stereo sound file
+       out    aout*kamp, aout*kamp                ; Output the results to a stereo sound file
        endin                                      ; Instrument 1 ends here
 ```
 

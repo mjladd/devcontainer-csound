@@ -1,10 +1,14 @@
 <CsoundSynthesizer>
 
 <CsOptions>
--odac -r44100 -k44100
+-o 11_waveguideClarinetCode.aiff
 </CsOptions>
- 
+
 <CsInstruments>
+ sr = 44100
+ ksmps = 1
+ nchnls = 1
+ 0dbfs = 32768
               instr      1903
     areedbell init  	 0
     ifqc      =          cpspch(p5)
@@ -13,9 +17,9 @@
 ; AMPLITUDE ENVELOPE
     kenv1     linseg     0, .005, .55+.3*p6, p3-.015, .55+.3*p6, .01, 0
 ; VIBRATO ENVELOPE
-    kenvibr   linseg     0, .1, 0, .9, 1, p3-1, 1    
+    kenvibr   linseg     0, .1, 0, .9, 1, p3-1, 1
 ; REED STIFFNESS
-    kemboff   =          p8 
+    kemboff   =          p8
 ; BREATH PRESSURE
     avibr     oscil      .1*kenvibr, 5, 3
     apressm   =          kenv1 + avibr
@@ -44,7 +48,7 @@ f3 0 16384 10 1
 t 0 600
 ; CLARINET
 ;   START  DUR    AMP      PITCH   PRESS  FILTER     EMBOUCHURE  REED TABLE
-;               (20000) (8.00-9.00) (0-2) (500-1200)   (0-1)      
+;               (20000) (8.00-9.00) (0-2) (500-1200)   (0-1)
 i 1903    0    16     6000      8.00     1.5  1000         .2            1
 i 1903    +     4     .         8.01     1.8  1000         .2            1
 i 1903    .     2     .         8.03     1.6  1000         .2            1
