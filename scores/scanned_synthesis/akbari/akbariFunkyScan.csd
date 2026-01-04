@@ -166,11 +166,11 @@ ifrq	=	$MIDI2CPS(imkey)
 
 ;	synth
 
-a1,	a2	loscil	p5,	ifrq,	8
+a1	loscil	p5,	ifrq,	8
 
 kpan	oscil	1,	1/p3,	9
 
-		out	a1*(1-kpan), a2*kpan
+		out	a1*(1-kpan), a1*kpan
 
 		endin
 
@@ -201,7 +201,7 @@ f1	0	128	7	.5	64	.6	64	.5
 ;	Masses
 f2	0	128	-7	1	128	1
 ;	Spring matrices
-f3	0	16384	-23	"string-128.matrix"
+f3	0	16384	-23	"scores/scanned_synthesis/surfaces/string-128.matrix"
 ;	Centering force
 f4	0	128	-7	0	128	1
 ;	Damping
@@ -211,7 +211,7 @@ f6	0	128	-7	1	128	1
 ;	Trajectories
 f7	0	128	-5	.001	32	64	64	96	32	128
 ;	sample
-f8	0	0	1	"OooO.aif"	0	4	0
+f8	0	0	1	"scores/samples/female.aiff"	0	4	0
 ;	pan
 f9	0	8	-7	.1	1	.8	1	.2	1	.7	1	.3	1	.6	1	.5	1	.4	1	.6
 ;	noise

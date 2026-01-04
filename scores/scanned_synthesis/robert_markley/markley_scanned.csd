@@ -22,7 +22,7 @@ a1  scans ampdb(p4), cpspch(p5), 7,       1
 a1	dcblock	a1
 a1	butterlp	a1, p27
 kenv linenr	1, p25, p26, .001
-    out 		a1*kenv
+	out 		a1*kenv*0.0002
 	endin
 ;1 2  3   4   5		6	7		8		9	10	11	12	13	14	15	16	17	18	19	20	21	22	23	24	25	26	27
 ; 				mass	sprgmtx	cntrfc	damp	veloc	--mass--	stiff	--cntr--	scnrt	--damp--	lpos	rpos	--pos--	--strgth--	atk	dec	cutoff

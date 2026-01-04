@@ -20,7 +20,7 @@ kspgstf line p13, p3, p14
 kmasf line p15, p3, p16
 kcntr line p17, p3, p18
 iscnrat = p19
-a0 soundin "../samples/voice.wav"
+a0 soundin "scores/samples/voice.wav"
 scanu icondfn,iscnrat,ivelf,imasf, ispgmtrxf, icntrf, idampf, kmasf, kspgstf, kcntr, -.05, .1, .5, .5, 0, a0, 0, 1
 a1 scans ampdb(p5),cpspch(p4)*2, 7, 1
 a1 dcblock a1

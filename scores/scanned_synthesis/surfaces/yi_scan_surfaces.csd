@@ -206,8 +206,8 @@ ga2 = ga2 + aout
 	endin
 
 	instr 20	;reverb
-aout	nreverb	ga1 * .7, 4, .8
-out aout + ga1, aout + ga1
+	aout	nreverb	ga1 * .7, 4, .8
+	out (aout + ga1) * 0.01, (aout + ga1) * 0.01
 ga1 = 0
 ga2 = 0
 	endin

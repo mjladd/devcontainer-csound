@@ -5,7 +5,7 @@
 </CsOptions>
 
 <CsInstruments>
-        strset 	10, "scores/samples/glass.aiff"
+    strset 	10, "scores/samples/glass.aiff"
  		strset 	11, "scores/samples/female.aiff"
  		strset 	12, "scores/samples/prayer_bell.aif"
  		strset 	13, "scores/samples/glass.aiff"

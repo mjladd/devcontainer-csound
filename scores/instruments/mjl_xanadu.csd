@@ -28,21 +28,21 @@ a4          =           exp(-0.5*a3+ao1)
 ao2         oscil       a2*ipch, ipch, 2        ;cosine
 aoutl       oscil       1000*kadsr*a4, ao2+cpsoct(ioct+ishift), 1 ;fnl outleft
 aoutr       oscil       1000*kadsr*a4, ao2+cpsoct(ioct-ishift), 1 ;fnl outright
-            out         aoutl, aoutr
+            out         aoutl*0.45, aoutr*0.45
             endin
 
 instr 1
 ipch = cpspch(p5)
 kenv linseg 0, p3*0.05, 1, p3*0.9, 1, p3*0.05, 0
 aout oscili 8000*kenv, ipch, 1
-out aout, aout
+out aout*0.45, aout*0.45
 endin
 
 instr 2
 ipch = cpspch(p5)
 kenv linseg 0, p3*0.05, 1, p3*0.9, 1, p3*0.05, 0
 aout oscili 6000*kenv, ipch, 2
-out aout, aout
+out aout*0.45, aout*0.45
 endin
 
 </CsInstruments>

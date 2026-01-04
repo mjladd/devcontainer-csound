@@ -63,7 +63,7 @@ ga1	= ga1 + aout
 
 		instr 20	;reverb
 $xrvb2s(ga1'aoutL'aoutR'.2'6'2000)
-	out aoutL, aoutR
+	out aoutL*0.5, aoutR*0.5
 ga1 = 0
 		endin
 
@@ -78,7 +78,7 @@ f7 0 128 -7 0 128 128	; trajectory
 f20 0 65537 10 1
 f21 0 65537 7 -1 65537 1
 f22 0 65537 7 1 32768 1 1 -1 32768 -1
-f105 0 16384 -23 "circularstring-128"
+f105 0 16384 -23 "scores/scanned_synthesis/surfaces/circularstring-128.matrix"
 
 i20 0 [64.0 + 4]
 
