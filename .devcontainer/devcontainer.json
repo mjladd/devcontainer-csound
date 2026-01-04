@@ -6,5 +6,16 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": ".."
+	},
+	"settings": {
+		"terminal.integrated.defaultProfile.linux": "zsh",
+		"terminal.integrated.profiles.linux": {
+			"zsh": {
+				"path": "/usr/bin/zsh"
+			}
+		}
+	},
+	"containerEnv": {
+		"SHELL": "/usr/bin/zsh"
 	}
 }
