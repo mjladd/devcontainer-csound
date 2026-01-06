@@ -2,3 +2,7 @@
 scores/*.aiff
 scores/*.wav
 renders/
+.claude/
+corpus/floss_manual/
+corpus/opcode_reference/
+csound_examples/

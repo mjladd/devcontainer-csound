@@ -1,0 +1,243 @@
+{
+  "libsyi": [
+    {
+      "file": "adsr140.udo",
+      "name": "adsr140",
+      "opcodes": [
+        "adsr140_calc_coef",
+        "adsr140"
+      ],
+      "description": "Gated, Retriggerable Envelope Generator UDO (adsr140) Based on design of Doepfer A-140 Envelope Gene"
+    },
+    {
+      "file": "audaciouseq.udo",
+      "name": "audaciouseq",
+      "opcodes": [
+        "audacious_bp2",
+        "audaciouseq"
+      ],
+      "description": "Calc Coefficients"
+    },
+    {
+      "file": "cellular_automata_streams.udo",
+      "name": "cellular_automata_streams",
+      "opcodes": [
+        "ca_print_rule",
+        "ca_eval",
+        "ca_stream"
+      ],
+      "description": ""
+    },
+    {
+      "file": "clock_div.udo",
+      "name": "clock_div",
+      "opcodes": [
+        "clock_div"
+      ],
+      "description": ""
+    },
+    {
+      "file": "diode.udo",
+      "name": "diode",
+      "opcodes": [
+        "diode_ladder"
+      ],
+      "description": "Diode Ladder Filter  Based on code by Will Pirkle, presented in:"
+    },
+    {
+      "file": "event_seq.udo",
+      "name": "event_seq",
+      "opcodes": [
+        "event_seq"
+      ],
+      "description": ""
+    },
+    {
+      "file": "gatesig.udo",
+      "name": "gatesig",
+      "opcodes": [
+        "gatesig"
+      ],
+      "description": ""
+    },
+    {
+      "file": "k35.udo",
+      "name": "k35",
+      "opcodes": [
+        "k35_lpf",
+        "k35_hpf"
+      ],
+      "description": "12db/oct low-pass filter based on Korg 35 module (found in MS-10 and MS-20). "
+    },
+    {
+      "file": "pattern_sequencer.udo",
+      "name": "pattern_sequencer",
+      "opcodes": [
+        "copy_pattern_measure",
+        "patternseq_seqsig",
+        "pattern_sequencer",
+        "copy_pattern_seq",
+        "set_pattern_seq"
+      ],
+      "description": ""
+    },
+    {
+      "file": "ringmod.udo",
+      "name": "ringmod",
+      "opcodes": [
+        "ringmod"
+      ],
+      "description": "TABLE INIT"
+    },
+    {
+      "file": "seqsig.udo",
+      "name": "seqsig",
+      "opcodes": [
+        "seqsig"
+      ],
+      "description": ""
+    },
+    {
+      "file": "seqsig2.udo",
+      "name": "seqsig2",
+      "opcodes": [
+        "seqsig2"
+      ],
+      "description": ""
+    },
+    {
+      "file": "shimmer_reverb.udo",
+      "name": "shimmer_reverb",
+      "opcodes": [
+        "shimmer_reverb"
+      ],
+      "description": ""
+    },
+    {
+      "file": "solina_chorus.udo",
+      "name": "solina_chorus",
+      "opcodes": [
+        "solina_chorus",
+        "sol_lfo_3"
+      ],
+      "description": "3 sine wave LFOs, 120 degrees out of phase"
+    },
+    {
+      "file": "tdf2.udo",
+      "name": "tdf2",
+      "opcodes": [
+        "tdf2"
+      ],
+      "description": ""
+    },
+    {
+      "file": "unirect.udo",
+      "name": "unirect",
+      "opcodes": [
+        "unirect"
+      ],
+      "description": ""
+    },
+    {
+      "file": "wavefolder.udo",
+      "name": "wavefolder",
+      "opcodes": [
+        "wavefolder",
+        "wavefolder_lambert"
+      ],
+      "description": "Custom Lambert-W Function"
+    },
+    {
+      "file": "waveseq.udo",
+      "name": "waveseq",
+      "opcodes": [
+        "waveseq_preposc",
+        "waveseq"
+      ],
+      "description": ""
+    },
+    {
+      "file": "zdf.udo",
+      "name": "zdf",
+      "opcodes": [
+        "zdf_1pole",
+        "zdf_high_shelf_eq",
+        "zdf_allpass_1pole",
+        "zdf_peak_eq",
+        "zdf_2pole_notch",
+        "zdf_low_shelf_eq",
+        "zdf_4pole_hp",
+        "zdf_4pole",
+        "zdf_ladder",
+        "zdf_2pole"
+      ],
+      "description": "Zero Delay Feedback Filters  Based on code by Will Pirkle, presented in:"
+    },
+    {
+      "file": "zdf_svf.udo",
+      "name": "zdf_svf",
+      "opcodes": [
+        "zdf_svf"
+      ],
+      "description": "Zero Delay State Variable Filter  Based on code by Will Pirkle, presented in:"
+    }
+  ],
+  "livecode": [
+    {
+      "file": "livecode.orc",
+      "type": "library"
+    },
+    {
+      "file": "cheatsheet.md",
+      "type": "documentation"
+    },
+    {
+      "file": "csound_basics.md",
+      "type": "documentation"
+    },
+    {
+      "file": "hexadecimal_beats.md",
+      "type": "documentation"
+    },
+    {
+      "file": "intro.md",
+      "type": "documentation"
+    },
+    {
+      "file": "oscillators.md",
+      "type": "documentation"
+    },
+    {
+      "file": "reference.md",
+      "type": "documentation"
+    },
+    {
+      "file": "session_lifecycle.md",
+      "type": "documentation"
+    },
+    {
+      "file": "time.md",
+      "type": "documentation"
+    },
+    {
+      "file": "tutorial1.md",
+      "type": "documentation"
+    },
+    {
+      "file": "tutorial2.md",
+      "type": "documentation"
+    },
+    {
+      "file": "tutorial3.md",
+      "type": "documentation"
+    },
+    {
+      "file": "tutorial4.md",
+      "type": "documentation"
+    },
+    {
+      "file": "webinterface.md",
+      "type": "documentation"
+    }
+  ]
+}
