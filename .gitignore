@@ -5,4 +5,15 @@ renders/
 .claude/
 corpus/floss_manual/
 corpus/opcode_reference/
+corpus/steven_yi/
+corpus/mccurdy_examples/
+corpus/csound_journal/
+corpus/csound_book_pdf/
+corpus/csound_computing_system_pdf/
+corpus/cabbage_examples/
+corpus/blue_examples/
+corpus/csound_plugins/
+corpus/csound_expression/
+.cache/
 csound_examples/
+books/

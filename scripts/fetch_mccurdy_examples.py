@@ -16,13 +16,13 @@ from datetime import datetime
 from collections import defaultdict
 
 # Configuration
-REPO_URL = "https://github.com/csound/csound.github.io.git"
-EXAMPLES_PATH = "CsoundRealtimeExamples/CsoundRealtimeExamples"
+REPO_URL = "https://github.com/CsoundQt/CsoundQt.git"
+EXAMPLES_PATH = "src/Examples/McCurdy Collection"
 
 
 def clone_repo(temp_dir: Path) -> Path:
     """Clone the repository with sparse checkout for just the examples."""
-    print("Cloning csound.github.io repository...")
+    print("Cloning CsoundQt repository (this may take a moment)...")
 
     # Full clone with depth 1 (sparse checkout is complex, this is simpler)
     subprocess.run(
@@ -152,7 +152,7 @@ def create_index(output_dir: Path, data: dict) -> None:
 
     index_content = f"""# Iain McCurdy's Csound Realtime Examples - Corpus Index
 
-**Source:** https://github.com/csound/csound.github.io
+**Source:** https://github.com/CsoundQt/CsoundQt (McCurdy Collection)
 **Author:** Iain McCurdy
 **License:** CC-BY-NC-SA 4.0
 **Downloaded:** {datetime.now().strftime("%Y-%m-%d")}
