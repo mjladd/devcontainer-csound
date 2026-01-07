@@ -1,0 +1,997 @@
+{
+  "source": "Csound_A_Sound_and_Music_Computing_System.pdf",
+  "chapters": [
+    {
+      "id": 0,
+      "title": "Front Matter"
+    },
+    {
+      "id": 1,
+      "title": "Chapter 1"
+    },
+    {
+      "id": 2,
+      "title": "1. OUT: output unit"
+    },
+    {
+      "id": 3,
+      "title": "2. OSCIL: standard table-lookup oscillator"
+    },
+    {
+      "id": 4,
+      "title": "3. COSCIL: table-lookup oscillator with no phase reset"
+    },
+    {
+      "id": 5,
+      "title": "4. VOSCIL: table-lookup oscillator with variable table number"
+    },
+    {
+      "id": 6,
+      "title": "5. ADD2: add two inputs"
+    },
+    {
+      "id": 7,
+      "title": "6. ADD3: add three inputs"
+    },
+    {
+      "id": 8,
+      "title": "7. ADD4: add four inputs"
+    },
+    {
+      "id": 9,
+      "title": "8. RANDI: interpolating bandlimited noise generator"
+    },
+    {
+      "id": 10,
+      "title": "9. RANDH: sample-and-hold bandlimited noise generator"
+    },
+    {
+      "id": 11,
+      "title": "10. MULT: multiply two inputs"
+    },
+    {
+      "id": 12,
+      "title": "11. VFMULT: table-lookup unit"
+    },
+    {
+      "id": 13,
+      "title": "12. RESON: ring-modulation-based resonant wave generator"
+    },
+    {
+      "id": 14,
+      "title": "13. FILTER: second-order all-pole band-pass \ufb01lter"
+    },
+    {
+      "id": 15,
+      "title": "14. LINEN: linear envelope generator (trapezoidal)"
+    },
+    {
+      "id": 16,
+      "title": "15. EXPEN: single-scan table-lookup envelope."
+    },
+    {
+      "id": 17,
+      "title": "Chapter 2"
+    },
+    {
+      "id": 18,
+      "title": "Chapter 3"
+    },
+    {
+      "id": 19,
+      "title": "Chapter 6."
+    },
+    {
+      "id": 20,
+      "title": "1. Allocate memory for its state, if necessary."
+    },
+    {
+      "id": 21,
+      "title": "2. Run the init-time subroutine, if it exists. This will generally modify the opcode"
+    },
+    {
+      "id": 22,
+      "title": "3. Run the perf-time subroutine, if it exists, in the performance loop, repeating it at"
+    },
+    {
+      "id": 23,
+      "title": "Chapter 4"
+    },
+    {
+      "id": 24,
+      "title": "1. PVS AMP FREQ: this sub type carries frames (vectors) of amplitude and fre-"
+    },
+    {
+      "id": 25,
+      "title": "2. PVS AMP PHASE: this carries frames of amplitude and phase pairs. Similar to"
+    },
+    {
+      "id": 26,
+      "title": "3. PVS COMPLEX: this carries frames of real-imaginary (complex) pairs. Also"
+    },
+    {
+      "id": 27,
+      "title": "4. PVS TRACKS: this sub type carries partial track data, rather than a \ufb01xed set of"
+    },
+    {
+      "id": 28,
+      "title": "Chapter 5"
+    },
+    {
+      "id": 29,
+      "title": "1. Instantiate one (and one only) oscili object"
+    },
+    {
+      "id": 30,
+      "title": "2. Initialise it by running its i-time subroutine"
+    },
+    {
+      "id": 31,
+      "title": "3. Perform audio computation by calling its perf-time subroutine repeatedly, pro-"
+    },
+    {
+      "id": 32,
+      "title": "Chapter 6"
+    },
+    {
+      "id": 33,
+      "title": "1. The values of the variables kndx and kfm are read by the modulator oscillator,"
+    },
+    {
+      "id": 34,
+      "title": "2. The value found in p4 is added to that in #k1 and stored in #k2."
+    },
+    {
+      "id": 35,
+      "title": "3. The audio-rate oscillator takes the values in #k2 and kfc as its amplitude and"
+    },
+    {
+      "id": 36,
+      "title": "Chapter 7"
+    },
+    {
+      "id": 37,
+      "title": "1. Plug-ins: through the addition of opcodes, written in C or C++, and compiled"
+    },
+    {
+      "id": 38,
+      "title": "2. User-de\ufb01ned opcodes (UDOs): new opcodes written in the Csound language"
+    },
+    {
+      "id": 39,
+      "title": "Chapter 8"
+    },
+    {
+      "id": 40,
+      "title": "1. The score is a list of statements."
+    },
+    {
+      "id": 41,
+      "title": "2. Statements are separated by line breaks."
+    },
+    {
+      "id": 42,
+      "title": "3. All statements start with a single character identifying its purpose, sometimes"
+    },
+    {
+      "id": 43,
+      "title": "4. Statement parameters are separated by blank spaces, and are also called p-\ufb01elds."
+    },
+    {
+      "id": 44,
+      "title": "5. Parameters are mostly numeric, but strings in double quotes can be used wherever"
+    },
+    {
+      "id": 45,
+      "title": "1. Carry works only within a consecutive group of i-statements whose integral p1"
+    },
+    {
+      "id": 46,
+      "title": "2. Any empty p-\ufb01eld takes the value of the previous line. An empty p-\ufb01eld can be"
+    },
+    {
+      "id": 47,
+      "title": "3. For p2 only: the symbol + is interpreted as the sum of the previous line\u2019s p2 and"
+    },
+    {
+      "id": 48,
+      "title": "4. For p2 only: the symbols \u02c6+ or \u02c6- followed by a value x set p2 to a new value"
+    },
+    {
+      "id": 49,
+      "title": "5. The symbol ! will block the implicit carry of blank p-\ufb01elds in a statement and"
+    },
+    {
+      "id": 50,
+      "title": "Chapter 9"
+    },
+    {
+      "id": 51,
+      "title": "1. NOTE ON: whose numeric code is 144, and which contains two data values."
+    },
+    {
+      "id": 52,
+      "title": "2. NOTE OFF: with code 128, and also containing two values, a note number and"
+    },
+    {
+      "id": 53,
+      "title": "1. For instruments triggered directly: these are opcodes that expect the instrument"
+    },
+    {
+      "id": 54,
+      "title": "2. For generic use: these opcodes will normally have access to all MIDI messages"
+    },
+    {
+      "id": 55,
+      "title": "Chapter 10"
+    },
+    {
+      "id": 56,
+      "title": "Chapter 11"
+    },
+    {
+      "id": 57,
+      "title": "1. A class de\ufb01ning the GUI interface is created."
+    },
+    {
+      "id": 58,
+      "title": "2. A Csound object is placed inside this application class and code is compiled."
+    },
+    {
+      "id": 59,
+      "title": "3. The engine is run in a separate thread provided by"
+    },
+    {
+      "id": 60,
+      "title": "4. Callbacks are de\ufb01ned to react to each button press and for quitting Csound."
+    },
+    {
+      "id": 61,
+      "title": "5. The Application class is instantiated and its main loop is run."
+    },
+    {
+      "id": 62,
+      "title": "Chapter 12"
+    },
+    {
+      "id": 63,
+      "title": "1. The relationship between oscillator frequency f, si, table size l and sampling rate"
+    },
+    {
+      "id": 64,
+      "title": "Chapter 13"
+    },
+    {
+      "id": 65,
+      "title": "Chapter 12, we have implemented these effects as part of the tonewheel organ im-"
+    },
+    {
+      "id": 66,
+      "title": "1. Set pmax and pmin in metres."
+    },
+    {
+      "id": 67,
+      "title": "2. Set the equivalent delay line \u2018distances\u2019 (in seconds), using the expression d = p"
+    },
+    {
+      "id": 68,
+      "title": "3. Put the sound through the delay line and vary the delay from the maximum delay"
+    },
+    {
+      "id": 69,
+      "title": "4. Couple the change in delay with change in intensity (e.g. with an envelope)."
+    },
+    {
+      "id": 70,
+      "title": "5. For a variable-speed source, use a non-linear function to change the delay time;"
+    },
+    {
+      "id": 71,
+      "title": "1. We create a function table with N points holding a desired amplitude curve. Po-"
+    },
+    {
+      "id": 72,
+      "title": "2. We use this curve as a set of magnitudes for a 0-phase spectrum, and take its"
+    },
+    {
+      "id": 73,
+      "title": "3. The result is an IR for our \ufb01lter, but it is still not quite ready to be used. To avoid"
+    },
+    {
+      "id": 74,
+      "title": "Chapter 14"
+    },
+    {
+      "id": 75,
+      "title": "1. The DFT of an IR corresponds to the FIR \ufb01lter spectrum."
+    },
+    {
+      "id": 76,
+      "title": "2. Time-domain convolution corresponds to frequency-domain multiplication."
+    },
+    {
+      "id": 77,
+      "title": "3. The spectrum of an input signal can also be obtained with the DFT."
+    },
+    {
+      "id": 78,
+      "title": "1. Apply a window of size N to an input signal:"
+    },
+    {
+      "id": 79,
+      "title": "2. Take the DFT of this window, generating data for 2N + 1 points (non-negative"
+    },
+    {
+      "id": 80,
+      "title": "3. Convert this data from cosine and sine amplitudes into magnitudes and phases:"
+    },
+    {
+      "id": 81,
+      "title": "4. Take the phase difference between the current and the previous analysis frame,"
+    },
+    {
+      "id": 82,
+      "title": "5. Convert these differences to Hz:"
+    },
+    {
+      "id": 83,
+      "title": "6. Hop the window position by N"
+    },
+    {
+      "id": 84,
+      "title": "1. Convert frequencies in Hz back into phase differences:"
+    },
+    {
+      "id": 85,
+      "title": "2. Integrate (add together) the phase differences to get the current phases:"
+    },
+    {
+      "id": 86,
+      "title": "3. Convert this data from magnitudes and phases into cosine and sine amplitudes:"
+    },
+    {
+      "id": 87,
+      "title": "4. Take the IDFT:"
+    },
+    {
+      "id": 88,
+      "title": "5. Window, and overlap-add the data into the output stream:"
+    },
+    {
+      "id": 89,
+      "title": "6. Hop the window position by N"
+    },
+    {
+      "id": 90,
+      "title": "1. An initial analysis step produces frames of amplitudes, frequencies, and phases"
+    },
+    {
+      "id": 91,
+      "title": "2. With these, we can run the tracking of sinusoidal partials that makes up the"
+    },
+    {
+      "id": 92,
+      "title": "Chapter 15"
+    },
+    {
+      "id": 93,
+      "title": "Chapter 16"
+    },
+    {
+      "id": 94,
+      "title": "1. Obtain the waveguide delay length Nwdelay:"
+    },
+    {
+      "id": 95,
+      "title": "2. Calculate d:"
+    },
+    {
+      "id": 96,
+      "title": "3. Insert the all-pass \ufb01lter into the model, using the coef\ufb01cient c as above."
+    },
+    {
+      "id": 97,
+      "title": "Chapter 17"
+    },
+    {
+      "id": 98,
+      "title": "Chapter 18"
+    },
+    {
+      "id": 99,
+      "title": "1. Autolevel"
+    },
+    {
+      "id": 100,
+      "title": "2. Adaptive spectral equalizer"
+    },
+    {
+      "id": 101,
+      "title": "3. Adaptive parametric equalizer"
+    },
+    {
+      "id": 102,
+      "title": "Chapter 19"
+    },
+    {
+      "id": 103,
+      "title": "1. A large number of small speech particles create a sound which resembles a wave"
+    },
+    {
+      "id": 104,
+      "title": "2. Units in the overall size of syllables are put together in a new order, so that new"
+    },
+    {
+      "id": 105,
+      "title": "3. A short rhythm is given in proportions, for instance 1/2, 2/3, 1/3, 1/4, 3/4, 1."
+    },
+    {
+      "id": 106,
+      "title": "4. A sound snippet is transformed6 into a bell-like sound which gently seems to"
+    },
+    {
+      "id": 107,
+      "title": "Chapter 20"
+    },
+    {
+      "id": 108,
+      "title": "Chapter 21"
+    },
+    {
+      "id": 109,
+      "title": "Chapter 22"
+    },
+    {
+      "id": 110,
+      "title": "1. A source and phase vocoder analysis instrument that will feed the buffer. Only"
+    },
+    {
+      "id": 111,
+      "title": "2. A control instrument that will dynamically spawn the readers and exit. Different"
+    },
+    {
+      "id": 112,
+      "title": "3. The buffer reader instrument, which will be instantiated by 2."
+    },
+    {
+      "id": 113,
+      "title": "4. A resynthesis instrument, of which only one instance is required."
+    },
+    {
+      "id": 114,
+      "title": "1. Abe, T., Kobayashi, T., Imai, S.: The IF spectrogram: a new spectral representation. In:"
+    },
+    {
+      "id": 115,
+      "title": "2. Abelson, H., Sussman, G.J.: Structure and Interpretation of Computer Programs, 2nd edn."
+    },
+    {
+      "id": 116,
+      "title": "3. Aird, M., Laird, J.: Extending digital waveguides to include material modelling. In: Proceed-"
+    },
+    {
+      "id": 117,
+      "title": "4. Aird, M., Laird, J., f\ufb01tch, J.: Modelling a drum by interfacing 2-D and 3-D waveguide"
+    },
+    {
+      "id": 118,
+      "title": "5. Ar\ufb01b, D.: Digital synthesis of complex spectra by means of multiplication of non-linear"
+    },
+    {
+      "id": 119,
+      "title": "6. Bartlett, B.: A scienti\ufb01c explanation of phasing (\ufb02anging). J. Audio Eng. Soc 18(6), 674\u2013675"
+    },
+    {
+      "id": 120,
+      "title": "7. Beauchamp, J.: Introduction to MUSIC 4C."
+    },
+    {
+      "id": 121,
+      "title": "8. Beauchamp, J.: Analysis and synthesis of musical instrument sounds. In: J. Beauchamp"
+    },
+    {
+      "id": 122,
+      "title": "9. Beauchamp, J. (ed.): Analysis, Synthesis, and Perception of Musical Sounds: The Sound of"
+    },
+    {
+      "id": 123,
+      "title": "10. Begault, D.R.: 3-D Sound for Virtual Reality and Multimedia. Academic Press Professional,"
+    },
+    {
+      "id": 124,
+      "title": "11. Bilbao, S.: Numerical Sound Synthesis: Finite Difference Schemes and Simulation in Musi-"
+    },
+    {
+      "id": 125,
+      "title": "12. Bilbao, S., f\ufb01tch, J.: Prepared piano sound synthesis. In: Proc. of the Int. Conf. on Digital"
+    },
+    {
+      "id": 126,
+      "title": "13. Blauert, J.: Spatial Hearing : The Psychophysics of Human Sound Localization. MIT Press,"
+    },
+    {
+      "id": 127,
+      "title": "14. Borgonovo, A., Haus, G.: Musical sound synthesis by means of two-variable functions: Ex-"
+    },
+    {
+      "id": 128,
+      "title": "15. Boulanger, R. (ed.): The Csound Book. MIT Press, Cambridge (2000)"
+    },
+    {
+      "id": 129,
+      "title": "16. Boulanger, R., Lazzarini, V. (eds.): The Audio Programming Book. MIT Press (2010)"
+    },
+    {
+      "id": 130,
+      "title": "17. Bracewell, R.: The Fourier Transform and Its Applications. Electrical Engineering Series."
+    },
+    {
+      "id": 131,
+      "title": "18. Bradford, R., Dobson, R., f\ufb01tch, J.: Sliding is smoother than jumping. In: ICMC 2005 free"
+    },
+    {
+      "id": 132,
+      "title": "19. Bradford, R., Dobson, R., f\ufb01tch, J.: The sliding phase vocoder. In: Proceedings of the 2007"
+    },
+    {
+      "id": 133,
+      "title": "20. Brandtsegg, \u00d8.: Feedback piece, live recording (2012)."
+    },
+    {
+      "id": 134,
+      "title": "21. Brandtsegg, \u00d8.: Feedback piece. in compilation CD \u201cBeyond Boundaries: European Elec-"
+    },
+    {
+      "id": 135,
+      "title": "22. Brandtsegg, \u00d8., Saue, S., Johansen, T.: Particle synthesis, a uni\ufb01ed model for granular"
+    },
+    {
+      "id": 136,
+      "title": "23. Brecht, B.: Leben des Galilei. Suhrkamp Verlag, Berlin (1967)"
+    },
+    {
+      "id": 137,
+      "title": "24. Brun, M.L.: A derivation of the spectrum of FM with a complex modulating wave. Computer"
+    },
+    {
+      "id": 138,
+      "title": "25. Carty, B.: Movements in Binaural Space. Lambert Academic, Berlin (2012)"
+    },
+    {
+      "id": 139,
+      "title": "26. Chowning, J.: The synthesis of complex spectra by means of frequency modulation. Journal"
+    },
+    {
+      "id": 140,
+      "title": "27. Cook, P.: A toolkit of audio synthesis classes and instruments in C++ (1995). URL https:"
+    },
+    {
+      "id": 141,
+      "title": "28. Cook, P.: Physically inspired sonic modelling (PhIsm): Synthesis of percussive sounds. Com-"
+    },
+    {
+      "id": 142,
+      "title": "29. Cutland, N.: Computability. Cambridge University Press, Cambridge (1980)"
+    },
+    {
+      "id": 143,
+      "title": "30. Dattorro, J.: Effect design, part 1: Reverberator and other \ufb01lters. J. Audio Eng. Soc 45(9),"
+    },
+    {
+      "id": 144,
+      "title": "31. Dattorro, J.: Effect design, part 2: Delay line modulation and chorus. J. Audio Eng. Soc"
+    },
+    {
+      "id": 145,
+      "title": "32. Dirichlet, P.G.L.: Sur la convergence des s\u00b4eries trigonometriques qui servent `a r\u00b4epresenter"
+    },
+    {
+      "id": 146,
+      "title": "33. Djoharian, P.: Shape and material design in physical modeling sound synthesis. In: I. Zannos"
+    },
+    {
+      "id": 147,
+      "title": "34. Dodge, C., Jerse, T.A.: Computer Music: Synthesis, Composition and Performance, 2nd edn."
+    },
+    {
+      "id": 148,
+      "title": "35. Dolson, M.: The phase vocoder: A tutorial. Computer Music Journal 10(4), 14\u201327 (1986)."
+    },
+    {
+      "id": 149,
+      "title": "36. Dudley, H.: The vocoder. J. Acoust. Soc. Am. 11(2), 169 (1939)"
+    },
+    {
+      "id": 150,
+      "title": "37. Ervik, K., Brandtsegg, \u00d8.: Creating reverb effects using granular synthesis. In: J. Heintz,"
+    },
+    {
+      "id": 151,
+      "title": "42. Flanagan, F., Golden, R.: Phase vocoder. Bell System Technical Journal 45, 1493\u20131509"
+    },
+    {
+      "id": 152,
+      "title": "43. Fourier, J.: Th\u00b4eorie analytique de la chaleur. Chez Firmin Didot, P`ere et \ufb01ls, Paris (1822)"
+    },
+    {
+      "id": 153,
+      "title": "44. Friedman, D.H.: Instantaneous-frequency distribution vs. time: an interpretation of the phase"
+    },
+    {
+      "id": 154,
+      "title": "45. Gardner, W.G.: Ef\ufb01cient convolution without input-output delay. Journal of the Audio Engi-"
+    },
+    {
+      "id": 155,
+      "title": "46. Gerzon, M.A.: Periphony: with-height sound reproduction. J. Audio Eng. Soc 21(1), 2\u201310"
+    },
+    {
+      "id": 156,
+      "title": "47. Globokar, V.: Toucher. Edition Peters, London (1978)"
+    },
+    {
+      "id": 157,
+      "title": "48. Gold, B., Blankenship, P., McAuley, R.: New applications of channel vocoders. IEEE Trans."
+    },
+    {
+      "id": 158,
+      "title": "49. Harris, F.: On the use of windows for harmonic analysis with the discrete Fourier transform."
+    },
+    {
+      "id": 159,
+      "title": "50. Heintz, J.: L\u00a8auft es sich in kinderschuhen besser? : \u00a8Uber kompositorisches denken mit"
+    },
+    {
+      "id": 160,
+      "title": "51. Heller, A.J., Lee, R., Benjamin, E.M.: Is my decoder ambisonic? In: 125th AES Convention,"
+    },
+    {
+      "id": 161,
+      "title": "52. Hinkle-Turner, E.: Women Composers and Music Technology in the United States:"
+    },
+    {
+      "id": 162,
+      "title": "53. Howe, H.: A report from princeton. Perspectives of New Music 4(2), 68\u201375 (1966)"
+    },
+    {
+      "id": 163,
+      "title": "54. Ingalls, M.: Improving the composer\u2019s interface: Recent developments to Csound for the"
+    },
+    {
+      "id": 164,
+      "title": "55. Jaffe, D.A.: Spectrum analysis tutorial, part 1: The discrete Fourier transform. Computer"
+    },
+    {
+      "id": 165,
+      "title": "56. Jaffe, D.A.: Spectrum analysis tutorial, part 2: Properties and applications of the discrete"
+    },
+    {
+      "id": 166,
+      "title": "57. Karplus, K., Strong, A.: Digital synthesis of plucked string and drum timbres. Computer"
+    },
+    {
+      "id": 167,
+      "title": "58. Khosravi, P.: Circumspectral sound diffusion with Csound. Csound Journal (15) (2011)."
+    },
+    {
+      "id": 168,
+      "title": "59. Kleimola, J., Lazzarini, V., V\u00a8am\u00a8aki, V., Timoney, J.: Feedback amplitude modulation syn-"
+    },
+    {
+      "id": 169,
+      "title": "60. Kontogeorgakopoulos, A., Cadoz, C.: Cordis Anima physical modeling and simulation sys-"
+    },
+    {
+      "id": 170,
+      "title": "61. Laird, J., Masri, P., Canagarajah, C.: Ef\ufb01cient and accurate synthesis of circular membranes"
+    },
+    {
+      "id": 171,
+      "title": "62. Laurens, H.: Electrical musical instrument (1934)."
+    },
+    {
+      "id": 172,
+      "title": "63. Lazzarini, V.: Introduction to digital audio signals. In: R. Boulanger, V. Lazzarini (eds.) The"
+    },
+    {
+      "id": 173,
+      "title": "64. Lazzarini, V.: Programming the phase vocoder. In: R. Boulanger, V. Lazzarini (eds.) The"
+    },
+    {
+      "id": 174,
+      "title": "65. Lazzarini, V.: Spectral audio programming basics: The DFT, the FFT, and convolution. In:"
+    },
+    {
+      "id": 175,
+      "title": "66. Lazzarini, V.: The STFT and spectral processing. In: R. Boulanger, V. Lazzarini (eds.) The"
+    },
+    {
+      "id": 176,
+      "title": "67. Lazzarini, V.: Time-domain audio programming. In: R. Boulanger, V. Lazzarini (eds.) The"
+    },
+    {
+      "id": 177,
+      "title": "68. Lazzarini, V.: The development of computer music programming systems. Journal of New"
+    },
+    {
+      "id": 178,
+      "title": "69. Lazzarini, V., f\ufb01tch, J., Timoney, J., Bradford, R.: Streaming spectral processing with"
+    },
+    {
+      "id": 179,
+      "title": "70. Lazzarini, V., Timoney, J.: New methods of formant analysis-synthesis for musical applica-"
+    },
+    {
+      "id": 180,
+      "title": "71. Lazzarini, V., Timoney, J.: New perspectives on distortion synthesis for virtual analog oscil-"
+    },
+    {
+      "id": 181,
+      "title": "72. Lazzarini, V., Timoney, J.: Theory and practice of modi\ufb01ed frequency modulation synthesis."
+    },
+    {
+      "id": 182,
+      "title": "73. Lazzarini, V., Timoney, J.: Synthesis of resonance by nonlinear distortion methods. Com-"
+    },
+    {
+      "id": 183,
+      "title": "74. Lazzarini, V., Timoney, J., Lysaght, T.: Time-stretching using the instantaneous frequency"
+    },
+    {
+      "id": 184,
+      "title": "2005. Barcelona, Spain (2005). URL http://hdl.handle.net/2027/spo.bbp2372.2005.163"
+    },
+    {
+      "id": 185,
+      "title": "75. Lazzarini, V., Timoney, J., Lysaght, T.: Spectral processing in Csound 5. In: Proceedings of"
+    },
+    {
+      "id": 186,
+      "title": "76. Lazzarini, V., Timoney, J., Lysaght, T.: The generation of natural-synthetic spectra by means"
+    },
+    {
+      "id": 187,
+      "title": "77. Le Brun, M.: Digital waveshaping synthesis. J. Audio Eng. Soc 27(4), 250\u2013266 (1979). URL"
+    },
+    {
+      "id": 188,
+      "title": "78. Lefebvre, A., Scavone, G.: Re\ufb01nements to the model of a single woodwind instrument tone-"
+    },
+    {
+      "id": 189,
+      "title": "79. Lefford, N.: An interview withBarry Vercoe. Computer Music Journal 23(4), 9\u201317 (1999)"
+    },
+    {
+      "id": 190,
+      "title": "80. Lorrain, D.: A panoply of stochastic \u2018cannons\u2019. Computer Music Journal 4(1), 53\u201381 (1980)."
+    },
+    {
+      "id": 191,
+      "title": "81. Mathews, M.: An acoustical compiler for music and psychological stimuli. Bell System"
+    },
+    {
+      "id": 192,
+      "title": "82. Mathews, M.: The digital computer as a musical instrument. Science 183(3592), 553\u2013557"
+    },
+    {
+      "id": 193,
+      "title": "83. Mathews, M., Miller, J.E.: MUSIC IV Programmer\u2019s Manual. Bell Telephone Labs (1964)"
+    },
+    {
+      "id": 194,
+      "title": "84. Mathews, M., Miller, J.E., Moore, F.R., Pierce, J.R.: The Technology of Computer Music."
+    },
+    {
+      "id": 195,
+      "title": "85. McAulay, R., Quatieri, T.: Speech analysis/synthesis based on a sinusoidal representation."
+    },
+    {
+      "id": 196,
+      "title": "86. McCartney, J.: Rethinking the computer music language: Supercollider. Computer Music"
+    },
+    {
+      "id": 197,
+      "title": "87. MIDI Manufacturers Association: Midi 1.0 speci\ufb01cation (1983). URL http://www.midi.org/"
+    },
+    {
+      "id": 198,
+      "title": "88. Mitra, S.K.K.: Digital Signal Processing: A Computer-Based Approach, 2nd edn. McGraw-"
+    },
+    {
+      "id": 199,
+      "title": "89. Moore, F.R.: Table lookup noise for sinusoidal digital oscillators. Computer Music Journal"
+    },
+    {
+      "id": 200,
+      "title": "90. Moore, F.R.: Elements of Computer Music. Prentice-Hall, Inc., Upper Saddle River, NJ,"
+    },
+    {
+      "id": 201,
+      "title": "91. Moorer, J.A.: The synthesis of complex audio spectra by means of discrete summation for-"
+    },
+    {
+      "id": 202,
+      "title": "92. Moorer, J.A.: The use of the phase vocoder in computer music applications. J. Audio Eng."
+    },
+    {
+      "id": 203,
+      "title": "93. Moorer, J.A.: About this reverberation business. Computer Music Journal 3, 13\u201328 (1979)"
+    },
+    {
+      "id": 204,
+      "title": "94. Moorer, J.A.: Audio in the new millennium. J. Audio Eng. Soc. 48(5), 490\u2013498 (2000)"
+    },
+    {
+      "id": 205,
+      "title": "95. Nyquist, H.: Certain topics in telegraph transmission theory. Transactions of the AIEE 47,"
+    },
+    {
+      "id": 206,
+      "title": "96. O Cinneide, A.: Introducing pvspitch: A pitch tracking opcode for Csound. Csound Journal"
+    },
+    {
+      "id": 207,
+      "title": "97. Oppenheim, A.V., Schafer, R.W., Buck, J.R.: Discrete-time Signal Processing (2nd Ed.)."
+    },
+    {
+      "id": 208,
+      "title": "98. Palamin, J.P., Palamin, P., Ronveaux, A.: A method of generating and controlling musical"
+    },
+    {
+      "id": 209,
+      "title": "99. Pampin, J.: ATS: A system for sound analysis transformation and synthesis based on a sinu-"
+    },
+    {
+      "id": 210,
+      "title": "100. Park, T.: An interview with Max Mathews. Computer Music Journal 33(3), 9\u201322 (2009)"
+    },
+    {
+      "id": 211,
+      "title": "101. Pope, S.: Machine Tongues XV: Three packages for software sound synthesis. Computer"
+    },
+    {
+      "id": 212,
+      "title": "102. Puckette, M.: Formant-based audio synthesis using nonlinear distortion. J. Audio Eng. Soc"
+    },
+    {
+      "id": 213,
+      "title": "103. Puckette, M.: The theory and technique of computer music. World Scienti\ufb01c Publ., New"
+    },
+    {
+      "id": 214,
+      "title": "104. Pulkki, V.: Virtual sound source positioning using vector base amplitude panning. J. Audio"
+    },
+    {
+      "id": 215,
+      "title": "105. Randall, J.K.: A report from Princeton. Perspectives of New Music 3(2), 84\u201392 (1965)"
+    },
+    {
+      "id": 216,
+      "title": "106. Regalia, P., Mitra, S.: Tunable digital frequency response equalization \ufb01lters. Acoustics,"
+    },
+    {
+      "id": 217,
+      "title": "107. Ren, Z., Yeh, H., Lin, M.C.: Example-guided physically based modal sound synthesis. ACM"
+    },
+    {
+      "id": 218,
+      "title": "108. Risset, J.C.: An Introductory Catalogue of Computer Synthesized Sounds. Bell Telephone"
+    },
+    {
+      "id": 219,
+      "title": "109. Roads, C.: Microsound. MIT Press, Cambridge (2001). URL http://books.google.no/books?"
+    },
+    {
+      "id": 220,
+      "title": "110. Roads, C., Mathews, M.: Interview with Tongues. Computer Music Journal 4(4), pp. 15\u201322"
+    },
+    {
+      "id": 221,
+      "title": "111. Roberts, A.: MUSIC 4BF, an all-FORTRAN music-generating computer program. In: Pro-"
+    },
+    {
+      "id": 222,
+      "title": "112. Rodet, X.: Time domain formant- wave-function synthesis. Computer Music Journal 8(3),"
+    },
+    {
+      "id": 223,
+      "title": "113. Scavone, G., P.R, C.: Real-time computer modeling of woodwind instruments. In: Proceed-"
+    },
+    {
+      "id": 224,
+      "title": "114. Schottstaedt, B.: The simulation of natural instrument tones using frequency modulation with"
+    },
+    {
+      "id": 225,
+      "title": "115. Schroeder, M.R., Logan, B.F.: -colorless- arti\ufb01cial reverberation. J. Audio Eng. Soc 9(3),"
+    },
+    {
+      "id": 226,
+      "title": "116. Shannon, C.E.: Communication in the presence of noise. Proc. Institute of Radio Engineers"
+    },
+    {
+      "id": 227,
+      "title": "117. Smalley, D.: Space-form and the acousmatic image. Organized Sound 12(1) (2007)"
+    },
+    {
+      "id": 228,
+      "title": "118. Smith, J.O.: A new approach to digital reverberation using closed waveguide networks."
+    },
+    {
+      "id": 229,
+      "title": "119. Smith, J.O.: Viewpoints on the history of digital synthesis. In: Proc. 1991 Int. Computer"
+    },
+    {
+      "id": 230,
+      "title": "120. Stautner, J., Puckette, M.: Designing multi-channel reverberators. Computer Music Journal"
+    },
+    {
+      "id": 231,
+      "title": "121. Steiglitz, K.: A Digital Signal Processing Primer, with Applications to Digital Audio and"
+    },
+    {
+      "id": 232,
+      "title": "122. Tenney, J.: Sound generation by means of a digital computer. Journal of Music Theory 7(1),"
+    },
+    {
+      "id": 233,
+      "title": "123. Tomisawa, N.: Tone production method for an electronic musical instrument (1981). URL"
+    },
+    {
+      "id": 234,
+      "title": "124. Vercoe, B.: Reference manual for the MUSIC 360 language for digital sound synthesis. Stu-"
+    },
+    {
+      "id": 235,
+      "title": "125. Vercoe, B.: MUSIC 11 Reference Manual. Studio for Experimental Music, MIT (1981)"
+    },
+    {
+      "id": 236,
+      "title": "126. Vercoe, B.: Computer system and languages for audio research. The New World of Digital"
+    },
+    {
+      "id": 237,
+      "title": "127. Vercoe, B.: Extended Csound. In: Proc. Int. Computer Music Conf. 1996, Hong Kong, pp."
+    },
+    {
+      "id": 238,
+      "title": "128. Vercoe, B.: Audio-pro with multiple DSPs and dynamic load distribution. British Telecom"
+    },
+    {
+      "id": 239,
+      "title": "129. Vercoe, B., Ellis, D.: Real-time Csound, software synthesis with sensing and control. In:"
+    },
+    {
+      "id": 240,
+      "title": "130. Verplank, B., Mathews, M., Shaw, R.: Scanned synthesis. The Journal of the Acoustical"
+    },
+    {
+      "id": 241,
+      "title": "131. Windham, G., Steiglitz, K.: Input generators for digital sound synthesis."
+    },
+    {
+      "id": 242,
+      "title": "132. Wittgenstein, L.: Philosophische Untersuchungen. Suhrkamp Verlag, Frankfurt (1953)"
+    },
+    {
+      "id": 243,
+      "title": "133. Wright, M., Freed, A.: Open sound control: A new protocol for communicating with sound"
+    },
+    {
+      "id": 244,
+      "title": "134. Wright, M., Freed, A., Momeni, A.: Open sound control, state of the art 2003. In: Pro-"
+    },
+    {
+      "id": 245,
+      "title": "135. Yi, S., Lazzarini, V.: Csound for android. In: Proceedings of Linux Audio Developers Con-"
+    },
+    {
+      "id": 246,
+      "title": "136. Zicarelli, D.: How I learned to love a program that does nothing. Computer Music Journal"
+    },
+    {
+      "id": 247,
+      "title": "137. Zoelzer, U. (ed.): DAFx: Digital Audio Effects. John Wiley & Sons, Inc., New York (2002)"
+    }
+  ]
+}

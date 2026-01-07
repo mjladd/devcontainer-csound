@@ -17,3 +17,5 @@ corpus/csound_expression/
 .cache/
 csound_examples/
 books/
+.venv/
+__pycache__

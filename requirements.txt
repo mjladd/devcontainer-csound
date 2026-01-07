@@ -1,0 +1,19 @@
+# Csound RAG Assistant Dependencies
+
+# Vector database
+chromadb>=0.4.0
+
+# Local embeddings
+sentence-transformers>=2.2.0
+
+# LLM client
+ollama>=0.1.0
+
+# CLI framework
+click>=8.0.0
+
+# Terminal formatting
+rich>=13.0.0
+
+# YAML parsing (for markdown front matter)
+pyyaml>=6.0
