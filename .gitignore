@@ -19,3 +19,4 @@ csound_examples/
 books/
 .venv/
 __pycache__
+csound_realtime
