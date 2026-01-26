@@ -261,31 +261,31 @@ outs a1*0.7, a1*0.3  ; Pan left
 ## Common Issues & Solutions
 
 ### Clicks at Note Boundaries
-**Problem:** Audible clicks when notes start/stop  
-**Cause:** Envelope attack/release times too short or zero  
+**Problem:** Audible clicks when notes start/stop
+**Cause:** Envelope attack/release times too short or zero
 **Solution:** Use minimum 0.01s for release, 0.001s for attack
 ```csound
 k1 linen p4, 0.01, p3, 0.05  ; Safe minimum times
 ```
 
 ### Amplitude Too Loud/Quiet
-**Problem:** Output clipping or barely audible  
-**Cause:** 0dbfs and p4 values mismatch  
+**Problem:** Output clipping or barely audible
+**Cause:** 0dbfs and p4 values mismatch
 **Solution:** With `0dbfs=32768`, keep p4 between 10000-30000. With `0dbfs=1.0`, keep p4 between 0.0-1.0
 
 ### Wrong Waveform Sound
-**Problem:** Unexpected timbre  
-**Cause:** p6 pointing to wrong function table  
+**Problem:** Unexpected timbre
+**Cause:** p6 pointing to wrong function table
 **Solution:** Verify p6 matches intended table (1=sine, 2=sawtooth in this example)
 
 ### No Sound Output
-**Problem:** Csound runs but no audio  
-**Cause:** nchnls mismatch with audio hardware  
+**Problem:** Csound runs but no audio
+**Cause:** nchnls mismatch with audio hardware
 **Solution:** Check audio device channel count, try `-odac` option for real-time instead of file output
 
 ### Distortion/Artifacts
-**Problem:** Harsh, distorted sound  
-**Cause:** Amplitude exceeding 0dbfs  
+**Problem:** Harsh, distorted sound
+**Cause:** Amplitude exceeding 0dbfs
 **Solution:** Reduce p4 values or increase 0dbfs
 
 ---

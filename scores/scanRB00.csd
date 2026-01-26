@@ -9,7 +9,7 @@ sr = 44100  ;Sample Rate
 ksmps = 32
 nchnls = 1  ;Number of Channels
 0dbfs  = 1  ;Max amplitude
-	instr 1
+    instr 1
 icondfn   = p7
 ispgmtrxf = p8
 a0 = 0

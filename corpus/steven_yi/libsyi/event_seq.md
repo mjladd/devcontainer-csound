@@ -70,4 +70,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "event_seq.udo"
 ```
-

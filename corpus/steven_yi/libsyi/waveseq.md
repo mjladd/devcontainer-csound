@@ -40,7 +40,7 @@ kosc1amp table koscTableStart + 2, iwaveseqtab
 kosc1fadenum table koscTableStart + 4, iwaveseqtab
 kosc1repeat table koscTableStart + 5, iwaveseqtab
 
-kosc1repeat = kosc2fadenum + kosc1repeat  
+kosc1repeat = kosc2fadenum + kosc1repeat
 kosc1fadeStart = kosc1repeat - kosc1fadenum
 
 kosc1repeat = int(kosc1repeat * kdurUnit)
@@ -144,7 +144,7 @@ kincr = kfreq * (1 / sr)
 
 if(kosc1active == 1) then
 
-  kosc1kcnt = kosc1kcnt + 1 
+  kosc1kcnt = kosc1kcnt + 1
 
   if(kosc1table_sr == 0) then
 
@@ -154,7 +154,7 @@ if(kosc1active == 1) then
     if(kosc1index > 1.0) then
       kosc1index = kosc1index - 1.0
     endif
-  else 
+  else
     if(kosc1table_sr > 0) then
       a1 tablexkt kosc1index, kosc1table, 0, 4, 0, 0, 0
     else
@@ -202,7 +202,7 @@ if(kosc2active == 1) then
     if(kosc2index > 1.0) then
       kosc2index = kosc2index - 1.0
     endif
-  else 
+  else
     if(kosc2table_sr > 0) then
       a2 tablexkt kosc2index, kosc2table, 0, 4, 0, 0, 0
     else
@@ -262,4 +262,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "waveseq.udo"
 ```
-

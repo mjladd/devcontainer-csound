@@ -287,7 +287,7 @@ garvbsig = garvbsig + gasig * .25
 
 **Overall signal flow:**
 - 25% dry left
-- 25% dry right  
+- 25% dry right
 - 25% to reverb (which will output wet signal)
 - Total: 75% per instrument (leaves headroom for multiple instances)
 
@@ -459,7 +459,7 @@ carrier_frequency = base_frequency + modulator_signal
 Frequencies = fc ± n×fm
 where:
   fc = carrier frequency
-  fm = modulator frequency  
+  fm = modulator frequency
   n = 0, 1, 2, 3... (sideband number)
 ```
 
@@ -648,7 +648,7 @@ instr 98  ; Short reverb
   garvb1 = 0
 endin
 
-instr 99  ; Long reverb  
+instr 99  ; Long reverb
   along reverb garvb2, 8.0
   out along, along
   garvb2 = 0
@@ -699,8 +699,8 @@ endin
 ## Common Issues & Solutions
 
 ### Reverb Bus Not Cleared (Explosion!)
-**Problem:** Sound grows exponentially, distorts, explodes  
-**Cause:** `garvbsig = 0` missing from reverb instrument  
+**Problem:** Sound grows exponentially, distorts, explodes
+**Cause:** `garvbsig = 0` missing from reverb instrument
 **Solution:**
 ```csound
 instr 99
@@ -711,8 +711,8 @@ endin
 ```
 
 ### No Reverb Heard
-**Problem:** Only dry signal, no spatial depth  
-**Cause:** 
+**Problem:** Only dry signal, no spatial depth
+**Cause:**
 - Reverb instrument (99) not running
 - Duration too short
 - Global variable not accumulating
@@ -728,8 +728,8 @@ garvbsig = garvbsig + gasig  ; Correct (+=)
 ```
 
 ### Distortion/Clipping
-**Problem:** Output distorts  
-**Cause:** Too many instruments, insufficient scaling  
+**Problem:** Output distorts
+**Cause:** Too many instruments, insufficient scaling
 **Solution:**
 ```csound
 ; Scale down signals
@@ -742,8 +742,8 @@ aout limit aout, -0dbfs, 0dbfs
 ```
 
 ### FM Sounds Wrong/Static
-**Problem:** Not enough timbral evolution  
-**Cause:** p7 = p8 (no modulation index change)  
+**Problem:** Not enough timbral evolution
+**Cause:** p7 = p8 (no modulation index change)
 **Solution:**
 ```csound
 ; Ensure p7 < p8 for evolution
@@ -752,8 +752,8 @@ i1 0 10 3000 200 400 5 15  ; Good (5→15)
 ```
 
 ### Reverb Time Incorrect
-**Problem:** Reverb too short or too long  
-**Cause:** p4 parameter in i99 statement  
+**Problem:** Reverb too short or too long
+**Cause:** p4 parameter in i99 statement
 **Solution:**
 ```csound
 ; Adjust reverb time
@@ -781,7 +781,7 @@ i99 0  70  25   ; Very long reverb
 ```csound
 ; Inharmonic ratios, high indices
 i1  0  8  3000  200  440  10  20
-i1  2  8  3000  300  660  10  20  
+i1  2  8  3000  300  660  10  20
 i1  4  8  3000  400  880  10  20
 i99 0  20 8    ; Medium reverb
 ```
@@ -842,7 +842,7 @@ Carson's rule for FM bandwidth
 ```csound
 ; K-cycle N:
 instr 1: writes to garvbsig
-instr 2: writes to garvbsig  
+instr 2: writes to garvbsig
 instr 99: reads garvbsig, clears it
 
 ; K-cycle N+1:
@@ -883,7 +883,7 @@ endin
 
 instr 99  ; Reverb
   arvb reverb garvb, 5
-  out arvb, arvb  
+  out arvb, arvb
   garvb = 0
 endin
 ```

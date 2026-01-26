@@ -65,4 +65,3 @@ i1 15 . 7041
 e
 </CsScore>
 </CsoundSynthesizer>
-

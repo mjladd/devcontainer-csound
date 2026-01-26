@@ -130,7 +130,7 @@ aout balance alpf,asawdc; <- balance causes clicks,
 
 ;final output ... at last!
 aremovedc atone aout,10
-	out imaxamp*aremovedc
+    out imaxamp*aremovedc
 endin
 
 </CsInstruments>
@@ -167,4 +167,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

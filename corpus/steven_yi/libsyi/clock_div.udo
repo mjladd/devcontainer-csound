@@ -4,8 +4,8 @@
 
 opcode clock_div, a, ak
   atrig, kdiv xin
-  
-  kcount init 1000 
+
+  kcount init 1000
   asig init 0
 
   kndx = 0
@@ -25,7 +25,6 @@ opcode clock_div, a, ak
 
     kndx += 1
   od
- 
+
   xout asig
 endop
-

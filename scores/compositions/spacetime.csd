@@ -41,7 +41,7 @@ gkntrl	init		0
 
 ;KONTROL
 
-		instr	8
+        instr	8
 
 ia		=		p4
 idur1	=		p5
@@ -51,12 +51,12 @@ isee		=		p8
 
 asig		oscil	1,1,1
 ksig		linseg	ia, idur1, ibe, idur2, isee
-		out		asig, asig
+        out		asig, asig
 gkntrl	=		ksig
-		endin
+        endin
 
 ;TIC
-		instr	1
+        instr	1
 idur		=		p3
 iamp		=		ampdb(p4)
 ipris	=		p5
@@ -79,15 +79,15 @@ apre		comb		abrst, irvt*gkntrl, ilpt
 atic		comb		adly*8, irvt2*gkntrl, ilpt2
 al		butterbp	(apre*iprp)+(atic*itcp), icofl-(300*gkntrl), ibw-(174*gkntrl)
 ar		butterbp	(apre*(1-iprp))+(atic*(1-itcp)), icofr-(300*gkntrl), ibw-(74*gkntrl)
-		out 	al, ar
+        out 	al, ar
 
 gatic	=		al+ar
 
-		endin
+        endin
 
 
 ;TOC
-		instr	2
+        instr	2
 idur		=		p3
 iamp		=		ampdb(p4)
 ipris	=		p5
@@ -117,11 +117,11 @@ out 	al, ar
 
 gatoc	=		al+ar
 
-		endin
+        endin
 
 
 ;POLLY
-		instr	3
+        instr	3
 idur		=		p3
 iamp		=		ampdb(p4)
 ipris	=		p5
@@ -146,15 +146,15 @@ al		=		atic+abrst+abzz1+abrst2
 ar		=		atic+abrst+abzz2+abrst2
 
 
-		out   	al, ar
+        out   	al, ar
 
 gaplly	=		al+ar
 
-		endin
+        endin
 
 
 ;PANDORA
-		instr	9
+        instr	9
 idur		=		p3
 iamp		=		ampdb(p4)
 iarisl	=		p5
@@ -259,13 +259,13 @@ kmenvr	linseg	imr, imrisr, im2r, imdurr, im2r, imdcyr, im3r
 afml		foscil	iamp*kaenvl+ktrml, kpenv+kvibl, kcenv, kmenvl, index*gkntrl, ifn
 afmr		foscil	iamp*kaenvr+ktrmr, kpenv+kvibr, kcenv, kmenvr, index*gkntrl, ifn
 
-		out		afml, afmr
+        out		afml, afmr
 gapndra	=		afml+afmr
-		endin
+        endin
 
 
 
- instr 99
+instr 99
 
 irevfactor =        p4
 ilowpass   =        9000
@@ -313,7 +313,7 @@ arevout  =         allp5 * ioutputscale
 
 
 
-		  out       arevout, arevout
+        out       arevout, arevout
 
 
 
@@ -322,7 +322,7 @@ gatic	=		0
 gatoc	=		0
 gapndra	=		0
 
-		endin
+        endin
 
 </CsInstruments>
 <CsScore>
@@ -341,7 +341,7 @@ i8   0    180  1    60   1    120  10
 
 
 ; INS     STRT     DUR      RVBTIME    RVBRETURN
-  i99      0       140       .777        .03
+i99      0       140       .777        .03
 ;7   T         I         C         K
 ;1   2    3    4    5         6         7         8         9         10        11        12        13        14        15        16        17
 ;I   S    D    A    /         -         \         RVT       LPT       RVT2      LPT2      DLY       BW        BPL       BPR       PRP       TKP
@@ -701,4 +701,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

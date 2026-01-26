@@ -169,4 +169,3 @@ kparam portk gkparam, kporttime
 - Original website: http://iainmccurdy.org/csound.html
 - Csound FLOSS Manual (co-authored)
 - Csound Book Chapter 17: Csound Haiku
-

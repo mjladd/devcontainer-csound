@@ -9,18 +9,18 @@ sr = 44100  ;Sample Rate
 ksmps = 32
 nchnls = 1  ;Number of Channels
 0dbfs  = 1  ;Max amplitude
-   instr 1
- icondfn = p7
- imasf = p8
-	a0	= 0
+instr 1
+icondfn = p7
+imasf = p8
+    a0	= 0
 
 ;       icondfn,  scnrat,  ivelf, imasf, ispgmtrxf, icntrf, idampf, kmas, kspgstf, kcntr, kdamp, ilplkpos, irplkpos, kpos, kstrngth, ain, disp, id
 scanu	icondfn,  .05,     6,     2,     3,         4,      5,      2,    .2,      .2,    -.05,  .1,       .5,       .5,   0,        a0,   p6,  1
 
 a1 scans  ampdb(p4), cpspch(p5),    7,   1
 a1 dcblock a1
-   out	  a1
-   endin
+out	  a1
+endin
 </CsInstruments>
 
 <CsScore>

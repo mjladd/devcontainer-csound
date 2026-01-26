@@ -11,7 +11,7 @@ nchnls	=	2
 
 garvb	init	0
 
-		instr 1	;snare drum
+        instr 1	;snare drum
 ;	init
 
 idrum	=	p4
@@ -41,11 +41,11 @@ kgoto	output1
 
 output1:
 
-		out		asnare*klfo, asnare*(1-klfo)
+        out		asnare*klfo, asnare*(1-klfo)
 garvb	=	garvb + asnare
 
 kgoto	contin
-				;kick drum
+                ;kick drum
 kik:
 
 ;	init
@@ -61,11 +61,11 @@ akick		foscil	kampenv, kpenv, 1, 4, indx, 11
 alpf		butterlp	akick, 80
 kgoto	output2
 output2:
-		out		alpf, alpf
+        out		alpf, alpf
 garvb	=	garvb + alpf
 
 kgoto contin
-				;hi hat
+                ;hi hat
 
 hhc:
 
@@ -106,16 +106,16 @@ ahhat		oscil		kampenv, ifrq, 10
 afilt2	atone		ahhat, 8000
 afilt1	atone		afilt2, 8000
 
-		out		afilt1, afilt1
+        out		afilt1, afilt1
 garvb	=	garvb + afilt1
 
 contin:
 
-		endin
+        endin
 
 
 
-		instr	2	;scanned synth bass
+        instr	2	;scanned synth bass
 
 ;	init
 
@@ -143,7 +143,7 @@ ifrq	=	$MIDI2CPS(imkey)
 
 ;	synth
 
-	scanu	iinit,irate,ifnvel,ifnmass,ifnstif,ifncentr,ifndamp,kmass,kstif,kcentr, kdamp, ileft, iright, kpos, kstrn, a0, 0, id
+    scanu	iinit,irate,ifnvel,ifnmass,ifnstif,ifncentr,ifndamp,kmass,kstif,kcentr, kdamp, ileft, iright, kpos, kstrn, a0, 0, id
 
 kenv	expon	1,	p3,	.001
 a1	scans	ampdb(76),ifrq,7,2
@@ -151,13 +151,13 @@ a1	scans	ampdb(76),ifrq,7,2
 kexp	expon	(ifrq/2),	p3,	80
 alpf	rezzy	a1,	kexp,	1.2
 
-		out	a1*kenv, a1*kenv
+        out	a1*kenv, a1*kenv
 garvb	=	garvb+(a1*kenv)
 
-		endin
+        endin
 
 
-		instr	3	;harmonic motion
+        instr	3	;harmonic motion
 
 ;	init
 
@@ -170,13 +170,13 @@ a1	loscil	p5,	ifrq,	8
 
 kpan	oscil	1,	1/p3,	9
 
-		out	a1*(1-kpan), a1*kpan
+        out	a1*(1-kpan), a1*kpan
 
-		endin
+        endin
 
 
 
-		instr	199	;reverb bus
+        instr	199	;reverb bus
 
 ;	init
 
@@ -191,9 +191,9 @@ ahpf rezzy	garvb,	420,	0,	1
 
 arvb	nreverb	ahpf,	ktime,	khdif
 
-		out	arvb, arvb
+        out	arvb, arvb
 
-		endin
+        endin
 </CsInstruments>
 <CsScore>
 ;	Initial condition

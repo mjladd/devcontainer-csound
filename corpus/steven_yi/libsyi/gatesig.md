@@ -36,7 +36,7 @@ opcode gatesig, a, ak
       kcount = 0
     endif
 
-    asig[kndx] = (kcount < kholdsamps) ? 1 : 0 
+    asig[kndx] = (kcount < kholdsamps) ? 1 : 0
 
     kndx += 1
     kcount += 1
@@ -58,4 +58,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "gatesig.udo"
 ```
-

@@ -27,7 +27,7 @@ It is well known that sound travelling in a perfect medium is governed by the wa
 equation; in one spatial dimension that is ∂2u
 ∂t2 = c2 ∂2u
 ∂x2 . This equation actually has a
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 385
 16
@@ -58,11 +58,11 @@ simple delay lines to model the left- and right-moving waves we obtain a diagram
 like Fig. 16.1.
 6
 
-
+
 -
 ?
 
-
+
 ?
 loss
 
@@ -99,7 +99,7 @@ h
 ?
 6
 
-
+
 +
 - output
 Fig. 16.1 Diagram of a simple pluck model

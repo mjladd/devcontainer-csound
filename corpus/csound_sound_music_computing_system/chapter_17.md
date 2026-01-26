@@ -25,7 +25,7 @@ but by how they ﬁgure in the workings of Csound. We assume that the reader has
 a reasonable understanding of basic acoustics principles (sound waveforms, propa-
 gation, frequency, amplitude etc.), but more complex ideas will be introduced from
 the ground up.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_2
 17
 18

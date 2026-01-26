@@ -18,7 +18,7 @@ Strings are ordered sets of characters and are often thought of as “text”. T
 be constant strings–text surrounded by quotes–or may be values held in S-type vari-
 ables. They are useful for specifying paths to ﬁles, names of channels, and printing
 out messages to the user. They can also be used to create ad hoc data formats.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_4
 91
 92

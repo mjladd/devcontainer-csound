@@ -7,11 +7,11 @@ license: MIT
 
 # Session Lifecycle
 
-The following describes the basic lifecycle for a live coding session. 
+The following describes the basic lifecycle for a live coding session.
 
 ## Basic Audio Engine Lifecycle
 
-The following diagram shows the basic processing flow for an audio engine. The diagram shows the two main phases of initialization and runtime and will be further explained in the sections below.  
+The following diagram shows the basic processing flow for an audio engine. The diagram shows the two main phases of initialization and runtime and will be further explained in the sections below.
 
 ![Audio Engine Lifecycle](images/audio_engine.png)
 
@@ -90,4 +90,3 @@ sample, the timing of events and messages can be more accurate than block
 processing. The trade off is that block processing generally gives better
 performance (better data locality for processing, more operations done on the
 stack rather than the heap, less function call overhead).
-

@@ -25,7 +25,7 @@ that these do not become an impediment to ﬂexible music making.
 9.2 MIDI Messages
 The MIDI protocol incorporates three types of messages [87]: channel messages,
 system common messages and system real-time messages. The ﬁrst type is used to
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_9
 171
 172

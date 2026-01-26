@@ -21,15 +21,15 @@ Zero Delay State Variable Filter  Based on code by Will Pirkle, presented in:
 
 ```csound
 ; Zero Delay State Variable Filter
-; 
+;
 ; Based on code by Will Pirkle, presented in:
 ;
 ; http://www.willpirkle.com/Downloads/AN-4VirtualAnalogFilters.2.0.pdf
-; 
-; and in his book "Designing software synthesizer plug-ins in C++ : for 
+;
+; and in his book "Designing software synthesizer plug-ins in C++ : for
 ; RackAFX, VST3, and Audio Units"
 ;
-; ZDF using Trapezoidal integrator by Vadim Zavalishin, presented in "The Art 
+; ZDF using Trapezoidal integrator by Vadim Zavalishin, presented in "The Art
 ; of VA Filter Design" (https://www.native-instruments.com/fileadmin/ni_media/
 ; downloads/pdf/VAFilterDesign_1.1.1.pdf)
 ;
@@ -44,9 +44,9 @@ ain, kcf, kR     xin
 
 ; pre-warp the cutoff- these are bilinear-transform filters
 kwd = 2 * $M_PI * kcf
-iT  = 1/sr 
-kwa = (2/iT) * tan(kwd * iT/2) 
-kG  = kwa * iT/2 
+iT  = 1/sr
+kwa = (2/iT) * tan(kwd * iT/2)
+kG  = kwa * iT/2
 
 ;; output signals
 alp init 0
@@ -65,8 +65,8 @@ while kindx < ksmps do
   klp = kG * kbp + kz2
 
   ; z1 register update
-  kz1 = kG * khp + kbp  
-  kz2 = kG * kbp + klp  
+  kz1 = kG * khp + kbp
+  kz2 = kG * kbp + klp
 
   alp[kindx] = klp
   ahp[kindx] = khp
@@ -84,7 +84,7 @@ xout alp, abp, ahp
 
 ain, acf, aR     xin
 
-iT  = 1/sr 
+iT  = 1/sr
 
 ;; output signals
 alp init 0
@@ -101,8 +101,8 @@ while kindx < ksmps do
 
   ; pre-warp the cutoff- these are bilinear-transform filters
   kwd = 2 * $M_PI * acf[kindx]
-  kwa = (2/iT) * tan(kwd * iT/2) 
-  kG  = kwa * iT/2 
+  kwa = (2/iT) * tan(kwd * iT/2)
+  kG  = kwa * iT/2
 
   kR = aR[kindx]
 
@@ -111,8 +111,8 @@ while kindx < ksmps do
   klp = kG * kbp + kz2
 
   ; z1 register update
-  kz1 = kG * khp + kbp  
-  kz2 = kG * kbp + klp 
+  kz1 = kG * khp + kbp
+  kz2 = kG * kbp + klp
 
   alp[kindx] = klp
   ahp[kindx] = khp
@@ -137,4 +137,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "zdf_svf.udo"
 ```
-

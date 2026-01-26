@@ -1,7 +1,7 @@
 /*
   Live Coding Functions
   Author: Steven Yi
-*/ 
+*/
 
 instr S1
   ifreq = p4
@@ -14,7 +14,7 @@ endin
 
 ;; TIME
 
-gk_tempo init 120 
+gk_tempo init 120
 
 
 /** Set tempo of global clock to itempo value in beats per minute. */
@@ -33,21 +33,21 @@ opcode go_tempo, 0, ii
   inewtempo, incr xin
 
   icurtempo = i(gk_tempo)
-  itemp init icurtempo 
+  itemp init icurtempo
 
   if(inewtempo > icurtempo) ithen
     itemp = min:i(inewtempo, icurtempo + abs(incr))
-    gk_tempo init itemp 
+    gk_tempo init itemp
   elseif (inewtempo < icurtempo) ithen
     itemp = max:i(inewtempo, icurtempo - abs(incr))
-    gk_tempo init itemp 
+    gk_tempo init itemp
   endif
 endop
 
 instr Perform
   ibeat = p4
 
-  schedule("P1", 0, p3, ibeat) 
+  schedule("P1", 0, p3, ibeat)
 endin
 
 
@@ -88,7 +88,7 @@ opcode ticks, i, i
 endop
 
 /** Returns time from now for next beat, rounding to align
-    on beat boundary. 
+    on beat boundary.
    (Code used from Thorin Kerr's LivecodeLib.csd) */
 opcode next_beat, i, p
   ibeatcount xin
@@ -99,11 +99,11 @@ opcode next_beat, i, p
   xout beats(iresult)
 endop
 
-/** Returns time from now for next measure, rounding to align to measure  
+/** Returns time from now for next measure, rounding to align to measure
     boundary. */
 opcode next_measure, i,0
   inow = now() % 4
-  ival = 4 - inow 
+  ival = 4 - inow
   if(ival < 0.25) then
     ival += 4
   endif
@@ -113,34 +113,34 @@ endop
 
 /** Reset clock so that next tick starts at 0 */
 opcode reset_clock, 0, 0
-  gk_clock_internal init 0 
-  gk_clock_tick init -1 
+  gk_clock_internal init 0
+  gk_clock_tick init -1
   gk_now init -(ksmps / sr)
 endop
 
 /** Adjust clock by iadjust number of beats.
     Value may be positive or negative. */
-opcode adjust_clock, 0, i 
+opcode adjust_clock, 0, i
   iadjust xin
-  gk_now init i(gk_now) + iadjust 
+  gk_now init i(gk_now) + iadjust
 endop
 
 
-instr Clock ;; our clock  
+instr Clock ;; our clock
   ;; tick at 1/16th note
   kfreq = (4 * gk_tempo) / 60     ;; frequency of 16th note
-  kdur = 1 / kfreq                ;; duration of 16th note in seconds 
+  kdur = 1 / kfreq                ;; duration of 16th note in seconds
   kstep = (gk_tempo / 60) / kr    ;; step size in quarter notes per buffer
   kstep16th = kfreq / kr          ;; step size in 16th notes per buffer
   gk_now += kstep                 ;; advance beat clock
   gk_clock_internal += kstep16th  ;; advance 16th note clock
 
   // checks if next buffer will be one where clock will
-  // trigger.  If so, then schedule event for time 0 
-  // which will get processed next buffer. 
+  // trigger.  If so, then schedule event for time 0
+  // which will get processed next buffer.
   if(gk_clock_internal + kstep16th >= 1.0 ) then
-    gk_clock_internal -= 1.0 
-    gk_clock_tick += 1 
+    gk_clock_internal -= 1.0
+    gk_clock_tick += 1
     event("i", "Perform", 0, kdur, gk_clock_tick)
   endif
 endin
@@ -155,7 +155,7 @@ opcode choose, i, i
   ival = 0
 
   if(random(0,1) < limit:i(iamount, 0, 1)) then
-    ival = 1 
+    ival = 1
   endif
   xout ival
 endop
@@ -185,7 +185,7 @@ opcode contains, i, ii[]
   od
 end:
   xout iret
-endop 
+endop
 
 /** Checks to see if item exists within array. Returns 1 if
   true and 0 if false. */
@@ -202,13 +202,13 @@ opcode contains, i, ik[]
   od
 end:
   xout iret
-endop 
+endop
 
 /** Create a new array by removing all instances of a
-given number from an existing array. */ 
+given number from an existing array. */
 opcode remove, k[], ik[]
   ival, karr[] xin
- 
+
   ifound = 0
   indx = 0
   while (indx < lenarray:i(karr)) do
@@ -219,10 +219,10 @@ opcode remove, k[], ik[]
   od
 
   kout[] init (lenarray:i(karr) - ifound)
-    
+
   indx = 0
   iwriteIndx = 0
-  
+
   while (indx < lenarray:i(karr)) do
     iv = i(karr, indx)
     if(iv != ival) then
@@ -231,7 +231,7 @@ opcode remove, k[], ik[]
     endif
     indx += 1
   od
-    
+
   xout kout
 endop
 
@@ -282,7 +282,7 @@ endop
 
 /** Given a hexadecimal beat string pattern and optional
 itick (defaults to current now_tick()), returns value 1 if
-the given tick matches a hit in the hexadecimal beat, or 
+the given tick matches a hit in the hexadecimal beat, or
 returns 0 otherwise. */
 opcode hexbeat, i, So
   Spat, itick xin
@@ -303,13 +303,13 @@ opcode hexbeat, i, So
     ;; figure which hex value to use from string
     ipatidx = int(itick / 4)
     ;; figure out which bit from hex to use
-    ibitidx = itick % 4 
-    
+    ibitidx = itick % 4
+
     ;; convert individual hex from string to decimal/binary
-    ibeatPat = strtol(strcat("0x", strsub(Spat, ipatidx, ipatidx + 1))) 
+    ibeatPat = strtol(strcat("0x", strsub(Spat, ipatidx, ipatidx + 1)))
 
     ;; bit shift/mask to check onset from hex's bits
-    iout = (ibeatPat >> (3 - ibitidx)) & 1 
+    iout = (ibeatPat >> (3 - ibitidx)) & 1
   endif
 
   xout iout
@@ -317,7 +317,7 @@ opcode hexbeat, i, So
 endop
 
 
-/** Given hex beat pattern, use given itick to fire 
+/** Given hex beat pattern, use given itick to fire
   events for given instrument, duration, frequency, and
   amplitude */
 opcode hexplay, 0, SiSiip
@@ -328,7 +328,7 @@ opcode hexplay, 0, SiSiip
   endif
 endop
 
-/** Given hex beat pattern, use global clock to fire 
+/** Given hex beat pattern, use global clock to fire
   events for given instrument, duration, frequency, and
   amplitude */
 opcode hexplay, 0, SSiip
@@ -344,7 +344,7 @@ endop
 
 /** Given an octal beat string pattern and optional
 itick (defaults to current now_tick()), returns value 1 if
-the given tick matches a hit in the octal beat, or 
+the given tick matches a hit in the octal beat, or
 returns 0 otherwise. */
 opcode octalbeat, i, Si
   Spat, itick xin
@@ -356,13 +356,13 @@ opcode octalbeat, i, Si
   ;; figure which octal value to use from string
   ipatidx = int(itick / 3)
   ;; figure out which bit from octal to use
-  ibitidx = itick % 3 
-  
+  ibitidx = itick % 3
+
   ;; convert individual octal from string to decimal/binary
-  ibeatPat = strtol(strcat("0", strsub(Spat, ipatidx, ipatidx + 1))) 
+  ibeatPat = strtol(strcat("0", strsub(Spat, ipatidx, ipatidx + 1)))
 
   ;; bit shift/mask to check onset from hex's bits
-  xout (ibeatPat >> (2 - ibitidx)) & 1 
+  xout (ibeatPat >> (2 - ibitidx)) & 1
 
 endop
 
@@ -389,7 +389,7 @@ endop
 /** Given count and period, return phase value in range [0-1) */
 opcode phs, i, ii
   icount, iperiod xin
-  xout (icount % iperiod) / iperiod 
+  xout (icount % iperiod) / iperiod
 endop
 
 /** Given period in ticks, return current phase of global
@@ -429,12 +429,12 @@ opcode euclid_str, S, ii
 
   while iright > 1 do
     if (iright > ileft) then
-      iright = iright - ileft 
+      iright = iright - ileft
       Sleft = strcat(Sleft, Sright)
     else
       itemp = iright
       iright = ileft - iright
-      ileft = itemp 
+      ileft = itemp
       Stemp = Sleft
       Sleft = strcat(Sleft, Sright)
       Sright = Stemp
@@ -442,12 +442,12 @@ opcode euclid_str, S, ii
   od
 
   Sout = ""
-  indx = 0 
+  indx = 0
   while (indx < ileft) do
     Sout = strcat(Sout, Sleft)
     indx += 1
   od
-  indx = 0 
+  indx = 0
   while (indx < iright) do
     Sout = strcat(Sout, Sright)
     indx += 1
@@ -459,7 +459,7 @@ endop
 
 /** Given number of ihits for a period of isteps and an optional
 itick (defaults to current now_tick()), returns value 1 if
-the given tick matches a hit in the euclidean rhythm, or 
+the given tick matches a hit in the euclidean rhythm, or
 returns 0 otherwise. */
 opcode euclid, i, iio
   ihits, isteps, itick  xin
@@ -492,7 +492,7 @@ opcode euclidplay, 0, iiSiip
   endif
 endop
 
-;; Phase-based Oscillators 
+;; Phase-based Oscillators
 
 /** Returns cosine of given phase (0-1.0) */
 opcode xcos, i,i
@@ -518,23 +518,23 @@ opcode xsin, i,iii
   xout ioffset + (sin(2 * $M_PI * iphase) * irange)
 endop
 
-/** Non-interpolating oscillator. Given phase in range 0-1, 
+/** Non-interpolating oscillator. Given phase in range 0-1,
 returns value within the give k-array table. */
 opcode xosc, i, ik[]
   iphase, kvals[]  xin
-  indx = int(lenarray:i(kvals) * (iphase % 1))  
+  indx = int(lenarray:i(kvals) * (iphase % 1))
   xout i(kvals, indx)
 endop
 
 
-/** Non-interpolating oscillator. Given phase duration in beats, 
+/** Non-interpolating oscillator. Given phase duration in beats,
 returns value within the give k-array table. (shorthand for xosc(phsb(ibeats), karr) )*/
 opcode xoscb, i,ik[]
   ibeats, kvals[] xin
   xout xosc(phsb(ibeats), kvals)
 endop
 
-/** Non-interpolating oscillator. Given phase duration in measures, 
+/** Non-interpolating oscillator. Given phase duration in measures,
 returns value within the give k-array table. (shorthand for xosc(phsm(ibeats), karr) )*/
 opcode xoscm, i, ik[]
   ibeats, kvals[] xin
@@ -542,23 +542,23 @@ opcode xoscm, i, ik[]
 endop
 
 
-/** Linearly-interpolating oscillator. Given phase in range 0-1, 
+/** Linearly-interpolating oscillator. Given phase in range 0-1,
 returns value intepolated within the two closest points of phase within k-array
 table. */
 opcode xosci, i, ik[]
   iphase, kvals[]  xin
   ilen = lenarray:i(kvals)
   indx = ilen * (iphase % 1)
-  ibase = int(indx)  
-  ifrac = indx - ibase 
+  ibase = int(indx)
+  ifrac = indx - ibase
 
-  iv0 = i(kvals, ibase)  
-  iv1 = i(kvals, (ibase + 1) % ilen) 
+  iv0 = i(kvals, ibase)
+  iv1 = i(kvals, (ibase + 1) % ilen)
   xout iv0 + (iv1 - iv0) * ifrac
 endop
 
 
-/** Linearly-interpolating oscillator. Given phase duration in beats, 
+/** Linearly-interpolating oscillator. Given phase duration in beats,
 returns value intepolated within the two closest points of phase within k-array
 table. (shorthand for xosci(phsb(ibeats), karr) )*/
 opcode xoscib, i,ik[]
@@ -566,7 +566,7 @@ opcode xoscib, i,ik[]
   xout xosci(phsb(ibeats), kvals)
 endop
 
-/** Linearly-interpolating oscillator. Given phase duration in measures, 
+/** Linearly-interpolating oscillator. Given phase duration in measures,
 returns value intepolated within the two closest points of phase within k-array
 table. (shorthand for xosci(phsm(ibeats), karr) )*/
 opcode xoscim, i,ik[]
@@ -601,21 +601,21 @@ opcode xoscd, i, ik[]
   icur = 0
 
   while (indx < ilen) do
-    itemp = i(kdurs, indx) 
+    itemp = i(kdurs, indx)
 
     if(itick < icur + itemp) then
-      ival = itemp 
+      ival = itemp
       indx += ilen
     else
       icur += abs(itemp)
     endif
-    
+
     indx += 1
   od
 
-  xout ival 
+  xout ival
 
- endop 
+ endop
 
 
 /** Given an array of durations, returns new duration value for current clock tick. Useful with mod division and cycle for additive/subtractive rhythms. */
@@ -646,19 +646,19 @@ opcode dur_seq, i, ik[]
   itick = itick % itotal
 
   while (indx < ilen) do
-    itemp = i(kdurs, indx) 
+    itemp = i(kdurs, indx)
     if(icur == itick) then
-      ival = itemp 
+      ival = itemp
       indx += ilen
     elseif (icur > itick) then
-      indx += ilen 
+      indx += ilen
     else
       icur += abs(itemp)
     endif
-    
+
     indx += 1
   od
-  xout ival 
+  xout ival
 endop
 
 
@@ -671,7 +671,7 @@ opcode dur_seq, i, k[]
   xout dur_seq(now_tick(), kdurs)
 endop
 
-/** Experimental opcode for generating melodic lines given array of durations, pitches, and amplitudes. Durations follow dur_seq practice that negative values are rests. Pitch and amp array indexing wraps according to their array lengths given index of non-rest duration value currently fired. */ 
+/** Experimental opcode for generating melodic lines given array of durations, pitches, and amplitudes. Durations follow dur_seq practice that negative values are rests. Pitch and amp array indexing wraps according to their array lengths given index of non-rest duration value currently fired. */
 opcode melodic, iii, ik[]k[]k[]
   itick, kdurs[], kpchs[], kamps[] xin
 
@@ -696,20 +696,20 @@ opcode melodic, iii, ik[]k[]k[]
     ivalindx = 0
 
     while (indx < ilen) do
-      itemp = i(kdurs, indx) 
+      itemp = i(kdurs, indx)
 
       if(icur == itick) then
         indx += ilen
       elseif (icur > itick) then
-        indx += ilen 
+        indx += ilen
       else
         if (itemp > 0) then
-          ivalindx += 1 
+          ivalindx += 1
         endif
 
         icur += abs(itemp)
       endif
-      
+
       indx += 1
     od
 
@@ -720,7 +720,7 @@ opcode melodic, iii, ik[]k[]k[]
   xout idur, ipch, iamp
 endop
 
-/** Experimental opcode for generating melodic lines given array of durations, pitches, and amplitudes. Durations follow dur_seq practice that negative values are rests. Pitch and amp array indexing wraps according to their array lengths given index of non-rest duration value currently fired. */ 
+/** Experimental opcode for generating melodic lines given array of durations, pitches, and amplitudes. Durations follow dur_seq practice that negative values are rests. Pitch and amp array indexing wraps according to their array lengths given index of non-rest duration value currently fired. */
 opcode melodic, iii, k[]k[]k[]
   kdurs[], kpchs[], kamps[] xin
   idur, ipch, iamp = melodic(now_tick(), kdurs, kpchs, kamps)
@@ -729,8 +729,8 @@ endop
 
 ;; String functions
 
-/** 
-  rotate - Rotates string by irot number of values.  
+/**
+  rotate - Rotates string by irot number of values.
   (Inspired by rotate from Charlie Roberts' Gibber.)
 */
 opcode rotate, S, Si
@@ -746,11 +746,11 @@ endop
 /** Repeats a given String x number of times. For example, `Sval = strrep("ab6a", 2)` will produce the value of "ab6aab6a". Useful in working with Hex beat strings.  */
 opcode strrep, S, Si
   Sval, inum xin
-    
+
   Sout = Sval
   indx = 1
   while (indx < inum) do
-    Sout = strcat(Sout, Sval) 
+    Sout = strcat(Sout, Sval)
     indx += 1
   od
 
@@ -760,7 +760,7 @@ endop
 
 ;; Channel Helper
 
-/** Sets i-rate value into channel and sets initialization to true. Works together 
+/** Sets i-rate value into channel and sets initialization to true. Works together
   with xchan */
 opcode xchnset, 0, Si
   SchanName, ival xin
@@ -769,18 +769,18 @@ opcode xchnset, 0, Si
   chnset(ival, SchanName)
 endop
 
-/** xchan 
+/** xchan
   Initializes a channel with initial value if channel has default value of 0 and
   then returns the current value from the channel. Useful in live coding to define
   a dynamic point that will be automated or set outside of the instrument that is
-  using the channel. 
+  using the channel.
 
   Opcode is overloaded to return i- or k- value. Be sure to use xchan:i or xchan:k
-  to specify which value to use. 
+  to specify which value to use.
 */
 opcode xchan, i,Si
   SchanName, initVal xin
-   
+
   Sinit = sprintf("%s_initialized", SchanName)
   if(chnget:i(Sinit) == 0) then
     chnset(1, Sinit)
@@ -789,18 +789,18 @@ opcode xchan, i,Si
   xout chnget:i(SchanName)
 endop
 
-/** xchan 
+/** xchan
   Initializes a channel with initial value if channel has default value of 0 and
   then returns the current value from the channel. Useful in live coding to define
   a dynamic point that will be automated or set outside of the instrument that is
-  using the channel. 
+  using the channel.
 
   Opcode is overloaded to return i- or k- value. Be sure to use xchan:i or xchan:k
-  to specify which value to use. 
+  to specify which value to use.
 */
 opcode xchan, k,Si
   SchanName, initVal xin
-    
+
   Sinit = sprintf("%s_initialized", SchanName)
   if(chnget:i(SchanName) == 0) then
     chnset(1, Sinit)
@@ -811,7 +811,7 @@ endop
 
 ;; SCALE/HARMONY (experimental)
 
-gi_scale_major[] = array(0, 2, 4, 5, 7, 9, 11) 
+gi_scale_major[] = array(0, 2, 4, 5, 7, 9, 11)
 gi_scale_minor[] = array(0, 2, 3, 5, 7, 8, 10)
 
 gi_cur_scale[] = gi_scale_minor
@@ -819,12 +819,12 @@ gi_scale_base = 60
 gi_chord_offset = 0
 
 /** Set root note of scale in MIDI note number. */
-opcode set_root, 0,i 
+opcode set_root, 0,i
   iscale_root xin
   gi_scale_base = iscale_root
 endop
 
-/** Calculate frequency from root note of scale, using 
+/** Calculate frequency from root note of scale, using
 octave and pitch class. */
 opcode from_root, i, ii
   ioct, ipc xin
@@ -842,7 +842,7 @@ opcode set_scale, 0,S
   endif
 endop
 
-/** Calculate frequency from root note of scale, using 
+/** Calculate frequency from root note of scale, using
 octave and scale degree. */
 opcode in_scale, i, ii
   ioct, idegree xin
@@ -859,12 +859,12 @@ opcode in_scale, i, ii
     indx += idegrees
   endif
 
-  xout cpsmidinn(ibase + (ioct * 12) + gi_cur_scale[int(indx)]) 
+  xout cpsmidinn(ibase + (ioct * 12) + gi_cur_scale[int(indx)])
 endop
 
-/** Calculate frequency from root note of scale, using 
+/** Calculate frequency from root note of scale, using
 octave and scale degree. (k-rate version of opcode) */
-opcode in_scale, k, kk 
+opcode in_scale, k, kk
   koct, kdegree xin
 
   kbase = gi_scale_base + (koct * 12)
@@ -879,18 +879,18 @@ opcode in_scale, k, kk
     kndx += idegrees
   endif
 
-  xout cpsmidinn(kbase + (koct * 12) + gi_cur_scale[int(kndx)]) 
+  xout cpsmidinn(kbase + (koct * 12) + gi_cur_scale[int(kndx)])
 endop
 
-/** Quantizes given MIDI note number to the given scale 
+/** Quantizes given MIDI note number to the given scale
     (Base on pc:quantize from Extempore) */
 opcode pc_quantize, i, ii[]
   ipitch_in, iscale[] xin
   inotenum = round:i(ipitch_in)
   ipc = inotenum % 12
   iout = inotenum
-  
-  
+
+
   indx = 0
   while (indx < 7) do
     if(contains(ipc + indx, iscale) == 1) then
@@ -906,17 +906,17 @@ opcode pc_quantize, i, ii[]
   xout iout
 endop
 
-/** Quantizes given MIDI note number to the current active scale 
+/** Quantizes given MIDI note number to the current active scale
     (Base on pc:quantize from Extempore) */
 opcode pc_quantize, i, i
   ipitch_in xin
   ival = pc_quantize(ipitch_in, gi_cur_scale)
   xout ival
-endop  
+endop
 
 /* BELOW CHORD SYSTEM IS EXPERIMENTAL */
 
-gi_chord_base = 0 
+gi_chord_base = 0
 gi_chord_maj[] = array(0,4,7)
 gi_chord_maj7[] = array(0,4,7,11)
 gi_chord_min[] = array(0,3,7)
@@ -924,7 +924,7 @@ gi_chord_min7[] = array(0,3,7,10)
 gi_chord_dim[] = array(0,3,6)
 gi_chord_dim7[] = array(0,3,6,9)
 gi_chord_aug[] = array(0,4,8)
-gi_chord_current[] = gi_chord_maj 
+gi_chord_current[] = gi_chord_maj
 
 opcode set_chord, 0, ii[]
   ichord_root, ichord_intervals[] xin
@@ -932,7 +932,7 @@ opcode set_chord, 0, ii[]
   gi_chord_current = ichord_intervals
 endop
 
-opcode set_chord, 0, S 
+opcode set_chord, 0, S
   Schord xin
 endop
 
@@ -951,7 +951,7 @@ opcode in_chord, i, ii
     indx += idegrees
   endif
 
-  xout cpsmidinn(ibase + (ioct * 12) + gi_chord_current[indx]) 
+  xout cpsmidinn(ibase + (ioct * 12) + gi_chord_current[indx])
 endop
 
 ;; AUDIO
@@ -977,7 +977,7 @@ endop
 ;; KILLING INSTANCES
 
 instr KillImpl
-  Sinstr = p4 
+  Sinstr = p4
   if (nstrnum(Sinstr) > 0) then
     turnoff2(Sinstr, 0, 0)
   endif
@@ -1000,11 +1000,11 @@ opcode clear_instr, 0,S
   Sinstr xin
   Sinstr_body = sprintf("instr %s\nendin\n", Sinstr)
   ires = compilestr(Sinstr_body)
-  prints(sprintf("Cleared instrument definition: %s\n", 
+  prints(sprintf("Cleared instrument definition: %s\n",
           Sinstr))
 endop
 
-/** Starts running a named instrument for indefinite time using p2=0 and p3=-1. 
+/** Starts running a named instrument for indefinite time using p2=0 and p3=-1.
   Will first turnoff any instances of existing named instrument first.  Useful
   when livecoding always-on audio and control signal process instruments. */
 opcode start, 0,S
@@ -1031,7 +1031,7 @@ instr CodeEval
 endin
 
 /** Evaluate code at a given time */
-opcode eval_at_time, 0, Si 
+opcode eval_at_time, 0, Si
   Scode, istart xin
   iblock init ksmps / sr
   ;; adjust one block of time difference since this is
@@ -1040,7 +1040,7 @@ opcode eval_at_time, 0, Si
 endop
 
 
-;; Fades 
+;; Fades
 
 gi_fade_range init -30
 
@@ -1057,14 +1057,14 @@ opcode fade_in, i, ii
   Schan = sprintf("fade_chan_%d", ident)
   ival = chnget:i(Schan)
   if(ival < 1.0) then
-    ival = limit:i(ival + (1 / inumticks), 0, 1.0) 
+    ival = limit:i(ival + (1 / inumticks), 0, 1.0)
     chnset(ival, Schan)
     iret = ampdbfs((1- ival) * gi_fade_range)
   else
     iret = ival
   endif
 
-  xout iret 
+  xout iret
 endop
 
 /** Given a fade channel identifier (number) and number of ticks to fade over time, advances from current fade channel value towards 0 using the globally set fade range. (By default starts fading out from 0dBfs and stops at -30dbfs.) */
@@ -1076,14 +1076,14 @@ opcode fade_out, i, ii
   iret init 0
 
   if(ival > 0.0) then
-    ival = limit:i(ival - (1 / inumticks), 0, 1.0) 
+    ival = limit:i(ival - (1 / inumticks), 0, 1.0)
     chnset(ival, Schan)
     iret = ampdbfs((1- ival) * gi_fade_range)
   else
     iret = ival
   endif
 
-  xout iret 
+  xout iret
 endop
 
 /** Read value from fade channel. Useful if copy/pasting then wanting to just read from fade and control in the original code. */
@@ -1091,14 +1091,14 @@ opcode fade_read, i, i
   ident xin
   Schan = sprintf("fade_chan_%d", ident)
   iret = chnget:i(Schan)
-  xout iret 
+  xout iret
 endop
 
 /**  Set value for fade channel to given value. Should be in range 0-1.0.  (Typically one sets to either 0 or 1.) */
 opcode set_fade, 0,ii
   ident, ival xin
   Schan = sprintf("fade_chan_%d", ident)
-  ival = limit:i(ival, 0, 1.0) 
+  ival = limit:i(ival, 0, 1.0)
   chnset(ival, Schan)
 endop
 
@@ -1132,8 +1132,8 @@ endop
 opcode sbus_read, aa, i
   ibus xin
   aclear init 0
-  al = ga_sbus[ibus][0] 
-  ar = ga_sbus[ibus][1] 
+  al = ga_sbus[ibus][0]
+  ar = ga_sbus[ibus][1]
   xout al, ar
 endop
 
@@ -1141,7 +1141,7 @@ endop
 
 gi_reverb_mixer_on init 0
 
-/** Always-on Mixer instrument with Reverb send channel. Use start("ReverbMixer") to run. Designed 
+/** Always-on Mixer instrument with Reverb send channel. Use start("ReverbMixer") to run. Designed
     for use with pan_verb_mix to simplify signal-based live coding. */
 instr ReverbMixer
 
@@ -1150,26 +1150,26 @@ instr ReverbMixer
   ;; dry and reverb send signals
   a1, a2 sbus_read 0
   a3, a4 sbus_read 1
-  
+
   al, ar reverbsc a3, a4, xchan:k("Reverb.fb", 0.7), xchan:k("Reverb.cut", 12000)
-  
+
   kamp = xchan:k("Mix.amp", 1.0)
-  
+
   a1 = tanh(a1 + al) * kamp
   a2 = tanh(a2 + ar) * kamp
-  
+
   out(a1, a2)
-  
+
   sbus_clear(0)
   sbus_clear(1)
 endin
 
 
-/** Always-on Mixer instrument with Reverb send channel and feedback delay. Use start("FBReverbMixer") to run. Designed 
+/** Always-on Mixer instrument with Reverb send channel and feedback delay. Use start("FBReverbMixer") to run. Designed
     for use with pan_verb_mix to simplify signal-based live coding. */
-instr FBReverbMixer 
+instr FBReverbMixer
   al, ar sbus_read 0
-  
+
   afb0 init 0
   afb1 init 0
 
@@ -1178,12 +1178,12 @@ instr FBReverbMixer
   ;; dry and reverb send signals
   a1, a2 sbus_read 0
   a3, a4 sbus_read 1
-  
+
   al, ar reverbsc a3, a4, xchan:k("Reverb.fb", 0.7), xchan:k("Reverb.cut", 12000)
 
-  a1 = tanh(a1 + al + afb0) 
+  a1 = tanh(a1 + al + afb0)
   a2 = tanh(a2 + ar + afb1)
- 
+
   kfb_amt = xchan:k("FB.amt", 0.9)
   kfb_dur = xchan:k("FB.dur", 4.2) * 1000 ;; time in ms
 
@@ -1193,55 +1193,55 @@ instr FBReverbMixer
   kamp = xchan:k("Mix.amp", 1.0)
   a1 *= kamp
   a2 *= kamp
-  
+
   out(a1, a2)
-  
+
   sbus_clear(0)
   sbus_clear(1)
 
 endin
 
-/** Utility opcode to pan signal, send dry to mixer, and send amount 
-    of signal to reverb. If ReverbMixer is not on, will output just 
+/** Utility opcode to pan signal, send dry to mixer, and send amount
+    of signal to reverb. If ReverbMixer is not on, will output just
     panned signal using out opcode. */
 opcode pan_verb_mix, 0,akk
   asig, kpan, krvb xin
    ;; Panning and send to mixer
   al, ar pan2 asig, kpan
- 
+
   if(gi_reverb_mixer_on == 1) then
     sbus_mix(0, al, ar)
     sbus_mix(1, al * krvb, ar * krvb)
-  else 
+  else
     out(al, ar)
   endif
 endop
 
-/** Utility opcode to send dry stereo to mixer and send amount 
-    of stereo signal to reverb. If ReverbMixer is not on, will output just 
+/** Utility opcode to send dry stereo to mixer and send amount
+    of stereo signal to reverb. If ReverbMixer is not on, will output just
     panned signal using out opcode. */
 opcode reverb_mix, 0, aak
   al, ar, krvb xin
- 
+
   if(gi_reverb_mixer_on == 1) then
     sbus_mix(0, al, ar)
     sbus_mix(1, al * krvb, ar * krvb)
-  else 
+  else
     out(al, ar)
   endif
 endop
 
 ;; Automation
 
-/** Set a channel value at a given time. p4=ChannelName, p5=value*/ 
+/** Set a channel value at a given time. p4=ChannelName, p5=value*/
 instr ChnSet
   Schan = p4
   ival = p5
   chnset(ival, Schan)
 endin
 
-/** Automation instrument for channels. Takes in "ChannelName", start value, end value, and automation type (0=linear, else exponential). */ 
-instr Auto 
+/** Automation instrument for channels. Takes in "ChannelName", start value, end value, and automation type (0=linear, else exponential). */
+instr Auto
   Schan = p4
   istart = p5
   iend = p6
@@ -1257,7 +1257,7 @@ instr Auto
   chnset(kauto, Schan)
 endin
 
-/** Automate channel value over time. Takes in "ChannelName", duration, start value, end value, and automation type (0=linear, else exponential). For exponential, signs of istart and end must match and neither can be zero. */ 
+/** Automate channel value over time. Takes in "ChannelName", duration, start value, end value, and automation type (0=linear, else exponential). For exponential, signs of istart and end must match and neither can be zero. */
 opcode automate, 0, Siiii
   Schan, idur, istart, iend, itype xin
   schedule("Auto", 0, idur, Schan, istart, iend, itype)
@@ -1272,7 +1272,7 @@ endin
 opcode fade_out_mix, 0, o
   idur xin
   idur = (idur <= 0 ? 30 : idur)
-  schedule("FadeOutMix", 0, idur) 
+  schedule("FadeOutMix", 0, idur)
   schedule("ChnSet", idur + 0.1, 0, "Mix.amp", 0)
 endop
 
@@ -1303,8 +1303,8 @@ endin
 /** Subtractive Synth, two saws, fifth freq apart */
 instr Sub2
   icut = xchan:i("Sub2.cut", sr / 3)
-  asig = vco2(ampdbfs(-12), p4) 
-  asig += vco2(ampdbfs(-12), p4 * 1.5) 
+  asig = vco2(ampdbfs(-12), p4)
+  asig += vco2(ampdbfs(-12), p4 * 1.5)
   asig = zdf_ladder(asig, expon(icut, p3, 400), 5)
   asig = declick(asig) * p5
   pan_verb_mix(asig, xchan:i("Sub2.pan", 0.5), xchan:i("Sub2.rvb", chnget:i("rvb.default")))
@@ -1312,20 +1312,20 @@ endin
 
 
 /** Subtractive Synth, three detuned saws, swells in */
-instr Sub3 
+instr Sub3
   asig = vco2(p5, p4)
   asig += vco2(p5, p4 * 1.01)
   asig += vco2(p5, p4 * 0.995)
-  asig *= 0.33 
-  asig = zdf_ladder(asig, expon(100, p3, 22000), 12) 
+  asig *= 0.33
+  asig = zdf_ladder(asig, expon(100, p3, 22000), 12)
   asig = declick(asig)
   pan_verb_mix(asig, xchan:i("Sub3.pan", 0.5), xchan:i("Sub3.rvb", chnget:i("rvb.default")))
 endin
 
-/** Subtractive Synth, detuned square/saw, stabby. 
+/** Subtractive Synth, detuned square/saw, stabby.
    Nice as a lead in octave 2, nicely grungy in octave -2, -1
 */
-instr Sub4 
+instr Sub4
   asig = vco2(0.5, p4 * 2)
   asig += vco2(0.5, p4 * 2.01, 10)
   asig += vco2(1, p4, 10)
@@ -1352,12 +1352,12 @@ instr Sub6
 
   asig = K35_hpf(asig, limit:i(p4, 30, 16000), 1)
   asig = K35_lpf(asig, expseg:k(12000, p3, limit:i(p4 * 8, 30, 12000)), 2.5)
-  
+
   asig = saturate(asig, 4.5)
   asig *= p5 * 0.5
-  
+
   asig = declick(asig)
-  
+
   pan_verb_mix(asig, xchan:i("Sub6.pan", 0.5), xchan:i("Sub6.rvb", chnget:i("rvb.default")))
 endin
 
@@ -1368,12 +1368,12 @@ instr Sub7
 
   asig = K35_hpf(asig, limit:i(p4, 30, 16000), 1)
   asig = K35_lpf(asig, expseg:k(12000, p3, limit:i(p4 * 8, 30, 12000)), 2.5)
-  
+
   asig = saturate(asig, 4.5)
   asig *= p5 * 0.3
-  
+
   asig = declick(asig)
-  
+
   pan_verb_mix(asig, xchan:i("Sub7.pan", 0.5), xchan:i("Sub7.rvb", chnget:i("rvb.default")))
 endin
 
@@ -1381,8 +1381,8 @@ endin
 instr Sub8
   asig = vco2(p5, p4, 10)
   asig += vco2(p5 * 0.5, p4 * 2)
-  asig += vco2(p5 * 0.15, p4 * 3.5, 12)  
-  
+  asig += vco2(p5 * 0.15, p4 * 3.5, 12)
+
   aenv = expon:a(1, 0.15, 0.001)
   asig = saturate(asig, 10)
   asig = diode_ladder(asig, 4000 + aenv * 4000, 12)
@@ -1391,7 +1391,7 @@ instr Sub8
   pan_verb_mix(asig, xchan:i("Sub8.pan", 0.5), xchan:i("Sub8.rvb", chnget:i("rvb.default")))
 endin
 
-/** SynthBrass subtractive synth */ 
+/** SynthBrass subtractive synth */
 instr SynBrass
   ipch = p4
 
@@ -1405,39 +1405,39 @@ endin
 
 /** Synth Harp subtracitve Synth */
 instr SynHarp
-  
+
   asig = vco2(p5, p4)
   asig += vco2(p5, p4 * 0.9993423423)
-  asig += vco2(p5, p4 * 1.00093029423048) 
-  
+  asig += vco2(p5, p4 * 1.00093029423048)
+
   ioct = octcps(p4)
-  
+
   asig = zdf_ladder(asig, cpsoct(limit(linseg:a(ioct + 4, 0.015, ioct + 2, 0.2, ioct), 4.25, 14)), 0.5)
-  asig = zdf_2pole(asig, p4 * 0.5, 0.5, 1)    
-  
+  asig = zdf_2pole(asig, p4 * 0.5, 0.5, 1)
+
   asig *= linen:a(1, 0.012, p3, 0.01)
-  
+
   pan_verb_mix(asig, xchan:i("SynHarp.pan", 0.5), xchan:i("SynHarp.rvb", chnget:i("rvb.default")))
 endin
- 
+
 /** SuperSaw sound using 9 bandlimited saws (3 sets of detuned saws at octaves)*/
 instr SSaw
   asig = vco2(1, p4)
   asig += vco2(1, p4 * cent(9.04234))
   asig += vco2(1, p4 * cent(-7.214342))
-  
+
   asig += vco2(1, p4 * cent(1206.294143))
   asig += vco2(1, p4 * cent(1193.732))
   asig += vco2(1, p4 * cent(1200))
-  
+
   asig += vco2(1, p4 * cent(2406.294143))
   asig += vco2(1, p4 * cent(2393.732))
   asig += vco2(1, p4 * cent(2400))
-  
+
   asig *= 0.1
   icut = xchan:i("SSaw.cut", 16000)
   asig = zdf_ladder(asig, expseg(icut, p3 - 0.05, icut, 0.05, 200), 0.5)
-  asig *= p5 
+  asig *= p5
   asig = declick(asig)
 
   pan_verb_mix(asig, xchan:i("SSaw.pan", 0.5), xchan:i("SSaw.rvb", chnget:i("rvb.default")))
@@ -1451,25 +1451,25 @@ instr Mode1
   asig1 += mode(asig, p4 * 2, p4 * 0.25)
   asig1 += mode(asig, p4 * 4, p4 * 0.125)
 
-  asig = declick(asig1) 
+  asig = declick(asig1)
 
   pan_verb_mix(asig, xchan:i("Mode1.pan", 0.5), xchan:i("Mode1.rvb", chnget:i("rvb.default")))
 endin
 
 /** Pluck sound using impulses, noise, and waveguides*/
-instr Plk 
+instr Plk
   asig = mpulse(p5, 1 / p4)
   asig += random:a(-0.1, 0.1) * expseg(p5, 0.02, 0.001, p3, 0.001)
-  
+
   aout wguide1 asig, 1/ p4, 10000, 0.8
   aout += wguide1(asig, 1/ (2 * p4), 12000, 0.6)
 
   aout = K35_hpf(aout, p4, 0.5)
   aout = zdf_ladder(aout, expon(10000, p3, 100), 3)
   aout = dcblock2(aout)
-  
-  asig = declick(aout) 
-  
+
+  asig = declick(aout)
+
   pan_verb_mix(asig, xchan:i("Plk.pan", 0.5), xchan:i("Plk.rvb", chnget:i("rvb.default")))
 endin
 
@@ -1488,26 +1488,26 @@ instr Organ2
   asig = vco2(1, p4, 4, 0.25)
   asig += vco2(0.8, p4 * 2, 12)
   asig += vco2(0.3, p4 * 3, 10)
-     
+
   icutStart = limit:i(xchan:i("Organ2.cut", 2000), 40, sr * 1/2)
   icutEnd = limit:i(xchan:i("Organ2.cutEnd", 500), 40, sr * 1/2)
   asig = zdf_ladder(asig, expseg(icutStart, 0.08, icutEnd, p3, icutEnd), 2)
-  
+
   asig *= p5 * 0.67
   asig = declick(asig)
-  
+
   pan_verb_mix(asig, xchan:i("Organ2.pan", 0.5), xchan:i("Organ2.rvb", chnget:i("rvb.default")))
 endin
 
 giorgan_claribel_flute = ftgen(0, 0, 65536, 10, 1, ampdbfs(-30), ampdbfs(-35), ampdbfs(-40), ampdbfs(-32), ampdbfs(-40), ampdbfs(-42))
 
-/** Wavetable Organ using Flute 8' and Flute 4', wavetable based on Claribel Flute 
+/** Wavetable Organ using Flute 8' and Flute 4', wavetable based on Claribel Flute
     http://www.pykett.org.uk/the_tonal_structure_of_organ_flutes.htm */
-instr Organ3 
+instr Organ3
   asig = oscili(p5, p4, giorgan_claribel_flute)
-  asig += oscili(p5, p4 * 2, giorgan_claribel_flute)  
+  asig += oscili(p5, p4 * 2, giorgan_claribel_flute)
   ;asig += oscili(p5, p4 * 0.5)
-  
+
   asig *= linen:a(1, .02, p3, .01)
 
   pan_verb_mix(asig, xchan:i("Organ3.pan", 0.5), xchan:i("Organ3.rvb", chnget:i("rvb.default")))
@@ -1518,29 +1518,29 @@ endin
 instr Bass
 
   asig = vco2(p5, p4, 10)
-  asig += vco2(p5 * 0.25, p4 * 0.9992342342, 10)  
+  asig += vco2(p5 * 0.25, p4 * 0.9992342342, 10)
   asig += vco2(p5 * 0.5, p4 * 2.000234234)
   aenv = linseg:a(1, 0.2, 0.1, p3 - 0.2, 0) * 6
   asig = zdf_ladder(asig, cpsoct(5 + aenv), 4 )
-  
+
   asig *= linen:a(0.7, 0, p3, 0.01)
-  
+
   pan_verb_mix(asig, xchan:i("Bass.pan", 0.5), xchan:i("Bass.rvb", chnget:i("rvb.default")))
 
 endin
 
 /** MS20-style Bass Sound */
 
-instr ms20_bass 
-  ipch = p4 
-  iamp = p5 
+instr ms20_bass
+  ipch = p4
+  iamp = p5
   aenv = expseg(1000, 0.1, ipch * 2, p3 - .05, ipch * 2)
 
   asig = vco2(1.0, ipch)
   asig = K35_hpf(asig, ipch, 5, 0, 1)
   asig = K35_lpf(asig, aenv, 8, 0, 1)
 
-  asig *= expon:a(iamp, p3, 0.0001) 
+  asig *= expon:a(iamp, p3, 0.0001)
 
   pan_verb_mix(asig, xchan:i("ms20_bass.pan", 0.5), xchan:i("ms20_bass.rvb", chnget:i("rvb.default")))
 endin
@@ -1548,9 +1548,9 @@ endin
 
 /** VoxHumana Patch */
 
-instr VoxHumana 
-  ipch = p4 
-  iamp = p5 
+instr VoxHumana
+  ipch = p4
+  iamp = p5
   aenv = transegr:a(0, 0.453, 1, 1.0, 2.242, -1, 0)
 
   klfo_pulse_width = lfo(0.125, 5.72, 1)
@@ -1570,7 +1570,7 @@ instr VoxHumana
 endin
 
 /** FM 3:1 C:M ratio, 2->0.025 index, nice for bass */
-instr FM1 
+instr FM1
   icar = xchan("FM1.car", 1)
   imod = xchan("FM1.mod", 3)
   asig = foscili(p5, p4, icar, imod, expon(2, 0.2, 0.025))
@@ -1579,8 +1579,8 @@ instr FM1
 endin
 
 /** Filtered noise, exponential envelope */
-instr Noi 
-  p3 = max:i(p3, 0.4) 
+instr Noi
+  p3 = max:i(p3, 0.4)
   asig = pinker() * p5 * expon(1, p3, 0.001) * 0.1
 
   a1 = mode(asig, p4, 80)
@@ -1607,16 +1607,16 @@ instr Wobble
     chnset(itri, "Wobble.triangle")
   endif
 
-  ;; dur in ticks (16ths) for wobble lfo 
+  ;; dur in ticks (16ths) for wobble lfo
   iticks = xchan("Wobble.ticks", 2)
   ;; modulation max
-  imod = p4 * 8 
+  imod = p4 * 8
 
   klfo = oscili:k(1, 1 / ticks(iticks), itri)
 
   asig = vco2(p5, p4 * 2.018)
   asig += vco2(p5, p4, 10)
-  asig = zdf_ladder(asig, min:k(p4 + (imod * klfo), 22000), 12) 
+  asig = zdf_ladder(asig, min:k(p4 + (imod * klfo), 22000), 12)
   asig *= expon(1, beats(16), 0.001)
   asig = declick(asig)
   pan_verb_mix(asig, xchan:i("Wobble.pan", 0.5), xchan:i("Wobble.rvb", chnget:i("rvb.default")))
@@ -1654,21 +1654,21 @@ instr Squine1
 
   asig = (asig + a2 * 0.05) * p5 * 0.5
   asig = butterhp(asig, p4)
-  asig *= linen:a(1, .015, p3, .02) 
+  asig *= linen:a(1, .015, p3, .02)
   asig = dcblock2(asig)
 
   pan_verb_mix(asig, xchan:i("Squine1.pan", 0.5), xchan:i("Squine1.rvb", chnget:i("rvb.default")))
-  
+
 endin
 
 gi_lc_sine = ftgen(0, 0, 65536, 10, 1)
 
 /** Formant Synth, buzz source, soprano ah formants */
-instr Form1 
+instr Form1
   iamp = p5
   ifreq = p4
   asig = buzz(1, ifreq * (1 + lfo(.003, 4)), (sr / 2) / ifreq, gi_lc_sine)
-  
+
   a1 = butterbp(asig, 800, 80)
   a2 = butterbp(asig * ampdbfs(-6), 1150, 90)
   a3 = butterbp(asig * ampdbfs(-32), 2900 , 120)
@@ -1677,7 +1677,7 @@ instr Form1
 
   asig = a1 + a2 + a3 + a4 + a5
   asig *= 35 * iamp * adsr(0.05, 0, 1, 0.01)
-  
+
   pan_verb_mix(asig, xchan:i("Form1.pan", 0.5), xchan:i("Form1.rvb", chnget:i("rvb.default")))
 endin
 
@@ -1687,9 +1687,9 @@ endin
 instr Mono
   asig = vco2(xchan:k("Mono.amp", 0.0), portk(xchan:k("Mono.freq", 60), xchan:k("Mono.glide", 0.02)))
   asig = zdf_ladder(asig, xchan:k("Mono.cut", 4000), xchan:k("Mono.Q", 10))
-  
+
   kpan = xchan:k("Mono.pan", 0.5)
-  aL,aR pan2  asig,kpan             
+  aL,aR pan2  asig,kpan
 
   pan_verb_mix(asig, xchan:k("Mono.pan", 0.5), xchan:k("Mono.rvb", chnget:i("rvb.default")))
 endin
@@ -1706,27 +1706,27 @@ endin
 ;; DRUMS
 
 /** Bandpass-filtered impulse glitchy click sound. p4 = center frequency (e.g., 3000, 6000) */
-instr Click 
+instr Click
   asig = mpulse(1, 0)
   asig = zdf_2pole(asig, p4, 3, 3)
-  
-  asig *= p5 * 4      ;; adjust amp 
+
+  asig *= p5 * 4      ;; adjust amp
   asig *= linen:a(1, 0, p3, 0.01)
-  
+
   pan_verb_mix(asig, xchan:i("Click.pan", 0.5), xchan:i("Click.rvb", chnget:i("rvb.default")))
 endin
 
 /** Highpass-filtered noise+saw sound. Use NoiSaw.cut channel to adjust cutoff. */
-instr NoiSaw 
+instr NoiSaw
   asig = random:a(-1, 1)
   asig += vco2(1, 100)
   asig = zdf_2pole(asig, xchan:i("NoiSaw.cut", 3000), 1, 3)
-  
+
   asig *= p5 * 0.5
   asig *= expseg:a(1, 0.1, 0.001, p3, 0.0001)
-  
+
   asig *= linen:a(1, 0, p3, 0.01)
-  
+
   pan_verb_mix(asig, xchan:i("NoiSaw.pan", 0.5), xchan:i("NoiSaw.rvb", chnget:i("rvb.default")))
 endin
 
@@ -1757,14 +1757,14 @@ instr Clap
   a_  =  aenv1 * (a_ - 1.0)
   a_  butterbp a_, ibpfrq, kbpbwd
 
-  aout = a_ * 80 * iamp ;; 
+  aout = a_ * 80 * iamp ;;
   pan_verb_mix(aout, xchan:k("Clap.pan", 0.7), xchan:k("Clap.rvb", chnget:i("drums.rvb.default")))
 endin
 
 
 
 gi_808_sine  ftgen 0,0,1024,10,1   ;A SINE WAVE
-gi_808_cos ftgen 0,0,65536,9,1,1,90  ;A COSINE WAVE 
+gi_808_cos ftgen 0,0,65536,9,1,1,90  ;A COSINE WAVE
 
 /** Bass Drum - From Iain McCurdy's TR-808.csd */
 instr BD  ;BASS DRUM
@@ -1775,36 +1775,36 @@ instr BD  ;BASS DRUM
 
   ;SUSTAIN AND BODY OF THE SOUND
   kmul = transeg(0.2,p3*0.5,-15,0.01, p3*0.5,0,0)         ;PARTIAL STRENGTHS MULTIPLIER USED BY GBUZZ. DECAYS FROM A SOUND WITH OVERTONES TO A SINE TONE.
-  kbend = transeg(0.5,1.2,-4, 0,1,0,0)            ;SLIGHT PITCH BEND AT THE START OF THE NOTE 
+  kbend = transeg(0.5,1.2,-4, 0,1,0,0)            ;SLIGHT PITCH BEND AT THE START OF THE NOTE
   asig = gbuzz(0.5,50*octave(itune)*semitone(kbend),20,1,kmul,gi_808_cos)   ;GBUZZ TONE
   aenv = transeg:a(1,p3-0.004,-6,0)             ;AMPLITUDE ENVELOPE FOR SUSTAIN OF THE SOUND
   aatt = linseg:a(0,0.004,1, .01, 1)              ;SOFT ATTACK
   asig= asig*aenv*aatt
 
   ;HARD, SHORT ATTACK OF THE SOUND
-  aenv  = linseg:a(1,0.07,0, .01, 0)              ;AMPLITUDE ENVELOPE (FAST DECAY)            
+  aenv  = linseg:a(1,0.07,0, .01, 0)              ;AMPLITUDE ENVELOPE (FAST DECAY)
   acps = expsega(400,0.07,0.001,1,0.001)            ;FREQUENCY OF THE ATTACK SOUND. QUICKLY GLISSES FROM 400 Hz TO SUB-AUDIO
   aimp = oscili(aenv,acps*octave(itune*0.25),gi_808_sine)       ;CREATE ATTACK SOUND
-  
+
   amix  = ((asig*0.5)+(aimp*0.35))*ilevel*p5      ;MIX SUSTAIN AND ATTACK SOUND ELEMENTS AND SCALE USING GUI 'Level' KNOB
-  
+
   pan_verb_mix(amix, xchan:k("BD.pan", 0.5), xchan:k("BD.rvb", chnget:i("drums.rvb.default")))
 endin
 
 
 /** Snare Drum - From Iain McCurdy's TR-808.csd */
 instr SD  ;SNARE DRUM
-  
+
   ;SOUND CONSISTS OF TWO SINE TONES, AN OCTAVE APART AND A NOISE SIGNAL
-  idur = xchan("SD.decay", 1.0) 
-  ilevel = xchan("SD.level", 1) 
+  idur = xchan("SD.decay", 1.0)
+  ilevel = xchan("SD.level", 1)
   itune = xchan("SD.tune", 0)
 
   ifrq    = 342   ;FREQUENCY OF THE TONES
   iNseDur = 0.3 * idur  ;DURATION OF THE NOISE COMPONENT
   iPchDur = 0.1 * idur  ;DURATION OF THE SINE TONES COMPONENT
   p3  = iNseDur   ;p3 DURATION TAKEN FROM NOISE COMPONENT DURATION (ALWATS THE LONGEST COMPONENT)
-  
+
   ;SINE TONES COMPONENT
   aenv1 = expseg(1, iPchDur, 0.0001, p3-iPchDur, 0.0001)    ;AMPLITUDE ENVELOPE
   apitch1 = oscili(1, ifrq * octave(itune), gi_808_sine)      ;SINE TONE 1
@@ -1827,20 +1827,20 @@ endin
 /** Open High Hat - From Iain McCurdy's TR-808.csd */
 instr OHH ;OPEN HIGH HAT
 
-  idur = xchan("OHH.decay", 1.0)  
-  ilevel = xchan("OHH.level", 1) 
+  idur = xchan("OHH.decay", 1.0)
+  ilevel = xchan("OHH.level", 1)
   itune = xchan("OHH.tune", 0)
   ioct = octave:i(itune)
 
 
   kFrq1 = 296*ioct  ;FREQUENCIES OF THE 6 OSCILLATORS
-  kFrq2 = 285*ioct  
-  kFrq3 = 365*ioct  
-  kFrq4 = 348*ioct  
-  kFrq5 = 420*ioct  
-  kFrq6 = 835*ioct  
+  kFrq2 = 285*ioct
+  kFrq3 = 365*ioct
+  kFrq4 = 348*ioct
+  kFrq5 = 420*ioct
+  kFrq6 = 835*ioct
   p3  = 0.5*idur    ;DURATION OF THE NOTE
-  
+
   ;SOUND CONSISTS OF 6 PULSE OSCILLATORS MIXED WITH A NOISE COMPONENT
   ;PITCHED ELEMENT
   aenv  linseg  1,p3-0.05,0.1,0.05,0    ;AMPLITUDE ENVELOPE FOR THE PULSE OSCILLATORS
@@ -1856,7 +1856,7 @@ instr OHH ;OPEN HIGH HAT
   amix  buthp amix,5000     ;HIGHPASS FILTER THE SOUND...
   amix  buthp amix,5000     ;...AND AGAIN
   amix  = amix*aenv     ;APPLY THE AMPLITUDE ENVELOPE
-  
+
   ;NOISE ELEMENT
   anoise  noise 0.8,0       ;GENERATE SOME WHITE NOISE
   aenv  linseg  1,p3-0.05,0.1,0.05,0    ;CREATE AN AMPLITUDE ENVELOPE
@@ -1864,7 +1864,7 @@ instr OHH ;OPEN HIGH HAT
   anoise  butlp anoise,kcf      ;LOWPASS FILTER THE NOISE SIGNAL
   anoise  buthp anoise,8000     ;HIGHPASS FILTER THE NOISE SIGNAL
   anoise  = anoise*aenv     ;APPLY THE AMPLITUDE ENVELOPE
-  
+
   ;MIX PULSE OSCILLATOR AND NOISE COMPONENTS
   amix  = (amix+anoise)*ilevel*p5*0.55
 
@@ -1874,22 +1874,22 @@ endin
 
 /** Closed High Hat - From Iain McCurdy's TR-808.csd */
 instr CHH ;CLOSED HIGH HAT
-  idur = xchan("CHH.decay", 1.0)  
-  ilevel = xchan("CHH.level", 1) 
+  idur = xchan("CHH.decay", 1.0)
+  ilevel = xchan("CHH.level", 1)
   itune = xchan("CHH.tune", 0)
   ioct = octave:i(itune)
 
   kFrq1 = 296*ioct  ;FREQUENCIES OF THE 6 OSCILLATORS
-  kFrq2 = 285*ioct  
-  kFrq3 = 365*ioct  
-  kFrq4 = 348*ioct  
-  kFrq5 = 420*ioct  
-  kFrq6 = 835*ioct  
+  kFrq2 = 285*ioct
+  kFrq3 = 365*ioct
+  kFrq4 = 348*ioct
+  kFrq5 = 420*ioct
+  kFrq6 = 835*ioct
   idur  = 0.088*idur    ;DURATION OF THE NOTE
   p3  limit idur,0.1,10   ;LIMIT THE MINIMUM DURATION OF THE NOTE (VERY SHORT NOTES CAN RESULT IN THE INDICATOR LIGHT ON-OFF NOTE BEING TO0 SHORT)
 
   iohh = nstrnum("OHH")
-  iactive = active(iohh)      ;SENSE ACTIVITY OF PREVIOUS INSTRUMENT (OPEN HIGH HAT) 
+  iactive = active(iohh)      ;SENSE ACTIVITY OF PREVIOUS INSTRUMENT (OPEN HIGH HAT)
   if iactive>0 then     ;IF 'OPEN HIGH HAT' IS ACTIVE...
    turnoff2 iohh,0,0    ;TURN IT OFF (CLOSED HIGH HAT TAKES PRESIDENCE)
   endif
@@ -1897,7 +1897,7 @@ instr CHH ;CLOSED HIGH HAT
   ;PITCHED ELEMENT
   aenv  expsega 1,idur,0.001,1,0.001    ;AMPLITUDE ENVELOPE FOR THE PULSE OSCILLATORS
   ipw = 0.25        ;PULSE WIDTH
-  a1  vco2  0.5,kFrq1,2,ipw     ;PULSE OSCILLATORS...     
+  a1  vco2  0.5,kFrq1,2,ipw     ;PULSE OSCILLATORS...
   a2  vco2  0.5,kFrq2,2,ipw
   a3  vco2  0.5,kFrq3,2,ipw
   a4  vco2  0.5,kFrq4,2,ipw
@@ -1908,7 +1908,7 @@ instr CHH ;CLOSED HIGH HAT
   amix  buthp amix,5000     ;HIGHPASS FILTER THE SOUND...
   amix  buthp amix,5000     ;...AND AGAIN
   amix  = amix*aenv     ;APPLY THE AMPLITUDE ENVELOPE
-  
+
   ;NOISE ELEMENT
   anoise  noise 0.8,0       ;GENERATE SOME WHITE NOISE
   aenv  expsega 1,idur,0.001,1,0.001    ;CREATE AN AMPLITUDE ENVELOPE
@@ -1916,7 +1916,7 @@ instr CHH ;CLOSED HIGH HAT
   anoise  butlp anoise,kcf      ;LOWPASS FILTER THE NOISE SIGNAL
   anoise  buthp anoise,8000     ;HIGHPASS FILTER THE NOISE SIGNAL
   anoise  = anoise*aenv     ;APPLY THE AMPLITUDE ENVELOPE
-  
+
   ;MIX PULSE OSCILLATOR AND NOISE COMPONENTS
   amix  = (amix+anoise)*ilevel*p5*0.55
 
@@ -1925,8 +1925,8 @@ endin
 
 /** High Tom - From Iain McCurdy's TR-808.csd */
 instr HiTom ;HIGH TOM
-  idur = xchan("HiTom.decay", 1.0)  
-  ilevel = xchan("HiTom.level", 1) 
+  idur = xchan("HiTom.decay", 1.0)
+  ilevel = xchan("HiTom.level", 1)
   itune = xchan("HiTom.tune", 0)
   ioct = octave:i(itune)
 
@@ -1945,7 +1945,7 @@ instr HiTom ;HIGH TOM
   anoise  buthp anoise,100*ioct   ;HIGHPASS FILTER THE NOSIE SIGNAL
   anoise  butlp anoise,1000*ioct    ;LOWPASS FILTER THE NOISE SIGNAL
   anoise  = anoise * aEnvNse      ;SCALE NOISE SIGNAL WITH AMPLITUDE ENVELOPE
-  
+
   ;MIX THE TWO SOUND COMPONENTS
   amix  = (asig + anoise)*ilevel*p5
 
@@ -1954,8 +1954,8 @@ endin
 
 /** Mid Tom - From Iain McCurdy's TR-808.csd */
 instr MidTom ;MID TOM
-  idur = xchan("MidTom.decay", 1.0) 
-  ilevel = xchan("MidTom.level", 1) 
+  idur = xchan("MidTom.decay", 1.0)
+  ilevel = xchan("MidTom.level", 1)
   itune = xchan("MidTom.tune", 0)
   ioct = octave:i(itune)
 
@@ -1974,7 +1974,7 @@ instr MidTom ;MID TOM
   anoise  buthp anoise,100*ioct   ;HIGHPASS FILTER THE NOSIE SIGNAL
   anoise  butlp anoise,600*ioct   ;LOWPASS FILTER THE NOISE SIGNAL
   anoise  = anoise * aEnvNse      ;SCALE NOISE SIGNAL WITH AMPLITUDE ENVELOPE
-  
+
   ;MIX THE TWO SOUND COMPONENTS
   amix  = (asig + anoise)*ilevel*p5
 
@@ -1983,8 +1983,8 @@ endin
 
 /** Low Tom - From Iain McCurdy's TR-808.csd */
 instr LowTom  ;LOW TOM
-  idur = xchan("LowTom.decay", 1.0) 
-  ilevel = xchan("LowTom.level", 1) 
+  idur = xchan("LowTom.decay", 1.0)
+  ilevel = xchan("LowTom.level", 1)
   itune = xchan("LowTom.tune", 0)
   ioct = octave:i(itune)
 
@@ -2003,7 +2003,7 @@ instr LowTom  ;LOW TOM
   anoise  buthp anoise,100*ioct   ;HIGHPASS FILTER THE NOSIE SIGNAL
   anoise  butlp anoise,600*ioct   ;LOWPASS FILTER THE NOISE SIGNAL
   anoise  = anoise * aEnvNse      ;SCALE NOISE SIGNAL WITH AMPLITUDE ENVELOPE
-  
+
   ;MIX THE TWO SOUND COMPONENTS
   amix  = (asig + anoise)*ilevel*p5
 
@@ -2014,28 +2014,28 @@ endin
 
 /** Cymbal - From Iain McCurdy's TR-808.csd */
 instr Cymbal  ;CYMBAL
-  idur = xchan("Cymbal.decay", 1.0) 
-  ilevel = xchan("Cymbal.level", 1) 
+  idur = xchan("Cymbal.decay", 1.0)
+  ilevel = xchan("Cymbal.level", 1)
   itune = xchan("Cymbal.tune", 0)
   ioct = octave:i(itune)
 
   iFrq1 = 296*ioct  ;FREQUENCIES OF THE 6 OSCILLATORS
   iFrq2 = 285*ioct
   iFrq3 = 365*ioct
-  iFrq4 = 348*ioct     
+  iFrq4 = 348*ioct
   iFrq5 = 420*ioct
   iFrq6 = 835*ioct
   p3  = 2*idur  ;DURATION OF THE NOTE
 
   ;SOUND CONSISTS OF 6 PULSE OSCILLATORS MIXED WITH A NOISE COMPONENT
   ;PITCHED ELEMENT
-  aenv  expon 1,p3,0.0001   ;AMPLITUDE ENVELOPE FOR THE PULSE OSCILLATORS 
-  ipw = 0.25      ;PULSE WIDTH      
-  a1  vco2  0.5,iFrq1,2,ipw   ;PULSE OSCILLATORS...  
+  aenv  expon 1,p3,0.0001   ;AMPLITUDE ENVELOPE FOR THE PULSE OSCILLATORS
+  ipw = 0.25      ;PULSE WIDTH
+  a1  vco2  0.5,iFrq1,2,ipw   ;PULSE OSCILLATORS...
   a2  vco2  0.5,iFrq2,2,ipw
   a3  vco2  0.5,iFrq3,2,ipw
   a4  vco2  0.5,iFrq4,2,ipw
-  a5  vco2  0.5,iFrq5,2,ipw 
+  a5  vco2  0.5,iFrq5,2,ipw
   a6  vco2  0.5,iFrq6,2,ipw
 
   amix  sum a1,a2,a3,a4,a5,a6   ;MIX THE PULSE OSCILLATORS
@@ -2044,14 +2044,14 @@ instr Cymbal  ;CYMBAL
   amix  butlp amix,12000      ;LOWPASS FILTER THE SOUND...
   amix  butlp amix,12000      ;AND AGAIN...
   amix  = amix*aenv     ;APPLY THE AMPLITUDE ENVELOPE
-  
+
   ;NOISE ELEMENT
   anoise  noise 0.8,0       ;GENERATE SOME WHITE NOISE
   aenv  expsega 1,0.3,0.07,p3-0.1,0.00001 ;CREATE AN AMPLITUDE ENVELOPE
   kcf expseg  14000,0.7,7000,p3-0.1,5000  ;CREATE A CUTOFF FREQ. ENVELOPE
   anoise  butlp anoise,kcf      ;LOWPASS FILTER THE NOISE SIGNAL
   anoise  buthp anoise,8000     ;HIGHPASS FILTER THE NOISE SIGNAL
-  anoise  = anoise*aenv     ;APPLY THE AMPLITUDE ENVELOPE            
+  anoise  = anoise*aenv     ;APPLY THE AMPLITUDE ENVELOPE
 
   ;MIX PULSE OSCILLATOR AND NOISE COMPONENTS
   amix  = (amix+anoise)*ilevel*p5*0.85
@@ -2060,13 +2060,13 @@ instr Cymbal  ;CYMBAL
 endin
 
 ;WAVEFORM FOR TR808 RIMSHOT
-giTR808RimShot  ftgen 0,0,1024,10, 0.971,0.269,0.041,0.054,0.011,0.013,0.08,0.0065,0.005,0.004,0.003,0.003,0.002,0.002,0.002,0.002,0.002,0.001,0.001,0.001,0.001,0.001,0.002,0.001,0.001  
+giTR808RimShot  ftgen 0,0,1024,10, 0.971,0.269,0.041,0.054,0.011,0.013,0.08,0.0065,0.005,0.004,0.003,0.003,0.002,0.002,0.002,0.002,0.002,0.001,0.001,0.001,0.001,0.001,0.002,0.001,0.001
 
 /** Rimshot - From Iain McCurdy's TR-808.csd */
 instr Rimshot ;RIM SHOT
 
-  idur = xchan("Rimshot.decay", 1.0)  
-  ilevel = xchan("Rimshot.level", 1) 
+  idur = xchan("Rimshot.decay", 1.0)
+  ilevel = xchan("Rimshot.level", 1)
   itune = xchan("Rimshot.tune", 0)
 
   idur  = 0.027*idur    ;NOTE DURATION
@@ -2075,8 +2075,8 @@ instr Rimshot ;RIM SHOT
   ;RING
   aenv1 expsega 1,idur,0.001,1,0.001    ;AMPLITUDE ENVELOPE FOR SUSTAIN ELEMENT OF SOUND
   ifrq1 = 1700*octave(itune)    ;FREQUENCY OF SUSTAIN ELEMENT OF SOUND
-  aring oscili  1,ifrq1,giTR808RimShot,0    ;CREATE SUSTAIN ELEMENT OF SOUND  
-  aring butbp aring,ifrq1,ifrq1*8 
+  aring oscili  1,ifrq1,giTR808RimShot,0    ;CREATE SUSTAIN ELEMENT OF SOUND
+  aring butbp aring,ifrq1,ifrq1*8
   aring = aring*(aenv1-0.001)*0.5     ;APPLY AMPLITUDE ENVELOPE
 
   ;NOISE
@@ -2095,14 +2095,14 @@ endin
 
 
 /** Claves - From Iain McCurdy's TR-808.csd */
-instr Claves  
-  idur = xchan("Claves.decay", 1.0) 
-  ilevel = xchan("Claves.level", 1) 
+instr Claves
+  idur = xchan("Claves.decay", 1.0)
+  ilevel = xchan("Claves.level", 1)
   itune = xchan("Claves.tune", 0)
 
   ifrq  = 2500*octave(itune)  ;FREQUENCY OF OSCILLATOR
   idur  = 0.045   * idur    ;DURATION OF THE NOTE
-  p3  limit idur,0.1,10     ;LIMIT THE MINIMUM DURATION OF THE NOTE (VERY SHORT NOTES CAN RESULT IN THE INDICATOR LIGHT ON-OFF NOTE BEING TO0 SHORT)      
+  p3  limit idur,0.1,10     ;LIMIT THE MINIMUM DURATION OF THE NOTE (VERY SHORT NOTES CAN RESULT IN THE INDICATOR LIGHT ON-OFF NOTE BEING TO0 SHORT)
   aenv  expsega 1,idur,0.001,1,0.001    ;AMPLITUDE ENVELOPE
   afmod expsega 3,0.00005,1,1,1     ;FREQUENCY MODULATION ENVELOPE. GIVES THE SOUND A LITTLE MORE ATTACK.
   asig  oscili  -(aenv-0.001),ifrq*afmod,gi_808_sine,0  ;AUDIO OSCILLATOR
@@ -2113,15 +2113,15 @@ endin
 
 
 /** Cowbell - From Iain McCurdy's TR-808.csd */
-instr Cowbell 
-  idur = xchan("Cowbell.decay", 1.0)  
-  ilevel = xchan("Cowbell.level", 1) 
+instr Cowbell
+  idur = xchan("Cowbell.decay", 1.0)
+  ilevel = xchan("Cowbell.level", 1)
   itune = xchan("Cowbell.tune", 0)
 
   ifrq1 = 562 * octave(itune) ;FREQUENCIES OF THE TWO OSCILLATORS
   ifrq2 = 845 * octave(itune) ;
-  ipw   = 0.5         ;PULSE WIDTH OF THE OSCILLATOR  
-  ishp  = -30   
+  ipw   = 0.5         ;PULSE WIDTH OF THE OSCILLATOR
+  ishp  = -30
   idur  = 0.7         ;NOTE DURATION
   p3  = 0.7*idur      ;LIMIT THE MINIMUM DURATION OF THE NOTE (VERY SHORT NOTES CAN RESULT IN THE INDICATOR LIGHT ON-OFF NOTE BEING TO0 SHORT)
   ishape  = -30       ;SHAPE OF THE CURVES IN THE AMPLITUDE ENVELOPE
@@ -2131,7 +2131,7 @@ instr Cowbell
   itype = 2       ;WAVEFORM FOR VCO2 (2=PULSE)
   a1  vco2  0.65,ifrq1,itype,ipw    ;CREATE THE TWO OSCILLATORS
   a2  vco2  0.65,ifrq2,itype,ipw
-  amix  = a1+a2       ;MIX THE TWO OSCILLATORS 
+  amix  = a1+a2       ;MIX THE TWO OSCILLATORS
   iLPF2 = 10000       ;LOWPASS FILTER RESTING FREQUENCY
   kcf expseg  12000,0.07,iLPF2,1,iLPF2  ;LOWPASS FILTER CUTOFF FREQUENCY ENVELOPE
   alpf  butlp amix,kcf      ;LOWPASS FILTER THE MIX OF THE TWO OSCILLATORS (CREATE A NEW SIGNAL)
@@ -2143,16 +2143,16 @@ instr Cowbell
   pan_verb_mix(amix, xchan:k("Cowbell.pan", 0.5), xchan:k("Cowbell.rvb", chnget:i("drums.rvb.default")))
 endin
 
-/** Maraca - from Iain McCurdy's TR-808.csd */ 
+/** Maraca - from Iain McCurdy's TR-808.csd */
 instr Maraca  ;MARACA
-  idur = xchan("Maraca.decay", 1.0) 
-  ilevel = xchan("Maraca.level", 1) 
+  idur = xchan("Maraca.decay", 1.0)
+  ilevel = xchan("Maraca.level", 1)
   itune = xchan("Maraca.tune", 0)
   ioct = octave:i(itune)
 
   idur  = 0.07*idur       ;DURATION 3
   p3  limit idur,0.1,10       ;LIMIT THE MINIMUM DURATION OF THE NOTE (VERY SHORT NOTES CAN RESULT IN THE INDICATOR LIGHT ON-OFF NOTE BEING TO0 SHORT)
-  iHPF  limit 6000*ioct,20,sr/2 ;HIGHPASS FILTER FREQUENCY  
+  iHPF  limit 6000*ioct,20,sr/2 ;HIGHPASS FILTER FREQUENCY
   iLPF  limit 12000*ioct,20,sr/3  ;LOWPASS FILTER FREQUENCY. (LIMIT MAXIMUM TO PREVENT OUT OF RANGE VALUES)
   ;AMPLITUDE ENVELOPE
   iBP1  = 0.4         ;BREAK-POINT 1
@@ -2172,8 +2172,8 @@ endin
 
 /** High Conga - From Iain McCurdy's TR-808.csd */
 instr HiConga ;HIGH CONGA
-  idur = xchan("HiConga.decay", 1.0)  
-  ilevel = xchan("HiConga.level", 1) 
+  idur = xchan("HiConga.decay", 1.0)
+  ilevel = xchan("HiConga.level", 1)
   itune = xchan("HiConga.tune", 0)
   ioct = octave:i(itune)
 
@@ -2183,20 +2183,20 @@ instr HiConga ;HIGH CONGA
   afrq  expsega ifrq*3,0.25/ifrq,ifrq,1,ifrq  ;FREQUENCY ENVELOPE (CREATE A SHARPER ATTACK)
   asig  oscili  -aenv*0.25,afrq,gi_808_sine   ;CREATE THE AUDIO OSCILLATOR
   asig  = asig*p5*ilevel  ;SCALE THE AMPLITUDE
-  
+
   pan_verb_mix(asig, xchan:k("HiConga.pan", 0.5), xchan:k("HiConga.rvb", chnget:i("drums.rvb.default")))
 endin
 
 /** Mid Conga - From Iain McCurdy's TR-808.csd */
 instr MidConga  ;MID CONGA
-  idur = xchan("MidConga.decay", 1.0) 
-  ilevel = xchan("MidConga.level", 1) 
+  idur = xchan("MidConga.decay", 1.0)
+  ilevel = xchan("MidConga.level", 1)
   itune = xchan("MidConga.tune", 0)
   ioct = octave:i(itune)
 
   ifrq    = 310*ioct    ;FREQUENCY OF NOTE
   p3    = 0.33*idur     ;DURATION OF NOTE
-  aenv  transeg 0.7,1/ifrq,1,1,p3,-6,0.001  ;AMPLITUDE ENVELOPE 
+  aenv  transeg 0.7,1/ifrq,1,1,p3,-6,0.001  ;AMPLITUDE ENVELOPE
   afrq  expsega ifrq*3,0.25/ifrq,ifrq,1,ifrq  ;FREQUENCY ENVELOPE (CREATE A SHARPER ATTACK)
   asig  oscili  -aenv*0.25,afrq,gi_808_sine   ;CREATE THE AUDIO OSCILLATOR
   asig  = asig*p5*ilevel    ;SCALE THE AMPLITUDE
@@ -2206,14 +2206,14 @@ endin
 
 /** Low Conga - From Iain McCurdy's TR-808.csd */
 instr LowConga  ;LOW CONGA
-  idur = xchan("LowConga.decay", 1.0) 
-  ilevel = xchan("LowConga.level", 1) 
+  idur = xchan("LowConga.decay", 1.0)
+  ilevel = xchan("LowConga.level", 1)
   itune = xchan("LowConga.tune", 0)
   ioct = octave:i(itune)
 
   ifrq    = 227*ioct    ;FREQUENCY OF NOTE
-  p3    = 0.41*idur     ;DURATION OF NOTE   
-  aenv  transeg 0.7,1/ifrq,1,1,p3,-6,0.001  ;AMPLITUDE ENVELOPE 
+  p3    = 0.41*idur     ;DURATION OF NOTE
+  aenv  transeg 0.7,1/ifrq,1,1,p3,-6,0.001  ;AMPLITUDE ENVELOPE
   afrq  expsega ifrq*3,0.25/ifrq,ifrq,1,ifrq  ;FREQUENCY ENVELOPE (CREATE A SHARPER ATTACK)
   asig  oscili  -aenv*0.25,afrq,gi_808_sine   ;CREATE THE AUDIO OSCILLATOR
   asig  = asig*p5*ilevel  ;SCALE THE AMPLITUDE

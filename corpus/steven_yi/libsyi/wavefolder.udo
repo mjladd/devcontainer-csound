@@ -23,27 +23,27 @@ opcode wavefolder_lambert, k, kk
 
     kp = kw * kexpw - kx
     kR = (kw + 1) * kexpw
-    ks = (kw + 2) / (2 * (kw+1))        
+    ks = (kw + 2) / (2 * (kw+1))
     kerr = (kp / (kR - (kp * ks)))
-    
-    if (abs(kerr) < ithresh) then 
+
+    if (abs(kerr) < ithresh) then
       kndx = 1000
-    else 
+    else
       kw = kw - kerr;
-       
+
       kndx += 1
 
     endif
-    
+
   od
- 
+
   xout kw
 endop
 
 opcode wavefolder, a,a
   ain xin
   asig init 0
- 
+
   ;; State
   kLn1 init 0
   kFn1 init 0
@@ -51,7 +51,7 @@ opcode wavefolder, a,a
 
   ;; Constants
   iRL = 7.5e3;
-  iR = 15e3;  
+  iR = 15e3;
   iVT = 26e-3;
   iIs = 10e-16;
 
@@ -59,7 +59,7 @@ opcode wavefolder, a,a
   ib = (iR+2*iRL)/(iVT*iR)
   id = (iRL*iIs)/iVT
 
-  
+
   ;; Antialiasing error threshold
   ithresh = 10e-10
 
@@ -72,23 +72,23 @@ opcode wavefolder, a,a
     kl = signum(kin)
     ku = id * pow($M_E,kl * ib * kin)
     kLn = wavefolder_lambert(ku, kLn1)
-    kFn = (0.5 * iVT / ib) * (kLn * (kLn + 2)) - 0.5 * ia * kin * kin 
+    kFn = (0.5 * iVT / ib) * (kLn * (kLn + 2)) - 0.5 * ia * kin * kin
 
     ;; Check for ill-conditioning
-    if (abs(kin-kxn1) < ithresh) then 
-            
+    if (abs(kin-kxn1) < ithresh) then
+
         // Compute Averaged Wavefolder Output
         kxn = 0.5 * (kin + kxn1)
         ku = id * pow($M_E,kl * ib * kxn)
         kLn = wavefolder_lambert(ku,kLn1)
         kout = kl * iVT * kLn - ia * kxn;
 
-    else 
-        
+    else
+
         ;; Apply AA Form
         kout = (kFn - kFn1) / (kin - kxn1)
-        
-    endif 
+
+    endif
 
     aout[kndx] = kout
 
@@ -102,6 +102,3 @@ opcode wavefolder, a,a
 
   xout aout
 endop
-
-
-

@@ -3,10 +3,10 @@
 -o reznick_scan.aiff
 </CsOptions>
 <CsInstruments>
- sr = 44100
- ksmps = 100
- nchnls = 1
- 0dbfs = 1
+sr = 44100
+ksmps = 100
+nchnls = 1
+0dbfs = 1
 
 instr 1
 idisp = p6
@@ -68,8 +68,8 @@ f8 0 128 7 0 60 0 2 1 2 0 60 0
 f9 0 1024 10 1
 ; SCANRATE STUDY
 ;i  st   d    pt   amp dsp
-			      ;cnd scn vl mt
-						 ;cnt dmp a   b   a    b    a   b   scn
+                ;cnd scn vl mt
+                        ;cnt dmp a   b   a    b    a   b   scn
 i01 0.0  10.00 6.05  20 1 11  2  6 3  4   5  .2  .2  2    2    3    1   .05
 i01 0.5  .     6.09  .  1 11  2  6 3  4   5  .2  .2  2    2    3    1   .05
 i01 1.0  .     6.13  .  1 11  2  6 3  4   5  .2  .2  2    2    3    1   .05

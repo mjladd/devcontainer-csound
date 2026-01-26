@@ -40,7 +40,7 @@ gasig     init      0
 ; INSTUMENT 1 - three branch instr
 ;==================================
 
-          instr 1
+        instr 1
 
 i1        =         p5*.3
 i2        =         p4*.98
@@ -91,11 +91,11 @@ kenv      linen     iamp,p3*.8,p3,p3*.2      ; THIS IS THE MAIN ENV ON THE OUTPU
 
 alpout    =         kenv*alp
 
-          outs      alpout*kpan,alpout*(1-kpan) ; STEREO OUTS
+        outs      alpout*kpan,alpout*(1-kpan) ; STEREO OUTS
 
 garvbsig  =         garvbsig+(alpout*.2)     ; SEND .2 OF THE SIG TO RVB
 
-          endin
+        endin
 
 
 
@@ -104,7 +104,7 @@ garvbsig  =         garvbsig+(alpout*.2)     ; SEND .2 OF THE SIG TO RVB
 ; INSTRUMENT 2 --- a noise band glissando
 ;=================================================
 
-          instr 2
+        instr 2
 
 kfreq     =         p5
 
@@ -114,30 +114,30 @@ anoise    randi     kramp,kenv1
 aosc      oscil     anoise,kfreq,11          ; ANOISE IS FED TO THE A INPUT OF AOSC
 kpan      oscil     1,.09,1
 aosc2     reson     aosc,kpan+100,100,2      ; KPAN+100 IS OFFSET FOR FILTER SWEEP INPUT
-          outs      aosc2*kpan,aosc2*(1-kpan)
+        outs      aosc2*kpan,aosc2*(1-kpan)
 
 garvbsig  =         garvbsig+(aosc2*.2)
 
 
-          endin
+        endin
 
 
 ;===============================================
 ; INSTRUMENT 3 - a sinewave instrument
 ;===============================================
 
-          instr 3
+        instr 3
 kpan      =         p6
 i1        =         p5*3
 
 k1        oscil     i1, 1/p3, 10             ; ADSR
 a2        oscil     k1, p4, 11               ; SINE
 
-          outs      a2*kpan,a2*(1-kpan)
+        outs      a2*kpan,a2*(1-kpan)
 
 garvbsig  =         garvbsig+(a2*.1)
 
-          endin
+        endin
 
 
 
@@ -146,7 +146,7 @@ garvbsig  =         garvbsig+(a2*.1)
 ;   INSTRUMENT 4 - SAMPLE & HOLD
 ;=================================================================
 
-          instr 4
+        instr 4
 
 krt       =         p6                       ; THIS IS THE FRQ OF THE RANDH OUTPUT & CLK OSC
 isd       =p4                                ; p4 HOLDS THE VALUE OF THE SEED OF RANDH UG
@@ -161,12 +161,12 @@ kpan      oscil     1,.04,17
 asig1     =         a3*kpan
 asig2     =         a3*(1-kpan)
 
-          outs      asig1,asig2
+        outs      asig1,asig2
 
 
 garvbsig  =         garvbsig+(a3*.2)
 
-          endin
+        endin
 
 
 ;======================================================
@@ -181,7 +181,7 @@ garvbsig  =         garvbsig+(a3*.2)
 ;right to left...subtle yet present...like a flock of metal birds
 ;========================================================================
 
-          instr 5
+        instr 5
 
 kcps      =         p4
 kcar      =         p5
@@ -209,14 +209,14 @@ krtr      =         sqrt(2)/2*cos(kpan)-sin(kpan) ; FROM C.ROADS "CM TUTORIAL" p
 al        =         afm2*krtl
 ar        =         afm2*krtr
 
-          outs      al,ar
+        outs      al,ar
 
 
-          ;outs     afm2*kpan,afm2*(1-kpan)
+        ;outs     afm2*kpan,afm2*(1-kpan)
 
 garvbsig  =         garvbsig+(afm2*krvb)     ; SEND AMOUNT WAS .2
 
-          endin
+        endin
 
 ;==================================================
 ;
@@ -230,11 +230,11 @@ garvbsig  =         garvbsig+(afm2*krvb)     ; SEND AMOUNT WAS .2
 ;=================================================
 
 
-          instr 6
+        instr 6
 
 aclk      =         p3*4.3                   ; THIS IS THE FRQ FOR THE FILTER AND ADSR
-                                             ; [THIS COMMENT ABOVE DIDN'T HAVE A ";" BEFORE IT
-                                             ; AND MIGHT HAVE NOT HAD AN EFFECT ON THE CODE] 2/16
+                                            ; [THIS COMMENT ABOVE DIDN'T HAVE A ";" BEFORE IT
+                                            ; AND MIGHT HAVE NOT HAD AN EFFECT ON THE CODE] 2/16
 
 ;arnd     randi     7000, 5000               ; NOT USING THIS NOISE SOURCE::USING PULSE INSTEAD
 apls      oscil     7000,aclk,2              ; THIS GENERATES A SMALL SPIKE SHAPED LIKE A EXP ENV f2
@@ -249,14 +249,14 @@ afilt2    oscil     afilt,1/p3,10            ; THIS ENVELOPES THE FILTER OUTPUT
 kpan      line      0,p3*.8,1                ; THIS IS USED FOR THE PANNING OF THE OUTPUT
 afilt2    =         afilt2*.05               ; tHIS SCALES THE OUTPUT OF THE FILTER
 
-          outs      afilt2*kpan,afilt2*(1-kpan)
+        outs      afilt2*kpan,afilt2*(1-kpan)
 
 garvbsig  =         garvbsig+(afilt2*.02)
 
 gasig     =         gasig+(afilt2*.6)
 
 
-          endin
+        endin
 
 
 ;===================================================
@@ -287,14 +287,14 @@ gasig     =         gasig+(afilt2*.6)
 ;;;ar     =         agliss*krtr
 ;;;       outs      al,ar
 
-          ;outs     agliss*kpan,agliss*(1-kpan)
+        ;outs     agliss*kpan,agliss*(1-kpan)
 
 
 ;garvbsig =         garvbsig+(agliss*.099)
 
 
 
-          ;endin
+        ;endin
 
 
 ;======================================================
@@ -304,7 +304,7 @@ gasig     =         gasig+(afilt2*.6)
 ;
 ;======================================================
 
-          instr 8
+        instr 8
 
 
 i1        =         p6                       ; INIT VALUES CORRESPOND TO FREQ.
@@ -326,20 +326,20 @@ a9        oscili    ampenv,p4-i4,20
 
 asnd      =         (a1+a2+a3+a4+a5+a6+a7+a8+a9)/9
 
-          ;outs     a1+a2+a3+a4,a5+a6+a7+a8+a9
-          outs      a1+a3+a5+a7+a9,a2+a4+a6+a8
+        ;outs     a1+a2+a3+a4,a5+a6+a7+a8+a9
+        outs      a1+a3+a5+a7+a9,a2+a4+a6+a8
 
 
 garvbsig  =         garvbsig+(asnd*.85)
 
 
-          endin
+        endin
 
 ;=================================================================
 ;   INSTRUMENT 9 -- WATER
 ;=================================================================
 
-          instr 9
+        instr 9
 
 krt       =         p6                       ; THIS IS THE FRQ OF THE RANDH OUTPUT & CLK OSC
 isd       =         p4                       ; p4 HOLDS THE VALUE OF THE SEED OF RANDH UG
@@ -357,25 +357,25 @@ kpan      oscil     1,.14,17
 asig1     =         a3*kpan
 asig2     =         a3*(1-kpan)
 
-          outs      asig1,asig2
+        outs      asig1,asig2
 
 
 garvbsig  =         garvbsig+(a3*.4)         ; .2
 
-          endin
+        endin
 
 ;===================
 ; GLOBAL REVERB
 ;===================
 
-          instr 99
+        instr 99
 
 a1        reverb2   garvbsig, p4, p5
-          outs      a1,a1
+        outs      a1,a1
 
 garvbsig  =         0
 
-          endin
+        endin
 
 
 
@@ -386,15 +386,15 @@ garvbsig  =         0
 ;
 ;====================
 
-          instr 98            ; THIS DELAY IS IN PARALLEL CONFIG
+        instr 98            ; THIS DELAY IS IN PARALLEL CONFIG
 
 a1        delay     gasig,p4                 ; DELAY=1.25
 a2        delay     gasig,p4*2               ; DELAY=2.50
-          outs      a1,a2
+        outs      a1,a2
 
 gasig     =         0
 
-          endin
+        endin
 
 </CsInstruments>
 <CsScore>
@@ -431,7 +431,7 @@ i99  0    190  6    .2
 ;instr    strt dur  dltime
 i98  0    190  .66
 
-                         ;straight line
+                        ;straight line
 ;              f.losin   namp|     ring mod__________| noisefrq
 ;p1  p2   p3   p4   p5   p6   p7   p8   p9
 ;instr    strt dur  freq amp  kfreq1    kfreq2    kamp2     nfrq
@@ -616,4 +616,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

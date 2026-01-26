@@ -637,15 +637,15 @@ kaccurve = kaccurve+iremacc  ; Accumulation!
 - **0-0.2** - Dark, muffled bass
   - Filter very closed
   - Emphasizes fundamental
-  
+
 - **0.3-0.5** - Classic acid bass range
   - Balanced brightness
   - Good for melodic lines
-  
+
 - **0.6-0.8** - Bright, aggressive
   - Opens filter significantly
   - More upper harmonics
-  
+
 - **0.9-1.0** - Very bright, thin
   - Almost no filtering
   - Squealing territory
@@ -654,15 +654,15 @@ kaccurve = kaccurve+iremacc  ; Accumulation!
 
 - **0-0.3** - Subtle resonance
   - Slight peak, natural sound
-  
+
 - **0.4-0.6** - Moderate (classic)
   - Clear resonant peak
   - Sweet spot for acid
-  
+
 - **0.7-0.9** - High resonance
   - Strong emphasis at cutoff
   - "Squelchy" character
-  
+
 - **0.95-1.0** - Self-oscillation
   - Filter screams/sings
   - Can overpower oscillator
@@ -673,15 +673,15 @@ kaccurve = kaccurve+iremacc  ; Accumulation!
 - **0-0.1** - Static filter
   - Little to no sweep
   - More traditional bass
-  
+
 - **0.2-0.4** - Subtle movement
   - Gentle filter animation
   - Organic feel
-  
+
 - **0.5-0.7** - Classic acid
   - Strong filter sweeps
   - Recognizable 303 sound
-  
+
 - **0.8-1.0** - Maximum sweep
   - Extreme filter modulation
   - Screaming, squelching
@@ -692,15 +692,15 @@ kaccurve = kaccurve+iremacc  ; Accumulation!
 - **0-0.2** - Very short (tight)
   - Percussive, plucky
   - Good for fast patterns
-  
+
 - **0.3-0.5** - Medium decay
   - Balanced articulation
   - Musical phrasing
-  
+
 - **0.6-0.8** - Long decay
   - Sustained notes
   - Smoother lines
-  
+
 - **0.9-1.0** - Maximum sustain
   - Nearly full duration
   - Pad-like
@@ -709,15 +709,15 @@ kaccurve = kaccurve+iremacc  ; Accumulation!
 
 - **0** - No accent effect
   - All notes equal
-  
+
 - **0.3-0.5** - Subtle accents
   - Gentle dynamics
   - Adds groove
-  
+
 - **0.6-0.8** - Strong accents
   - Clear emphasis
   - Punchy rhythm
-  
+
 - **0.9-1.0** - Maximum accent
   - Extreme dynamics
   - Hysteria can build
@@ -840,8 +840,8 @@ inotedur = 15/ibpm  ; Note duration changes with tempo
 ## Common Issues & Solutions
 
 ### Clicks and Pops
-**Problem:** Audible clicks at note transitions  
-**Cause:** `balance` opcode or insufficient attack/release  
+**Problem:** Audible clicks at note transitions
+**Cause:** `balance` opcode or insufficient attack/release
 **Solution:**
 ```csound
 ; Increase attack time
@@ -851,8 +851,8 @@ kveg linen 1, .02, ieventdur, .03  ; Longer attack/release
 ```
 
 ### Filter Doesn't Sweep
-**Problem:** Static filter, no characteristic 303 sound  
-**Cause:** `kenvmod` too low or `imaxsweep` too low  
+**Problem:** Static filter, no characteristic 303 sound
+**Cause:** `kenvmod` too low or `imaxsweep` too low
 **Solution:**
 ```csound
 kenvmod line 0.7, p3, 0.9  ; Higher envelope modulation
@@ -860,8 +860,8 @@ imaxsweep = 15000  ; Increase maximum sweep range
 ```
 
 ### Resonance Too Weak/Strong
-**Problem:** Filter doesn't "scream" or screams too much  
-**Cause:** `ireson` scaling or `kres` values  
+**Problem:** Filter doesn't "scream" or screams too much
+**Cause:** `ireson` scaling or `kres` values
 **Solution:**
 ```csound
 ireson = 1.5  ; Increase global resonance
@@ -870,8 +870,8 @@ kres line 0.7, p3, 0.95  ; Sweep resonance
 ```
 
 ### Pattern Doesn't Loop Correctly
-**Problem:** Sequence glitches or stops  
-**Cause:** Table size not matching expected length  
+**Problem:** Sequence glitches or stops
+**Cause:** Table size not matching expected length
 **Solution:**
 ```csound
 ; Ensure table sizes match usage
@@ -882,8 +882,8 @@ f6 0 16 -2 ... 0 0 0  ; Pad with zeros
 ```
 
 ### No Slide/Portamento
-**Problem:** Notes don't slide  
-**Cause:** Duration table not creating tied notes  
+**Problem:** Notes don't slide
+**Cause:** Duration table not creating tied notes
 **Solution:**
 ```csound
 ; Use values >1 for tied notes
@@ -891,8 +891,8 @@ f6 0 8 -2  2 1 2 1 2 1 2 1  ; 2s create slides
 ```
 
 ### Distortion at High Resonance
-**Problem:** Output distorts/clips  
-**Cause:** Resonance peak boosts amplitude  
+**Problem:** Output distorts/clips
+**Cause:** Resonance peak boosts amplitude
 **Solution:**
 ```csound
 ; Reduce output level

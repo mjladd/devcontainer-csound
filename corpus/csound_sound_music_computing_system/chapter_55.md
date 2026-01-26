@@ -21,7 +21,7 @@ is now widely used. Its goal was to create a more ﬂexible, dynamic alternative
 MIDI. It uses modern network communications, usually based on the user datagram
 transport layer protocol (UDP), and allows not only communication between syn-
 thesisers but also between applications and remote computers.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 181
 10

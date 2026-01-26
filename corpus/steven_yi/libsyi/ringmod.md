@@ -22,7 +22,7 @@ TABLE INIT
 ```csound
 /*
  Implementation of Julian Parker’s digital model of a Ring
- Modulator. 
+ Modulator.
 
  http://kunstmusik.com/2013/09/07/julian-parker-ring-modulator/
 
@@ -105,4 +105,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "ringmod.udo"
 ```
-

@@ -29,7 +29,7 @@ Blue provides numerous features that worked well for my own process of compos-
 ing this work. The following will discuss the phases of development that occurred
 while developing this piece and how I employed both Csound and Blue to realise
 my compositional goals.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_21
 477
 478

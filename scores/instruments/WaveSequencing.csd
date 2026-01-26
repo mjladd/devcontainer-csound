@@ -27,7 +27,7 @@ nchnls    =         2
 ; are no line-by-line comments. (Sorry.)
 ; Russell Pinkston
 ;================================================
-          instr     1
+        instr     1
 iseed     =         p9
 ifna      =         p12
 irise     =         p6
@@ -62,8 +62,8 @@ aw10      =         (aw5) + (aw6)
 aw7       =         (aw10) * (kenv)
 aw8       =         (sqrt(kpan)) * (aw7)
 aw9       =         (aw7) * (sqrt(1-kpan))
-          out       aw8, aw9
-          endin
+        out       aw8, aw9
+        endin
 </CsInstruments>
 <CsScore>
 ;Test score for the Wavestation Orchestra

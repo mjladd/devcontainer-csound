@@ -5,20 +5,20 @@
 </CsOptions>
 
 <CsInstruments>
- sr = 44100
- ksmps = 100
- 0dbfs = 32768
+sr = 44100
+ksmps = 100
+0dbfs = 32768
 
 ; SCANNED SYNTHESIS
 nchnls    =         2
-          instr     1
+        instr     1
 iwiggle   =         0
 kenv      linseg    1, p3*.2, 3.5, p3*.2, 2, p3*.1, 3, p3*.5, .01
 kpicker   randi     kenv*.1, kenv
 krnd      =         kenv+abs(kpicker)
 kenv2     linseg    1, p3*.9, 1, p3*.1, 0
 asound    loscil    10000*kenv2, 262, 13
-          scanu     1, .01, 6, 2, 3, 4, 5, 2, .03, .1, -.1, .1, .5, 0, 0, asound, iwiggle, 0
+        scanu     1, .01, 6, 2, 3, 4, 5, 2, .03, .1, -.1, .1, .5, 0, 0, asound, iwiggle, 0
 a1        scans     1, 180*krnd, 7, 0
 a2        scans     1, 150*krnd, 7, 0
 a3        scans     1, 100*krnd, 7, 0
@@ -28,8 +28,8 @@ a3b       delay     a3, 2
 a4b       delay     a4, 3
 aleft     reverb    a1+(a3b*.7)+(a4b*.3), .3
 aright    reverb    a2b+(a3b*.3)+(a4b*.7), .3
-          out       aleft*kenv2, aright*kenv2
-          endin
+        out       aleft*kenv2, aright*kenv2
+        endin
 </CsInstruments>
 <CsScore>
 

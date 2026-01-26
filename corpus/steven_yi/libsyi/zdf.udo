@@ -1,14 +1,14 @@
 
 ; Zero Delay Feedback Filters
-; 
+;
 ; Based on code by Will Pirkle, presented in:
 ;
 ; http://www.willpirkle.com/Downloads/AN-4VirtualAnalogFilters.2.0.pdf
-; 
-; and in his book "Designing software synthesizer plug-ins in C++ : for 
+;
+; and in his book "Designing software synthesizer plug-ins in C++ : for
 ; RackAFX, VST3, and Audio Units"
 ;
-; ZDF using Trapezoidal integrator by Vadim Zavalishin, presented in "The Art 
+; ZDF using Trapezoidal integrator by Vadim Zavalishin, presented in "The Art
 ; of VA Filter Design" (https://www.native-instruments.com/fileadmin/ni_media/
 ; downloads/pdf/VAFilterDesign_1.1.1.pdf)
 ;
@@ -22,9 +22,9 @@ opcode zdf_1pole, aa, ak
 
   ; pre-warp the cutoff- these are bilinear-transform filters
   kwd = 2 * $M_PI * kcf
-  iT  = 1/sr 
-  kwa = (2/iT) * tan(kwd * iT/2) 
-  kg  = kwa * iT/2 
+  iT  = 1/sr
+  kwa = (2/iT) * tan(kwd * iT/2)
+  kg  = kwa * iT/2
 
   ; big combined value
   kG  = kg / (1.0 + kg)
@@ -37,17 +37,17 @@ opcode zdf_1pole, aa, ak
 
   kindx = 0
   while kindx < ksmps do
-    ; do the filter, see VA book p. 46 
-    ; form sub-node value v(n) 
+    ; do the filter, see VA book p. 46
+    ; form sub-node value v(n)
     kin = ain[kindx]
-    kv = (kin - kz1) * kG 
+    kv = (kin - kz1) * kG
 
-    ; form output of node + register 
-    klp = kv + kz1 
-    khp = kin - klp 
+    ; form output of node + register
+    klp = kv + kz1
+    khp = kin - klp
 
     ; z1 register update
-    kz1 = klp + kv  
+    kz1 = klp + kv
 
     alp[kindx] = klp
     ahp[kindx] = khp
@@ -64,7 +64,7 @@ opcode zdf_1pole, aa, aa
   ain, acf  xin
 
   ; pre-warp the cutoff- these are bilinear-transform filters
-  iT  = 1/sr 
+  iT  = 1/sr
 
   ahp init 0
   alp init 0
@@ -76,23 +76,23 @@ opcode zdf_1pole, aa, aa
   while kindx < ksmps do
     ; pre-warp the cutoff- these are bilinear-transform filters
     kwd = 2 * $M_PI * acf[kindx]
-    kwa = (2/iT) * tan(kwd * iT/2) 
-    kg  = kwa * iT/2 
+    kwa = (2/iT) * tan(kwd * iT/2)
+    kg  = kwa * iT/2
 
     ; big combined value
     kG  = kg / (1.0 + kg)
 
-    ; do the filter, see VA book p. 46 
-    ; form sub-node value v(n) 
+    ; do the filter, see VA book p. 46
+    ; form sub-node value v(n)
     kin = ain[kindx]
-    kv = (kin - kz1) * kG 
+    kv = (kin - kz1) * kG
 
-    ; form output of node + register 
-    klp = kv + kz1 
-    khp = kin - klp 
+    ; form output of node + register
+    klp = kv + kz1
+    khp = kin - klp
 
     ; z1 register update
-    kz1 = klp + kv  
+    kz1 = klp + kv
 
     alp[kindx] = klp
     ahp[kindx] = khp
@@ -133,9 +133,9 @@ opcode zdf_2pole,aaa,aKK
 
   ; pre-warp the cutoff- these are bilinear-transform filters
   kwd = 2 * $M_PI * kcf
-  iT  = 1/sr 
-  kwa = (2/iT) * tan(kwd * iT/2) 
-  kG  = kwa * iT/2 
+  iT  = 1/sr
+  kwa = (2/iT) * tan(kwd * iT/2)
+  kG  = kwa * iT/2
   kR  = 1 / (2 * kQ)
 
   ;; output signals
@@ -155,8 +155,8 @@ opcode zdf_2pole,aaa,aKK
     klp = kG * kbp + kz2
 
     ; z1 register update
-    kz1 = kG * khp + kbp  
-    kz2 = kG * kbp + klp  
+    kz1 = kG * khp + kbp
+    kz2 = kG * kbp + klp
 
     alp[kindx] = klp
     ahp[kindx] = khp
@@ -176,7 +176,7 @@ opcode zdf_2pole,aaa,aaa
 
   ain, acf, aQ     xin
 
-  iT  = 1/sr 
+  iT  = 1/sr
 
   ;; output signals
   alp init 0
@@ -193,18 +193,18 @@ opcode zdf_2pole,aaa,aaa
 
     ; pre-warp the cutoff- these are bilinear-transform filters
     kwd = 2 * $M_PI * acf[kindx]
-    kwa = (2/iT) * tan(kwd * iT/2) 
-    kG  = kwa * iT/2 
+    kwa = (2/iT) * tan(kwd * iT/2)
+    kG  = kwa * iT/2
 
-    kR = 1 / (2 * aQ[kindx]) 
+    kR = 1 / (2 * aQ[kindx])
 
     khp = (ain[kindx] - (2 * kR + kG) * kz1 - kz2) / (1 + (2 * kR * kG) + (kG * kG))
     kbp = kG * khp + kz1
     klp = kG * kbp + kz2
 
     ; z1 register update
-    kz1 = kG * khp + kbp  
-    kz2 = kG * kbp + klp 
+    kz1 = kG * khp + kbp
+    kz2 = kG * kbp + klp
 
     alp[kindx] = klp
     ahp[kindx] = khp
@@ -225,9 +225,9 @@ opcode zdf_2pole_notch,aaaa,aKK
 
   ; pre-warp the cutoff- these are bilinear-transform filters
   kwd = 2 * $M_PI * kcf
-  iT  = 1/sr 
-  kwa = (2/iT) * tan(kwd * iT/2) 
-  kG  = kwa * iT/2 
+  iT  = 1/sr
+  kwa = (2/iT) * tan(kwd * iT/2)
+  kG  = kwa * iT/2
   kR  = 1 / (2 * kQ)
 
   ;; output signals
@@ -250,8 +250,8 @@ opcode zdf_2pole_notch,aaaa,aKK
     knotch = kin - (2 * kR * kbp)
 
     ; z1 register update
-    kz1 = kG * khp + kbp  
-    kz2 = kG * kbp + klp  
+    kz1 = kG * khp + kbp
+    kz2 = kG * kbp + klp
 
     alp[kindx] = klp
     ahp[kindx] = khp
@@ -271,7 +271,7 @@ opcode zdf_2pole_notch,aaaa,aaa
 
   ain, acf, aQ     xin
 
-  iT  = 1/sr 
+  iT  = 1/sr
 
   ;; output signals
   alp init 0
@@ -289,8 +289,8 @@ opcode zdf_2pole_notch,aaaa,aaa
 
     ; pre-warp the cutoff- these are bilinear-transform filters
     kwd = 2 * $M_PI * acf[kindx]
-    kwa = (2/iT) * tan(kwd * iT/2) 
-    kG  = kwa * iT/2 
+    kwa = (2/iT) * tan(kwd * iT/2)
+    kG  = kwa * iT/2
 
     kR = 1 / (2 * aQ[kindx])
 
@@ -301,8 +301,8 @@ opcode zdf_2pole_notch,aaaa,aaa
     knotch = kin - (2 * kR * kbp)
 
     ; z1 register update
-    kz1 = kG * khp + kbp  
-    kz2 = kG * kbp + klp 
+    kz1 = kG * khp + kbp
+    kz2 = kG * kbp + klp
 
     alp[kindx] = klp
     ahp[kindx] = khp
@@ -324,24 +324,24 @@ opcode zdf_ladder, a, akk
 
   kR = limit(kres, 0.0, 1.0) * 0.98
 
-  kQ = 1 / (2 * (1 - kR)) 
+  kQ = 1 / (2 * (1 - kR))
 
   kwd = 2 * $M_PI * kcf
-  iT  = 1/sr 
-  kwa = (2/iT) * tan(kwd * iT/2) 
-  kg  = kwa * iT/2 
+  iT  = 1/sr
+  kwa = (2/iT) * tan(kwd * iT/2)
+  kg  = kwa * iT/2
 
   kk = 4.0*(kQ - 0.5)/(25.0 - 0.5)
 
   kg_plus_1 = (1.0 + kg)
 
-  kG = kg / kg_plus_1 
+  kG = kg / kg_plus_1
 
   kG_2 = kG * kG
   kG_3 = kG_2 * kG
   kGAMMA = kG_2 * kG_2
 
-  ;; state for each 1-pole's integrator 
+  ;; state for each 1-pole's integrator
   kz1 init 0
   kz2 init 0
   kz3 init 0
@@ -357,7 +357,7 @@ opcode zdf_ladder, a, akk
     kS3 = (kz3 / kg_plus_1)
     kS4 = (kz4 / kg_plus_1)
 
-    kS = kG_3 * kS1  + kG_2 * kS2 + kG * kS3 + kS4 
+    kS = kG_3 * kS1  + kG_2 * kS2 + kG * kS3 + kS4
     ku = (kin - kk *  kS) / (1 + kk * kGAMMA)
 
     ;; 1st stage
@@ -371,12 +371,12 @@ opcode zdf_ladder, a, akk
     kz2 = klp + kv
 
     ;; 3rd stage
-    kv = (klp - kz3) * kG 
+    kv = (klp - kz3) * kG
     klp = kv + kz3
     kz3 = klp + kv
 
     ;; 4th stage
-    kv = (klp - kz4) * kG 
+    kv = (klp - kz4) * kG
     klp = kv + kz4
     kz4 = klp + kv
 
@@ -394,9 +394,9 @@ opcode zdf_ladder, a, aaa
   ain, acf, ares     xin
   aout init 0
 
-  iT  = 1/sr 
+  iT  = 1/sr
 
-  ;; state for each 1-pole's integrator 
+  ;; state for each 1-pole's integrator
   kz1 init 0
   kz2 init 0
   kz3 init 0
@@ -407,17 +407,17 @@ opcode zdf_ladder, a, aaa
 
     kR = limit(ares[kindx], 0.0, 1.0) * 0.98
 
-    kQ = 1 / (2 * (1 - kR)) 
+    kQ = 1 / (2 * (1 - kR))
 
     kwd = 2 * $M_PI * acf[kindx]
-    kwa = (2/iT) * tan(kwd * iT/2) 
-    kg  = kwa * iT/2 
+    kwa = (2/iT) * tan(kwd * iT/2)
+    kg  = kwa * iT/2
 
     kk = 4.0*(kQ - 0.5)/(25.0 - 0.5)
 
     kg_plus_1 = (1.0 + kg)
 
-    kG = kg / kg_plus_1 
+    kG = kg / kg_plus_1
 
     kG_2 = kG * kG
     kG_3 = kG_2 * kG
@@ -434,7 +434,7 @@ opcode zdf_ladder, a, aaa
     kS4 = (kz4 / kg_plus_1)
 
 
-    kS = kG_3 * kS1  + kG_2 * kS2 + kG * kS3 + kS4 
+    kS = kG_3 * kS1  + kG_2 * kS2 + kG * kS3 + kS4
     ku = (kin - kk *  kS) / (1 + kk * kGAMMA)
 
     ;; 1st stage
@@ -448,12 +448,12 @@ opcode zdf_ladder, a, aaa
     kz2 = klp + kv
 
     ;; 3rd stage
-    kv = (klp - kz3) * kG 
+    kv = (klp - kz3) * kG
     klp = kv + kz3
     kz3 = klp + kv
 
     ;; 4th stage
-    kv = (klp - kz4) * kG 
+    kv = (klp - kz4) * kG
     klp = kv + kz4
     kz4 = klp + kv
 

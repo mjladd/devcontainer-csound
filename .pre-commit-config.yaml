@@ -1,0 +1,38 @@
+# Pre-commit hooks for Csound and general formatting
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: check-yaml
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 3.6.0
+    hooks:
+      - id: editorconfig-checker
+        alias: ec
+        args: ["--config", ".editorconfig-checker.json"]
+        files: ^(csound_rag|scripts|scores)/
+        # Optional: exclude generated folders if needed
+        # args: ["--exclude", "^renders/|^logs_tmp/"]
+
+  - repo: local
+    hooks:
+      - id: csound-syntax-check
+        name: Csound syntax check (orc/csd)
+        entry: python3 scripts/csound_syntax_check.py
+        language: system
+        types: [file]
+        files: \.(csd|orc)$
+        require_serial: true
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.41.0
+    hooks:
+      - id: markdownlint
+        name: markdownlint (top-level)
+        args: ["--config", ".markdownlint.json"]
+        files: (^README\.md$)|(^training_notes\.md$)|(^csound_notes\.md$)

@@ -29,7 +29,7 @@ make music with computers. Many of the design principles and concepts that we
 will be studying in this book have been originated or were inﬂuenced by these early
 systems. We will complete this survey with an overview of the most up-to-date de-
 velopments in Csound.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_1
 3
 4

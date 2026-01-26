@@ -13,22 +13,22 @@ nchnls	=		1
 0dbfs	=		32768
 
 
-		instr 109							; P-FIELD FM
+        instr 109							; P-FIELD FM
 a1 		foscil 	p4, p5, p12, p13, p14, p15
-		out 		a1
-		endin
+        out 		a1
+        endin
 
-		instr 2
+        instr 2
 a1 		oscil 	p4, p5, 20 				; p4 = AMP
-		out 		a1 						; p5 = FREQ
-		endin
+        out 		a1 						; p5 = FREQ
+        endin
 
-		instr 105
+        instr 105
 a1 		grain 	1000, 120, 55,  10000,  10,  .05,  1,  3, 1
-		out 		a1
-		endin
+        out 		a1
+        endin
 
-		instr  1
+        instr  1
 idur    	init   	p3
 iamp    	init   	p4
 ifqc    	init   	p5
@@ -45,7 +45,7 @@ ipantab 	init   	p19
 kclkold 	init   	-1
 kpan    	oscil  	1, 1/idur, ipantab
 kclknew 	oscil  	1, ilfo/p3/2, 3
-	if 	(kclkold==kclknew) 	goto next
+    if 	(kclkold==kclknew) 	goto next
 ax      	=   		p7
 ay      	=   		p8
 az      	=   		p9
@@ -73,13 +73,13 @@ aouty    	oscil  	1, kfqc*(1+ay), 1
 ;aoutx   	balance 	arezx, asigx
 ;arezy   	reson   	asigy, krez, krez/8
 ;aouty   	balance 	arezy, asigy
-		out    	aoutx*kamp*sqrt(kpan)
-		endin
+        out    	aoutx*kamp*sqrt(kpan)
+        endin
 
-		instr 107
+        instr 107
 a1 		buzz 	10000, 20, 10, 6
-		out 		a1
-		endin
+        out 		a1
+        endin
 
 </CsInstruments>
 <CsScore>
@@ -255,4 +255,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

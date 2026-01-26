@@ -1,14 +1,14 @@
 ; Gated, Retriggerable Envelope Generator UDO (adsr140)
 ; Based on design of Doepfer A-140 Envelope Generator Module
-; Code based on ADSR code by Nigel Redmon 
+; Code based on ADSR code by Nigel Redmon
 ; (http://www.earlevel.com/main/2013/06/03/envelope-generators-adsr-code/)
 ; Example by Steven Yi (2015.02.08)
 
 opcode adsr140_calc_coef, k, kk
-  
+
   knum_samps, kratio xin
   xout exp( -log((1.0 + kratio) / kratio) / knum_samps)
-    
+
 endop
 
 /* Gated, Re-triggerable ADSR modeled after the Doepfer A-140 */
@@ -44,10 +44,10 @@ if (klast_attack != kattack) then
     kattack_samps = kattack * sr
     kattack_coef = adsr140_calc_coef(kattack_samps, 0.3)
     kattack_base = (1.0 + 0.3) * (1 - kattack_coef)
-  else 
-    kattack_samps = 0 
-    kattack_coef = 0 
-    kattack_base = 0 
+  else
+    kattack_samps = 0
+    kattack_coef = 0
+    kattack_base = 0
   endif
 endif
 
@@ -92,7 +92,7 @@ while (kindx < ksmps) do
         kval = ksustain
         kstate = 2
       endif
-      asig[kindx] = kval 
+      asig[kindx] = kval
 
     else
       asig[kindx] = ksustain
@@ -102,13 +102,13 @@ while (kindx < ksmps) do
     kstate = 0
     if (kval == 0.0) then
       asig[kindx] = 0
-    else 
+    else
     ; releasing
       kval = krelease_base + (kval * krelease_coef)
     if(kval <= 0.0) then
       kval = 0.0
     endif
-    asig[kindx] = kval  
+    asig[kindx] = kval
     endif
 
   endif

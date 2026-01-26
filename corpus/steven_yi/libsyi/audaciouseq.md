@@ -20,8 +20,8 @@ Calc Coefficients
 ## Code
 
 ```csound
-/* audaciouseq - multi-band equalizer 
-   
+/* audaciouseq - multi-band equalizer
+
    A Csound UDO implementation of Audacious' EQ:
 
    https://github.com/audacious-media-player/audacious/blob/master/src/libaudcore/equalizer.cc
@@ -43,8 +43,8 @@ ith = 2 * $M_PI * (ifC / sr)
 iC  = (1 - tan(ith * $Q / 2)) / (1 + tan(ith * $Q / 2))
 
 ia0 = (1 + iC) * cos(ith)
-ia1 = -iC 
-ib0 = (1 - iC) / 2 
+ia1 = -iC
+ib0 = (1 - iC) / 2
 ib1 = -1.005
 
 kout init 0
@@ -54,28 +54,28 @@ kwq1 init 0
 kG = pow(10, kgain / 20)  - 1
 
 ;; Filter Code
-kyt = kin 
+kyt = kin
 kw = kyt * ib0 + kwq0 * ia0 + kwq1 * ia1
-kyt += (kw + kwq1 * ib1) * kG 
+kyt += (kw + kwq1 * ib1) * kG
 
 ;; Memory
 kwq1 = kwq0
 kwq0 = kw
 
-xout kyt 
+xout kyt
 endop
 
-/* 10-band EQ 
+/* 10-band EQ
    Input: asig, kgain1, kgain2, ...
    Output: aout
 
    10 kgain arguments maps to each band
-   Bands are: 31.25, 52.6, 125, 500, 1000, 
-              2000, 4000, 8000, 16000 
+   Bands are: 31.25, 52.6, 125, 500, 1000,
+              2000, 4000, 8000, 16000
 */
 opcode audaciouseq, a, akkkkkkkkkk
 
-ain, kgain1, kgain2, kgain3, kgain4, kgain5, 
+ain, kgain1, kgain2, kgain3, kgain4, kgain5,
      kgain6, kgain7, kgain8, kgain9, kgain10 xin
 
 aout = 0
@@ -113,4 +113,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "audaciouseq.udo"
 ```
-

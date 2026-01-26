@@ -488,8 +488,8 @@ asig bamboo 20000, 0.02, 0, 0, 0.25, ifreq, ifreq1
 ## Common Issues & Solutions
 
 ### Too Harsh or Noisy
-**Problem:** Sound is too chaotic, lacks bamboo character  
-**Cause:** `imaxshake` too high or frequencies too high  
+**Problem:** Sound is too chaotic, lacks bamboo character
+**Cause:** `imaxshake` too high or frequencies too high
 **Solution:**
 ```csound
 ; Reduce shake intensity
@@ -499,8 +499,8 @@ asig bamboo 20000, 0.02, 0, 0, 0.15, p5, p6  ; Lower shake (was 0.25)
 ```
 
 ### Sounds Too Tonal/Musical (Not Bamboo-Like)
-**Problem:** Sounds more like bells than bamboo  
-**Cause:** ifreq and ifreq1 too close (harmonic relationship)  
+**Problem:** Sounds more like bells than bamboo
+**Cause:** ifreq and ifreq1 too close (harmonic relationship)
 **Solution:**
 ```csound
 ; Increase frequency separation (inharmonicity)
@@ -509,8 +509,8 @@ asig bamboo 20000, 0.02, 0, 0, 0.25, 800, 2500  ; Was 800, 1000
 ```
 
 ### Too Short/No Resonance
-**Problem:** Sound dies immediately, no sustain  
-**Cause:** `idettack` too low or `idamp` too high  
+**Problem:** Sound dies immediately, no sustain
+**Cause:** `idettack` too low or `idamp` too high
 **Solution:**
 ```csound
 ; Increase decay time
@@ -520,8 +520,8 @@ asig bamboo 20000, 0.02, 0, 0.05, 0.25, p5, p6  ; Lower idamp
 ```
 
 ### Not Enough Variation/Too Static
-**Problem:** Each strike sounds identical  
-**Cause:** Stochastic seed or lack of parameter variation  
+**Problem:** Each strike sounds identical
+**Cause:** Stochastic seed or lack of parameter variation
 **Solution:**
 ```csound
 ; Use k-rate parameters with slight randomness
@@ -531,8 +531,8 @@ asig bamboo 20000, 0.02, 0, 0, kshake, p5, p6
 ```
 
 ### Too Quiet or Too Loud
-**Problem:** Amplitude issues  
-**Cause:** `kamp` parameter or 0dbfs scaling  
+**Problem:** Amplitude issues
+**Cause:** `kamp` parameter or 0dbfs scaling
 **Solution:**
 ```csound
 ; Adjust amplitude
@@ -543,8 +543,8 @@ asig bamboo 30000, 0.02, 0, 0, 0.25, p5, p6  ; Increase from 20000
 ```
 
 ### Sounds Metallic, Not Woody
-**Problem:** Wrong timbre for bamboo  
-**Cause:** Frequencies too high or too harmonic  
+**Problem:** Wrong timbre for bamboo
+**Cause:** Frequencies too high or too harmonic
 **Solution:**
 ```csound
 ; Use lower, more inharmonic frequencies
@@ -648,7 +648,7 @@ Internally, bamboo likely uses:
 for each random event:
   excite_resonator_1(ifreq, energy)
   excite_resonator_2(ifreq1, energy)
-  
+
 resonator_output_1 = filter(events, ifreq) * decay(idettack)
 resonator_output_2 = filter(events, ifreq1) * decay(idettack)
 

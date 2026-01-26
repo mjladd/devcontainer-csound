@@ -14,7 +14,7 @@ opcode seqsig, a, ak[]
 
   kindx = 0
   while (kindx < ksmps) do
-    if(agate[kindx] == 1) then 
+    if(agate[kindx] == 1) then
       kpatindx = (kpatindx + 1) % karrlen
     endif
 
@@ -36,7 +36,7 @@ opcode seqsig, k, ak[]
 
   kindx = 0
   while (kindx < ksmps) do
-    if(agate[kindx] == 1) then 
+    if(agate[kindx] == 1) then
       kpatindx = (kpatindx + 1) % karrlen
       kout = kpattern[kpatindx]
     endif
@@ -49,4 +49,3 @@ opcode seqsig, k, ak[]
 endop
 
 #endif
-

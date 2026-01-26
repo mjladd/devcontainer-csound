@@ -18,7 +18,7 @@ gaexcite	init 0
 galeft 	init 0
 garight	init 0
 
-	instr 1	;working instrument
+    instr 1	;working instrument
 kpch	= cpspch(p4)
 iforce	= p6 * .0004
 
@@ -52,7 +52,7 @@ kstrength	= 0
 idisp	= 0
 id	= 2
 
-	scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
+    scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
 
 aout	scans	15000, kpch, iscantable, 2
 aout 	dcblock aout
@@ -71,9 +71,9 @@ aout	nreverb	aout, 1.1, .2
 ga1	= ga1 + aout
 ga2	= ga1 + aout
 
-	endin
+    endin
 
-	instr 2	;feedback scanned
+    instr 2	;feedback scanned
 ain 	init 0
 
 kpch	= cpspch(p4)
@@ -114,7 +114,7 @@ kstrength	= 0
 idisp	= 0
 id	= 2
 
-	scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
+    scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
 
 aout	scans	30000, kpch, iscantable, 2
 
@@ -134,9 +134,9 @@ aout	nreverb	aout, 2, .2
 
 ga1	= ga1 + aout
 ga2	= ga1 + aout
-	endin
+    endin
 
-	instr 3	;double scanned
+    instr 3	;double scanned
 ain 	init 0
 
 kpch	= cpspch(p4)
@@ -175,8 +175,8 @@ kstrength	= 0
 idisp	= 0
 id	= 2
 
-	scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
-	scanu iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,1,.04,kcenter,kdamp,ileft,iright,kpos,kstrength,aforce,idisp,3
+    scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
+    scanu iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,1,.04,kcenter,kdamp,ileft,iright,kpos,kstrength,aforce,idisp,3
 
 aout	scans	30000, kpch, iscantable, 2
 aout2	scans	30000, kpch, iscantable, 3
@@ -196,21 +196,21 @@ aout	nreverb	aout, 2, .2
 ga1	= ga1 + aout
 ga2	= ga1 + aout
 
-	endin
+    endin
 
-	instr 4	;background noise
+    instr 4	;background noise
 aout	pinkish	    1000
 aout	butterlp 	aout, 1000
 ga1 = ga1 + aout
 ga2 = ga2 + aout
-	endin
+    endin
 
-	instr 20	;reverb
-	aout	nreverb	ga1 * .7, 4, .8
-	out (aout + ga1) * 0.01, (aout + ga1) * 0.01
+    instr 20	;reverb
+    aout	nreverb	ga1 * .7, 4, .8
+    out (aout + ga1) * 0.01, (aout + ga1) * 0.01
 ga1 = 0
 ga2 = 0
-	endin
+    endin
 
 </CsInstruments>
 <CsScore>

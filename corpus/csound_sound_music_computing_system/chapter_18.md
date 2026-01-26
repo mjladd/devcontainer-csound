@@ -28,7 +28,7 @@ editor, in the <CsInstruments> section of a CSD ﬁle (see Section 2.2). Csound
 code is case sensitive, i.e. hello is not the same as Hello. It is important that only
 ASCII text, with no extra formatting data, is used, so users should avoid using word
 processors that might introduce these. Alternatively, users can employ their Csound
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 53
 3

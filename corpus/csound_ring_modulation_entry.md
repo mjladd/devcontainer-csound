@@ -263,7 +263,7 @@ f2 0 8193 7 0 2048 1 4096 -1 2048 0
 ```
 **Triangle wave** (GEN07 - linear segments)
 - 0 → 1 (2048 points)
-- 1 → -1 (4096 points) 
+- 1 → -1 (4096 points)
 - -1 → 0 (2048 points)
 - Brighter than sine (contains odd harmonics)
 - More complex ring mod spectrum
@@ -623,8 +623,8 @@ outch 1, alow_mod + amid_mod + ahigh_mod
 ## Common Issues & Solutions
 
 ### Aliasing at High Frequencies
-**Problem:** Harsh digital artifacts when modulator frequency is high  
-**Cause:** Sum frequencies exceed Nyquist (sr/2 = 22050 Hz)  
+**Problem:** Harsh digital artifacts when modulator frequency is high
+**Cause:** Sum frequencies exceed Nyquist (sr/2 = 22050 Hz)
 **Solution:**
 ```csound
 ; Limit modulator frequency
@@ -636,8 +636,8 @@ aout tone aout, 18000
 ```
 
 ### Too Much/Too Little Effect
-**Problem:** Effect too subtle or too extreme  
-**Cause:** Depth parameter not optimal  
+**Problem:** Effect too subtle or too extreme
+**Cause:** Depth parameter not optimal
 **Solution:**
 ```csound
 ; Try different depth values
@@ -650,8 +650,8 @@ kdepth linseg 0.3, p3, 0.9  ; Increase over time
 ```
 
 ### Distortion/Clipping
-**Problem:** Output exceeds 0dbfs, distorts  
-**Cause:** Ring mod can increase amplitude  
+**Problem:** Output exceeds 0dbfs, distorts
+**Cause:** Ring mod can increase amplitude
 **Solution:**
 ```csound
 ; Scale output
@@ -663,8 +663,8 @@ outch 1, aout
 ```
 
 ### Unnatural Sweep Sound
-**Problem:** Sweep sounds uneven or strange  
-**Cause:** Should use exponential, not linear  
+**Problem:** Sweep sounds uneven or strange
+**Cause:** Should use exponential, not linear
 **Solution:**
 ```csound
 ; Use expon instead of line
@@ -673,8 +673,8 @@ ksweep1 expon ifreq1, p3, ifreq2  ; Correct (exponential)
 ```
 
 ### Input File Not Found
-**Problem:** "can't open scores/samples/female.aiff"  
-**Cause:** File path incorrect or file missing  
+**Problem:** "can't open scores/samples/female.aiff"
+**Cause:** File path incorrect or file missing
 **Solution:**
 ```csound
 ; Use full path
@@ -686,8 +686,8 @@ ain oscili 0.3, 200, 1  ; Test tone instead of file
 ```
 
 ### Loss of Stereo Image
-**Problem:** Output sounds too centered, not wide enough  
-**Cause:** L/R sweeps too similar  
+**Problem:** Output sounds too centered, not wide enough
+**Cause:** L/R sweeps too similar
 **Solution:**
 ```csound
 ; Use more different frequencies

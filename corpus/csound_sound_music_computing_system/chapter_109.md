@@ -29,7 +29,7 @@ is good to allow for some lucky coincidences and chance discoveries, which are a
 times what gives a special touch to the composition.
 My approach in composing Noctilucent Clouds followed this path, starting with
 some unconnected sketches, and the exploration of particular processes. Some of
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_22
 487
 488

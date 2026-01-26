@@ -77,7 +77,7 @@ mixed boundaries, the fundamental frequency will be one octave lower compared to
 an equivalent string waveguide.
 6
 
-
+
 ×
 6
  −1

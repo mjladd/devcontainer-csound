@@ -29,7 +29,7 @@ ber of synthesis parameters allows very ﬂexible control over the sonic output.
 underlying process of assembling small chunks of sound stays basically the same,
 but the shape, size, periodicity and audio content of grains may be changed dynam-
 ically. Even if the potential sounds can be transformed and gradually morphed from
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_15
 337
 338

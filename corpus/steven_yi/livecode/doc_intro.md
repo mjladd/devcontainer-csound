@@ -5,13 +5,13 @@ author: Steven Yi
 license: MIT
 ---
 
-# csound-live-code 
+# csound-live-code
 
 Author: Steven Yi\<stevenyi@gmail.com\>
 
-## Introduction 
+## Introduction
 
-*csound-live-code* is a library, framework, and web application for live coding and music making with Csound. The core is a library, [livecode.orc](../livecode.orc), that contains a number of user-defined opcodes and instruments. These opcodes and instruments provide a foundation for live coding of music with Csound and provide abstractions like a metronome, tempo, duration units (i.e., ticks, beats, bars), scales, and pattern creation tools.  The parts all work together to form a framework for live coding with callback instruments or temporal recursion. This library is used with desktop Csound installations as well as used as part of the [http://live.csound.com](http://live.csound.com) web application. 
+*csound-live-code* is a library, framework, and web application for live coding and music making with Csound. The core is a library, [livecode.orc](../livecode.orc), that contains a number of user-defined opcodes and instruments. These opcodes and instruments provide a foundation for live coding of music with Csound and provide abstractions like a metronome, tempo, duration units (i.e., ticks, beats, bars), scales, and pattern creation tools.  The parts all work together to form a framework for live coding with callback instruments or temporal recursion. This library is used with desktop Csound installations as well as used as part of the [http://live.csound.com](http://live.csound.com) web application.
 
 ## Documentation
 
@@ -45,7 +45,7 @@ __Tutorial__
 * [Tutorial 3: Performing with a Feedback Delay](tutorial3.md)
 * [Tutorial 4: Making Music in a Modular Style](tutorial4.md)
 
-<!-- 
+<!--
 * [Events 1: Simple Events](tutorial2.md)
 * [Events 2: Compound Events](tutorial3.md)
 * [Events 3: Generating Notes with Loops](tutorial4.md)
@@ -60,7 +60,3 @@ __Reference__
 
 * [Cheatsheet](cheatsheet.md)
 * [Reference](reference.md)
-
-
-
-

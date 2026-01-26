@@ -19,7 +19,7 @@ nchnls = 2
 garvb4    init      0
 
 
-	instr 15
+    instr 15
 kenv	oscil	1, 1/p3, 2
 ;a1	soundin	"../samples/glassBk.wav", 1
 a1	soundin	"../samples/glass.aif", 1
@@ -29,16 +29,16 @@ amod	= a1
 a2	oscil	1, p4, p5
 a3	= a2*amod
 a4	= a2 + a3
-	out a4, a4
+    out a4, a4
 
 garvb4	= garvb4  + (a4 * p6)
-	endin
+    endin
 
 ;===============
 ; VERB
 ;===============
 
-	instr 16
+    instr 16
 ;		 ia	 dur1	ib	dur2	ic	dur3		id	dur4	ie
 kcf	linseg	 p10, 	 p11, 	p12, 	p13, 	p14, 	p3-(p11+p13),	p15
 kenv	linseg	 0, 	 50, 	10, 	200, 	10, 	p3-(50+200+50), 1.5, 	50, 	0
@@ -47,10 +47,10 @@ kenv	linseg	 0, 	 50, 	10, 	200, 	10, 	p3-(50+200+50), 1.5, 	50, 	0
 a1	nreverb	 garvb4, p4, 	p5
 a1	butterbp a1, 	 kcf, 	p6
 a1	= a1 * kenv
-	out a1, a1
+    out a1, a1
 
 garvb4	= 0
-	endin
+    endin
 
 </CsInstruments>
 <CsScore>
@@ -327,4 +327,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

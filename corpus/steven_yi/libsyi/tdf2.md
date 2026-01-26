@@ -22,10 +22,10 @@ User-defined opcode from Steven Yi's libsyi collection.
 ```csound
 
 
-/* 
-   Transposed Direct Form II Biquad 
+/*
+   Transposed Direct Form II Biquad
 
-   Based on C++ code by Nigel Redmon: 
+   Based on C++ code by Nigel Redmon:
    http://www.earlevel.com/main/2012/11/26/biquad-c-source-code/
 
 
@@ -34,7 +34,7 @@ User-defined opcode from Steven Yi's libsyi collection.
 
    INPUT
      asig - input signal
-     ifilter_type - filter type: 
+     ifilter_type - filter type:
         0 - Low Pass
         1 - High Pass
         2 - Band Pass
@@ -104,7 +104,7 @@ while (kndx < ksmps) do
       kb1 = 2 * (kK2 - 1) * knorm
       kb2 = (1 - kK / kQ + kK2) * knorm
 
-    elseif (ifilter_type == 3) then       ;; Notch 
+    elseif (ifilter_type == 3) then       ;; Notch
       knorm = 1 / (1 + kK / kQ + kK2)
       ka0 = (1 + kK2) * knorm
       ka1 = 2 * (kK2 - 1) * knorm
@@ -112,7 +112,7 @@ while (kndx < ksmps) do
       kb1 = ka1
       kb2 = (1 - kK / kQ + kK2) * knorm
 
-    elseif (ifilter_type == 4) then       ;; Peaking 
+    elseif (ifilter_type == 4) then       ;; Peaking
       if (kgain >= 0) then                ;; boost
           knorm = 1 / (1 + kK/kQ  + kK2);
           ka0 = (1 + kV/kQ * kK + kK2) * knorm;
@@ -129,7 +129,7 @@ while (kndx < ksmps) do
           kb2 = (1 - kV/kQ * kK + kK2) * knorm
       endif
 
-    elseif (ifilter_type == 5) then       ;; Low Shelf 
+    elseif (ifilter_type == 5) then       ;; Low Shelf
       if (kgain >= 0) then                ;; boost
         knorm = 1 / (1 + sqrt(2) * kK + kK2)
         ka0 = (1 + sqrt(2*kV) * kK + kV * kK2) * knorm
@@ -146,7 +146,7 @@ while (kndx < ksmps) do
         kb2 = (1 - sqrt(2*kV) * kK + kV * kK2) * knorm
       endif
 
-    elseif (ifilter_type == 6) then       ;; High Shelf 
+    elseif (ifilter_type == 6) then       ;; High Shelf
       if (kgain >= 0) then                ;; boost
         knorm = 1 / (1 + sqrt(2) * kK + kK2)
         ka0 = (kV + sqrt(2*kV) * kK + kK2) * knorm
@@ -198,4 +198,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "tdf2.udo"
 ```
-

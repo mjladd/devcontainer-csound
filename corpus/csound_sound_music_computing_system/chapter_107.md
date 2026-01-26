@@ -59,7 +59,7 @@ Ambisonic H´enon
 13:40
 In this chapter I present the background in near-chaos that is central to the series,
 describe the initial idea, and how it developed into the ﬁnal work.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_20
 469
 470

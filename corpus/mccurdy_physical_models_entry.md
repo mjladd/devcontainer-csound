@@ -416,4 +416,3 @@ Solves wave equations numerically on a grid. More accurate but computationally e
 - `mccurdy_additive_synthesis_entry.md` - Modal additive synthesis
 - `csound_physical_models_entry.md` - Physical modeling theory
 - `csound_pluck_tutorial_entry.md` - Karplus-Strong details
-

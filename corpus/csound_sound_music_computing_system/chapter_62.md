@@ -24,7 +24,7 @@ families of classic sound synthesis will be explored here: source-modiﬁer meth
 distortion and additive synthesis. Our approach will be mostly descriptive, although
 we will provide the relevant mathematical formulae for completeness, wherever this
 is relevant.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 209
 12

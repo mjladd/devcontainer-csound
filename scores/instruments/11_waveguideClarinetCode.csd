@@ -5,11 +5,11 @@
 </CsOptions>
 
 <CsInstruments>
- sr = 44100
- ksmps = 1
- nchnls = 1
- 0dbfs = 32768
-              instr      1903
+sr = 44100
+ksmps = 1
+nchnls = 1
+0dbfs = 32768
+            instr      1903
     areedbell init  	 0
     ifqc      =          cpspch(p5)
     ifco      =          p7
@@ -35,8 +35,8 @@
     asum1     =         apressm + amult1
     areedbell delay     asum1, ibore
     aofilt    atone     areedbell, ifco
-              out       aofilt*p4
-              endin
+            out       aofilt*p4
+            endin
 </CsInstruments>
 
 <CsScore>

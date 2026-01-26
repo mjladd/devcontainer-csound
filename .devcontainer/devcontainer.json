@@ -1,21 +1,62 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
-	"name": "csound",
-	// use the Dockerfile in the current directory
-	// build context of one directory above ('..')
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": ".."
-	},
-	"settings": {
-		"terminal.integrated.defaultProfile.linux": "zsh",
-		"terminal.integrated.profiles.linux": {
-			"zsh": {
-				"path": "/usr/bin/zsh"
-			}
-		}
-	},
-	"containerEnv": {
-		"SHELL": "/usr/bin/zsh"
-	}
+  "name": "CSound",
+  // Use the Dockerfile in the current directory
+  // Build context one directory above ('..')
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "options": [
+      "--progress=plain"
+    ]
+  },
+  // Mount cache volumes for better performance and persist credentials
+  "mounts": [
+    // Package manager caches
+    "source=uv-cache,target=/root/.cache/uv,type=volume",
+    "source=apt-cache,target=/var/cache/apt,type=volume",
+    "source=apt-lib,target=/var/lib/apt,type=volume"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    }
+  },
+  "postCreateCommand": "bash -lc 'cp -f .devcontainer/markdownlint.json .markdownlint.json && uv sync --no-install-project && pre-commit install'",
+  "remoteUser": "root",
+  "customizations": {
+    "settings": {
+      "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+      "python.linting.enabled": true,
+      "python.linting.pylintEnabled": true,
+      "python.linting.mypyEnabled": true,
+      "editor.insertSpaces": true,
+      "editor.tabSize": 4,
+      "editor.detectIndentation": false,
+      "editor.formatOnSave": false,
+      "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit",
+          "source.organizeImports": "explicit"
+        }
+      },
+      "python.testing.pytestPath": "/workspace/.venv/bin/pytest",
+      "python.testing.pytestEnabled": true
+    },
+    "shutdownAction": "none",
+    "vscode": {
+      "extensions": [
+        "ms-vscode-remote.remote-containers",
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "kunstmusik.csound-vscode-plugin",
+        "redhat.vscode-yaml",
+        "ms-vscode.makefile-tools",
+        "bierner.markdown-mermaid",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  }
 }

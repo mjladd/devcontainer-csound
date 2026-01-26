@@ -113,11 +113,11 @@ aamp linseg 0, p3*.3, 8000, p3*.2, 8500, p3*.5, 10000
 - **Segment 1** (30% of duration): 0 → 8000
   - Attack phase
   - Gradual crescendo
-  
+
 - **Segment 2** (20% of duration): 8000 → 8500
   - Slight increase
   - Mid-section stability
-  
+
 - **Segment 3** (50% of duration): 8500 → 10000
   - Final half of note
   - Crescendo to peak
@@ -140,8 +140,8 @@ afund expseg 200, p3*.8, 342, p3*.2, 223
 - **80% of duration:** 200 Hz → 342 Hz
   - Rises ~9 semitones (about a major 6th)
   - Exponential = musical pitch perception
-  
-- **20% of duration:** 342 Hz → 223 Hz  
+
+- **20% of duration:** 342 Hz → 223 Hz
   - Falls back down ~7 semitones
   - Resolution/relaxation
 
@@ -165,7 +165,7 @@ afreq linseg 20, p3*.2, p6, p3*.8, 20
 - **20% of duration:** 20 Hz → p6 (target formant)
   - Starts very low (sub-audio)
   - Rises to vowel formant frequency
-  
+
 - **80% of duration:** p6 → 20 Hz
   - Returns to sub-audio
   - Long fade-out
@@ -625,8 +625,8 @@ a1 fof aamp*p7, afund, afreq, 0, 0, .1, kdur, .009, 100, 24, 23, p3, 0, 1
 ## Common Issues & Solutions
 
 ### Distortion/Clipping
-**Problem:** Output distorts, especially with high overlaps  
-**Cause:** Too many grains summing, excessive amplitude  
+**Problem:** Output distorts, especially with high overlaps
+**Cause:** Too many grains summing, excessive amplitude
 **Solution:**
 ```csound
 ; Reduce amplitude
@@ -636,8 +636,8 @@ out a1*.02, a1*.02  ; Was .05, now .02
 ```
 
 ### Gaps or "Helicopter" Sound
-**Problem:** Sound is discontinuous, rhythmic artifacts  
-**Cause:** Too few overlaps, grain duration too short  
+**Problem:** Sound is discontinuous, rhythmic artifacts
+**Cause:** Too few overlaps, grain duration too short
 **Solution:**
 ```csound
 ; Increase overlaps
@@ -649,8 +649,8 @@ a1 fof aamp*p7, afund, afreq, 0, 0, .1, .2, .009, 100, 24, 23, p3, 0, 1
 ```
 
 ### Clicks or Pops
-**Problem:** Audible clicks at grain boundaries  
-**Cause:** Grain envelope too sharp, rise/decay too short  
+**Problem:** Audible clicks at grain boundaries
+**Cause:** Grain envelope too sharp, rise/decay too short
 **Solution:**
 ```csound
 ; Smoother grain envelope (f24)
@@ -661,8 +661,8 @@ a1 fof aamp*p7, afund, afreq, 0, 0, .15, .2, .02, 100, 24, 23, p3, 0, 1
 ```
 
 ### Unnatural or Synthetic Sound
-**Problem:** Doesn't sound like voice  
-**Cause:** Single formant, static parameters  
+**Problem:** Doesn't sound like voice
+**Cause:** Single formant, static parameters
 **Solution:**
 ```csound
 ; Add multiple formants (see variations above)
@@ -672,8 +672,8 @@ a1 fof aamp*p7, afund, afreq, 0, 0, .15, .2, .02, 100, 24, 23, p3, 0, 1
 ```
 
 ### CPU Overload
-**Problem:** Performance issues, dropouts  
-**Cause:** Too many overlaps, too many simultaneous FOF instances  
+**Problem:** Performance issues, dropouts
+**Cause:** Too many overlaps, too many simultaneous FOF instances
 **Solution:**
 ```csound
 ; Reduce overlaps
@@ -683,8 +683,8 @@ a1 fof aamp*p7, afund, afreq, 0, 0, .1, .12, .009, 50, 24, 23, p3, 0, 1
 ```
 
 ### Wrong Formant Frequencies
-**Problem:** Vowels don't sound right  
-**Cause:** Incorrect formant values  
+**Problem:** Vowels don't sound right
+**Cause:** Incorrect formant values
 **Solution:**
 ```csound
 ; Use standard vowel formants:
@@ -790,7 +790,7 @@ Bandwidth parameter (currently 0 = default) controls this directly
 - **F3** (Third formant): 2000-3500 Hz - voice quality
 - **F4-F5** (Higher formants): 3000-5000 Hz - naturalness
 
-**Single formant** (this example) gives basic vowel color.  
+**Single formant** (this example) gives basic vowel color.
 **Multiple formants** create realistic vowels.
 
 ### FOF vs. Physical Modeling

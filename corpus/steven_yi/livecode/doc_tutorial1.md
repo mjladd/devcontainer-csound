@@ -20,7 +20,7 @@ making your own synthesizers!
 Let's get started by opening up the
 [csound-live-code](https://live.csound.com) web application. When the
 application finishes loading, you should see the top bar with a pause/play
-button and a help button, two other buttons for evaluating code immediately 
+button and a help button, two other buttons for evaluating code immediately
 or at the measure boundary, as well as the primary code editing area. The code
 editor will, by default, contain the current example snapshot. Just to
 double-check that everything is working alright, click into the code editor
@@ -28,13 +28,13 @@ to give it focus, press `ctrl-a` to select all of the text, then press
 `ctrl-enter` to evaluate the code. At this point, you should begin to hear a
 music example playing.
 
-If you're hearing sound, fantastic!  
+If you're hearing sound, fantastic!
 
 Oh, but if you're not hearing sound? Well, it could be a few things. Most
 likely, the browser you are using may not support the necessary features,
 which are:
 
-1. WebAudio API 
+1. WebAudio API
 2. WebAssembly
 
 If you know those are working for your browser, you might try checking out
@@ -48,7 +48,7 @@ contact the author.  Testing usually happens on Windows 10 with Chrome,
 Firefox, and Edge; Chrome OS browser; and Chrome on Android; and it could be
 you are using a configuration that the author needs to research and test on.
 
-## Our First Sound 
+## Our First Sound
 
 Assuming you've gotten everything working, let's refresh the web site and
 clear out all of the code to start with a fresh, empty code editor. Now,
@@ -75,7 +75,7 @@ So what is all of the above?  In Csound, we have a few primary abstractions/conc
    Csound, but for these tutorials we will focus on numeric data (e.g, 0, 2,
    0.5) and String data (e.g., "Sub1"). Sometimes we will write values directly
    into our code, such as in the above example, and other times we will work
-   with generated and processed values. 
+   with generated and processed values.
 2. __Variables__ are named places in memory that hold _values_. We generally do
    only two things with variables, which is to _read_ the value from variable
    or _write_ a value into the variable. Variables are important for connecting
@@ -83,7 +83,7 @@ So what is all of the above?  In Csound, we have a few primary abstractions/conc
    helps make our code easier to write and understand.  (If you're coming from
    a patching system, whether virtual or analog, you can think of variables as
    the cables that connect modules and by which values are transferred to and
-   from each other.) 
+   from each other.)
 3. __Opcodes__ are individual processing units (_unit generators_ in the
    language of MUSIC-N systems).  They are responsible for generating,
    processing, and consuming data. We can think of variables as _nouns_ and
@@ -94,7 +94,7 @@ So what is all of the above?  In Csound, we have a few primary abstractions/conc
    phase).  Some opcodes only perform operations at init-time while other do so
    at perf-time, and we use these opcodes differently. It'll be important
    understand this, but we will move on for now and come back to this in the
-   next tutorial. 
+   next tutorial.
 4. __Instruments__ are objects that define a process though a set of variables
    and series of opcodes. The name _instrument_ comes from the MUSIC-N
    tradition and we often *do* use Csound instruments like traditional ones,
@@ -102,13 +102,13 @@ So what is all of the above?  In Csound, we have a few primary abstractions/conc
    instruments are generic processes, and we can use them to do a number of
    different tasks, such as always-on effects, mixing, score generation, and
    more. Additionally, instruments work with events, which is to say we can
-   schedule them to run at a given time for a given duration.  
+   schedule them to run at a given time for a given duration.
 5. __Events__ are messages that have a type, start time, and duration. Csound
    includes a scheduler that holds events and, as the engine processes over
    time, reads pending events and fires off actions according to the given
    type. For these tutorials, the only event type we will be concerned with is
    creating new instrument instances, which we can think of as "play a note for
-   this instrument" or "play this sonic gesture".  
+   this instrument" or "play this sonic gesture".
 
 ## Using Opcodes
 
@@ -127,17 +127,17 @@ match in both the expected number of arguments that are defined for the opcode
 as well as the data types for each argument. The number and types of arguments
 are defined by the opcode and the way we learn about them is by looking up the
 documentation. (For example, see the reference manual entry for the
-[schedule](https://csound.com/docs/manual/schedule.html).) 
+[schedule](https://csound.com/docs/manual/schedule.html).)
 
 In this case, the schedule opcode actually requires three arguments but also
 permits giving an open-ended amount of additional arguments. This allows us to
 use the opcode with instruments that might require a different number of
 parameters to be given. For this tutorial, we're going to use schedule just
 like above with five arguments and will discuss arguments and instrument
-parameters further in the next tutorial. 
+parameters further in the next tutorial.
 
 
-## Exploring the instruments 
+## Exploring the instruments
 
 The instruments that come with csound-live-code are all designed to use five
 parameters. The first three are built into every instrument while the fourth
@@ -178,13 +178,13 @@ schedule("Sub1", 0, 1, 440, 0.5)
 ```
 
 With the modified values, you should be able to hear the instrument sound for longer and
-shorter durations as you update and re-evaluate the code.  
+shorter durations as you update and re-evaluate the code.
 
 
 ### Frequency
 
-Next, try keeping the same duration but modifying the frequency.  
-Try using the values 110, 220, 880 in place of the 440, like so:  
+Next, try keeping the same duration but modifying the frequency.
+Try using the values 110, 220, 880 in place of the 440, like so:
 
 ```csound
 schedule("Sub1", 0, 2, 110, 0.5)
@@ -193,7 +193,7 @@ schedule("Sub1", 0, 2, 880, 0.5)
 ```
 
 You should hear the `Sub1` instrument sounding at different octaves of the A
-scale degree. 
+scale degree.
 
 Now, it may seem odd that we use frequency here as we might tend to think more
 about scales and note numbers and things like that.  Don't worry, we'll have
@@ -206,7 +206,7 @@ instruments reusable for everyone.)
 
 Next, try modifying just the last value. Be **very** careful to use numeric
 values between 0 and 1.0: setting a value larger than 1.0 can cause very loud
-output!  
+output!
 
 
 ```csound
@@ -219,7 +219,7 @@ Like frequency, we probably are used to thinking of values in some other scale,
 such as decibels, dynamic marking (e.g., "f", "mp", "p"), or MIDI amp values.
 For the same reason as frequency, the instruments are made to be flexible and
 reusable and we will go through some different ways to work with amplitude in
-later tutorials. 
+later tutorials.
 
 
 ### Instrument Name
@@ -229,9 +229,9 @@ of pitched instruments as well as percussion instruments (from Iain McCurdy's
 TR808 simulation).  All of these instruments take in five parameters, though
 the unpitchedinstruments will ignore the frequency value.
 
-| Pitched | 
-| ------- | 
-| Sub1 |       `            
+| Pitched |
+| ------- |
+| Sub1 |       `
 | Sub2 |
 | Sub3 |
 | Sub4 |
@@ -244,24 +244,23 @@ the unpitchedinstruments will ignore the frequency value.
 | Noi |
 | Wobble |
 
-| Percussion |        
-| ---------- |        
-|  Clap |  
-|  BD   |  
-|  SD   |  
-|  OHH  |  
-|  CHH  |  
-|  HiTom  | 
-|  MidTom  |  
-|  LowTom   | 
-|  Cymbal   | 
-|  Rimshot  | 
+| Percussion |
+| ---------- |
+|  Clap |
+|  BD   |
+|  SD   |
+|  OHH  |
+|  CHH  |
+|  HiTom  |
+|  MidTom  |
+|  LowTom   |
+|  Cymbal   |
+|  Rimshot  |
 |  Claves |  |
-|  Cowbell |  
-|  Maraca   | 
-|  HiConga  | 
-|  MidConga   |  
-|  LowConga   |  
+|  Cowbell |
+|  Maraca   |
+|  HiConga  |
+|  MidConga   |
+|  LowConga   |
 
-In your code, try replacing the "Sub1" with each of the above and evaluting the updated code to hear what each patch sounds like. 
-
+In your code, try replacing the "Sub1" with each of the above and evaluting the updated code to hear what each patch sounds like.

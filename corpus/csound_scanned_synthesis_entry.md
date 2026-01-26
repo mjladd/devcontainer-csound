@@ -480,15 +480,15 @@ f1 0 128 7 0 63 0 1 1 64 0    ; Single spike at center
 - **0.01-0.05** - Very flexible (low, fluttery pitch)
   - Slow resonances
   - Deep, organic sounds
-  
+
 - **0.1** - Moderate (example value)
   - Balanced flexibility
   - Musical pitch range
-  
+
 - **0.5-1.0** - Stiff (higher, tighter pitch)
   - Faster resonances
   - Brighter, more metallic
-  
+
 - **> 2.0** - Very stiff
   - High-pitched
   - Can become unstable
@@ -512,15 +512,15 @@ f1 0 128 7 0 63 0 1 1 64 0    ; Single spike at center
 - **0-0.05** - Very weak (nearly free motion)
   - Low fundamental pitch
   - Loose, floppy sound
-  
+
 - **0.1** - Weak (example value)
   - Moderate fundamental
   - Flexible but controlled
-  
+
 - **0.5-1.0** - Moderate
   - Clear fundamental pitch
   - Stable oscillation
-  
+
 - **> 2.0** - Strong
   - High fundamental
   - Tight, constrained sound
@@ -630,12 +630,12 @@ scanu 1, .01, 6, 2, 3, 4, 5, 2, .1, .1, -.01, .1, kx, 0, 0, a0, 0, 2
 ## Common Issues & Solutions
 
 ### No Sound Output
-**Problem:** Scanned synthesis produces silence  
-**Cause:** 
+**Problem:** Scanned synthesis produces silence
+**Cause:**
 - Initial condition (f1) is all zeros
 - Stiffness matrix (f3) file not found
 - All damping, no energy injection
-  
+
 **Solution:**
 ```csound
 ; Ensure proper initial excitation:
@@ -646,8 +646,8 @@ kdamp = -.01
 ```
 
 ### System Explodes (Amplitude Grows Uncontrollably)
-**Problem:** Output level increases infinitely, eventual distortion  
-**Cause:** Negative damping (kdamp) too large (too much energy injection)  
+**Problem:** Output level increases infinitely, eventual distortion
+**Cause:** Negative damping (kdamp) too large (too much energy injection)
 **Solution:**
 ```csound
 ; Reduce anti-damping:
@@ -659,8 +659,8 @@ kcentr = .05     ; Less restoring force
 ```
 
 ### Sound Decays Too Quickly
-**Problem:** Model dies away almost immediately  
-**Cause:** Too much positive damping, not enough sustain  
+**Problem:** Model dies away almost immediately
+**Cause:** Too much positive damping, not enough sustain
 **Solution:**
 ```csound
 ; Reduce damping:
@@ -672,8 +672,8 @@ kstif = .2
 ```
 
 ### Pitch is Wrong or Unstable
-**Problem:** Pitch doesn't match scanning frequency or wavers  
-**Cause:** Confusion about scanning vs. resonant pitch  
+**Problem:** Pitch doesn't match scanning frequency or wavers
+**Cause:** Confusion about scanning vs. resonant pitch
 **Clarification:**
 - **Scanning frequency (cpspch(p5))** controls playback pitch
 - **Resonant pitch** depends on stiffness, centering, mass
@@ -687,8 +687,8 @@ a1 scans ampdb(p4), cpspch(p5), 7, 2
 ```
 
 ### Matrix File Not Found Error
-**Problem:** "can't open file circularstring-128.mat"  
-**Cause:** Matrix file path incorrect or file missing  
+**Problem:** "can't open file circularstring-128.mat"
+**Cause:** Matrix file path incorrect or file missing
 **Solution:**
 ```csound
 ; Use full path:
@@ -699,8 +699,8 @@ f3 0 16384 -52 128 1 0 0 2 1    ; Auto-generate circular string
 ```
 
 ### Harsh, Unpleasant Timbre
-**Problem:** Sound too bright or metallic  
-**Cause:** Scan trajectory emphasizes high partials, or stiffness too high  
+**Problem:** Sound too bright or metallic
+**Cause:** Scan trajectory emphasizes high partials, or stiffness too high
 **Solution:**
 ```csound
 ; Use gentler scan trajectory:
@@ -713,8 +713,8 @@ a1 tone a1, 2000    ; Low-pass filter
 ```
 
 ### CPU Overload
-**Problem:** High CPU usage, audio dropouts  
-**Cause:** Update rate too fast (irate too small)  
+**Problem:** High CPU usage, audio dropouts
+**Cause:** Update rate too fast (irate too small)
 **Solution:**
 ```csound
 ; Increase update interval:

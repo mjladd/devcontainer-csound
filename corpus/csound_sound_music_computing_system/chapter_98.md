@@ -28,7 +28,7 @@ content is determined by the performer moving the microphones around the room
 where the piece is performed. The relationship between material and form is thus
 explored, in the context of the particular performance venue. Example recordings of
 the piece can be found at [21, 20].
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_18
 443
 444

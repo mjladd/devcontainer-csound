@@ -35,7 +35,7 @@ This example demonstrates granular synthesis using Csound's `grain` opcode with 
  ksmps = 100
  nchnls    =         1
  0dbfs = 32768
- 
+
            instr     2
  k2        linseg    p5, p3/2, p9, p3/2, p5
  k3        line      p10, p3, p11
@@ -46,24 +46,24 @@ This example demonstrates granular synthesis using Csound's `grain` opcode with 
  a2        linen     a1, p7, p3, p8
            out       a2
            endin
- 
+
 </CsInstruments>
 <CsScore>
 ;============================================================================================
  ;FUNCTION 1 (f1) USES THE GEN10 SUBROUTINE TO COMPUTE A SINE WAVE
  ;FUNCTION 3 USES THE GEN20 SUBROUTINE TO COMPUTE A HANNING WINDOW FOR USE AS A GRAIN ENVELOPE
  ;============================================================================================
-   f1  0   4096   10   1    
+   f1  0   4096   10   1
    f3  0   4097   20   2  1
  ;============================================================================================
- ; p1  p2   p3  p4   p5   p6  p7  p8  p9   p10   p11   p12    p13    p14    p15    p16   p17  
+ ; p1  p2   p3  p4   p5   p6  p7  p8  p9   p10   p11   p12    p13    p14    p15    p16   p17
  ;============================================================================================
  ; INS STRT DUR AMP  FRQ  FN  ATK REL BEND DENS1 DENS2 AMPOF1 AMPOF2 PCHOF1 PCHOF2 GDUR1 GDUR2
  ;============================================================================================
-   i2  0    5   1000 440  3   1   .1  430  12000 4000  120    50     .01   .05    .1    .01 
+   i2  0    5   1000 440  3   1   .1  430  12000 4000  120    50     .01   .05    .1    .01
    i2  6    10  4000 1760 3   5   .1  60   5     200   500    1000    10    20000  1    .01
  ;============================================================================================
- 
+
 </CsScore>
 </CsoundSynthesizer>
 ```
@@ -390,16 +390,16 @@ k3 expon p10, p3, p11  ; Exponential density curve
 ## Common Issues & Solutions
 
 ### Clicking or Popping Sounds
-**Problem:** Audible clicks between grains  
-**Cause:** Grain envelope not smooth enough or grain duration too short  
-**Solution:** 
+**Problem:** Audible clicks between grains
+**Cause:** Grain envelope not smooth enough or grain duration too short
+**Solution:**
 - Use Hanning or Blackman window (GEN20 types 2 or 4)
 - Increase minimum grain duration to at least 0.01s
 - Ensure grain envelope table size is power of 2 + 1 (4097, 8193, etc.)
 
 ### CPU Overload
-**Problem:** Audio dropouts, "can't keep up" errors  
-**Cause:** Too many grains or too low ksmps  
+**Problem:** Audio dropouts, "can't keep up" errors
+**Cause:** Too many grains or too low ksmps
 **Solution:**
 - Increase ksmps (try 128 or 256 for granular)
 - Reduce grain density (< 5000 grains/sec)
@@ -407,8 +407,8 @@ k3 expon p10, p3, p11  ; Exponential density curve
 - Use simpler source waveforms
 
 ### Inaudible or Very Quiet Output
-**Problem:** Little or no sound produced  
-**Cause:** Grain parameters outside usable ranges  
+**Problem:** Little or no sound produced
+**Cause:** Grain parameters outside usable ranges
 **Solution:**
 - Check amplitude (p4) is reasonable (500-5000)
 - Ensure grain duration > 0.001s
@@ -416,24 +416,24 @@ k3 expon p10, p3, p11  ; Exponential density curve
 - Make sure density > 5 grains/second
 
 ### Harsh or Noisy Texture
-**Problem:** Output sounds too harsh or distorted  
-**Cause:** Excessive amplitude offset or pitch offset  
+**Problem:** Output sounds too harsh or distorted
+**Cause:** Excessive amplitude offset or pitch offset
 **Solution:**
 - Reduce amplitude offset (try < 200)
 - Reduce pitch offset (try < 1.0 for smoother sound)
 - Ensure grain envelope is properly normalized
 
 ### Pitch Not Clear or Recognizable
-**Problem:** Cannot hear clear pitch  
-**Cause:** Pitch offset too high or density too low  
+**Problem:** Cannot hear clear pitch
+**Cause:** Pitch offset too high or density too low
 **Solution:**
 - Reduce pitch offset to < 0.1 for clearer pitch
 - Increase grain density to > 100 grains/second
 - Use longer grain durations (> 0.05s)
 
 ### Expon Opcode Errors
-**Problem:** "error: expon: invalid start or end value"  
-**Cause:** expon cannot interpolate to/from zero or negative values  
+**Problem:** "error: expon: invalid start or end value"
+**Cause:** expon cannot interpolate to/from zero or negative values
 **Solution:**
 - Use small positive values instead of 0 (e.g., 0.001 instead of 0)
 - Use line instead of expon if zero values needed

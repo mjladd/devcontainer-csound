@@ -389,4 +389,3 @@ Audio → pvsanal → [PVS Opcodes] → pvsynth → Audio
 - `floss_manual/chapters/05-k-ats-resynthesis.md` - ATS resynthesis
 - `csound_fft_entry.md` - FFT processing theory
 - `mccurdy_granular_synthesis_entry.md` - Alternative time-stretch techniques
-

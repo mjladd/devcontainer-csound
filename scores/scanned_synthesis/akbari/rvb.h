@@ -204,10 +204,10 @@ $outR. = (afilt2 + afilt4 + afilt6 + afilt8)
 ;reverb for Costello큦 phased string ensemble
 ; by Sean Costello, August 23-26, 1999
       	; Simple implementation of Feedback Delay Network (FDN)
-		; reverb, as described by John Stautner and Miller 
-		; Puckette, "Designing Multi-Channel Reverberators," 
+		; reverb, as described by John Stautner and Miller
+		; Puckette, "Designing Multi-Channel Reverberators,"
 		; Computer Music Journal, Vol. 6, No. 1, Spring 1982,
-		; p.52-65. This version sticks to implementing the 
+		; p.52-65. This version sticks to implementing the
 		; basic FDN structure, and leaves out most of the
 		; FIR multitap delay lines and filtering used for
 		; the early reflections. For sounds with non-percussive
@@ -221,7 +221,7 @@ afilt4 init 0
 igain = .93 * 0.70710678117 ; gain of reverb
 ipitchmod = 1.2    	       ; amount of random pitch mod, between 0 and 1
 idelaytime = 1	             ; controls overall length of delay lines
-ifilt = 7000			 ; controls cutoff of lowpass filters at 
+ifilt = 7000			 ; controls cutoff of lowpass filters at
 				       ; outputs of delay lines
 ifreq = 1		       ; controls frequency of random noise
 
@@ -233,11 +233,11 @@ k4 randi .0006, 3.973 * ifreq, .3
 
 atap	multitap $in. , 0.00043, 0.0215, 0.00268, 0.0298, 0.00485, 0.0572, 0.00595, 0.0708, 0.00741, 0.0797, 0.0142, 0.134, 0.0217, 0.181, 0.0272, 0.192, 0.0379, 0.346, 0.0841, 0.504
 
-adum1 delayr 0.072 
+adum1 delayr 0.072
 adel1 deltapi 0.0663 * idelaytime + k1 * ipitchmod
  delayw $in. + afilt2 + afilt3
 
-adum2 delayr 0.082 
+adum2 delayr 0.082
 adel2 deltapi 0.0753 * idelaytime + k2 * ipitchmod
  delayw $in. - afilt1 - afilt4
 
@@ -262,10 +262,10 @@ $outR. = afilt4 + afilt3 + atap
 #
 ; by Sean Costello, August 23-26, 1999
       	; Simple implementation of Feedback Delay Network (FDN)
-		; reverb, as described by John Stautner and Miller 
-		; Puckette, "Designing Multi-Channel Reverberators," 
+		; reverb, as described by John Stautner and Miller
+		; Puckette, "Designing Multi-Channel Reverberators,"
 		; Computer Music Journal, Vol. 6, No. 1, Spring 1982,
-		; p.52-65. This version sticks to implementing the 
+		; p.52-65. This version sticks to implementing the
 		; basic FDN structure, and leaves out most of the
 		; FIR multitap delay lines and filtering used for
 		; the early reflections. For sounds with non-percussive
@@ -280,7 +280,7 @@ afilt4 init 0
 igain = $gain. * 0.70710678117   ; gain of reverb
 ipitchmod = $pitchmod.    		; amount of random pitch mod, between 0 and 1
 idelaytime = $delaytime.		; controls overall length of delay lines
-ifilt = $filt.			; controls cutoff of lowpass filters at 
+ifilt = $filt.			; controls cutoff of lowpass filters at
 					; outputs of delay lines
 ifreq = $freq.			; controls frequency of random noise
 
@@ -292,11 +292,11 @@ k4 randi .0006, 3.973 * ifreq, .3
 
 atap	multitap $in. , 0.00043, 0.0215, 0.00268, 0.0298, 0.00485, 0.0572, 0.00595, 0.0708, 0.00741, 0.0797, 0.0142, 0.134, 0.0217, 0.181, 0.0272, 0.192, 0.0379, 0.346, 0.0841, 0.504
 
-adum1 delayr 0.072 
+adum1 delayr 0.072
 adel1 deltapi 0.0663 * idelaytime + k1 * ipitchmod
  delayw $in. + afilt2 + afilt3
 
-adum2 delayr 0.082 
+adum2 delayr 0.082
 adel2 deltapi 0.0753 * idelaytime + k2 * ipitchmod
  delayw $in. - afilt1 - afilt4
 
@@ -803,51 +803,51 @@ $out.    	butterhp 	aflt1+aflt2+aflt3, 140 				; COMBINE OUTPUTS
 	     irifl   =$ref.       ; peso dei cammini di prima riflessione
 	     idir    =$dir.       ; ampiezza segnale diretto da tapline
 
-	     ; coefficenti di uscita con il criterio di inserire un numero  
+	     ; coefficenti di uscita con il criterio di inserire un numero
 	     ; pari 1 e -1 insieme a valori nulli
 
 
-	     ic0a =1  ;     
+	     ic0a =1  ;
 	     ic0b =1
-	     ic1a =-1  ;     
+	     ic1a =-1  ;
 	     ic1b =-1
-	     ic2a =1  ;     
+	     ic2a =1  ;
 	     ic2b =1
-	     ic3a =-1  ;     
+	     ic3a =-1  ;
 	     ic3b =-1
-	     ic4a =1  ;     
+	     ic4a =1  ;
 	     ic4b =1
-	     ic5a =-1  ;     
+	     ic5a =-1  ;
 	     ic5b =-1
-	     ic6a =1  ;     
+	     ic6a =1  ;
 	     ic6b =1
-	     ic7a =-1  ;     
+	     ic7a =-1  ;
 	     ic7b =-1
-	     ic8a =0  ;     
+	     ic8a =0  ;
 	     ic8b =0
-	     ic9a =0  ;     
+	     ic9a =0  ;
 	     ic9b =0
-	     ic10a=0  ;     
+	     ic10a=0  ;
 	     ic10b=0
-	     ic11a=0  ;     
+	     ic11a=0  ;
 	     ic11b=0
-	     ic12a=0  ;     
+	     ic12a=0  ;
 	     ic12b=0
-	     ic13a=0  ;     
+	     ic13a=0  ;
 	     ic13b=0
-	     ic14a=0  ;     
+	     ic14a=0  ;
 	     ic14b=0
 
 
 
 
-; Costruzione dei tempi di ritardo dipendenti dai parametri della stanza e 
+; Costruzione dei tempi di ritardo dipendenti dai parametri della stanza e
 ; dalla velocita del suono
 ; la costruzione delle linee e'  effettuata implementando la teoria
 ; del biscione che si morde la coda con N=15
 
-; Roc inserisce 1/ al posto di 2/                       
-	     
+; Roc inserisce 1/ al posto di 2/
+
 iddly0=2/(ics*sqrt((1/ilx)*(1/ilx)))                                 ; dly tm a= 001
 iddly1=2/(ics*sqrt((2/ilx)*(2/ilx)+(1/ily)*(1/ily)))                 ; dly tm b= 210
 iddly2=2/(ics*sqrt((1/ilx)*(1/ilx)+(1/ily)*(1/ily)))                 ; dly tm c= 110
@@ -863,15 +863,15 @@ iddly11=2/(ics*sqrt((1/ilx)*(1/ilx)+(1/ily)*(1/ily)+(1/ilz)*(1/ilz))); dly tm m=
 iddly12=2/(ics*sqrt((1/ilx)*(1/ilx)+(2/ily)*(2/ily)+(1/ilz)*(1/ilz))); dly tm m= 121
 iddly13=2/(ics*sqrt((2/ilx)*(2/ilx)+(1/ily)*(1/ily)+(1/ilz)*(1/ilz))); dly tm m= 211
 iddly14=2/(ics*sqrt((2/ilx)*(2/ilx)+(1/ilz)*(1/ilz)))                ; dly tm k= 201
-     
-    
+
+
 
 ; Il sistema essendo la matrice sostanzialmente lossless tende ad essere
 ; instabile percio' e'  necessario inserire dei coefficenti di attenuazione
 ; nei filtri in serie alle linee di ritardo
-; 
+;
 ; La scelta dei coefficenti viene effettuata con il criterio che il max
-; coeff. leggermente inferiore a 1 sia quello del segnale piu' veloce nella  
+; coeff. leggermente inferiore a 1 sia quello del segnale piu' veloce nella
 ; linea di ritardo , cioe'  quello che ha una catena con un delay minore
 ; prorzionalmente ai delay viene quindi determinato in modo esponenziale
 ; il coefficente di Fc/2 dei passabasso
@@ -917,15 +917,15 @@ ieps11=exp((iddly11/idlmin)*log(ieps))
 ieps12=exp((iddly12/idlmin)*log(ieps))
 ieps13=exp((iddly13/idlmin)*log(ieps))
 ieps14=exp((iddly14/idlmin)*log(ieps))
-		
 
 
 
-; Ho calcolato i coefficenti dei diversi filtri Fir passabasso del secondo 
+
+; Ho calcolato i coefficenti dei diversi filtri Fir passabasso del secondo
 ; ordine tipo ka0+ka1*z+ka2*z(-2)
-; in frequenza la condizione  LP(0)=ialfa,antitrasformata tenendo conto 
+; in frequenza la condizione  LP(0)=ialfa,antitrasformata tenendo conto
 ; della fase linrare mi da' 2*ka0+ka1=ialfai
-; mentre LP(Fc/2)=iepsi mi da 2*ka0-ka1=iepsi 
+; mentre LP(Fc/2)=iepsi mi da 2*ka0-ka1=iepsi
 
 
 ; la soluzione del sistema precedentemente impostato mi da queste soluzioni
@@ -933,61 +933,61 @@ ieps14=exp((iddly14/idlmin)*log(ieps))
 
 ia00=(ialfa0+ieps0)/4
 ia10=(ialfa0-ieps0)/2
-ia20=ia00                
+ia20=ia00
 ia01=(ialfa1+ieps1)/4
 ia11=(ialfa1-ieps1)/2
-ia21=ia01                
+ia21=ia01
 ia02=(ialfa2+ieps2)/4
 ia12=(ialfa2-ieps2)/2
-ia22=ia02                
+ia22=ia02
 ia03=(ialfa3+ieps3)/4
 ia13=(ialfa3-ieps3)/2
-ia23=ia03                
+ia23=ia03
 ia04=(ialfa4+ieps4)/4
 ia14=(ialfa4-ieps4)/2
-ia24=ia04                
+ia24=ia04
 ia05=(ialfa5+ieps5)/4
 ia15=(ialfa5-ieps5)/2
-ia25=ia05                
+ia25=ia05
 ia06=(ialfa6+ieps6)/4
 ia16=(ialfa6-ieps6)/2
-ia26=ia06                
+ia26=ia06
 ia07=(ialfa7+ieps7)/4
 ia17=(ialfa7-ieps7)/2
-ia27=ia07                
+ia27=ia07
 ia08=(ialfa8+ieps8)/4
 ia18=(ialfa8-ieps8)/2
-ia28=ia08                
+ia28=ia08
 ia09=(ialfa9+ieps9)/4
 ia19=(ialfa9-ieps9)/2
-ia29=ia09                
+ia29=ia09
 ia010=(ialfa10+ieps10)/4
 ia110=(ialfa10-ieps10)/2
-ia210=ia010                
+ia210=ia010
 ia011=(ialfa11+ieps11)/4
 ia111=(ialfa11-ieps11)/2
-ia211=ia011                
+ia211=ia011
 ia012=(ialfa12+ieps12)/4
 ia112=(ialfa12-ieps12)/2
-ia212=ia012                
+ia212=ia012
 ia013=(ialfa13+ieps13)/4
 ia113=(ialfa13-ieps13)/2
-ia213=ia013                
+ia213=ia013
 ia014=(ialfa14+ieps14)/4
 ia114=(ialfa14-ieps14)/2
-ia214=ia014                
+ia214=ia014
 
 
 
 
 	gax = $in.; fissa il file di ingresso
-	 
+
 	 ; doppia entrata con delay tapline a 7 tappi con parametri costanti
 	 ; determinati dai punti sorgente e ricevente che fissano i
 	 ; tempi di prelievo e i coefficenti amplicazione
 
 
-	
+
 
 
 
@@ -995,7 +995,7 @@ ia214=ia014
 ; Determinazione delle distanze percorse con il metodo dell'  immagine  per
 ; il pickup right
 ; Valutando l'  origine degli assi al centro della stanza
-; i vari coefficenti  im  rappresentano  i diversi ritardi delle onde riflesse 
+; i vari coefficenti  im  rappresentano  i diversi ritardi delle onde riflesse
 
 idist0a=sqrt((irrx-isrx)*(irrx-isrx)+(irry-isry)*(irry-isry)+(irrz-isrz)*(irrz-isrz))
 idist1a=sqrt((ilx+irrx+isrx)*(ilx+irrx+isrx)+(irry-isry)*(irry-isry)+(irrz-isrz)*(irrz-isrz))
@@ -1053,7 +1053,7 @@ ip6b=irifl/idist6b
 
 
 
-; qui e'  stato necessario usare le primitive delayr e delayw per la 
+; qui e'  stato necessario usare le primitive delayr e delayw per la
 ; futura possibilita'  di inserire come parametri delle variabili k
 ; tempo varianti
 
@@ -1075,7 +1075,7 @@ delayw $in.
    atap1=asgn0a*ip0a+asgn1a*ip1a+asgn2a*ip2a+asgn3a*ip3a+asgn4a*ip4a+asgn5a*ip5a+asgn6a*ip6a
 
 
- 
+
 
 ; Costruzione della tapdelayline 2 sx
 
@@ -1094,7 +1094,7 @@ delayw $in.
 
 ; linee di ritardo che funziano con variabili globali tipo g precedentemente
 ; gia'  inizializzate
-	    
+
 	    amax0  delayr  .5
 	    asf0n  deltap  iddly0
 	    delayw as0nm0
@@ -1143,7 +1143,7 @@ delayw $in.
 
 
 
-; elaborazione dei segnali per effettuarne il filtraggio a mezzo dei FIR 
+; elaborazione dei segnali per effettuarne il filtraggio a mezzo dei FIR
 ; in parallelo alle linee di ritardo
 
 ; ritarda il segnale di un campione
@@ -1205,34 +1205,34 @@ as14n=ia014*asf14n+arit14*ia114+arrit14*ia214
 ; segnali all'  uscita della feedback matrix e all'  ingresso dei sommatori
 ; precedenti la linea di ritardo
 
-; Anche qui e' stato necessario spezzare le somme dei segnali per non 
+; Anche qui e' stato necessario spezzare le somme dei segnali per non
 ; superare i 100 char max lunghezza della stringa consentita dal compilatore
 
 
 aoff = isigma*(as0n+as1n+as2n+as3n+as4n+as5n+as6n+as7n+as8n+as9n+as10n+as11n+as12n+as13n+as14n)
 
 
-as0nm01  =4*atap1*idir+4*atap2*idir+as0n-as1n-as2n-as3n+as4n-as5n-as6n 
+as0nm01  =4*atap1*idir+4*atap2*idir+as0n-as1n-as2n-as3n+as4n-as5n-as6n
 as0nm02  =as7n +as8n -as9n +as10n-as11n+as12n+as13n+as14n
-as0nm0   =(as0nm01+as0nm02)/4+aoff            
+as0nm0   =(as0nm01+as0nm02)/4+aoff
 
 as1nm11  =4*atap1*idir+4*atap2*idir+as0n+as1n-as2n-as3n-as4n+as5n-as6n
 as1nm12  =-as7n+as8n+as9n-as10n+as11n-as12n+as13n+as14n
-as1nm1   =(as1nm11+as1nm12)/4+aoff            
+as1nm1   =(as1nm11+as1nm12)/4+aoff
 
 as2nm21  =4*atap1*idir +4*atap2*idir+as0n+as1n+as2n-as3n-as4n-as5n+as6n
 as2nm22  =-as7n-as8n+as9n+as10n-as11n+as12n-as13n+as14n
-as2nm2   =(as2nm21+as2nm22)/4+aoff            
+as2nm2   =(as2nm21+as2nm22)/4+aoff
 
 as3nm31 =4*atap1*idir+4*atap2*idir+as0n+as1n+as2n+as3n-as4n-as5n-as6n
 as3nm32 =as7n-as8n-as9n +as10n+as11n-as12n+as13n-as14n
 as3nm3  =(as3nm31+as3nm32)/4+aoff
 
-as4nm41 =4*atap1*idir+4*atap2*idir-as0n+as1n+as2n+as3n+as4n-as5n-as6n 
+as4nm41 =4*atap1*idir+4*atap2*idir-as0n+as1n+as2n+as3n+as4n-as5n-as6n
 as4nm42 =-as7n +as8n -as9n -as10n+as11n+as12n -as13n +as14n
 as4nm4  =(as4nm41+as4nm42)/4+aoff
 
-as5nm51=4*atap1*idir+4*atap2*idir+as0n-as1n+as2n+as3n+as4n+as5n-as6n 
+as5nm51=4*atap1*idir+4*atap2*idir+as0n-as1n+as2n+as3n+as4n+as5n-as6n
 as5nm52=-as7n-as8n+as9n-as10n-as11n+as12n+as13n-as14n
 as5nm5 =(as5nm51+as5nm52)/4+aoff
 
@@ -1264,13 +1264,13 @@ as12nm121=4*atap1*idir+4*atap2*idir-as0n+as1n-as2n-as3n+as4n+as5n-as6n
 as12nm122=as7n-as8n+as9n+as10n+as11n+as12n-as13n -as14n
 as12nm12 =(as12nm121+as12nm122)/4+aoff
 
-as13nm131=4*atap1*idir+4*atap2*idir-as0n-as1n+as2n-as3n-as4n+as5n+as6n 
+as13nm131=4*atap1*idir+4*atap2*idir-as0n-as1n+as2n-as3n-as4n+as5n+as6n
 as13nm132=-as7n +as8n-as9n+as10n+as11n+as12n+as13n -as14n
 as13nm13 =(as13nm131+as13nm132)/4+aoff
 
-as14nm141=4*atap1*idir+4*atap2*idir-as0n-as1n-as2n+as3n-as4n-as5n+as6n 
+as14nm141=4*atap1*idir+4*atap2*idir-as0n-as1n-as2n+as3n-as4n-as5n+as6n
 as14nm142=as7n -as8n +as9n-as10n+as11n+as12n+as13n+as14n
-as14nm14 =(as14nm141+as14nm142)/4+aoff            
+as14nm14 =(as14nm141+as14nm142)/4+aoff
 
 
 
@@ -1366,17 +1366,17 @@ igain          =         1.0
 ilpgain        =         1.5
 icgain         =         .1
 ialpgain       =         0.1
-ispeed1        =         1.068664  
-ispeed2        =         0.957679  
-ispeed3        =         1.193976  
-ispeed4        =         1.210142  
-idel1          =         0.030699 
-idel2          =         0.071858 
-idel3          =         0.103109 
+ispeed1        =         1.068664
+ispeed2        =         0.957679
+ispeed3        =         1.193976
+ispeed4        =         1.210142
+idel1          =         0.030699
+idel2          =         0.071858
+idel3          =         0.103109
 idel4          =         0.173237
-icf1           =         2049.613770 
-icf2           =         567.451782 
-icf3           =         172.628906 
+icf1           =         2049.613770
+icf2           =         567.451782
+icf3           =         172.628906
 icf4           =         42.963375
 ifac           =         2
 ibw1           =         icf1/ifac
@@ -1409,8 +1409,8 @@ acl2           comb      acl1+asuml,.5,.031
 acsumr         =         asumr+(acr2*icgain)
 acsuml         =         asuml+(acl2*icgain)
 alpo           alpass    asum,3,.085
-alpol          comb      alpo, 2.8, .526 
-alpor          comb      alpo, 2.8, .746 
+alpol          comb      alpo, 2.8, .526
+alpor          comb      alpo, 2.8, .746
 alol           tone      alpol,500
 alor           tone      alpor,500
 alold          delay     alol,.095
@@ -1423,7 +1423,7 @@ $outL. =	(arevl*irev);+aorig
 $outR. =	(arevr*irev);+aorig
 #
 
-#define rvb9s(inL'inR'outL'outR);Lyon큦 GATOR2 reverb STEREO input 
+#define rvb9s(inL'inR'outL'outR);Lyon큦 GATOR2 reverb STEREO input
 #
 ;iorig          =         .05
 irev           =         1;.-iorig; REMOVED (MUST COMPENSATE IN THE ORCHESTRA (JCN))
@@ -1431,17 +1431,17 @@ igain          =         1.0
 ilpgain        =         1.5
 icgain         =         .1
 ialpgain       =         0.1
-ispeed1        =         1.068664  
-ispeed2        =         0.957679  
-ispeed3        =         1.193976  
-ispeed4        =         1.210142  
-idel1          =         0.030699 
-idel2          =         0.071858 
-idel3          =         0.103109 
+ispeed1        =         1.068664
+ispeed2        =         0.957679
+ispeed3        =         1.193976
+ispeed4        =         1.210142
+idel1          =         0.030699
+idel2          =         0.071858
+idel3          =         0.103109
 idel4          =         0.173237
-icf1           =         2049.613770 
-icf2           =         567.451782 
-icf3           =         172.628906 
+icf1           =         2049.613770
+icf2           =         567.451782
+icf3           =         172.628906
 icf4           =         42.963375
 ifac           =         2
 ibw1           =         icf1/ifac
@@ -1478,8 +1478,8 @@ acsumr         =         asumr+(acr2*icgain)
 acsuml         =         asuml+(acl2*icgain)
 alpo1          alpass    asum1,3,.085
 alpo2          alpass    asum2,3,.085
-alpol          comb      alpo1, 2.8, .526 
-alpor          comb      alpo2, 2.8, .746 
+alpol          comb      alpo1, 2.8, .526
+alpor          comb      alpo2, 2.8, .746
 alol           tone      alpol,500
 alor           tone      alpor,500
 alold          delay     alol,.095
@@ -1500,50 +1500,50 @@ iroll1   = 7000
 iroll2   = 3000
 iroll3   = 1000
 ;gigain    = .25
-it1a      =         0.030243 
-it1b      =         0.067391 
-it1c      =         0.080443 
-it1d      =         0.095692 
-it1e      =         0.106696 
-ig1a      =         0.700000 
-ig1b      =         0.280000 
-ig1c      =         0.112000 
-ig1d      =         0.044800 
-ig1e      =         0.017920 
-iloc1a    =         0.101870 
-iloc1b    =         0.101218 
-iloc1c    =         0.123827 
-iloc1d    =         0.178924 
-iloc1e    =         0.173902 
-it2a      =         0.135053 
-it2b      =         0.177988 
-it2c      =         0.278580 
-it2d      =         0.420888 
-it2e      =         0.487966 
-ig2a      =         0.300000 
-ig2b      =         0.210000 
-ig2c      =         0.147000 
-ig2d      =         0.102900 
-ig2e      =         0.072030 
-iloc2a    =         0.468848 
-iloc2b    =         0.519407 
-iloc2c    =         0.683724 
-iloc2d    =         0.559628 
-iloc2e    =         0.629442 
-it3a      =         0.181703 
-it3b      =         0.441584 
-it3c      =         0.667100 
-it3d      =         0.810717 
-it3e      =         1.031620 
-ig3a      =         0.150000 
-ig3b      =         0.135000 
-ig3c      =         0.121500 
-ig3d      =         0.109350 
-ig3e      =         0.098415 
-iloc3a    =         0.481580 
-iloc3b    =         0.271741 
-iloc3c    =         0.637698 
-iloc3d    =         0.741447 
+it1a      =         0.030243
+it1b      =         0.067391
+it1c      =         0.080443
+it1d      =         0.095692
+it1e      =         0.106696
+ig1a      =         0.700000
+ig1b      =         0.280000
+ig1c      =         0.112000
+ig1d      =         0.044800
+ig1e      =         0.017920
+iloc1a    =         0.101870
+iloc1b    =         0.101218
+iloc1c    =         0.123827
+iloc1d    =         0.178924
+iloc1e    =         0.173902
+it2a      =         0.135053
+it2b      =         0.177988
+it2c      =         0.278580
+it2d      =         0.420888
+it2e      =         0.487966
+ig2a      =         0.300000
+ig2b      =         0.210000
+ig2c      =         0.147000
+ig2d      =         0.102900
+ig2e      =         0.072030
+iloc2a    =         0.468848
+iloc2b    =         0.519407
+iloc2c    =         0.683724
+iloc2d    =         0.559628
+iloc2e    =         0.629442
+it3a      =         0.181703
+it3b      =         0.441584
+it3c      =         0.667100
+it3d      =         0.810717
+it3e      =         1.031620
+ig3a      =         0.150000
+ig3b      =         0.135000
+ig3c      =         0.121500
+ig3d      =         0.109350
+ig3e      =         0.098415
+iloc3a    =         0.481580
+iloc3b    =         0.271741
+iloc3c    =         0.637698
+iloc3d    =         0.741447
 iloc3e    =         0.385553
 ilg1a     =         sin( iloc1a * ip2 )
 irg1a     =         cos( iloc1a * ip2 )
@@ -1576,7 +1576,7 @@ irg3d     =         cos( iloc3d * ip2 )
 ilg3e     =         sin( iloc3e * ip2 )
 irg3e     =         cos( iloc3e * ip2 )
 ain       =         $in.
-;ain       =         ain * gigain;removed:gain compensation is your responsibility (JCN) 
+;ain       =         ain * gigain;removed:gain compensation is your responsibility (JCN)
 atap1a    delay     ain, it1a
 atap1b    delay     ain, it1b
 atap1c    delay     ain, it1c
@@ -1629,51 +1629,51 @@ iroll1        =         7000
 iroll2        =         3000
 iroll3        =         1000
 ;gigain         =         1.
-it1a           =         0.026533 
-it1b           =         0.049413 
-it1c           =         0.066368 
-it1d           =         0.082412 
-it1e           =         0.117546 
-ig1a           =         0.700000 
-ig1b           =         0.280000 
-ig1c           =         0.112000 
-ig1d           =         0.044800 
-ig1e           =         0.017920 
-iloc1a         =         0.143560 
-iloc1b         =         0.190170 
-iloc1c         =         0.119558 
-iloc1d         =         0.146660 
-iloc1e         =         0.185922 
-it2a           =         0.147850 
-it2b           =         0.230754 
-it2c           =         0.305349 
-it2d           =         0.421241 
-it2e           =         0.555897 
-ig2a           =         0.300000 
-ig2b           =         0.210000 
-ig2c           =         0.147000 
-ig2d           =         0.102900 
-ig2e           =         0.072030 
-iloc2a         =         0.580088 
-iloc2b         =         0.587813 
-iloc2c         =         0.534898 
-iloc2d         =         0.457856 
-iloc2e         =         0.551248 
-it3a           =         0.201058 
-it3b           =         0.485650 
-it3c           =         0.746925 
-it3d           =         0.959482 
-it3e           =         1.196479 
-ig3a           =         0.150000 
-ig3b           =         0.135000 
+it1a           =         0.026533
+it1b           =         0.049413
+it1c           =         0.066368
+it1d           =         0.082412
+it1e           =         0.117546
+ig1a           =         0.700000
+ig1b           =         0.280000
+ig1c           =         0.112000
+ig1d           =         0.044800
+ig1e           =         0.017920
+iloc1a         =         0.143560
+iloc1b         =         0.190170
+iloc1c         =         0.119558
+iloc1d         =         0.146660
+iloc1e         =         0.185922
+it2a           =         0.147850
+it2b           =         0.230754
+it2c           =         0.305349
+it2d           =         0.421241
+it2e           =         0.555897
+ig2a           =         0.300000
+ig2b           =         0.210000
+ig2c           =         0.147000
+ig2d           =         0.102900
+ig2e           =         0.072030
+iloc2a         =         0.580088
+iloc2b         =         0.587813
+iloc2c         =         0.534898
+iloc2d         =         0.457856
+iloc2e         =         0.551248
+it3a           =         0.201058
+it3b           =         0.485650
+it3c           =         0.746925
+it3d           =         0.959482
+it3e           =         1.196479
+ig3a           =         0.150000
+ig3b           =         0.135000
 ig3c           =         0.121500
-ig3d           =         0.109350 
-ig3e           =         0.098415 
-iloc3a         =         0.468171 
-iloc3b         =         0.919478 
-iloc3c         =         0.858948 
-iloc3d         =         0.649586 
-iloc3e         =         0.916412 
+ig3d           =         0.109350
+ig3e           =         0.098415
+iloc3a         =         0.468171
+iloc3b         =         0.919478
+iloc3c         =         0.858948
+iloc3d         =         0.649586
+iloc3e         =         0.916412
 ilg1a          =         sin( iloc1a * ip2 )
 irg1a          =         cos( iloc1a * ip2 )
 ilg1b          =         sin( iloc1b * ip2 )
@@ -1706,7 +1706,7 @@ ilg3e          =         sin( iloc3e * ip2 )
 irg3e          =         cos( iloc3e * ip2 )
 ain            =         $inL.
 ain2           =         $inR.
-;ain            =         ain * gigain 
+;ain            =         ain * gigain
 atap1a         delay     ain, it1a
 atap1b         delay     ain, it1b
 atap1c         delay     ain, it1c
@@ -1751,7 +1751,7 @@ $outR.         =         aright1+aright2+aright3
 #
 
 #define rvb12s(inL'inR'outL'outR);Lyon큦 Rev1 reverb (dry/wet mix of .65/.35 in the orgininal file)
-;rev1 - stereo 2 stereo (very rich) 
+;rev1 - stereo 2 stereo (very rich)
 
 #
 gifeed         =         .5
@@ -1759,8 +1759,8 @@ gilp1          =         1/10
 gilp2          =         1/23
 gilp3          =         1/41
 giroll         =         3000
-  
-inputdur       =         p3;I guess... (JCN) original was 15.650 
+
+inputdur       =         p3;I guess... (JCN) original was 15.650
 iatk           =         .01
 idk            =         .01
 idecay         =         .01
@@ -1768,8 +1768,8 @@ idecay         =         .01
 ioutsust       =         p3-idecay
 idur           =         inputdur-(iatk+idk)
 isust          =         p3-(iatk+idur+idk)
-iorig          =         0.0;.65;removed dry signal (JCN) 
-irev           =         1.0;-.65 
+iorig          =         0.0;.65;removed dry signal (JCN)
+irev           =         1.0;-.65
 
 igain          =         1
 ;for stereo input
@@ -1884,7 +1884,7 @@ iorig          =         0;OUTPUTS ONLY WET SIGNAL (JCN)
 irev           =         (1.0-iorig)
 
 igain          =         1;(original default (JCN))
-     ;FOR MONO INPUT 
+     ;FOR MONO INPUT
      asigin    =         $in.
      asigin    =         asigin * igain
      ajunk     alpass    asigin,.7,.044
@@ -2034,14 +2034,14 @@ irev           =         1-iorig
 igain          =         1.000000
 irvt1          =         2.421249              ; AUDIO COMB REVERB LENGTH
 ilpt1          =         1/35.801517            ; AUDIO COMB RESONANCES
-ilpt2          =         1/34.275620 
-ilpt3          =         1/46.886345 
-ilpt4          =         1/51.539425 
+ilpt2          =         1/34.275620
+ilpt3          =         1/46.886345
+ilpt4          =         1/51.539425
 iechot         =         0.575749             ;ECHO LENGTH
 ilpt5          =         0.098021             ; ECHO LOOPTIMES
-ilpt6          =         0.069816 
+ilpt6          =         0.069816
 iorig          =         0; original score :d/w mix of .6/.4
-iecho          =         0.247023 
+iecho          =         0.247023
 irev           =         1.-iorig
 ialpt          =         0.07
 ijuice         =         .6
@@ -2101,7 +2101,7 @@ iallrvt        =         .15
 iall1          =         .02
 iall2          =         .031
 iorig          =         0; suggested d/w mix : .7/.3
-irev           =         (1.-iorig) 
+irev           =         (1.-iorig)
                timout    indur, itail, contin
 araw           =         $in.
 araw           =         araw * igain
@@ -2324,7 +2324,7 @@ iallrvt        =         .1
      atap2     deltapi   adel2
      atap3     deltapi   adel3
                delayw    aecho1
-     aecho     =         (atap1+atap2+atap3) 
+     aecho     =         (atap1+atap2+atap3)
      ;acomb1   comb      aecho, icombrvt, ilpt1
      ;acomb2   comb      aecho, icombrvt, ilpt2
      ;acomb3   comb      aecho, icombrvt, ilpt3
@@ -2339,11 +2339,11 @@ iallrvt        =         .1
      all2      alpass    asum2, iallrvt, .007
      all3      alpass    araw, 2.0, .03
      all3lp    tone      all3, 2000
-     arev      =         all1 + all2 
+     arev      =         all1 + all2
      $out.     =         (irev*arev)+(iorig*araw)+(all3lp*iagain)
 #
 
-#define rvb21s(inL'inR'outL'outR);Lyon큦 Rev10 reverb 
+#define rvb21s(inL'inR'outL'outR);Lyon큦 Rev10 reverb
 ;2IN 2OUT WET REVERB
 #
 igain          =         .5 * 3
@@ -2667,7 +2667,7 @@ $outR.    =         (aright*irev);+(arawsig*iorig)
    iloop4 = .068
    iloop5 = .072
    iloop6 = .078
-   
+
                                 ; gains forming the lowpasses in the combs
    ifiltscale = sr/25000                ; (a cheap hack)
    ifiltgain1 = .24*ifiltscale
@@ -2689,27 +2689,27 @@ $outR.    =         (aright*irev);+(arawsig*iorig)
    afeedback1 = adry + igain1*acomb1
    afilt1       delay1  afeedback1
                 delayw  afeedback1 + afilt1*ifiltgain1
-                
+
    acomb2       delayr  iloop2
    afeedback2 = adry + igain2*acomb2
    afilt2       delay1  afeedback2
                 delayw  afeedback2 + afilt2*ifiltgain2
-                
+
    acomb3       delayr  iloop3
    afeedback3 = adry + igain3*acomb3
    afilt3       delay1  afeedback3
                 delayw  afeedback3 + afilt3*ifiltgain3
-                
+
    acomb4       delayr  iloop4
    afeedback4 = adry + igain4*acomb4
    afilt4       delay1  afeedback4
                 delayw  afeedback4 + afilt4*ifiltgain4
-                
+
    acomb5       delayr  iloop5
    afeedback5 = adry + igain5*acomb5
    afilt5       delay1  afeedback5
                 delayw  afeedback5 + afilt5*ifiltgain5
-                
+
    acomb6       delayr  iloop6
    afeedback6 = adry + igain6*acomb6
    afilt6       delay1  afeedback6
@@ -2739,7 +2739,7 @@ $outR.    =         (aright*irev);+(arawsig*iorig)
 
    iecho1gain  = .841           ; early echo gains
    iecho2gain  = .504
-   iecho3gain  = .491 
+   iecho3gain  = .491
    iecho4gain  = .379
    iecho5gain  = .380
    iecho6gain  = .346
@@ -2755,7 +2755,7 @@ $outR.    =         (aright*irev);+(arawsig*iorig)
    iecho16gain = .142
    iecho17gain = .167
    iecho18gain = .134
-    
+
    adump        delayr  .1
    aecho1       deltap  iecho1time
    aecho1 = aecho1*iecho1gain
@@ -2805,5 +2805,3 @@ $outR.    =         (aright*irev);+(arawsig*iorig)
  ;as STEREO output was a simple panning of a true MONO output I changed the output to MONO
    $out. = aout
 #
-
-

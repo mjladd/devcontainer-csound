@@ -27,7 +27,7 @@ them up and how the execution of code is sequenced. We will also look at how
 instances of the same and of different instruments are ordered in a k-cycle. This will
 be followed by a detailed discussion of various methods that can be used to set up
 connections between instruments.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 125
 6

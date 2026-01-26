@@ -30,7 +30,7 @@ shape instead of so many other possible shapes. Programming is always “on the
 to rhythm, harmonies etc. on the listener’s part.
 2 I have described some of these links in my article about composing before and with the computer
 [50].
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_19
 455
 456

@@ -29,7 +29,7 @@ permanence than if it were stored digitally and to inhibit the speed of reproduc
 that is possible with digitally held code through copy and paste. Each of the pieces
 can be played for as long or as short a time as desired. The experience should be like
 tuning in and out of a radio station playing that piece indeﬁnitely. The ﬁrst moment
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 409
 17

@@ -5,10 +5,10 @@
 </CsOptions>
 
 <CsInstruments>
- sr = 44100
- ksmps = 100
- nchnls = 1
- 0dbfs = 32768
+sr = 44100
+ksmps = 100
+nchnls = 1
+0dbfs = 32768
 ctrlinit  1,  10,0,  11,10,  12,64,   13,40,   14,40
 
 instr     1

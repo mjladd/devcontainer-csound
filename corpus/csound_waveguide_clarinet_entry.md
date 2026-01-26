@@ -99,7 +99,7 @@ nchnls = 1       ; Mono output (clarinet is naturally mono)
 0dbfs = 32768    ; 16-bit amplitude reference
 ```
 
-**Critical Note on ksmps:**  
+**Critical Note on ksmps:**
 `ksmps = 1` is essential for waveguide synthesis! The delay lines and feedback loops must operate at sample rate for accurate physical modeling. Higher ksmps would introduce quantization errors in the delay times, destroying the acoustic accuracy.
 
 ### Instrument 1903 - Physical Clarinet Model
@@ -109,7 +109,7 @@ nchnls = 1       ; Mono output (clarinet is naturally mono)
 ```csound
 areedbell init 0
 ```
-**Initialize feedback path**  
+**Initialize feedback path**
 Physical models use feedback loops (sound traveling back and forth in the bore). The `areedbell` variable must be initialized to prevent undefined behavior on the first sample.
 
 #### Pitch and Physical Parameters
@@ -135,7 +135,7 @@ ifco = p7
 ```csound
 ibore = 1/ifqc - 15/sr
 ```
-**Calculate bore length (delay time)**  
+**Calculate bore length (delay time)**
 This is a key physical modeling equation:
 - `1/ifqc` = period of the fundamental frequency
 - `15/sr` = compensation factor (15 samples)
@@ -143,7 +143,7 @@ This is a key physical modeling equation:
 - For a clarinet, the bore acts as a closed-open pipe (closed at reed, open at bell)
 - The delay time sets the fundamental resonance
 
-**Physics:**  
+**Physics:**
 In a real clarinet, the bore length determines pitch. Here we're calculating the equivalent acoustic delay time.
 
 #### Amplitude Envelope (Breath Pressure Envelope)
@@ -156,19 +156,19 @@ kenv1 linseg 0, .005, .55+.3*p6, p3-.015, .55+.3*p6, .01, 0
 1. **Attack (.005 sec):** 0 → (.55 + .3×p6)
    - Very fast attack (5ms) - clarinet starts quickly
    - Target level depends on p6 (breath pressure parameter)
-   
+
 2. **Sustain (p3-.015 sec):** Holds at (.55 + .3×p6)
    - Most of the note duration
    - Pressure parameter p6 ranges 0-2:
      - p6=0: level = 0.55 (soft)
      - p6=1.5: level = 1.0 (medium)
      - p6=2: level = 1.15 (loud/forced)
-   
+
 3. **Release (.01 sec):** (.55 + .3×p6) → 0
    - Quick release (10ms) - clarinet stops quickly
    - Simulates tongue stopping the reed
 
-**Why these values?**  
+**Why these values?**
 The base value of 0.55 ensures minimum breath pressure even at p6=0, preventing the reed from closing completely.
 
 #### Vibrato Envelope
@@ -180,15 +180,15 @@ kenvibr linseg 0, .1, 0, .9, 1, p3-1, 1
 
 1. **Delay (.1 sec):** 0 → 0
    - No vibrato at note start
-   
+
 2. **Fade-in (.9 sec):** 0 → 1
    - Gradual introduction of vibrato
    - Mimics natural player behavior
-   
+
 3. **Sustain (p3-1 sec):** Full vibrato
    - Continues until release
 
-**Natural playing:**  
+**Natural playing:**
 Real clarinet players don't apply vibrato immediately - it develops during the note.
 
 #### Embouchure (Reed Stiffness)
@@ -264,7 +264,7 @@ areedtab tablei asum2/4+.34, p9, 1, .5
 - This is what makes the sound "clarinet-like" vs. other woodwinds
 - The nonlinear response creates characteristic harmonics
 
-**Reed physics:**  
+**Reed physics:**
 Real reeds don't open/close linearly with pressure - the table models this nonlinearity.
 
 ```csound
@@ -474,17 +474,17 @@ ksmps=1 is CPU intensive but essential for accuracy.
   - Lower harmonics
   - More fundamental
   - Subdued tone
-  
+
 - **1.0-1.5** - Normal playing (mf to f)
   - Balanced harmonics
   - Characteristic clarinet sound
   - Good for melody
-  
+
 - **1.5-2.0** - Loud playing (f to ff)
   - More upper harmonics
   - Brighter, more aggressive
   - Risk of overblowing (multiphonics)
-  
+
 - **> 2.0** - Overblowing
   - Can jump to higher register
   - Unstable, squeaks
@@ -496,12 +496,12 @@ ksmps=1 is CPU intensive but essential for accuracy.
   - Jazz clarinet sound
   - Chalumeau register character
   - Woody tone
-  
+
 - **800-1000 Hz** - Balanced (example uses 1000)
   - Classical clarinet
   - Clear but not harsh
   - Most versatile
-  
+
 - **1100-1200 Hz** - Bright
   - Modern/contemporary sound
   - More edge and presence
@@ -513,17 +513,17 @@ ksmps=1 is CPU intensive but essential for accuracy.
   - Breathy attacks
   - Less focused pitch
   - Softer tone
-  
+
 - **0.2** - Normal (example value)
   - Clean attacks
   - Stable pitch
   - Controlled tone
-  
+
 - **0.3-0.5** - Tight
   - Sharp attacks
   - Very focused
   - Can sound strained
-  
+
 - **> 0.5** - Very tight
   - Hard, percussive attacks
   - Risk of squeaks
@@ -628,12 +628,12 @@ kenv1 linseg 0, 0.001, 0.9, 0.004, 0.6, p3-0.015, .55+.3*p6, .01, 0
 ## Common Issues & Solutions
 
 ### No Sound or Very Quiet
-**Problem:** Model produces little or no output  
-**Cause:** 
+**Problem:** Model produces little or no output
+**Cause:**
 - ksmps > 1 (destroys waveguide)
 - Breath pressure too low
 - Reed table not loaded
-  
+
 **Solution:**
 ```csound
 ; Ensure these settings:
@@ -644,8 +644,8 @@ p6 = 1.0-1.8                ; Adequate breath pressure
 ```
 
 ### Unstable Pitch or Squeaks
-**Problem:** Pitch wavers or jumps to harmonics unexpectedly  
-**Cause:** Breath pressure too high or embouchure too tight  
+**Problem:** Pitch wavers or jumps to harmonics unexpectedly
+**Cause:** Breath pressure too high or embouchure too tight
 **Solution:**
 ```csound
 ; Reduce parameters:
@@ -656,8 +656,8 @@ arefilt tone areedbell, ifco*0.8  ; Lower filter cutoff
 ```
 
 ### Sound Cuts Off or Doesn't Sustain
-**Problem:** Note dies away instead of sustaining  
-**Cause:** Insufficient feedback gain or too much damping  
+**Problem:** Note dies away instead of sustaining
+**Cause:** Insufficient feedback gain or too much damping
 **Solution:**
 ```csound
 ; Increase feedback:
@@ -667,8 +667,8 @@ p6 = 1.5-1.8
 ```
 
 ### Harsh, Unrealistic Tone
-**Problem:** Sound too bright or buzzy  
-**Cause:** Filter cutoff too high or attack too fast  
+**Problem:** Sound too bright or buzzy
+**Cause:** Filter cutoff too high or attack too fast
 **Solution:**
 ```csound
 p7 = 600-800                ; Lower cutoff
@@ -677,8 +677,8 @@ kenv1 linseg 0, .01, .55+.3*p6, p3-.02, .55+.3*p6, .01, 0
 ```
 
 ### DC Offset or Rumble
-**Problem:** Very low frequency build-up, meter shows DC  
-**Cause:** Feedback loop not balanced  
+**Problem:** Very low frequency build-up, meter shows DC
+**Cause:** Feedback loop not balanced
 **Solution:**
 ```csound
 ; Ensure high-pass on output:
@@ -688,8 +688,8 @@ aofilt atone areedbell, 20  ; Remove <20 Hz
 ```
 
 ### CPU Overload
-**Problem:** Dropouts, "can't keep up" errors  
-**Cause:** ksmps=1 is very demanding  
+**Problem:** Dropouts, "can't keep up" errors
+**Cause:** ksmps=1 is very demanding
 **Solution:**
 - Limit polyphony (5-10 simultaneous notes max)
 - Increase hardware buffer size (-b flag)
@@ -698,8 +698,8 @@ aofilt atone areedbell, 20  ; Remove <20 Hz
 - Consider `wguide1` or `wguide2` opcodes (more efficient)
 
 ### Wrong Pitch
-**Problem:** Pitch doesn't match p5 value  
-**Cause:** Bore calculation error or sr mismatch  
+**Problem:** Pitch doesn't match p5 value
+**Cause:** Bore calculation error or sr mismatch
 **Solution:**
 ```csound
 ; Verify:

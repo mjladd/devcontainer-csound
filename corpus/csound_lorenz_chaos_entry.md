@@ -86,7 +86,7 @@ iampfac = 400
 
 ```csound
 isv = 10        ; Sigma (σ) - Prandtl number
-irv = 28        ; Rho (ρ) - Rayleigh number  
+irv = 28        ; Rho (ρ) - Rayleigh number
 ibv = 2.667     ; Beta (β) - Geometric ratio
 ```
 
@@ -95,7 +95,7 @@ These are the **classic Lorenz parameters** discovered by Edward Lorenz in 1963:
 - **ρ (rho) = 28** - Controls the height and spread of the attractor
 - **β (beta) = 8/3 ≈ 2.667** - Controls the damping/contraction rate
 
-**Why these values?**  
+**Why these values?**
 With σ=10, ρ=28, β=2.667, the system exhibits chaotic behavior - the famous "butterfly" shaped strange attractor. Different values can produce:
 - Periodic behavior (predictable loops)
 - Fixed points (static output)
@@ -128,7 +128,7 @@ kbv line 1.9, p3, ibv
 - Modulating this creates morphing between attractor shapes
 - Subtle but effective for long-form evolution
 
-**Why modulate?**  
+**Why modulate?**
 The gradual evolution from near-periodic to fully chaotic creates a compelling arc over the 60-second duration, starting more predictable and becoming increasingly complex.
 
 #### Lorenz Attractor Generation
@@ -395,17 +395,17 @@ a1 grain 5000, 440, kdensity, 100, kpitch, 0.05, 1, 3, 1
 ## Common Issues & Solutions
 
 ### No Sound or Very Quiet Output
-**Problem:** Chaos signals too quiet or inaudible  
-**Cause:** Amplitude scaling factor too low  
+**Problem:** Chaos signals too quiet or inaudible
+**Cause:** Amplitude scaling factor too low
 **Solution:** Increase `iampfac` (try 400-2000)
 ```csound
 iampfac = 1000  ; Louder output
 ```
 
 ### Harsh, Distorted Sound
-**Problem:** Output clipping or harsh  
-**Cause:** Chaos peaks exceed 0dbfs  
-**Solution:** 
+**Problem:** Output clipping or harsh
+**Cause:** Chaos peaks exceed 0dbfs
+**Solution:**
 - Reduce `iampfac`
 - Use limiter or compressor
 - Filter high frequencies
@@ -416,8 +416,8 @@ alp butterlp (ax+az)*iampfac, 3000  ; Low-pass filter
 ```
 
 ### Unstable or Exploding Values
-**Problem:** Chaos diverges to infinity, audio explodes  
-**Cause:** Step size too large or parameters in unstable region  
+**Problem:** Chaos diverges to infinity, audio explodes
+**Cause:** Step size too large or parameters in unstable region
 **Solution:**
 - Reduce step size to 0.005-0.01
 - Use classic parameters (σ=10, ρ=28, β=2.667)
@@ -429,8 +429,8 @@ alimit clip (ax+az)*iampfac, 0, 32767  ; Hard limit
 ```
 
 ### Boring, Too Periodic Sound
-**Problem:** Output sounds repetitive, not chaotic  
-**Cause:** Parameters in non-chaotic regime  
+**Problem:** Output sounds repetitive, not chaotic
+**Cause:** Parameters in non-chaotic regime
 **Solution:**
 - Ensure ρ > 24.74 for chaos
 - Use classic values (σ=10, ρ=28)
@@ -440,8 +440,8 @@ krv line 25, p3, 30  ; Ensure chaotic range
 ```
 
 ### CPU Overload
-**Problem:** Audio dropouts, performance issues  
-**Cause:** Step size too small or skip factor too low  
+**Problem:** Audio dropouts, performance issues
+**Cause:** Step size too small or skip factor too low
 **Solution:**
 - Increase step size to 0.02-0.05
 - Increase skip factor (sample every Nth)
@@ -454,8 +454,8 @@ kx, ky, kz  lorenz  ksv, krv, kbv, 0.01, 0.6, 0.6, 0.6, 1
 ```
 
 ### Different Results Each Performance
-**Problem:** Want reproducible chaos  
-**Cause:** Random initial conditions or parameters  
+**Problem:** Want reproducible chaos
+**Cause:** Random initial conditions or parameters
 **Solution:** Use fixed initial values (as in example)
 ```csound
 ; Fixed initial conditions = reproducible chaos

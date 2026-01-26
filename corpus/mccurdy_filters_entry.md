@@ -441,4 +441,3 @@ Filters are fundamental tools for shaping sound by attenuating or boosting speci
 - `csound_filters_entry.md` - Filter theory and concepts
 - `mccurdy_physical_models_entry.md` - Filters in physical modeling
 - `mccurdy_fft_entry.md` - Spectral filtering
-

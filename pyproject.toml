@@ -1,0 +1,45 @@
+[project]
+name = "csound-rag"
+version = "0.1.0"
+description = "A RAG-based Csound programming assistant"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Vector database
+    "chromadb>=0.4.0",
+    # Local embeddings
+    "sentence-transformers>=2.2.0",
+    # LLM client
+    "ollama>=0.1.0",
+    # CLI framework
+    "click>=8.0.0",
+    # Terminal formatting
+    "rich>=13.0.0",
+    # YAML parsing (for markdown front matter)
+    "pyyaml>=6.0",
+    # Dev tools moved to core deps per request
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+    "pre-commit>=3.7.0",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+csound-rag = "csound_rag.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["csound_rag"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]

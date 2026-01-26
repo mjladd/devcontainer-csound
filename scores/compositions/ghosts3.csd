@@ -228,7 +228,7 @@ nchnls = 2
 ;    Xenak_2 orc
 ;-----------------------------------
 
-	instr 1
+    instr 1
 ; 	amplitude control
 kenv1	linseg	0, 	p3*.2,	p4, 	p3*.6,	p4,  p3*.2, 	0
 
@@ -267,15 +267,15 @@ afilt_2 vlowres  asum_2, 2000,	  kosc2,   1,      410	;resonator 2
 
 alpf1	tone	afilt_1, 1000
 alpf2	tone	afilt_2, 1000
-	out	alpf1, alpf2
-	endin
+    out	alpf1, alpf2
+    endin
 
 
 ;----------------
 ; high freq fof
 ;----------------
 
-	instr 2
+    instr 2
 ;	opcode	ia	dur1	ib	dur2	ic
 aamp	linseg	0,	p3*.3,	p4,	p3*.7,	0
 afun1	expseg	p5,	p3*.8,	p5,	p3*.2,	p6
@@ -286,8 +286,8 @@ aform	linseg	20,	p3*.5,	820,	p3*.5,	20
 a1	fof	aamp,	afun1,	aform, 	0,   40,   .003,  .02,  .007, 25,    11,   100,   p3,   0,   1
 a2	fof 	aamp,	afun2,	aform, 	0,   40,   .003,  .02,  .007, 25,    11,   100,   p3,   0,   1
 
-	out	a1*.2, a2*.2
-	endin
+    out	a1*.2, a2*.2
+    endin
 
 ;------------------------------------------------
 ; load samples into fog with control over pitch
@@ -305,7 +305,7 @@ koct	linseg	0,	p3*.6,	0,	p3*.4,	p7
 
 ;		amp	dens	trans phs   oct   band   rise   dur   dec   olaps fna  fnb  tdur  phase mode
 a1      fog     10000,  100,    p4,   a2,   koct, 0,    .01,   .02,   .01,  2,    10,   100,  p3,   0,    1
-		out     a1*a3*1.1, a1*a3*1.1
+        out     a1*a3*1.1, a1*a3*1.1
         endin
 
 
@@ -313,7 +313,7 @@ a1      fog     10000,  100,    p4,   a2,   koct, 0,    .01,   .02,   .01,  2,  
 ; 	ins4 fof
 ;------------------------------------------------
 
-	instr 4
+    instr 4
 ;	opcode	ia	dur1	ib	dur2	ic
 amp1	linseg	0,	p3*.3,	9000,	p3*.7,	0
 amp2	linseg	0,	p3*.2,	9000,	p3*.8,	0
@@ -325,8 +325,8 @@ aform	linseg	20,	p3*.5,	p6,	p3*.5,	20
 a1	fof	amp1,	afun1,	aform, 	0,   90,   .003,  .02,  .007, 25,    51,    50,   p3,   0,   1
 a2	fof 	amp2,	afun2,	aform, 	0,   103,  .003,  .02,  .007, 25,    51,    50,   p3,   0,   1
 
-	out       a1*.8, a2*.8
-	endin
+    out       a1*.8, a2*.8
+    endin
 
 
 
@@ -356,7 +356,7 @@ ktwist2 linseg  1, 	p3, 	1.1          ; slide formant right
 ;		amp	fund	 formant  oct  band  rise  dur    dec   olaps ifna ifnb tdur  phase mode
 a1      fof     kenv,   kf0,     ktwist,  0,   0,    .003, kdur,  kdec, 250,  p5,   100,  p3,   0,    1
 a2      fof     kenv,   kf0,     ktwist2, 0,   0,    .003, kdur,  kdec, 250,  p6,   100,  p3,   0,    1
-		out     a1, a2
+        out     a1, a2
         endin
 
 
@@ -365,7 +365,7 @@ a2      fof     kenv,   kf0,     ktwist2, 0,   0,    .003, kdur,  kdec, 250,  p6
 ; long vocals stretched
 ;------------------------
 
-	instr 8
+    instr 8
 idur = 	p3
 ifq  = 	p4
 
@@ -391,22 +391,22 @@ a2 	fof 	kenv, 	kf0, 	kforms,  0,   0,    .003, kdur,  kdec, 600,  p6,   100, id
 
 afilt1	tone	a1, 	2000
 afilt2	tone	a2,	2010
-	out 	afilt1, afilt2
-	endin
+    out 	afilt1, afilt2
+    endin
 
 
 ;---------------------------------
 ;   noise sweep
 ;---------------------------------
 
-          instr 10
+        instr 10
 kenv      expseg    .001, p6, p4, p3/6, p4*.4, p3-(p6+p7+p3/6), p4*.6, p7,.01
 anoise    rand	p5
 kcf       expon	p8, p3, p9
 kbw       line	p10, p3, p11
 afilt     reson	anoise, kcf, kbw, 2
-		out 	afilt*kenv, afilt*kenv
-          endin
+        out 	afilt*kenv, afilt*kenv
+        endin
 
 ;---------------------------------
 ;   copter
@@ -426,7 +426,7 @@ asin1r  oscili  1, 	krt, 	60, 	.25+p7  			; Controls modulation frequency
 asin2r  oscili  1, 	krt/2, 	60, 	.25   				; Sine 1 is for filter Fco
 arezr   rezzy   anz, 	(asin1r+1)*p6*krt+p11, 	p9, 	p10 		; Make sine postive and add base fqc
 aoutr   =       arezl*asin2r*2
-		out     aoutl*kamp, aoutr*kamp
+        out     aoutl*kamp, aoutr*kamp
         endin
 
 ;---------------------------------
@@ -439,7 +439,7 @@ asamp	line 	p7,	p3,	p8    ; PITCH SCALING
 
 ;		amp	twarp	ptch	sndfn	strt	winsize	rndwin	olap	winfn	timemode
 a1      sndwarp p4,	atwarp,	asamp,	p12,	0,	p9,	p10,	p11,	70,	0
-		out      a1, a1
+        out      a1, a1
         endin
 
 
@@ -447,7 +447,7 @@ a1      sndwarp p4,	atwarp,	asamp,	p12,	0,	p9,	p10,	p11,	70,	0
 ;   rachet
 ;---------------------------------
 
-	instr 13
+    instr 13
 icf	=	cpspch(p5)
 ifc	=	(p10 == 0 ? sr/4:p10)              ; HPF cutoff default: SR/4
 iq	=	(p11 == 0 ? 1:p11)                 ; filter q cannot be zero
@@ -470,8 +470,8 @@ asig	balance	asig,	anoise
 asig	=	asig*kgate*kenv                  	; env post-balance
 kleft	=	sqrt(kpan)
 kright	=	sqrt(1-kpan)
-	out	asig*kleft, asig*kright
-	endin
+    out	asig*kleft, asig*kright
+    endin
 
 
 </CsInstruments>

@@ -21,7 +21,7 @@ garvbsig  init      0                             ; GLOBAL AUDIO REVERB SIGNAL
 ; p7      =         modulation index 1
 ; p8      =         modulation index 2
 
-          instr 1                                 ; FM INSTRUMENT
+        instr 1                                 ; FM INSTRUMENT
 
 iamp1     =         p7 * p6                       ; amp for amod
 iamp2     =         (p8-p7) * p6                  ; amp for ampmod
@@ -32,22 +32,22 @@ ampmod    oscil     iamp2, 1/p3, 1                ; amp for modulator
 
 amod      oscili    ampmod+iamp1, p6 + k1, 1      ; mod freq for global signal
 gasig     oscili    ampcar, k2 + p5 + amod, 1     ; global signal
-          outch     1, gasig * .25                   ; left direct audio output
-          outch     2, gasig * .25                   ; right direct audio output
+        outch     1, gasig * .25                   ; left direct audio output
+        outch     2, gasig * .25                   ; right direct audio output
 garvbsig  =         garvbsig + gasig * .25        ; add audio to audio receiver
 ; PRIOR TO PAN
-          endin
+        endin
 
 
-          instr 99                                ; global reverb instrument
+        instr 99                                ; global reverb instrument
 
 irvbtime  =         p4                            ; seconds for signal to decay
 ; 60 dB
 asig2     reverb    garvbsig, irvbtime            ; put global sig into reverb
-          outch     1, asig2                         ; output reverb signal left
-          outch     2, asig2                         ; output reverb signal right
+        outch     1, asig2                         ; output reverb signal left
+        outch     2, asig2                         ; output reverb signal right
 garvbsig  =         0                                       ; reinitialize
-          endin
+        endin
 
 </CsInstruments>
 <CsScore>
@@ -83,4 +83,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

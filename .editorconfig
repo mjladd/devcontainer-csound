@@ -1,0 +1,31 @@
+root = true
+
+# Global defaults
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+# Csound files: orchestra, score, user-defined opcodes
+[*.{csd,orc,sco,udo}]
+indent_size = 4
+
+# Python
+[*.py]
+indent_size = 4
+
+# YAML
+[*.{yml,yaml}]
+indent_size = 2
+
+# JSON
+[*.json]
+indent_size = 2
+
+# Markdown: keep intentional trailing spaces
+[*.md]
+trim_trailing_whitespace = false
+indent_size = 2

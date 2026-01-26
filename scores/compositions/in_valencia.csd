@@ -19,7 +19,7 @@ nchnls = 2
 garvb1	init	0
 
 ;--------------------------------
-	instr 1
+    instr 1
 iamp	=	ampdb(p4)
 iatt	=	p5
 idec	=	p6
@@ -42,13 +42,13 @@ afilt1	butterbp anois,	 p10*.66,	p11*kbwenv
 afilt2	butterbp afilt1, p10,	p11*kbwenv
 afilt3	butterhp afilt2, p12
 abal	balance	 afilt3, anois
-	out	 abal*p14, abal*p15
-	garvb1 = garvb1+abal*p13
-	endin
+    out	 abal*p14, abal*p15
+    garvb1 = garvb1+abal*p13
+    endin
 
 
 ;-------------------------------
-		instr	2
+        instr	2
 
 iamp	=		ampdb(p4)
 iatt	=		p5
@@ -75,11 +75,11 @@ afilt1	butterbp amix,	ibff,	ibwth*kfenv
 afilt2	butterlp amix,	ilff;*kfenv
 afmix	=		afilt1 +afilt2
 abal	balance	afmix,	asig1
-		out	abal*ipanl,	abal*ipanr
+        out	abal*ipanl,	abal*ipanr
 garvb1	=		garvb1+abal*irsend
-		endin
+        endin
 ;KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-		instr	3			; SAME instr AS instr1. W/ DIFFER AMP & FILT ENV., ALSO IT HAS DYNAMIC LOCATION.
+        instr	3			; SAME instr AS instr1. W/ DIFFER AMP & FILT ENV., ALSO IT HAS DYNAMIC LOCATION.
 
 iamp	=		ampdb(p4)
 iatt	=		p5
@@ -105,13 +105,13 @@ afilt3	butterhp afilt2,	ihff
 abal	balance	 afilt3,	anois
 kpanl	expseg	 .0001,	iatt,	.005,	idec,	.0001,	isus,	iclmx,	idec2,	.005,	iris,	.3,	irel,	1
 kpanr	=		1 - kpanl
-		out	abal*kpanl,	abal*kpanr
+        out	abal*kpanl,	abal*kpanr
 garvb1	=		garvb1+abal*irsend
 
 endin
 ;KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-		instr	4		;SAME instr AS instr2, W/ DIFFER AMP & FILT ENV. THE DYNAMIC CURVE OF ITS LOCATION
-              			; HAS THE OPPOSIT MOVEMENTS OF instr1&3, SO THE THEY CROSS EACH OTHER IN THE STEREO FIELD.
+        instr	4		;SAME instr AS instr2, W/ DIFFER AMP & FILT ENV. THE DYNAMIC CURVE OF ITS LOCATION
+                        ; HAS THE OPPOSIT MOVEMENTS OF instr1&3, SO THE THEY CROSS EACH OTHER IN THE STEREO FIELD.
 iamp	=		ampdb(p4)
 iatt	=		p5
 idec	=		p6
@@ -140,12 +140,12 @@ afmix	=		 afilt1 + afilt2
 abal	balance	 afmix,	asig1
 kpanr	expseg	 .0001,	iatt,	.002,	idec,	.0001,	isus,	iclmx,	idec2,	.0055,	iris,	.25,	irel,	1
 kpanl	=		 1 - kpanr
-		out	 abal*kpanl,	abal*kpanr
+        out	 abal*kpanl,	abal*kpanr
 garvb1	=		 garvb1+abal*irsend
 
-		endin
+        endin
 ;KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-		instr	5
+        instr	5
 
 iamp	=		ampdb(p4)
 inote	=		cpspch(p5)
@@ -162,9 +162,9 @@ ipanl	=		p14
 ipanr	=		p15
 
 kpenv	oscil	2,	.5,	1
-									; LFO, MODULATING THE PITCH OF PLUCK.
+                                    ; LFO, MODULATING THE PITCH OF PLUCK.
 kaenv	linen	1,	iatt,	p3,	irel
-									; AMP ENV.
+                                    ; AMP ENV.
 asig1	pluck	iamp*kaenv,	inote+kpenv,	icps,	ifn,	4,	1,	3000
 asig2	pluck	iamp*kaenv,	inote*.95+kpenv,	icps,	ifn,	4,	1,	3000
 asig3	pluck	iamp*kaenv,	inote*.99+kpenv,	icps,	ifn,	4,	1,	3000
@@ -174,13 +174,13 @@ amix	=		asig1+asig2+asig3+asig4
 kbfenv	expseg	 .1,	iatt,	1,	idec,	.9,	isus,	.8,	irel,	.1
 abfilt	butterbp amix,	ibff*kbfenv,	ibwth
 abal	balance	 abfilt,	asig1
-		out	 abal*ipanl,	abal*ipanr
+        out	 abal*ipanl,	abal*ipanr
 garvb1	=		 garvb1+abal*irsend
-		endin
+        endin
 
 
 ;------------------------------------
-		instr	6
+        instr	6
 
 iamp	=		ampdb(p4)
 ifrq	=		p5
@@ -206,22 +206,22 @@ ahfilt	butterhp abfilt,	ihff	; HIGHPASS CUTOFF AT 1500Hz
 abal	balance	 ahfilt,	asig1
 kpanl	oscil	 .5,	3/p3,	1	; STEREO PAN
 kpanr	=		 1 - kpanl
-		out	 abal*kpanl,	abal*kpanr*.6
+        out	 abal*kpanl,	abal*kpanr*.6
 garvb1	=		 garvb1+abal*irsend
 endin
 
 
 ;--------------------------------
-		instr	99
+        instr	99
 
 irvbtime =	p4
 idfs	 =	p5
 
 asig	reverb2	garvb1,	irvbtime,	idfs
-	out	asig, asig
+    out	asig, asig
 garvb1	=	0
 
-		endin
+        endin
 
 </CsInstruments>
 <CsScore>
@@ -362,7 +362,7 @@ i2   84.6 .5        75        .005 .1        .2        1         10        444  
 
 i3   85        20        60        .07       .05       5         3         1         1.5       1         1900 800       50        .02
 i3   85
-          20        60        .07       .05       5.055     3         1.055     1.5       1         1890 700       50        .08
+        20        60        .07       .05       5.055     3         1.055     1.5       1         1890 700       50        .08
 i3   85        20        60        .07       .05       5.105     3         1.105     1.5       1         1880 600       50        .1
 i3   85        20        60        .07       .05       5.155     3         1.155     1.5       1         1870 500       50        .13
 
@@ -381,7 +381,7 @@ i3   100       4         60        .07       .05       5         3         0    
 
 i3   104       20        60        .07       .05       5         3         1         1.5       1         250       800       50        .02
 i3   104
-     20        60        .07       .05       5.055     3         1.055     1.5       1         1890 700       50        .08
+    20        60        .07       .05       5.055     3         1.055     1.5       1         1890 700       50        .08
 i3   104       20        60        .07       .05       5.105     3         1.105     1.5       1         3000 600       50        .1
 i3   104       20        60        .07       .05       5.155     3         1.155     1.5       1         6000 500       50        .13
 
@@ -470,4 +470,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

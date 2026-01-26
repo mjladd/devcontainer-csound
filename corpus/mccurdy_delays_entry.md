@@ -265,4 +265,3 @@ Use `deltap3` (cubic) or `deltapi` (linear) when modulating delay time to avoid 
 - `mccurdy_reverbs_entry.md` - Reverb effects (based on multiple delays)
 - `mccurdy_filters_entry.md` - Filters often used in delay loops
 - `csound_delays_entry.md` - Delay theory
-

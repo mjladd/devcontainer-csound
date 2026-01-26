@@ -391,4 +391,3 @@ f1 0 4096 -7 0 4096 1  ; ramp 0 to 1, not normalized
 - `mccurdy_additive_synthesis_entry.md` - Uses GEN10 tables
 - `mccurdy_granular_synthesis_entry.md` - Uses GEN20 windows
 - `csound_gen_routines_entry.md` - GEN routine theory
-

@@ -5,7 +5,7 @@
 </CsOptions>
 
 <CsInstruments>
-	instr	1
+    instr	1
 a0	=		0
 sr = 44100
 ksmps = 100
@@ -13,11 +13,11 @@ nchnls = 1
 0dbfs = 1
 ;	scanu	init,irate,ifnvel,ifnmass,ifnstif,ifncentr,ifndamp
 ;             kmass,kstif,kcentr,kdamp,ileft,iright,kx,ky,ain,idisp,id
-	scanu	1, .01, 6, 2, 3, 4, 5, 2, .1, .1, -.01, .1, .5, 0, 0, a0, 0, 2
+    scanu	1, .01, 6, 2, 3, 4, 5, 2, .1, .1, -.01, .1, .5, 0, 0, a0, 0, 2
 ;ar scans	kamp,      kfreq,ifntraj,id[, korder]
 a1	scans	ampdb(p4), cpspch(p5), 7, 2
-	out		a1
-	endin
+    out		a1
+    endin
 </CsInstruments>
 
 <CsScore>

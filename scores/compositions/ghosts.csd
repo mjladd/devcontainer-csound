@@ -176,7 +176,7 @@ kstr    randh    .5,    1/kmiigt,    iseed
                 ;read pointer
 ;    opcode    ia      dur1    ib    dur2    ic
 newvar:        krvar   expseg     irvars,    p3*.34,    irvarf,    p3*.66,    irvars
-               ktrns   expseg     itrnss,    p3*.34,    itrnsf,    p3*.66,    itrnss
+            ktrns   expseg     itrnss,    p3*.34,    itrnsf,    p3*.66,    itrnss
 
         ;    opcode    amp    cps       ifn
                 kr4     oscil     ktrns,    ifnmt/p3,  ifnm

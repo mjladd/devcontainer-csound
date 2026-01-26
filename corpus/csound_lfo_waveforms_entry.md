@@ -702,8 +702,8 @@ klfo oscili klfoamp, 7, 1
 ## Common Issues & Solutions
 
 ### Zipper Noise (Stepping Artifacts)
-**Problem:** Audible steps in modulation  
-**Cause:** ksmps > 1, coarse k-rate updates  
+**Problem:** Audible steps in modulation
+**Cause:** ksmps > 1, coarse k-rate updates
 **Solution:**
 ```csound
 ksmps = 1  ; REQUIRED for smooth LFO
@@ -711,8 +711,8 @@ ksmps = 1  ; REQUIRED for smooth LFO
 ```
 
 ### LFO Too Fast (Becomes Ring Mod)
-**Problem:** LFO rate >15 Hz creates harsh, inharmonic sounds  
-**Cause:** Crossing from modulation into audio rate  
+**Problem:** LFO rate >15 Hz creates harsh, inharmonic sounds
+**Cause:** Crossing from modulation into audio rate
 **Solution:**
 ```csound
 ; Limit LFO frequency
@@ -721,8 +721,8 @@ klfofreq linen 7, .5, p3, .5  ; Max 7 Hz
 ```
 
 ### Amplitude Reaches Zero (Silence)
-**Problem:** Sound cuts out during modulation  
-**Cause:** LFO depth equals or exceeds base amplitude  
+**Problem:** Sound cuts out during modulation
+**Cause:** LFO depth equals or exceeds base amplitude
 **Solution:**
 ```csound
 ; Ensure base > LFO depth
@@ -732,8 +732,8 @@ kamp = iamp - ilfoamp  ; Base = 8000, never reaches 0
 ```
 
 ### Clicks at LFO Extremes
-**Problem:** Audible clicks when LFO reaches peaks  
-**Cause:** Sharp waveform transitions (square wave)  
+**Problem:** Audible clicks when LFO reaches peaks
+**Cause:** Sharp waveform transitions (square wave)
 **Solution:**
 ```csound
 ; Use smoother waveforms
@@ -743,8 +743,8 @@ klfo tone klfo, 20  ; Low-pass filter harsh transitions
 ```
 
 ### Modulation Not Heard
-**Problem:** LFO seems to have no effect  
-**Cause:** LFO depth too low or rate too slow  
+**Problem:** LFO seems to have no effect
+**Cause:** LFO depth too low or rate too slow
 **Solution:**
 ```csound
 ; Increase depth
@@ -754,8 +754,8 @@ klfofreq = 10   ; Instead of 7 Hz
 ```
 
 ### Distortion at High Modulation
-**Problem:** Output distorts when LFO adds amplitude  
-**Cause:** Total amplitude exceeds 0dbfs  
+**Problem:** Output distorts when LFO adds amplitude
+**Cause:** Total amplitude exceeds 0dbfs
 **Solution:**
 ```csound
 ; Reduce peak amplitude

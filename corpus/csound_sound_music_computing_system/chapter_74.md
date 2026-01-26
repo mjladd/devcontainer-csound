@@ -27,7 +27,7 @@ the basic techniques for performing the analysis and synthesis stages, and the k
 characteristics of the frequency-domain data that they work with. Following this,
 we will introduce the application of these and the various methods of modifying
 and processing spectral data.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 295
 14

@@ -12,7 +12,6 @@ _WARNING: This tutorial is currently being written and contains incomplete mater
 
 ## Introduction
 
-## Always-On Instruments 
+## Always-On Instruments
 
 ### Stereo Bus Opcodes
-

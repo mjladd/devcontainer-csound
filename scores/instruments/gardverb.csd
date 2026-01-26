@@ -39,7 +39,7 @@ zakinit 30,30
 
 ;----------------------------------------------------------------------------------
 ; Noise Click for testing the decay curve of the reverb.
-       instr  1
+    instr  1
 
 idur   =      p3
 iamp   =      p4
@@ -50,13 +50,13 @@ kamp   linseg 0, .002, iamp, .002, 0, idur-.004, 0
 aout   rand   kamp
 
 afilt  butterlp aout, ifco
-       zaw    afilt, ioutch
+    zaw    afilt, ioutch
 ;       out    aout, aout
 
-       endin
+    endin
 ;----------------------------------------------------------------------------------
 ; Disk Input Mono
-       instr  2
+    instr  2
 
 iamp   =      p4
 irate  =      p5
@@ -64,10 +64,10 @@ isndin =      p6
 ioutch =      p7
 
 ain    diskin "scores/samples/glass.aiff", irate
-       zaw    ain, ioutch
-       out    ain*iamp, ain*iamp
+    zaw    ain, ioutch
+    out    ain*iamp, ain*iamp
 
-       endin
+    endin
 ;----------------------------------------------------------------------------------
 ; Disk Input Stereo
         instr  3
@@ -82,13 +82,13 @@ ain1, ain2 diskin isndin, irate
 
         zaw    ain1, ioutch2
         zaw    ain2, ioutch2
-       out    ain1*iamp, ain2*iamp
+    out    ain1*iamp, ain2*iamp
 
         endin
 
 ;----------------------------------------------------------------------------------
 ; Band-Limited Impulse
-       instr  5
+    instr  5
 
 iamp   =      p4
 ifqc   =      cpspch(p5)
@@ -96,15 +96,15 @@ ioutch =      p6
 
 apulse buzz    1,ifqc, sr/2/ifqc, 1 ; Avoid aliasing
 
-       zaw     apulse*iamp, ioutch
-       out     apulse*iamp, apulse*iamp
+    zaw     apulse*iamp, ioutch
+    out     apulse*iamp, apulse*iamp
 
-       endin
+    endin
 
 
 ;----------------------------------------------------------------------------------
 ; Simple Sum--Add 2 channels together and output to a third channel.
-       instr  8
+    instr  8
 
 idur   =      p3
 iinch1 =      p4
@@ -113,13 +113,13 @@ ioutch =      p6
 
 ain1   zar    iinch1
 ain2   zar    iinch2
-       zaw    ain1+ain2, ioutch
+    zaw    ain1+ain2, ioutch
 
-       endin
+    endin
 
 ;----------------------------------------------------------------------------------
 ; Feedback Filter
-       instr  9
+    instr  9
 
 idur   =      p3
 ifco   =      p4
@@ -132,13 +132,13 @@ ain1   zar    iinch1
 ain2   zar    iinch2                   ; Read in two channels
 
 afilt  butterbp ain2, ifco, ifco/2     ; Bandpass filter one channel
-       zaw    ain1+igain*afilt, ioutch ; Adjust filter level add & output
+    zaw    ain1+igain*afilt, ioutch ; Adjust filter level add & output
 
-       endin
+    endin
 
 ;----------------------------------------------------------------------------------
 ; Delay  -- Simple Delay
-       instr  10
+    instr  10
 
 idur   =      p3
 idtime =      p4/1000
@@ -148,13 +148,13 @@ ioutch =      p7
 
 ain    zar    iinch          ; Read the channel
 aout   delay  ain, idtime    ; Delay for time
-       zaw    aout, ioutch   ; Output the channel
+    zaw    aout, ioutch   ; Output the channel
 
-       endin
+    endin
 
 ;----------------------------------------------------------------------------------
 ; Simple All-Pass Filter
-       instr  11
+    instr  11
 
 idur   =      p3
 itime  =      p4/1000
@@ -168,13 +168,13 @@ ain    zar    iinch
 aout   =      adel1-igain*ain           ; Feed Forward
 adel1  delay  ain+igain*aout, itime     ; Delay and Feedback
 
-       zaw    aout, ioutch
+    zaw    aout, ioutch
 
-       endin
+    endin
 
 ;----------------------------------------------------------------------------------
 ; Single Nested All-Pass Filter
-       instr  12
+    instr  12
 
 idur   =      p3
 itime1 =      p4/1000-p6/1000
@@ -194,13 +194,13 @@ aout   =      asum  - igain1*ain           ; Feed Forward (Outer all-pass)
 adel1  delay  ain   + igain1*aout, itime1  ; Feedback (Outer all-pass)
 adel2  delay  adel1 + igain2*asum, itime2  ; Feedback (Inner all-pass)
 
-       zaw    aout, ioutch
+    zaw    aout, ioutch
 
-       endin
+    endin
 
 ;----------------------------------------------------------------------------------
 ; Double Nested All-Pass Filter (1 outer with 2 inner in series)
-       instr  13
+    instr  13
 
 idur   =      p3
 itime1 =      p4/1000-p6/1000-p8/1000
@@ -225,9 +225,9 @@ adel1  delay  ain   + igain1*aout, itime1  ; Outer Feedback
 adel2  delay  adel1 + igain2*asum1, itime2 ; First Inner Feedback
 adel3  delay  asum1 + igain3*asum2, itime3 ; Second Inner Feedback
 
-       zaw    aout, ioutch
+    zaw    aout, ioutch
 
-       endin
+    endin
 
 ;----------------------------------------------------------------------------------
 ; 2D Echos
@@ -286,7 +286,7 @@ ar4     =         adel4*sqrt(1-(iang4+3.141592)/4/3.141592)
 aoutl   =         (al0+al1+al2+al3+al4)*kamp
 aoutr   =         (ar0+ar1+ar2+ar3+ar4)*kamp
 
-       out       aoutl, aoutr
+    out       aoutl, aoutr
         zaw       aoutl, ioutch1
         zaw       aoutr, ioutch2
 
@@ -295,7 +295,7 @@ aoutr   =         (ar0+ar1+ar2+ar3+ar4)*kamp
 ;----------------------------------------------------------------------------------
 ; Small Room Reverb
 ;----------------------------------------------------------------------------------
-       instr  21
+    instr  21
 
 idur   =        p3
 iamp   =        p4
@@ -338,14 +338,14 @@ adel42  delay   adel41+.3*asum41,  .030  ; Inner Feedback
 ; Output
 aout    =       .6*aout41+.5*aout21
 
-       out     aout*kdclick, -aout*kdclick
+    out     aout*kdclick, -aout*kdclick
 
         endin
 
 ;----------------------------------------------------------------------------------
 ; Medium Room Reverb
 ;----------------------------------------------------------------------------------
-       instr  22
+    instr  22
 
 idur   =        p3
 iamp   =        p4
@@ -395,14 +395,14 @@ aout    =       .5*aout11+.5*adel41+.5*aout61 ; Combine Outputs
 
 adel71  delay   aout61, .108                  ; Delay 4
 
-       out     aout*kdclick, -aout*kdclick   ; Final Output
+    out     aout*kdclick, -aout*kdclick   ; Final Output
 
         endin
 
 ;----------------------------------------------------------------------------------
 ; Large Room Reverb
 ;----------------------------------------------------------------------------------
-       instr  23
+    instr  23
 
 idur   =        p3
 iamp   =        p4
@@ -455,14 +455,14 @@ adel93  delay   asum91+.25*asum92, .030 ; Second Inner Feedback
 
 aout    =       .8*aout91+.8*adel61+1.5*adel21 ; Combine outputs
 
-       out     aout*kdclick, -aout*kdclick    ; Final Output
+    out     aout*kdclick, -aout*kdclick    ; Final Output
 
         endin
 
 ;----------------------------------------------------------------------------------
 ; Small Room Reverb with controls
 ;----------------------------------------------------------------------------------
-       instr  25
+    instr  25
 
 idur   =        p3
 iamp   =        p4
@@ -520,7 +520,7 @@ aout    =       .6*aout41+.5*aout21
 ;----------------------------------------------------------------------------------
 ; Medium Room Reverb with controls
 ;----------------------------------------------------------------------------------
-       instr  26
+    instr  26
 
 idur   =        p3
 iamp   =        p4
@@ -585,7 +585,7 @@ adel71  delay   aout61, .108*idecay                  ; Delay 4
 ;----------------------------------------------------------------------------------
 ; Large Room Reverb
 ;----------------------------------------------------------------------------------
-       instr    27
+    instr    27
 
 idur   =        p3
 iamp   =        p4
@@ -652,7 +652,7 @@ aout    =       .8*aout91+.8*adel61+1.5*adel21 ; Combine outputs
 
 ;----------------------------------------------------------------------------------
 ; Output For reverb
-       instr  90
+    instr  90
 
 idur   =      p3
 igain  =      p4
@@ -661,14 +661,14 @@ iinch  =      p5
 kdclik linseg 0, .002, igain, idur-.004, igain, .002, 0
 
 ain    zar    iinch
-       out    ain*kdclik, -ain*kdclik  ; Inverting one side makes the sound
-       endin                           ; seem to come from all around you.
-                                       ; This may cause some problems with certain
-                                       ; surround sound systems
+    out    ain*kdclik, -ain*kdclik  ; Inverting one side makes the sound
+    endin                           ; seem to come from all around you.
+                                    ; This may cause some problems with certain
+                                    ; surround sound systems
 
 ;----------------------------------------------------------------------------------
 ; Output For reverb
-       instr  91
+    instr  91
 
 idur   =      p3
 igain  =      p4
@@ -679,13 +679,13 @@ kdclik linseg 0, .002, igain, idur-.004, igain, .002, 0
 
 ain1   zar    iinch1
 ain2   zar    iinch2
-       out    ain1*kdclik, ain2*kdclik
+    out    ain1*kdclik, ain2*kdclik
 
-       endin
+    endin
 
-       instr   99
-       zacl    0,30
-       endin
+    instr   99
+    zacl    0,30
+    endin
 
 </CsInstruments>
 <CsScore>
@@ -751,4 +751,3 @@ i99  0.0  4.0
 
 </CsScore>
 </CsoundSynthesizer>
-

@@ -661,7 +661,7 @@ adelL delayr 0.05
 acombL deltapi 1/(2*gkfreq)
 delayw gasig
 
-adelR delayr 0.05  
+adelR delayr 0.05
 acombR deltapi 1/(2*gkfreq*1.01)  ; Slightly detuned
 delayw gasig
 
@@ -703,8 +703,8 @@ asig vco2 0.5, gkfreq, 0  ; Saw from vco2
 ## Common Issues & Solutions
 
 ### Filter Instability/Explosion
-**Problem:** Output grows exponentially, distorts  
-**Cause:** Feedback too high (kres too close to 1.0)  
+**Problem:** Output grows exponentially, distorts
+**Cause:** Feedback too high (kres too close to 1.0)
 **Solution:**
 ```csound
 ; Cap resonance
@@ -714,8 +714,8 @@ aout limit aout, -32768, 32768
 ```
 
 ### No Audible Effect
-**Problem:** Filter seems to have no effect  
-**Cause:** 
+**Problem:** Filter seems to have no effect
+**Cause:**
 - ksmps > 1 (delay lines need ksmps=1)
 - Delay time too short/long
 - Resonance too low
@@ -729,8 +729,8 @@ kres line 0, p3, 0.7  ; Higher end value
 ```
 
 ### Zipper Noise in Sweep
-**Problem:** Audible stepping during frequency sweep  
-**Cause:** Non-interpolating delay or k-rate delay time  
+**Problem:** Audible stepping during frequency sweep
+**Cause:** Non-interpolating delay or k-rate delay time
 **Solution:**
 ```csound
 ; Use deltapi (interpolating) not deltap
@@ -739,8 +739,8 @@ acomb deltapi 1/(2*gkfreq)  ; Correct
 ```
 
 ### Delay Buffer Errors
-**Problem:** "delay buffer exceeded" error  
-**Cause:** Delay time exceeds delayr maximum  
+**Problem:** "delay buffer exceeded" error
+**Cause:** Delay time exceeds delayr maximum
 **Solution:**
 ```csound
 ; Ensure delayr size > largest deltapi time
@@ -751,8 +751,8 @@ adel delayr 1/iminfreq  ; Must be >= all deltapi times
 ```
 
 ### Output Too Quiet/Loud
-**Problem:** Level issues  
-**Cause:** Resonance and filtering affect amplitude  
+**Problem:** Level issues
+**Cause:** Resonance and filtering affect amplitude
 **Solution:**
 ```csound
 ; Use balance to normalize
@@ -762,8 +762,8 @@ out aout*3000  ; Instead of 5000
 ```
 
 ### Harsh Digital Artifacts
-**Problem:** Aliasing or harsh sound at high frequencies  
-**Cause:** Delay modulation can cause aliasing  
+**Problem:** Aliasing or harsh sound at high frequencies
+**Cause:** Delay modulation can cause aliasing
 **Solution:**
 ```csound
 ; Low-pass filter output
@@ -792,7 +792,7 @@ gkfreq expseg 200, 5, 5000     ; Exponential sweep
 ; Fixed comb delays create formant-like peaks
 adel delayr 0.01
 acomb1 deltapi 0.001   ; ~1000 Hz peak
-acomb2 deltapi 0.0005  ; ~2000 Hz peak  
+acomb2 deltapi 0.0005  ; ~2000 Hz peak
 acomb3 deltapi 0.00033 ; ~3000 Hz peak
 aformant = acomb1 + acomb2 + acomb3
 ```

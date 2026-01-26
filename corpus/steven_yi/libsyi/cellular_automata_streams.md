@@ -23,12 +23,12 @@ User-defined opcode from Steven Yi's libsyi collection.
 /* Implementation of 1-dimensional (Elementary) Cellular Automata as a
   stream using feedback and circular buffer delay line. Stream
   generates 1 (Live) and 0 (Dead) values, according to initial state
-  and rule. 
+  and rule.
 
   Initial state may be any length array.  Different array lengths
   affects the rate of mutation, comparable to classical cellular
   automata implementations that use a fixed array as value between CA
-  processing steps.  
+  processing steps.
 
   Rule numbers are implemented using Wolfram-style encoding where
   number is interpreted as bits. This allows user to use Wolfram rule
@@ -39,9 +39,9 @@ opcode ca_print_rule, 0, i
   irule xin
   prints("Rule %d: %d %d %d %d %d %d %d %d\n",
     irule,
-    (irule >> 7) & 1, (irule >> 6) & 1, 
-    (irule >> 5) & 1, (irule >> 4) & 1, 
-    (irule >> 3) & 1, (irule >> 2) & 1, 
+    (irule >> 7) & 1, (irule >> 6) & 1,
+    (irule >> 5) & 1, (irule >> 4) & 1,
+    (irule >> 3) & 1, (irule >> 2) & 1,
     (irule >> 1) & 1, irule & 1)
 endop
 
@@ -90,9 +90,9 @@ opcode ca_stream, k, i[]i
   k2 = kstates[(kindx + 2) % ilen]
   kval = ca_eval(irule, k0, k1, k2)
 
-  ;; write new value into current kindx, which becomes the 
-  ;; end of the ring buffer after update kindx 
-  kstates[kindx] = kval 
+  ;; write new value into current kindx, which becomes the
+  ;; end of the ring buffer after update kindx
+  kstates[kindx] = kval
   kindx = (kindx + 1) % ilen
 
   xout kval
@@ -110,4 +110,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "cellular_automata_streams.udo"
 ```
-

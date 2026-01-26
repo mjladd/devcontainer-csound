@@ -32,7 +32,7 @@ itranswv2 = 		p12									; crossfade waveform
 
 ifad1 	= 		p3 - (p13 * p3)						; calculate initial fade (% of dur)
 ifad2 	= 		p3 - ifad1							; calculate remaining duration
-													; ifad1 + ifad2 = p3
+                                                    ; ifad1 + ifad2 = p3
 
 irel 	= 		.01					 				; set vibrato release time
 idel1 	= 		p3 - (p10 * p3)						; calculate initial delay (% of dur)
@@ -59,21 +59,21 @@ asig1 	= 		kfade * (a1 + a2 + a3)					; xfade applied to transwv1
 asig2 	= 		(1 - kfade) * (a4 + a5 + a6)				; inverted xfade applied to transwv2
 
 k4		oscil	1, 1/p3, p12						; pan controller
-		outch	1, (asig1 + asig2) * k4					; left output of direct audio
-		outch	2, (asig1 + asig2) * (1-k4)					; right output of direct audio
+        outch	1, (asig1 + asig2) * k4					; left output of direct audio
+        outch	2, (asig1 + asig2) * (1-k4)					; right output of direct audio
 garvbsig 	= 		garvbsig + asig1 + asig2					; add audio to audio receiver prior to pan
-		endin
+        endin
 
 
-		instr 99										; global reverb instrument
+        instr 99										; global reverb instrument
 
 irvbtime 	= 		p4									; seconds for signal to decay 60 dB
 
 asig2	reverb	garvbsig, irvbtime						; put global sig into reverb
-		outch	1, asig2								; output reverb signal left
-		outch	2, asig2								; output reverb signal right
+        outch	1, asig2								; output reverb signal left
+        outch	2, asig2								; output reverb signal right
 garvbsig 	= 		0									; reinitialize
-		endin
+        endin
 
 </CsInstruments>
 <CsScore>
@@ -112,4 +112,3 @@ e
 
 </CsScore>
 </CsoundSynthesizer>
-

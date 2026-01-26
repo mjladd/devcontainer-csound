@@ -11,7 +11,7 @@ found in the Reference Manual). In this chapter we would like, instead, to explo
 the various ways in which opcodes can be created using Csound code. This is often
 called the composability element of a language, by which smaller components can
 be put together and used as a single unit elsewhere.
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 139
 7

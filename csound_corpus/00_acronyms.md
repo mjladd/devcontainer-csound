@@ -1,4 +1,4 @@
-# Csound Acronyms
+# CSound Acronyms
 
 0dbfs : zero decibel full scale
 ADC : Analogue-to-Digital Converter

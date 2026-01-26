@@ -25,7 +25,7 @@ cations that can be used both in timbre modiﬁcation and in spatial audio effec
 13.2 Delay Lines
 Digital delay lines are simple processors that hold the samples of an audio signal
 for a speciﬁed amount of time [67, 34], releasing them afterwards. Their basic func-
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_
 255
 13

@@ -17,7 +17,7 @@ nchnls	=	2
 
 ga1	init	0
 
-		instr 1	;working instrument
+        instr 1	;working instrument
 
 ;	init
 
@@ -51,7 +51,7 @@ kstrength	= 0
 idisp	= 0
 id	= 2
 ;	synth
-	scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
+    scanu	iInit,irate,ifnvel,ifnmass,ifnmatrix,ifncenter,ifndamp,kmass,kstiff,kcenter,kdamp,ileft,iright,kpos,kstrength,ain,idisp,id
 aout	scans	15000, kpch, iscantable, 2
 aout	= aout * kenv
 aout 	dcblock aout
@@ -59,13 +59,13 @@ aout	butterlp	aout, kpch * 8 * kenv
 aout	butterlp	aout, kpch * 8 * kenv
 aout	nreverb	aout, 3.1, .2
 ga1	= ga1 + aout
-		endin
+        endin
 
-		instr 20	;reverb
+        instr 20	;reverb
 $xrvb2s(ga1'aoutL'aoutR'.2'6'2000)
-	out aoutL*0.5, aoutR*0.5
+    out aoutL*0.5, aoutR*0.5
 ga1 = 0
-		endin
+        endin
 
 </CsInstruments>
 <CsScore>

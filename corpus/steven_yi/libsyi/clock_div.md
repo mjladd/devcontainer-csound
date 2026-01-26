@@ -26,8 +26,8 @@ User-defined opcode from Steven Yi's libsyi collection.
 
 opcode clock_div, a, ak
   atrig, kdiv xin
-  
-  kcount init 1000 
+
+  kcount init 1000
   asig init 0
 
   kndx = 0
@@ -47,7 +47,7 @@ opcode clock_div, a, ak
 
     kndx += 1
   od
- 
+
   xout asig
 endop
 
@@ -63,4 +63,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "clock_div.udo"
 ```
-

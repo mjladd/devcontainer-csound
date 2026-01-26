@@ -1,0 +1,11 @@
+{
+  "IgnoreDefaults": false,
+  "Exclude": [
+    "^scores/scanned_synthesis/akbari/rvb.h$"
+  ],
+  "PassedFiles": [
+    "^csound_rag/",
+    "^scripts/",
+    "^scores/"
+  ]
+}

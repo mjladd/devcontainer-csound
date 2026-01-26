@@ -31,12 +31,12 @@ opcode seqsig2, a, ak[]kk
   agate, kpattern[], kstartIndx, klen xin
 
   aout init 0
-  kpatindx init -1 
+  kpatindx init -1
 
   kindx = 0
   while (kindx < ksmps) do
-    if(agate[kindx] == 1) then 
-      kpatindx = (kpatindx + 1) % klen 
+    if(agate[kindx] == 1) then
+      kpatindx = (kpatindx + 1) % klen
     endif
 
     aout[kindx] = kpattern[kpatindx]
@@ -61,4 +61,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "seqsig2.udo"
 ```
-

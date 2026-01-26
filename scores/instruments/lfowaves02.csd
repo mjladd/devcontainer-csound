@@ -26,8 +26,8 @@ idur   = i(1/klfofreq)
 iratio = i(kratio)
 irise =  idur * iratio
 
-	timout 0, idur, shape
-	reinit cycle
+    timout 0, idur, shape
+    reinit cycle
 
 shape:
 
@@ -44,11 +44,11 @@ goto contin
 
 
 contin:
-	rireturn
+    rireturn
 kamp linen iamp, .1, p3, .2;		      amplitude envelope
 asig oscili kamp+kshape*ilfoamp, 110, 1
 
-	out asig
+    out asig
 
 endin
 
@@ -65,4 +65,3 @@ i1 10 10 2
 e
 </CsScore>
 </CsoundSynthesizer>
-

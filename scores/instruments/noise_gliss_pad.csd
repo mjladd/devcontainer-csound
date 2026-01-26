@@ -8,10 +8,10 @@ kr        =         441
 ksmps     =         100
 nchnls    =         1
 ; DOUBLE RESONATED NOISE
-          instr 1
-          endin
+        instr 1
+        endin
 ;i1 0 DUR res1 res2 AMP SEED
-          instr 2
+        instr 2
 ires1     =         p4
 ires2     =         p5
 ibf       =         .02
@@ -22,8 +22,8 @@ kenv      linseg    0,p3/2,iamp,p3/2,0
 anoise    randi     1.0, 13000, iseed
 ares      reson     anoise,ires1,ibw,1
 ares1     reson     ares,ires2,ibw,1
-          out       ares1*kenv
-          endin
+        out       ares1*kenv
+        endin
 </CsInstruments>
 <CsScore>
 i1 0 10.000000 1 0.000000

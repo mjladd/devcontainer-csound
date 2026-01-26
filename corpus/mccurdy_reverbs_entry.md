@@ -242,4 +242,3 @@ aout dcblock aReverb
 - `mccurdy_delays_entry.md` - Delays (reverb building blocks)
 - `csound_reverbs_entry.md` - Reverb theory
 - `mccurdy_convolution_entry.md` - Convolution reverb
-

@@ -29,19 +29,19 @@ User-defined opcode from Steven Yi's libsyi collection.
    pattern array is global for efficiency as otherwise
    arrays would be copied every k-pass
    */
-  
+
 gkpattern_sequencer_all[] init 128 * 8 * 16
 
 opcode patternseq_seqsig, a, aak
   agate, astartIndx, klen xin
 
   aout init 0
-  kpatindx init 15 
+  kpatindx init 15
 
   kindx = 0
   while (kindx < ksmps) do
-    if(agate[kindx] == 1) then 
-      kpatindx = (kpatindx + 1) % klen 
+    if(agate[kindx] == 1) then
+      kpatindx = (kpatindx + 1) % klen
     endif
     kstartIndx = astartIndx[kindx]
     aout[kindx] = gkpattern_sequencer_all[kstartIndx + kpatindx]
@@ -57,8 +57,8 @@ opcode pattern_sequencer, aaaaaaaa, aa
 
   apatstart = apattern_indx * 128
 
-  a1 patternseq_seqsig atrigger, apatstart, 16 
-  a2 patternseq_seqsig atrigger, apatstart + 16, 16 
+  a1 patternseq_seqsig atrigger, apatstart, 16
+  a2 patternseq_seqsig atrigger, apatstart + 16, 16
   a3 patternseq_seqsig atrigger, apatstart + 32, 16
   a4 patternseq_seqsig atrigger, apatstart + 48, 16
   a5 patternseq_seqsig atrigger, apatstart + 64, 16
@@ -73,8 +73,8 @@ instr set_pat_seq_instr
   ipatNum = p4
   iseqnum = p5
 
-  indx = p4 * 128 + iseqnum * 16 
-  prints "Setting pattern %d sequence %d\n", p4, p5 
+  indx = p4 * 128 + iseqnum * 16
+  prints "Setting pattern %d sequence %d\n", p4, p5
   gkpattern_sequencer_all[indx] = p6
   gkpattern_sequencer_all[indx + 1] = p7
   gkpattern_sequencer_all[indx + 2] = p8
@@ -111,20 +111,20 @@ instr copy_pat_seq_instr
   idestpat_num = p6
   idestseq_num = p7
 
-  indx0 = isrcpat_num * 128 + isrcseq_num * 16 
-  indx1 = idestpat_num * 128 + idestseq_num * 16 
+  indx0 = isrcpat_num * 128 + isrcseq_num * 16
+  indx1 = idestpat_num * 128 + idestseq_num * 16
 
   prints "Copying pattern %d sequence %d\n to pattern %d sequence %d\n", p4, p5, p6, p7
-  gkpattern_sequencer_all[indx1]      = gkpattern_sequencer_all[indx0]     
-  gkpattern_sequencer_all[indx1 + 1]  = gkpattern_sequencer_all[indx0 + 1] 
-  gkpattern_sequencer_all[indx1 + 2]  = gkpattern_sequencer_all[indx0 + 2] 
-  gkpattern_sequencer_all[indx1 + 3]  = gkpattern_sequencer_all[indx0 + 3] 
-  gkpattern_sequencer_all[indx1 + 4]  = gkpattern_sequencer_all[indx0 + 4] 
-  gkpattern_sequencer_all[indx1 + 5]  = gkpattern_sequencer_all[indx0 + 5] 
-  gkpattern_sequencer_all[indx1 + 6]  = gkpattern_sequencer_all[indx0 + 6] 
-  gkpattern_sequencer_all[indx1 + 7]  = gkpattern_sequencer_all[indx0 + 7] 
-  gkpattern_sequencer_all[indx1 + 8]  = gkpattern_sequencer_all[indx0 + 8] 
-  gkpattern_sequencer_all[indx1 + 9]  = gkpattern_sequencer_all[indx0 + 9] 
+  gkpattern_sequencer_all[indx1]      = gkpattern_sequencer_all[indx0]
+  gkpattern_sequencer_all[indx1 + 1]  = gkpattern_sequencer_all[indx0 + 1]
+  gkpattern_sequencer_all[indx1 + 2]  = gkpattern_sequencer_all[indx0 + 2]
+  gkpattern_sequencer_all[indx1 + 3]  = gkpattern_sequencer_all[indx0 + 3]
+  gkpattern_sequencer_all[indx1 + 4]  = gkpattern_sequencer_all[indx0 + 4]
+  gkpattern_sequencer_all[indx1 + 5]  = gkpattern_sequencer_all[indx0 + 5]
+  gkpattern_sequencer_all[indx1 + 6]  = gkpattern_sequencer_all[indx0 + 6]
+  gkpattern_sequencer_all[indx1 + 7]  = gkpattern_sequencer_all[indx0 + 7]
+  gkpattern_sequencer_all[indx1 + 8]  = gkpattern_sequencer_all[indx0 + 8]
+  gkpattern_sequencer_all[indx1 + 9]  = gkpattern_sequencer_all[indx0 + 9]
   gkpattern_sequencer_all[indx1 + 10] = gkpattern_sequencer_all[indx0 + 10]
   gkpattern_sequencer_all[indx1 + 11] = gkpattern_sequencer_all[indx0 + 11]
   gkpattern_sequencer_all[indx1 + 12] = gkpattern_sequencer_all[indx0 + 12]
@@ -135,7 +135,7 @@ instr copy_pat_seq_instr
   turnoff
 endin
 
-/* copies sequence from one pattern to another 
+/* copies sequence from one pattern to another
    Arguments: isrcpat, isrcseq, idestpat, idestseq
    */
 opcode copy_pattern_seq, 0, iiii
@@ -162,4 +162,3 @@ Include this UDO in your Csound orchestra:
 ```csound
 #include "pattern_sequencer.udo"
 ```
-

@@ -25,7 +25,7 @@ stages of execution very clear when controlling the ﬂow of a program. As we wi
 see, depending on the choice of opcodes, the jumps will occur only at i-time or at
 perf-time, or both. As before, the advice is to avoid intermixing of lines containing
 distinct initialisation and performance code so that the instrument can be read more
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_5
 105
 106

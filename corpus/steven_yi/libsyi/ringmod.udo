@@ -1,6 +1,6 @@
 /*
  Implementation of Julian Parker’s digital model of a Ring
- Modulator. 
+ Modulator.
 
  http://kunstmusik.com/2013/09/07/julian-parker-ring-modulator/
 
@@ -70,4 +70,3 @@ aout sum asig1, asig2, asiginv
 xout aout
 
 endop
-

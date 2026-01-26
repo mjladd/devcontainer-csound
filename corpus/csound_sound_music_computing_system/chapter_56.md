@@ -24,7 +24,7 @@ bindings for other programming languages (Python, Java, Lua) are generated using
 SWIG1. Each version of the API differs slightly to accommodate differences in each
 programming language, but they all share the same basic design and functionality.
 1 http://www.swig.org
-© Springer International Publishing Switzerland 2016 
+© Springer International Publishing Switzerland 2016
 V. Lazzarini et al., Csound, DOI 10.1007/978-3-319-45370-5_11
 195
 196
