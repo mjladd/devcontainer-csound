@@ -7,6 +7,7 @@ The RAG assistant is fully implemented and indexed. This document captures the d
 ## Overview
 
 A local RAG-based CLI assistant for Csound programming using:
+
 - **ChromaDB** for vector storage
 - **sentence-transformers** for embeddings (all-MiniLM-L6-v2)
 - **Ollama** for LLM responses (codellama)
@@ -14,7 +15,7 @@ A local RAG-based CLI assistant for Csound programming using:
 
 ## Architecture
 
-```
+```shell
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
 │   Corpus    │────▶│  Indexer     │────▶│  ChromaDB   │
 │  (markdown) │     │  (chunking + │     │  (vectors + │
@@ -31,7 +32,7 @@ A local RAG-based CLI assistant for Csound programming using:
 
 ## File Structure
 
-```
+```shell
 devcontainer-csound/
 ├── csound_rag/                    # RAG package
 │   ├── __init__.py
