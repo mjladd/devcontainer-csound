@@ -31,7 +31,7 @@
 - treat each instrument or opcode demonstration as one chunk
 
 ```shell
-corpus/
+csound_corpus/
   instruments/
   effects/
   examples/

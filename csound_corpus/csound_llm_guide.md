@@ -95,7 +95,6 @@ You have several options for where to train:
 - **Google Colab (Recommended for beginners)** - Free T4 GPU, easy setup, good for CodeLlama-7B
 - **Hugging Face Spaces** - Paid GPU access, integrated with your datasets
 - **Local GPU** - If you have an NVIDIA GPU with 12GB+ VRAM
-- **Cloud platforms** - Lambda Labs, RunPod, or Vast.ai for more powerful GPUs
 
 ### 2.2 Complete Training Script
 
