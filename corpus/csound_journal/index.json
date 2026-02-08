@@ -1,0 +1,849 @@
+[
+  {
+    "title": "Letters from the Editors",
+    "issue": "23",
+    "url": "https://csoundjournal.com/issue23/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Csound 30: Report on the Conference to Celebrate 30 Years of Csounding",
+    "issue": "23",
+    "url": "https://csoundjournal.com/issue23/Csound30.html",
+    "author": "Iain McCurdy",
+    "abstract": ""
+  },
+  {
+    "title": "Building Csound based Systems for Real-time Chamber Music Performance: Part I",
+    "issue": "23",
+    "url": "https://csoundjournal.com/issue23/RealtimeSystems1.html",
+    "author": "Enrico Francioni",
+    "abstract": ""
+  },
+  {
+    "title": "GLib Data Structures and Csound",
+    "issue": "23",
+    "url": "https://csoundjournal.com/issue23/GLibCsound.html",
+    "author": "Jim Hearon",
+    "abstract": ""
+  },
+  {
+    "title": "Using an SQLite database in Csound, Part I: Get scores and samples from a database and use them in Csound",
+    "issue": "23",
+    "url": "https://csoundjournal.com/issue23/csoundsql.html",
+    "author": "Richard van Bemmelen",
+    "abstract": ""
+  },
+  {
+    "title": "Speed up your Csound workflow with Haskell: Introduction to Csound-expression",
+    "issue": "23",
+    "url": "https://csoundjournal.com/issue23/Csound_expression_paper.html",
+    "author": "Anton Kholomiov",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "22",
+    "url": "https://csoundjournal.com/issue22/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Report on the 3rd International Csound Conference",
+    "issue": "22",
+    "url": "https://csoundjournal.com/issue22/ICSC2015Report.html",
+    "author": "projected visuals created and performed by Basil Simon",
+    "abstract": ""
+  },
+  {
+    "title": "Live Coding with Csound",
+    "issue": "22",
+    "url": "https://csoundjournal.com/issue22/LiveCodingWithCsound.html",
+    "author": "default the keyboard shortcut for this is\nctrl",
+    "abstract": ""
+  },
+  {
+    "title": "Interpreting Visual Phenomena using Csound",
+    "issue": "22",
+    "url": "https://csoundjournal.com/issue22/interp_visual_phenom2.html",
+    "author": "the time of the second image",
+    "abstract": ""
+  },
+  {
+    "title": "Exploring The Linear Algebra Opcodes",
+    "issue": "22",
+    "url": "https://csoundjournal.com/issue22/linearAlgebra.html",
+    "author": "Michael Gogins",
+    "abstract": ""
+  },
+  {
+    "title": "HTML GUIs for Android Csound6",
+    "issue": "22",
+    "url": "https://csoundjournal.com/issue22/HTML5GUIsforAndroid.html",
+    "author": "the power of the Android device itself",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Interpreting Visual Phenomena using Csound",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/interp_visual_phenom.html",
+    "author": "the emerging science of cognitive psychology and with",
+    "abstract": ""
+  },
+  {
+    "title": "Csound GUI for a Headless Raspberry Pi",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/csound_gui.html",
+    "author": "running it on the Pi",
+    "abstract": ""
+  },
+  {
+    "title": "Handle Csound with a BCF2000",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/bcfcsound.html",
+    "author": "hand takes more time",
+    "abstract": ""
+  },
+  {
+    "title": "Synchronizing a Networked Csound Laptop Ensemble using OSC",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/synchronizing.html",
+    "author": "Roger Dannenberg",
+    "abstract": ""
+  },
+  {
+    "title": "Swing with Csound",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/swing.html",
+    "author": "longer durations",
+    "abstract": ""
+  },
+  {
+    "title": "ChuckSound",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/chuck_sound.html",
+    "author": "clicking the link for example files shown further down in this article",
+    "abstract": ""
+  },
+  {
+    "title": "Alternative Csound Players and Composing Environments for Android",
+    "issue": "21",
+    "url": "https://csoundjournal.com/issue21/alternative_csound_players.html",
+    "author": "Brian Redfern for the",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "20",
+    "url": "https://csoundjournal.com/issue20/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Scoreless Csound",
+    "issue": "20",
+    "url": "https://csoundjournal.com/issue20/scoreless.html",
+    "author": "then questionable",
+    "abstract": ""
+  },
+  {
+    "title": "Android Devices as MIDI Controllers",
+    "issue": "20",
+    "url": "https://csoundjournal.com/issue20/android_midi.html",
+    "author": "the author including TouchOSC",
+    "abstract": ""
+  },
+  {
+    "title": "Csound and Music Expression",
+    "issue": "20",
+    "url": "https://csoundjournal.com/issue20/expression_csound.html",
+    "author": "implementing expressive features",
+    "abstract": ""
+  },
+  {
+    "title": "OpenMusic: The Csound Connection",
+    "issue": "20",
+    "url": "https://csoundjournal.com/issue20/openmusic.html",
+    "author": "researchers and musicians at IRCAM for the purpose of facilitating various aspects of advanced music composition",
+    "abstract": ""
+  },
+  {
+    "title": "PWCsound",
+    "issue": "20",
+    "url": "https://csoundjournal.com/issue20/PWCsound.html",
+    "author": "several historical libraries for Patchwork",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Using Python in Blue",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/python_in_blue.html",
+    "author": "Python generated scores",
+    "abstract": ""
+  },
+  {
+    "title": "Csound's Binaural 3D-sound Opcodes",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/Research_Applications.html",
+    "author": "scripting in various languages",
+    "abstract": ""
+  },
+  {
+    "title": "Kaoss Droid",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/kaoss_droid.html",
+    "author": "step in detail",
+    "abstract": ""
+  },
+  {
+    "title": "Csound synthesizers in muO",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/csound_synthesizers_in_muO.html",
+    "author": "itself does nothing",
+    "abstract": ""
+  },
+  {
+    "title": "Interfacing Csound and Unity",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/InterfacingCsoundUnity.html",
+    "author": "scripting in various languages",
+    "abstract": ""
+  },
+  {
+    "title": "Grace, Scheme, and Csound",
+    "issue": "19",
+    "url": "https://csoundjournal.com/issue19/grace_scheme_csound.html",
+    "author": "Heinrich Taube",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "18",
+    "url": "https://csoundjournal.com/issue18/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Csound for Cage's Ryoanji",
+    "issue": "18",
+    "url": "https://csoundjournal.com/issue18/francioni.html",
+    "author": "Edition Peters",
+    "abstract": ""
+  },
+  {
+    "title": "Interview with Jan Jacob Hofmann",
+    "issue": "18",
+    "url": "https://csoundjournal.com/issue18/interview_jjh.html",
+    "author": "the clearness of these thoughts",
+    "abstract": ""
+  },
+  {
+    "title": "BeaglePi",
+    "issue": "18",
+    "url": "https://csoundjournal.com/issue18/beagle_pi.html",
+    "author": "pinging the Csound website",
+    "abstract": ""
+  },
+  {
+    "title": "Csound Eurorack Module",
+    "issue": "18",
+    "url": "https://csoundjournal.com/issue18/eurorack.html",
+    "author": "the German company Doepfer in",
+    "abstract": ""
+  },
+  {
+    "title": "Csound and MusicXML",
+    "issue": "18",
+    "url": "https://csoundjournal.com/issue18/musXML.html",
+    "author": "visualizing the music in terms of common practice notation",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/letter.html",
+    "author": "Victor Lazzarini",
+    "abstract": ""
+  },
+  {
+    "title": "Risset's Arpeggio",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/bain_risset_arpeggio.html",
+    "author": "some to the sound produced by an overtone singer",
+    "abstract": ""
+  },
+  {
+    "title": "Composing in C++",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/gogins_composing_in_cpp.html",
+    "author": "notating or overdubbing but",
+    "abstract": ""
+  },
+  {
+    "title": "Live Csound",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/heintz.html",
+    "author": "actions of the performer",
+    "abstract": ""
+  },
+  {
+    "title": "Interfacing Cscore Part II",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/InterfacingCscore2.html",
+    "author": "the\n          function",
+    "abstract": ""
+  },
+  {
+    "title": "Introducing the Android CSD Player",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/android_csd_player.html",
+    "author": "default are those  with the proper parameters for realtime Android playback",
+    "abstract": ""
+  },
+  {
+    "title": "Creating Graphical User Interfaces for Csound using Quartz Composer",
+    "issue": "17",
+    "url": "https://csoundjournal.com/issue17/costello_quartz_composer_csound.html",
+    "author": "describing this simple example",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "16",
+    "url": "https://csoundjournal.com/issue16/letter.html",
+    "author": "Joachim Heintz",
+    "abstract": ""
+  },
+  {
+    "title": "Resonators Plug-in for Ableton",
+    "issue": "16",
+    "url": "https://csoundjournal.com/issue16/resonators.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Hrtfearly and Hrtfreverb",
+    "issue": "16",
+    "url": "https://csoundjournal.com/issue16/CartyReverbOpcodes.html",
+    "author": "real FFT use",
+    "abstract": ""
+  },
+  {
+    "title": "Routing audio and MIDI between Csound and a DAW",
+    "issue": "16",
+    "url": "https://csoundjournal.com/issue16/audiorouting.html",
+    "author": "naming your instruments instr",
+    "abstract": ""
+  },
+  {
+    "title": "Interfacing Cscore",
+    "issue": "16",
+    "url": "https://csoundjournal.com/issue16/InterfacingCscore.html",
+    "author": "several contemporary Csounders",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Integrating Csound with Usine\n\t  through the Csound API",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/Usine.html",
+    "author": "examples of what can be achieved by combining the two programs together",
+    "abstract": ""
+  },
+  {
+    "title": "Csound API &amp; GNU",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/csound_api_gnu.html",
+    "author": "the amount of dependent methods and library functions which must be included with the code for the executable to work as",
+    "abstract": ""
+  },
+  {
+    "title": "Phrase Loops: A Beginner's Guide",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/phrase_loops.html",
+    "author": "opcodes such as",
+    "abstract": ""
+  },
+  {
+    "title": "Microcsound",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/microcsound.html",
+    "author": "hand in the standard Csound score format",
+    "abstract": ""
+  },
+  {
+    "title": "Shaping Envelopes Interactively",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/shaping_envelopes.html",
+    "author": "simply adding the three\r      bumps",
+    "abstract": ""
+  },
+  {
+    "title": "Circumspectral Sound Diffusion with Csound",
+    "issue": "15",
+    "url": "https://csoundjournal.com/issue15/sound_diffusion.html",
+    "author": "creating what",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "14",
+    "url": "https://csoundjournal.com/issue14/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Csound on the Workbench",
+    "issue": "14",
+    "url": "https://csoundjournal.com/issue14/CsoundWorkbench.html",
+    "author": "summing sinc signals",
+    "abstract": ""
+  },
+  {
+    "title": "Pseudo-Stereo Techniques",
+    "issue": "14",
+    "url": "https://csoundjournal.com/issue14/PseudoStereo.html",
+    "author": "adding the signals electornically",
+    "abstract": ""
+  },
+  {
+    "title": "Real-time Coding Using the Python API: Score Events",
+    "issue": "14",
+    "url": "https://csoundjournal.com/issue14/realtimeCsoundPython.html",
+    "author": "the user",
+    "abstract": ""
+  },
+  {
+    "title": "Integrating Csound with Ableton Live",
+    "issue": "14",
+    "url": "https://csoundjournal.com/issue14/csoundlivecsound.html",
+    "author": "integrating the two tools",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/letter.html",
+    "author": "Joachim Heintz",
+    "abstract": ""
+  },
+  {
+    "title": "Basic Lua with Csound",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/BasicLuawithCsound.html",
+    "author": "Michael Gogins are acknowledged",
+    "abstract": ""
+  },
+  {
+    "title": "Using the Signal Flow Graph Opcodes",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/signalFlowGraphOpcodes.html",
+    "author": "Csound\rinstrument definitions",
+    "abstract": ""
+  },
+  {
+    "title": "Emulating MIDI-based Studio Setups with Csound",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/emulatingMidiBasedStudios.html",
+    "author": "the individual per",
+    "abstract": ""
+  },
+  {
+    "title": "Working With Strings As Arrays in Csound",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/StringsAsArrays.html",
+    "author": "Istvan Varga in",
+    "abstract": ""
+  },
+  {
+    "title": "SOLO_MV_10.1",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/solo_mv_10_1.html",
+    "author": "Karlheinz Stockhausen is",
+    "abstract": ""
+  },
+  {
+    "title": "Add_Synth",
+    "issue": "13",
+    "url": "https://csoundjournal.com/issue13/add.html",
+    "author": "mixing multiple sine waves of various frequencies",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "12",
+    "url": "https://csoundjournal.com/issue12/letter.html",
+    "author": "Jonathan Fildes",
+    "abstract": ""
+  },
+  {
+    "title": "Implementing Frequency Warping",
+    "issue": "12",
+    "url": "https://csoundjournal.com/issue12/implementingFrequencyWarping.html",
+    "author": "combining Csound and Max",
+    "abstract": ""
+  },
+  {
+    "title": "Cross Frequency Modulation",
+    "issue": "12",
+    "url": "https://csoundjournal.com/issue12/crossfm.html",
+    "author": "connecting the audio output of one VCO to the frequency control input of another\rVCO and connecting the audio output of the latter to the frequency control input\rof the first one",
+    "abstract": ""
+  },
+  {
+    "title": "Tuning Your MIDI Keyboard",
+    "issue": "12",
+    "url": "https://csoundjournal.com/issue12/tuningmidikeyboard.html",
+    "author": "using the",
+    "abstract": ""
+  },
+  {
+    "title": "A User Approach to Sample Replacement",
+    "issue": "12",
+    "url": "https://csoundjournal.com/issue12/samplereplacement.html",
+    "author": "placing an attack every",
+    "abstract": ""
+  },
+  {
+    "title": "GEN Instruments",
+    "issue": "12",
+    "url": "https://csoundjournal.com/issue12/genInstruments.html",
+    "author": "whole numbers",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "11",
+    "url": "https://csoundjournal.com/issue11/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Distortion Synthesis",
+    "issue": "11",
+    "url": "https://csoundjournal.com/issue11/distortionSynthesis.html",
+    "author": "the various distortion algorithms",
+    "abstract": ""
+  },
+  {
+    "title": "Integrating Csound with Eclipse",
+    "issue": "11",
+    "url": "https://csoundjournal.com/issue11/IntegratingCsoundWEclipse.html",
+    "author": "subjects in",
+    "abstract": ""
+  },
+  {
+    "title": "A Beginner's Guide to Volume Envelopes in Csound",
+    "issue": "11",
+    "url": "https://csoundjournal.com/issue11/csoundEnvelopes.html",
+    "author": "giving the release more than enough time to finish",
+    "abstract": ""
+  },
+  {
+    "title": "Processing and csnd.jar",
+    "issue": "11",
+    "url": "https://csoundjournal.com/issue11/Processing.html",
+    "author": "Gabriel Maldanado in CsoundAV",
+    "abstract": ""
+  },
+  {
+    "title": "Making Beats with Blue",
+    "issue": "11",
+    "url": "https://csoundjournal.com/issue11/MakingBeatsWithBlue.html",
+    "author": "simply copying one line of score code\rinto the template box",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "An Overview of Csound Variable Types",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/CsoundRates.html",
+    "author": "the phase\r\n\t\tvocoder streaming",
+    "abstract": ""
+  },
+  {
+    "title": "Composing With Csound In AVSynthesis",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/avs-cs-composition.html",
+    "author": "direct value or by range",
+    "abstract": ""
+  },
+  {
+    "title": "Basic Analog Synthesizer Designs",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/BasicAnlSynthDesigns.html",
+    "author": "Jacob Joaquin",
+    "abstract": ""
+  },
+  {
+    "title": "The Two Worlds of Csound",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/TheTwoWorldsCsound.html",
+    "author": "dozens of different cultures that speak distinctly separate dialects",
+    "abstract": ""
+  },
+  {
+    "title": "My Search for the Perfect MIDI Controller",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/MIDI_Controller.html",
+    "author": "as many performers as possible",
+    "abstract": ""
+  },
+  {
+    "title": "Hacking with csndsugui and Sugar",
+    "issue": "10",
+    "url": "https://csoundjournal.com/issue10/HackingSugarOLPC.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/letter.html",
+    "author": "Richard Bowers",
+    "abstract": ""
+  },
+  {
+    "title": "Python at the Control Rate: athenaCL Generators as Csound Signals",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/pcragcs.html",
+    "author": "integrating Python in Csound orchestras",
+    "abstract": ""
+  },
+  {
+    "title": "hrtfmove, hrtfstat, hrtfmove2: Using the New HRTF Opcodes",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/newHRTFOpcodes.html",
+    "author": "imposing the properties of",
+    "abstract": ""
+  },
+  {
+    "title": "A Simple NetBeans Java Frontend Application",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/JNBFrntEnd.html",
+    "author": "as well as the GlassFish application server built on Java EE technology",
+    "abstract": ""
+  },
+  {
+    "title": "An Interview with Jean-Luc Sinclair(aka Jean-Luc Cohen)",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/jeanLucSinclair.html",
+    "author": "classical and jazz theory",
+    "abstract": ""
+  },
+  {
+    "title": "Using Emacs and Csound-x as a Csound IDE: Part I",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/Kroger_paper.html",
+    "author": "putting the following code in your",
+    "abstract": ""
+  },
+  {
+    "title": "Flutes in Orbit",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/FlutesInOrbit.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "A minimal realtime algorithmic system: \"Barebones\"",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/barebones.html",
+    "author": "the system",
+    "abstract": ""
+  },
+  {
+    "title": "Marginalia: Designing a sound installation using Csound",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/marginalia_tech.html",
+    "author": "people within the space",
+    "abstract": ""
+  },
+  {
+    "title": "Working with the terminal in OSX: \nAn absolute beginner's guide",
+    "issue": "9",
+    "url": "https://csoundjournal.com/issue9/terminalOSX.html",
+    "author": "utilizing the",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "8",
+    "url": "https://csoundjournal.com/issue8/letter.html",
+    "author": "the same tool",
+    "abstract": ""
+  },
+  {
+    "title": "Realtime Csound in Windows: A Personal Journey",
+    "issue": "8",
+    "url": "https://csoundjournal.com/issue8/realtimeCsoundInWindows.html",
+    "author": "three recent compositions of mine",
+    "abstract": ""
+  },
+  {
+    "title": "Live Flute Synthesis with Linux and Csound5",
+    "issue": "8",
+    "url": "https://csoundjournal.com/issue8/liveFluteSynthesis.html",
+    "author": "extending the sustain",
+    "abstract": ""
+  },
+  {
+    "title": "Managing Csound Compositions with GNU Make",
+    "issue": "8",
+    "url": "https://csoundjournal.com/issue8/csoundGNUMake.html",
+    "author": "hand is tedious and error",
+    "abstract": ""
+  },
+  {
+    "title": "Aspects of Sahnsi and Polos in Balinese Gamelan Instruments",
+    "issue": "8",
+    "url": "https://csoundjournal.com/issue8/SahnsiPolos.html",
+    "author": "Akito Van Troyer employing\r\nadditive synthesis techniques was created",
+    "abstract": ""
+  },
+  {
+    "title": "dseq: A Drum Machine Micro-Language",
+    "issue": "8",
+    "url": "https://csoundjournal.com/issue8/dseq.html",
+    "author": "the dseq interpreter",
+    "abstract": "dseq is a text-based drum machine language"
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "7",
+    "url": "https://csoundjournal.com/issue7/letter.html",
+    "author": "",
+    "abstract": ""
+  },
+  {
+    "title": "Csound at the Toronto Electroacoustic Symposium 2007",
+    "issue": "7",
+    "url": "https://csoundjournal.com/issue7/symposium.html",
+    "author": "those in the Emerging Artist Residency who also worked with composers Barry Traux and Trevor Wishart",
+    "abstract": ""
+  },
+  {
+    "title": "On the Design of Spectral Tools in Blue",
+    "issue": "7",
+    "url": "https://csoundjournal.com/issue7/onTheDesignOfSpectralToolsInBlue.html",
+    "author": "spectral arrangements and behaviours",
+    "abstract": ""
+  },
+  {
+    "title": "Command Line FX Processing",
+    "issue": "7",
+    "url": "https://csoundjournal.com/issue7/commandLineFXProcessing.html",
+    "author": "the user on the command prompt",
+    "abstract": ""
+  },
+  {
+    "title": "The Wiimote and Csound",
+    "issue": "7",
+    "url": "https://csoundjournal.com/issue7/wiimoteCsound.html",
+    "author": "the last line",
+    "abstract": ""
+  },
+  {
+    "title": "Managing Projects with Mercurial",
+    "issue": "7",
+    "url": "https://csoundjournal.com/issue7/managingProjectsWithMercurial.html",
+    "author": "having all files\r\nwithin",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "6",
+    "url": "https://csoundjournal.com/issue6/letter.html",
+    "author": "sharing what they",
+    "abstract": ""
+  },
+  {
+    "title": "Aspects of Bandlimiting",
+    "issue": "6",
+    "url": "https://csoundjournal.com/issue6/BandLimiting.html",
+    "author": "midi note numbers",
+    "abstract": ""
+  },
+  {
+    "title": "Developing LADSPA Plugins with Csound",
+    "issue": "6",
+    "url": "https://csoundjournal.com/issue6/csLADSPA.html",
+    "author": "the connection of ports to data locations and\r\n\t\tthe assignment of control values to an array of floats",
+    "abstract": ""
+  },
+  {
+    "title": "Using Python Inside Csound",
+    "issue": "6",
+    "url": "https://csoundjournal.com/issue6/pythonOpcodes.html",
+    "author": "the function",
+    "abstract": ""
+  },
+  {
+    "title": "Perl and Csound - Part 2",
+    "issue": "6",
+    "url": "https://csoundjournal.com/issue6/perlCsound2.html",
+    "author": "the data it holds",
+    "abstract": ""
+  },
+  {
+    "title": "Letters from the Editors",
+    "issue": "5",
+    "url": "https://csoundjournal.com/issue5/letter.html",
+    "author": "employing the \rservices of reviewers as peers",
+    "abstract": ""
+  },
+  {
+    "title": "A Pure Data Break Point Function patch",
+    "issue": "5",
+    "url": "https://csoundjournal.com/issue5/PdBPFpatch.html",
+    "author": "Matt Ingalls",
+    "abstract": ""
+  },
+  {
+    "title": "Thoughts and Experiences with The Flyndre: An Interview with &Oslash;yvind Brandstegg",
+    "issue": "5",
+    "url": "https://csoundjournal.com/issue5/interviewOeyvindBrandtsegg.html",
+    "author": "telling us",
+    "abstract": ""
+  },
+  {
+    "title": "HPKComposer",
+    "issue": "5",
+    "url": "https://csoundjournal.com/issue5/HPKcomposer.html",
+    "author": "the UPIC tool",
+    "abstract": ""
+  },
+  {
+    "title": "Perl and Csound - Part I",
+    "issue": "5",
+    "url": "https://csoundjournal.com/issue5/perlCsound.html",
+    "author": "sharing some of my findings here",
+    "abstract": ""
+  }
+]

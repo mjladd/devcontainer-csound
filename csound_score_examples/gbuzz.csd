@@ -1,0 +1,66 @@
+<CsoundSynthesizer>
+<CsOptions>
+-odac -d
+</CsOptions>
+<CsInstruments>
+; Converted from gbuzz.orc and gbuzz.sco
+; Original files preserved in same directory
+
+sr        =         44100
+kr        =         4410
+ksmps     =         10
+nchnls    =         2
+
+
+
+          instr 2                               ; p6 = amp
+ifreq     =        cpspch(p5)                   ; p7 = reverb send factor
+                                             ; p8 = lfo freq
+k1        randi    1, 30                        ; p9 = number of harmonic
+k2        linseg   0, p3 * .5, 1, p3 * .5, 0    ; p10 = sweep rate
+k3        linseg   .005, p3 * .71, .015, p3 * .29, .01
+k4        oscil    k2, p8, 1,.2
+k5        =        k4 + 2
+
+ksweep    linseg   p9, p3 * p10, 1, p3 * (p3 - (p3 * p10)), 1
+
+kenv      expseg   .001, p3 * .01, p6, p3 * .99, .001
+asig      gbuzz    kenv, ifreq + k3, k5, ksweep, k1, 15
+
+          outs     asig, asig
+
+          endin
+
+</CsInstruments>
+<CsScore>
+f1   0  8192  10   1
+f2   0  512   10   10  8   0   6   0   4   0   1
+f3   0  512   10   10  0   5   5   0   4   3   0   1
+f4   0  2048  10   10  0   9   0   0   8   0   7   0  4  0  2  0  1
+f5   0  2048  10   5   3   2   1   0
+f6   0  2048  10   8   10  7   4   3   1
+f7   0  2048  10   7   9   11  4   2   0   1   1
+f8   0  2048  10   0   0   0   0   7   0   0   0   0  2  0  0  0  1  1
+f9   0  2048  10   10  9   8   7   6   5   4   3   2  1
+f10  0  2048  10   10  0   9   0   8   0   7   0   6  0  5
+f11  0  2048  10   10  10  9   0   0   0   3   2   0  0  1
+f12  0  2048  10   10  0   0   0   5   0   0   0   0  0  3
+f13  0  2048  10   10  0   0   0   0   3   1
+f14  0  512   9    1   3   0   3   1   0   9  .333   180
+f15  0  8192  9    1   1   90
+f16  0  2048  9    1   3   0   3   1   0   6   1   0
+f17  0  9     5   .1   8   1
+f18  0  17    5   .1   10  1   6  .4
+f19  0  16    2    1   7   10  7   6   5   4   2   1   1  1  1  1  1  1  1
+f20  0  16   -2    0   30  40  45  50  40  30  20  10  5  4  3  2  1  0  0  0
+f21  0  16   -2    0   20  15  10  9   8   7   6   5   4  3  2  1  0  0
+f22  0  9    -2   .001 .004 .007 .003 .002 .005 .009 .006
+
+
+; i2:  p6=amp,p7=rvbsnd,p8=lfofrq,p9=num of harmonics,p10=sweeprate            ;
+
+i2   0  9       0      7.077    930    0.8    26     21     0.23
+i2   +   8       0      8.077    830    0.7    24     19     0.13
+
+</CsScore>
+</CsoundSynthesizer>

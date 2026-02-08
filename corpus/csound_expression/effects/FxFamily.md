@@ -1,0 +1,532 @@
+---
+source: csound-expression (Haskell)
+title: "FxFamily"
+file: tutorial/chapters/FxFamily.md
+category: Effects
+concepts: [envelope, filter, delay, distortion, frequency, modulation]
+type: tutorial
+---
+
+# FxFamily
+
+**Category:** Effects
+**Concepts:** envelope, filter, delay, distortion, frequency, modulation
+**Original File:** `tutorial/chapters/FxFamily.md`
+
+## Description
+
+
+
+---
+
+Family of effects
+====================================
+
+There is a family of effects that are common to electronic music.
+The module `Csound.Air.Fx.FxBox' defines many typical effects.
+This code can turn your code into a pedalboard! We can use effects as spice for the tibre.
+It defines useful functions for typical guitar effects and defines
+shortcuts to quickly add the effects to your instrument, also it has
+support for UI. We can not only add effects but also  tweak them in real time
+just like we do it with guitar stompboxes.
+
+All effects are kindly provided by Iain McCurdy and recoded from the original csound files.
+
+To make things more fun I've given names to all instruments. So let's get aquinted to
+the family of effects:
+
+* `adele` - analog delay
+
+* `pongy` - ping-pong delay
+
+* `magnus` - magnetic tape echo
+
+* `tort`  - distortion
+
+* `fowler` - envelope follower
+
+* `revsy` - reverses audio stream
+
+* `flan` - flanger
+
+* `phasy` - phaser
+
+* `crusher` - bit crusher
+
+* `chory` - chorus
+
+* `pany` - auto-pan
+
+* `tremy` - tremolo
+
+* `ringo` -- ring modulation
+
+
+Reverbs:
+
+~~~
+    room, chamber, hall, cave
+~~~
+
+Almost all effects have normalized parameters (belong to the interval 0 to 1).
+
+## Effects
+
+### Adele - analog delay
+
+It's single delay line with low-pass filter in the feedback:
+
+~~~haskell
+adele :: Sigs a => Balance -> DelayTime -> Feedback -> ToneSig -> a -> a
+~~~
+
+arguments are:
+
+* `balance` -- dry/wet ratio (0, 1)
+
+* `delay-time`  measured in seconds
+
+* `feedback` level (0, 1)
+
+* `tone` -- low-pass filter center frequency (0, 1)
+
+If tone is low the echoes are muddy (or muted) and if it's high the echoes are as bright as original signal.
+
+### Pongy - ping-pong delay
+
+It's a special version of ping-pong delay. The dry/wet ratio and feedback are controlled with the same parameter.
+
+~~~haskell
+pongy :: Sigs a => Feedback -> DelayTime -> a -> SE a
+pongy feedback delayTime
+~~~
+
+The signature is generic but it's intended to be used with stereo signals or tuples of stereo signals.
+It can be used like this:
+
+~~~haskell
+dac $ pongy $ loopWav 1 "vox.wav"
+~~~
+
+### Magnus - magnetic tape echo/delay
+
+It's a simulation of magnetic tape delay (as found in Roland Space Echo).
+Original code is developed by Jon Downing, then it was ported to CE.
+
+~~~haskell
+magnus :: Sigs a => D -> DelayTime -> Feedback -> EchoGain -> ToneSig -> RandomSpreadSig -> a -> a
+magnus size feedback echoGain tone randomSpread ain
+~~~
+
+Arguments:
+
+* `size` - how many heads in the tape
+* `feedback` - controls the number of repeats
+* `echo gain` - prominence of echo effect
+* `tone` - normalized center frequency of the filter (0  to 1)
+* `randomSpread` - quality of the tape (the higher - the worser)
+
+### Reverbs
+
+There are usefull functions to easily add a reverb:
+
+~~~haskell
+room, chamber, hall, cave :: Sigs a => Balance -> a -> a
+~~~
+
+The first argument is dry/wet ratio.
+
+
+### Tort - distortion
+
+Distortion can make your instrument scream.
+
+~~~haskell
+tort :: Sigs a => DriveSig -> ToneSig -> a -> a
+~~~
+
+The arguments are:
+
+* `drive` -- amount of distortion (0, 1).
+
+* `tone` -- the level of center frequency of the low-pass filter (0, 1).
+
+### Fowler - envelope follower
+
+Envelope follower applies a low-pass filter to the audio and the center frequency is controlled by the amplitude of the signal (RMS-level).
+
+~~~haskell
+fowler :: Sigs a => SensitivitySig -> BaseCps -> Resonance -> a -> a
+~~~
+
+Arguments:
+
+* sensitivity -- sensitivity of the envelope follower (suggested range: 0 to 1)
+
+* baseFrequencyRatio -- base frequency of the filter before modulation by the input dynamics (range: 0 to 1)
+
+* resonance -- resonance of the lowpass filter (suggested range: 0 to 1)
+
+### Revsy - reversing the audio
+
+An effect that reverses an audio stream in chunks
+
+~~~haskell
+revsy :: Sigs a => TimeSig -> a -> a
+~~~
+
+`time` -- the size of the chunck in seconds.
+
+### Flan - flanger
+
+A flanger effect following the typical design of a so called 'stomp box'
+
+~~~haskell
+flan :: Sigs a => RateSig -> DepthSig -> DelayTime -> Feedback -> a -> a
+~~~
+
+Arguments
+
+* `rate` -- rate control of the lfo of the effect *NOT IN HERTZ* (range 0 to 1)
+
+* `depth` -- depth of the lfo of the effect (range 0 to 1)
+
+* `delayTime` -- static delay offset of the flanging effect (range 0 to 1)
+
+* `feedback` -- feedback and therefore intensity of the effect (range 0 to 1)
+
+### `phasy` - phaser
+
+An phase shifting effect that mimics the design of a so called 'stomp box'
+
+~~~haskell
+phasy :: Sigs a => RateSig -> DepthSig -> BaseCps -> Feedback -> a -> a
+phasy rate depth freq fback ain
+~~~
+
+Arguments:
+
+* `rate` -- rate of lfo of the effect (range 0 to 1)
+
+* `depth` -- depth of lfo of the effect (range 0 to 1)
+
+* `freq` -- centre frequency of the phase shifting effect in octaves (suggested range 0 to 1)
+
+* `fback` -- feedback and therefore intensity of the effect (range 0 to 1)
+
+
+### Crusher - bit crusher
+
+~~~haskell
+crusher :: Sigs a => BitsReductionSig -> FoldoverSig -> a -> a
+crusher  bits fold ain = ...
+~~~
+
+'Low Fidelity' distorting effects of bit reduction and downsampling (foldover)
+
+Arguments
+
+* `bits` -- bit depth reduction (range 0 to 1)
+
+* `fold` -- amount of foldover (range 0 to 1)
+
+### Chory - stereo chorus
+
+~~~haskell
+chory :: RateSig -> DepthSig -> WidthSig -> Sig2 -> Sig2
+chory rate depth width (ainLeft, ainRight)
+~~~
+
+Arguments
+
+* `rate`  -- rate control of the lfo of the effect *NOT IN HERTZ* (range 0 to 1)
+
+* `depth` -- depth of the lfo of the effect (range 0 to 1)
+
+* `width` -- width of stereo widening (range 0 to 1)
+
+* `ainX`  -- input stereo signal
+
+### Pany - autopan
+
+~~~haskell
+pany :: TremWaveSig -> DepthSig -> RateSig -> Sig2 -> Sig2
+pany wave rate depth ain
+~~~
+
+Arguments:
+
+* `wave` -- waveform used by the lfo (0=sine 1=triangle 2=square)
+
+* `rate` -- rate control of the lfo of the effect *NOT IN HERTZ* (range 0 to 1)
+
+* `depth` -- depth of the lfo of the effect (range 0 to 1)
+
+Also there are special functions with LFO-wave set to specific wave: `oscPany`, `triPany`, `sqrPany`.
+
+### Tremy - tremolo
+
+~~~haskell
+tremy :: Sigs a => TremWaveSig -> DepthSig -> RateSig -> a -> a
+tremy wave rate depth ain
+~~~
+
+; Arguments:
+
+* `wave` -- waveform used by the lfo (0=sine 1=triangle 2=square)
+
+* `rate` -- rate control of the lfo of the effect *NOT IN HERTZ* (range 0 to 1)
+
+* `depth` -- depth of the lfo of the effect (range 0 to 1)
+
+
+Also there are special functions with LFO-wave set to specific wave: `oscTremy`, `triTremy`, `sqrTremy`.
+
+### Ringo - An ring modulating effect with an envelope follower
+
+~~~hskell
+ringo :: Sigs a => Balance -> RateSig -> EnvelopeModSig -> a -> a
+ringo balance rate envelopeMod
+~~~
+
+* balance   --  dry / wet mix of the output signal (range 0 to 1)
+
+* rate  --  frequency of thew ring modulator *NOT IN HERTZ* (range 0 to 1)
+
+* envelopeMod   --  amount of dynamic envelope following modulation of frequency (range 0 to 1)
+
+## Presets
+
+Sometimes we want to quickly add some effect. We don't care that much about particular numbers for parameters.
+We just want to add a bit of distortion, lot's of delay and spoonful of flanger. To achieve that easily we have
+a predefined presets for every member of fx-family.
+
+The preset name is a name of the member followed by a number 1 to 5 (means small to large coloring). For some members (`adele` and `tort`)
+it has auxiliary suffix `m` (muted) or `b` (bright) like `adele2m` or `tort3b`. This suffix relates to the effects
+that have built-in low-pass filter or tone parameter.
+
+## UI stompboxes
+
+If we use prefix `ui` we can create an image of our effect that looks like guitar stompbox.
+Let's take a distortion fr instance:
+
+~~~haskell
+type Fx a = a -> SE a
+
+uiTort2 :: Sigs a => Source (Fx a)
+~~~
+
+We can combine the effects with functions:
+
+~~~haskell
+fxHor, fxVer :: [Source (Fx a)] -> Source (Fx a)
+
+fxGrid :: Int -> [Source (Fx a)] -> Source (Fx a)
+fxGrid numberOfColumns fxs = ...
+~~~
+
+All these functions stack the effects in the list
+and align visuals. The visuals can be stacked horizontally, vertically
+or placed on a square grid.
+
+Let's create a chain of effects and apply it to the input signal:
+
+~~~haskell
+> let pedals ain = lift1 (\f -> f ain) $ fxHor [uiFlan1, uiAdele2 0.25 0.5, uiHall 0.2, uiGain 0.4]
+
+> let player = atMidi $ dryPatch vibraphone1
+
+> vdac $ pedals =<< player
+~~~
+
+With `uiGain` we can change the volume of the output.
+
+Noticw how we used a standard monadic bind operator (`=<<`) to apply the effects to the signal.
+How does it work? Let's check out the types:
+
+~~~haskell
+> :t pedals
+pedals :: Sig2 -> Source (SE Sig2)
+> :t player
+player :: SE Sig2
+~~~
+
+And bind expects the types to be:
+
+~~~
+(=<<) :: Monad m => (a -> m b) -> m a -> m b
+~~~
+
+The `SE` is a monad but the `Source` doesn't seem to match for `SE b` part of signature.
+It's ok! The `Source` is an alias for
+
+~~~haskell
+type Source a = SE (Gui, Input a)
+~~~
+
+So the uderlying type of `pedals` is:
+
+~~~haskell
+pedals :: Sig2 -> SE (Gui, Input (SE Sig2))
+~~~
+
+and it's just the right food for bind operator.
+
+Also we can apply the UI-widget with FX processing function with the help of the function `fxApply`:
+
+~~~haskell
+fxApply :: Source (a -> SE b) -> a -> Source b
+~~~
+
+If the argument is wrapped in `SE` we can use the bind operator `=<<`:
+
+~~~haskell
+fxApply fx =<< atMidi hammondOrgan
+~~~
+
+***Reminder**: With functions like `fxHor` and `fxGrid` we can easily stack many stompboxes.
+We can stack so many of them that they no longer fit to the screen. To adjust the total size
+of the window we can use the function `resizeSource`:
+
+~~~haskell
+resizeSource :: (Double, Double) -> Source a -> Source a
+
+> dac $ resizeSource (0.75, 1) $ fxApply (fxHor [ ... many stompboxes ... ]) ourInput
+~~~
+
+Also we can set the default scaling factor parameters wit the options (see the paramter `csdScaleUI`):
+
+~~~haskell
+> dacBy (def { csdScaleUI = (2, 2) }) $ ...
+~~~
+
+### Composing mono and stereo effects
+
+It's often happens when chain starts with monophonic processing units (`Sig -> SE Sig`)
+and then proceeds with stereophonic processing units (`Sig2 -> SE Sig2`). The reverb is often
+used as mono to stereo  transition.  To make it easy to create chains of effects from mixed up
+units there are analogs of functions `fxHor` and `fxVer`. They have suffix `MS` for Mono-To-Stereo:
+
+~~~haskell
+fxHorMS, fxVerMS ::
+    [Source Fx1] ->
+    Maybe (Source (Sig -> SE Sig2)) ->
+    [Source Fx2] ->
+    Source (Sig -> SE Sig2)
+~~~
+
+Type seems to be complicated but let's break it apart. The chain starts with the list of monophonic effects:
+
+~~~haskell
+[Source Fx1] ->
+~~~
+
+Recall that `Fx1` is an alias for `Sig -> SE Sig`. Then we encounter a possible bridge from mono to stereo signals:
+
+~~~haskell
+Maybe (Source (Sig -> SE Sig2)) ->
+~~~
+
+It's wrapped in maybe type. We have to options. We can explicitly define the effect that takes us from mono to stereo (reverb is often used at this place).
+Also we can just omit it with `Nothing` case and then the identity mono to stereo converter will be inserted.
+
+Next we proceed with the chain of stereo effects:
+
+~~~haskell
+[Source Fx2] ->
+~~~
+
+At the output we get UI-widget with the mono to stereo effect:
+
+~~~haskell
+Source (Sig -> SE Sig2)
+~~~
+
+An example:
+
+~~~haskell
+> let fx = fxHorMS [uiTort1, uiFlan2] def [uiChamber2]
+> :t fx
+fx :: Source (Sig -> SE Sig2)
+~~~
+
+We create the ui widget with a bit of distortion, slightly more flanger and not too big reverb.
+We use `def` as an alias for maybe's constructor `Nothing`. We can apply the effect to the imput signal
+received from say guitar pluged into audio card.
+
+~~~haskell
+> dac $ onCard2 $ \(aLeft, aRight) -> fxApply fx aLeft
+~~~
+
+The `onCard2` is a helper function to derive the types. It passes the argument through unchanged but it has more strict type signature.
+The `dac` is to much overloaded for this case. We can do without it but then we need to specify the types explicitly.
+
+## Example: Virtual pedalboard
+
+We can create a virtual pedalboard quite easily. Here is a complete example:
+
+~~~haskell
+import Csound.Base
+
+main = run proc
+
+run = dacBy (setAdc <> setJack "fx" <> setRates 44100 32 <> setBufs 64 32)
+
+proc :: Sig2 -> Source Sig2
+proc (a1, a2) = fxApply fx a1
+    where
+        fx = fxGridMS 4 [uiTort1m, uiFlan1, uiPhasy2, uiAdele2 0.4 0.35] def [uiChory2, uiHall2, uiGain 0.6]
+~~~
+
+Let's take it apart. It uses JACK tool but you can also read from your sound card directly.
+
+With function `run` we set the global command line flags for JACK:
+
+~~~haskell
+run = dacBy (setAdc <> setJack "fx" <> setRates 44100 32 <> setBufs 64 32)
+~~~
+
+We set the jack client name to be `"fx"`. We set the rates and audio IO buffers like in the JACK settings.
+In your system there might be different settings. So adjust the example!
+
+The next thing is the procedure `proc` that takes in a stereo signal and produces UI-widget.
+
+~~~haskell
+proc :: Sig2 -> Source Sig2
+~~~
+
+In this function we create a chain of effects:
+
+~~~haskell
+fx = fxGridMS 4 [uiTort1m, uiFlan1, uiPhasy2, uiAdele2 0.4 0.35] def [uiChory2, uiHall2, uiGain 0.6]
+~~~
+
+Notice the usage `fxGridMS` function. It creates the chain of effects that start from mono effects
+and proceeds with stereo effects.
+
+We apply the chain of effects to the first input from the audio-card. This example is for
+2x2 audio-card but if your card is different you should adjust the input/output signatures.
+
+~~~haskell
+proc (a1, a2) = fxApply fx a1
+~~~
+
+Finally we render the function `proc` with our function `run`:
+
+~~~haskell
+main = run proc
+~~~
+
+If the `run` (`dacBy` in disguise) takes in a function the argument signals of the function
+are interpreted as input audio channels.
+
+So this is how we can create a pedalboard with Haskell!
+
+
+-------------------------------------------
+
+* <= [Real-world instruments show case](https://github.com/anton-k/csound-expression/blob/master/tutorial/chapters/Patches.md)
+
+* => [Sound fonts](https://github.com/anton-k/csound-expression/blob/master/tutorial/chapters/SoundFontsTutorial.md)
+
+* [Home](https://github.com/anton-k/csound-expression/blob/master/tutorial/Index.md)

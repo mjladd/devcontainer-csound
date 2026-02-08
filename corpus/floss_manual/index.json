@@ -1,0 +1,518 @@
+[
+  {
+    "file": "00-a-preface.md",
+    "title": "WELCOME TO CSOUND!",
+    "chapter_id": "00-a-preface",
+    "code_examples": 1
+  },
+  {
+    "file": "00-b-on-this-release.md",
+    "title": "ON THIS RELEASE",
+    "chapter_id": "00-b-on-this-release",
+    "code_examples": 0
+  },
+  {
+    "file": "01-GS-01.md",
+    "title": "01 Hello Csound",
+    "chapter_id": "01-GS-01",
+    "code_examples": 1
+  },
+  {
+    "file": "01-GS-02.md",
+    "title": "02 Hello Frequency",
+    "chapter_id": "01-GS-02",
+    "code_examples": 3
+  },
+  {
+    "file": "01-GS-03.md",
+    "title": "03 Hello Amplitude",
+    "chapter_id": "01-GS-03",
+    "code_examples": 1
+  },
+  {
+    "file": "01-GS-04.md",
+    "title": "04 Hello Fade-out",
+    "chapter_id": "01-GS-04",
+    "code_examples": 1
+  },
+  {
+    "file": "01-GS-05.md",
+    "title": "05 Hello MIDI Keys",
+    "chapter_id": "01-GS-05",
+    "code_examples": 4
+  },
+  {
+    "file": "01-GS-06.md",
+    "title": "06 Hello Decibel",
+    "chapter_id": "01-GS-06",
+    "code_examples": 3
+  },
+  {
+    "file": "01-GS-07.md",
+    "title": "07 Hello p-Fields",
+    "chapter_id": "01-GS-07",
+    "code_examples": 5
+  },
+  {
+    "file": "01-GS-08.md",
+    "title": "08 Hello Schedule",
+    "chapter_id": "01-GS-08",
+    "code_examples": 5
+  },
+  {
+    "file": "01-GS-09.md",
+    "title": "09 Hello If",
+    "chapter_id": "01-GS-09",
+    "code_examples": 9
+  },
+  {
+    "file": "01-GS-10.md",
+    "title": "10 Hello Random",
+    "chapter_id": "01-GS-10",
+    "code_examples": 3
+  },
+  {
+    "file": "02-a-installation.md",
+    "title": "HOW TO: INSTALLATION",
+    "chapter_id": "02-a-installation",
+    "code_examples": 0
+  },
+  {
+    "file": "02-b-help.md",
+    "title": "HOW TO: GET HELP",
+    "chapter_id": "02-b-help",
+    "code_examples": 0
+  },
+  {
+    "file": "02-c-hardware.md",
+    "title": "HOW TO: HARDWARE",
+    "chapter_id": "02-c-hardware",
+    "code_examples": 3
+  },
+  {
+    "file": "02-d-opcodes.md",
+    "title": "HOW TO: OPCODES",
+    "chapter_id": "02-d-opcodes",
+    "code_examples": 1
+  },
+  {
+    "file": "02-e-print.md",
+    "title": "HOW TO: PRINT",
+    "chapter_id": "02-e-print",
+    "code_examples": 1
+  },
+  {
+    "file": "03-a-initialization-and-performance-pass.md",
+    "title": "03 A. INITIALIZATION AND PERFORMANCE PASS",
+    "chapter_id": "03-a-initialization-and-performance-pass",
+    "code_examples": 23
+  },
+  {
+    "file": "03-b-local-and-global-variables.md",
+    "title": "03 B. LOCAL AND GLOBAL VARIABLES",
+    "chapter_id": "03-b-local-and-global-variables",
+    "code_examples": 11
+  },
+  {
+    "file": "03-c-control-structures.md",
+    "title": "03 C. CONTROL STRUCTURES",
+    "chapter_id": "03-c-control-structures",
+    "code_examples": 26
+  },
+  {
+    "file": "03-d-function-tables.md",
+    "title": "03 D. FUNCTION TABLES",
+    "chapter_id": "03-d-function-tables",
+    "code_examples": 13
+  },
+  {
+    "file": "03-e-arrays.md",
+    "title": "03 E. ARRAYS",
+    "chapter_id": "03-e-arrays",
+    "code_examples": 9
+  },
+  {
+    "file": "03-f-live-events.md",
+    "title": "03 F. LIVE EVENTS",
+    "chapter_id": "03-f-live-events",
+    "code_examples": 14
+  },
+  {
+    "file": "03-g-user-defined-opcodes.md",
+    "title": "03 G. USER DEFINED OPCODES",
+    "chapter_id": "03-g-user-defined-opcodes",
+    "code_examples": 13
+  },
+  {
+    "file": "03-h-macros.md",
+    "title": "03 H. MACROS",
+    "chapter_id": "03-h-macros",
+    "code_examples": 3
+  },
+  {
+    "file": "03-i-functional-syntax.md",
+    "title": "03 I. FUNCTIONAL SYNTAX",
+    "chapter_id": "03-i-functional-syntax",
+    "code_examples": 7
+  },
+  {
+    "file": "04-a-additive-synthesis.md",
+    "title": "04 A. ADDITIVE SYNTHESIS",
+    "chapter_id": "04-a-additive-synthesis",
+    "code_examples": 13
+  },
+  {
+    "file": "04-b-subtractive-synthesis.md",
+    "title": "04 B. SUBTRACTIVE SYNTHESIS",
+    "chapter_id": "04-b-subtractive-synthesis",
+    "code_examples": 3
+  },
+  {
+    "file": "04-c-amplitude-and-ring-modulation.md",
+    "title": "04 C. AMPLITUDE AND RING MODULATION",
+    "chapter_id": "04-c-amplitude-and-ring-modulation",
+    "code_examples": 3
+  },
+  {
+    "file": "04-d-frequency-modulation.md",
+    "title": "04 D. FREQUENCY MODULATION",
+    "chapter_id": "04-d-frequency-modulation",
+    "code_examples": 12
+  },
+  {
+    "file": "04-e-waveshaping.md",
+    "title": "04 E. WAVESHAPING",
+    "chapter_id": "04-e-waveshaping",
+    "code_examples": 4
+  },
+  {
+    "file": "04-f-granular-synthesis.md",
+    "title": "04 F. GRANULAR SYNTHESIS",
+    "chapter_id": "04-f-granular-synthesis",
+    "code_examples": 6
+  },
+  {
+    "file": "04-g-physical-modelling.md",
+    "title": "04 G. PHYSICAL MODELLING",
+    "chapter_id": "04-g-physical-modelling",
+    "code_examples": 12
+  },
+  {
+    "file": "04-h-scanned-synthesis.md",
+    "title": "04 H. SCANNED SYNTHESIS",
+    "chapter_id": "04-h-scanned-synthesis",
+    "code_examples": 9
+  },
+  {
+    "file": "05-a-envelopes.md",
+    "title": "05 A. ENVELOPES",
+    "chapter_id": "05-a-envelopes",
+    "code_examples": 10
+  },
+  {
+    "file": "05-b-panning-and-spatialization.md",
+    "title": "05 B. PANNING AND SPATIALIZATION",
+    "chapter_id": "05-b-panning-and-spatialization",
+    "code_examples": 19
+  },
+  {
+    "file": "05-c-filters.md",
+    "title": "05 C. FILTERS",
+    "chapter_id": "05-c-filters",
+    "code_examples": 5
+  },
+  {
+    "file": "05-d-delay-and-feedback.md",
+    "title": "05 D. DELAY AND FEEDBACK",
+    "chapter_id": "05-d-delay-and-feedback",
+    "code_examples": 8
+  },
+  {
+    "file": "05-e-reverberation.md",
+    "title": "05 E. REVERBERATION",
+    "chapter_id": "05-e-reverberation",
+    "code_examples": 4
+  },
+  {
+    "file": "05-f-am-rm-waveshaping.md",
+    "title": "05 F. AM / RM / WAVESHAPING",
+    "chapter_id": "05-f-am-rm-waveshaping",
+    "code_examples": 4
+  },
+  {
+    "file": "05-g-granular-synthesis.md",
+    "title": "05 G. GRANULAR SYNTHESIS",
+    "chapter_id": "05-g-granular-synthesis",
+    "code_examples": 12
+  },
+  {
+    "file": "05-h-convolution.md",
+    "title": "05 H. CONVOLUTION",
+    "chapter_id": "05-h-convolution",
+    "code_examples": 3
+  },
+  {
+    "file": "05-i-fourier-analysis-spectral-processing.md",
+    "title": "05 I. FOURIER ANALYSIS / SPECTRAL PROCESSING",
+    "chapter_id": "05-i-fourier-analysis-spectral-processing",
+    "code_examples": 12
+  },
+  {
+    "file": "05-k-ats-resynthesis.md",
+    "title": "05 K. ATS RESYNTHESIS",
+    "chapter_id": "05-k-ats-resynthesis",
+    "code_examples": 10
+  },
+  {
+    "file": "06-a-record-and-play-soundfiles.md",
+    "title": "06 A. RECORD AND PLAY SOUNDFILES",
+    "chapter_id": "06-a-record-and-play-soundfiles",
+    "code_examples": 3
+  },
+  {
+    "file": "06-b-record-and-play-buffers.md",
+    "title": "06 B. RECORD AND PLAY BUFFERS",
+    "chapter_id": "06-b-record-and-play-buffers",
+    "code_examples": 4
+  },
+  {
+    "file": "07-a-receiving-events-by-midiin.md",
+    "title": "07 A. RECEIVING EVENTS BY MIDIIN",
+    "chapter_id": "07-a-receiving-events-by-midiin",
+    "code_examples": 1
+  },
+  {
+    "file": "07-b-triggering-instrument-instances.md",
+    "title": "07 B. TRIGGERING INSTRUMENT INSTANCES",
+    "chapter_id": "07-b-triggering-instrument-instances",
+    "code_examples": 4
+  },
+  {
+    "file": "07-c-working-with-controllers.md",
+    "title": "07 C. WORKING WITH CONTROLLERS",
+    "chapter_id": "07-c-working-with-controllers",
+    "code_examples": 6
+  },
+  {
+    "file": "07-d-reading-midi-files.md",
+    "title": "07 D. READING MIDI FILES",
+    "chapter_id": "07-d-reading-midi-files",
+    "code_examples": 2
+  },
+  {
+    "file": "07-e-midi-output.md",
+    "title": "07 E. MIDI OUTPUT",
+    "chapter_id": "07-e-midi-output",
+    "code_examples": 6
+  },
+  {
+    "file": "08-a-open-sound-control.md",
+    "title": "08 A. OPEN SOUND CONTROL",
+    "chapter_id": "08-a-open-sound-control",
+    "code_examples": 6
+  },
+  {
+    "file": "08-b-csound-and-arduino.md",
+    "title": "08 B. CSOUND AND ARDUINO",
+    "chapter_id": "08-b-csound-and-arduino",
+    "code_examples": 4
+  },
+  {
+    "file": "08-c-csound-via-udp.md",
+    "title": "08 C. CSOUND VIA UDP",
+    "chapter_id": "08-c-csound-via-udp",
+    "code_examples": 1
+  },
+  {
+    "file": "09-a-csound-in-pd.md",
+    "title": "09 A. CSOUND IN PD",
+    "chapter_id": "09-a-csound-in-pd",
+    "code_examples": 6
+  },
+  {
+    "file": "09-b-csound-in-maxmsp.md",
+    "title": "09 B. CSOUND IN MAXMSP",
+    "chapter_id": "09-b-csound-in-maxmsp",
+    "code_examples": 5
+  },
+  {
+    "file": "09-c-csound-as-a-vst-plugin.md",
+    "title": "09 C. CSOUND AS A VST PLUGIN",
+    "chapter_id": "09-c-csound-as-a-vst-plugin",
+    "code_examples": 0
+  },
+  {
+    "file": "10-a-csoundqt.md",
+    "title": "10 A. CSOUNDQT",
+    "chapter_id": "10-a-csoundqt",
+    "code_examples": 0
+  },
+  {
+    "file": "10-b-cabbage.md",
+    "title": "10 B. CABBAGE",
+    "chapter_id": "10-b-cabbage",
+    "code_examples": 6
+  },
+  {
+    "file": "10-c-blue.md",
+    "title": "10 C. BLUE",
+    "chapter_id": "10-c-blue",
+    "code_examples": 0
+  },
+  {
+    "file": "10-d-winxound.md",
+    "title": "10 D. WINXOUND",
+    "chapter_id": "10-d-winxound",
+    "code_examples": 0
+  },
+  {
+    "file": "10-e-csound-via-terminal.md",
+    "title": "10 E. CSOUND VIA TERMINAL",
+    "chapter_id": "10-e-csound-via-terminal",
+    "code_examples": 0
+  },
+  {
+    "file": "10-f-web-based-csound.md",
+    "title": "10 F. WEB BASED CSOUND",
+    "chapter_id": "10-f-web-based-csound",
+    "code_examples": 0
+  },
+  {
+    "file": "11-a-analysis.md",
+    "title": "11 A. ANALYSIS",
+    "chapter_id": "11-a-analysis",
+    "code_examples": 0
+  },
+  {
+    "file": "11-b-file-info-and-conversion.md",
+    "title": "11 B. FILE INFO AND CONVERSION",
+    "chapter_id": "11-b-file-info-and-conversion",
+    "code_examples": 0
+  },
+  {
+    "file": "11-c-miscellaneous.md",
+    "title": "11 C. MISCELLANEOUS",
+    "chapter_id": "11-c-miscellaneous",
+    "code_examples": 0
+  },
+  {
+    "file": "12-a-the-csound-api.md",
+    "title": "12 A. THE CSOUND API",
+    "chapter_id": "12-a-the-csound-api",
+    "code_examples": 2
+  },
+  {
+    "file": "12-b-python-and-csound.md",
+    "title": "12 B. PYTHON AND CSOUND",
+    "chapter_id": "12-b-python-and-csound",
+    "code_examples": 10
+  },
+  {
+    "file": "12-c-lua-and-csound.md",
+    "title": "12 C. LUA AND CSOUND",
+    "chapter_id": "12-c-lua-and-csound",
+    "code_examples": 0
+  },
+  {
+    "file": "12-d-csound-in-ios.md",
+    "title": "12 D. CSOUND IN iOS",
+    "chapter_id": "12-d-csound-in-ios",
+    "code_examples": 10
+  },
+  {
+    "file": "12-e-csound-on-android.md",
+    "title": "12 E. CSOUND ON ANDROID",
+    "chapter_id": "12-e-csound-on-android",
+    "code_examples": 5
+  },
+  {
+    "file": "12-f-csound-and-haskell.md",
+    "title": "12 F. CSOUND AND HASKELL",
+    "chapter_id": "12-f-csound-and-haskell",
+    "code_examples": 0
+  },
+  {
+    "file": "12-g-csound-in-html-and-javascript.md",
+    "title": "12 G. CSOUND IN HTML AND JAVASCRIPT",
+    "chapter_id": "12-g-csound-in-html-and-javascript",
+    "code_examples": 5
+  },
+  {
+    "file": "13-a-developing-plugin-opcodes.md",
+    "title": "13 A. DEVELOPING PLUGIN OPCODES",
+    "chapter_id": "13-a-developing-plugin-opcodes",
+    "code_examples": 1
+  },
+  {
+    "file": "14-a-opcode-guide.md",
+    "title": "14 A. OPCODE GUIDE",
+    "chapter_id": "14-a-opcode-guide",
+    "code_examples": 0
+  },
+  {
+    "file": "14-b-methods-of-writing-csound-scores.md",
+    "title": "14 B. METHODS OF WRITING CSOUND SCORES",
+    "chapter_id": "14-b-methods-of-writing-csound-scores",
+    "code_examples": 2
+  },
+  {
+    "file": "14-c-amplitude-and-pitch-tracking.md",
+    "title": "14 C. AMPLITUDE AND PITCH TRACKING",
+    "chapter_id": "14-c-amplitude-and-pitch-tracking",
+    "code_examples": 4
+  },
+  {
+    "file": "14-d-python-in-csoundqt.md",
+    "title": "14 D. PYTHON IN CSOUNDQT",
+    "chapter_id": "14-d-python-in-csoundqt",
+    "code_examples": 3
+  },
+  {
+    "file": "14-e-glossary.md",
+    "title": "14 E. GLOSSARY",
+    "chapter_id": "14-e-glossary",
+    "code_examples": 0
+  },
+  {
+    "file": "14-f-links.md",
+    "title": "14 F. LINKS",
+    "chapter_id": "14-f-links",
+    "code_examples": 0
+  },
+  {
+    "file": "14-g-credits.md",
+    "title": "14 G. CREDITS",
+    "chapter_id": "14-g-credits",
+    "code_examples": 0
+  },
+  {
+    "file": "15-a-digital-audio.md",
+    "title": "15 A. DIGITAL AUDIO",
+    "chapter_id": "15-a-digital-audio",
+    "code_examples": 1
+  },
+  {
+    "file": "15-b-pitch-and-frequency.md",
+    "title": "15 B. PITCH AND FREQUENCY",
+    "chapter_id": "15-b-pitch-and-frequency",
+    "code_examples": 8
+  },
+  {
+    "file": "15-c-intensities.md",
+    "title": "15 C. INTENSITIES",
+    "chapter_id": "15-c-intensities",
+    "code_examples": 3
+  },
+  {
+    "file": "15-d-random.md",
+    "title": "15 D. RANDOM",
+    "chapter_id": "15-d-random",
+    "code_examples": 13
+  },
+  {
+    "file": "15-e-csound7.md",
+    "title": "15 E. NEW FEATURES IN CSOUND 7",
+    "chapter_id": "15-e-csound7",
+    "code_examples": 4
+  }
+]

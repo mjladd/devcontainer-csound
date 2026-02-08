@@ -1,0 +1,1298 @@
+# Files too large for fine-tuning
+# Consider adding these to RAG corpus or chunking into smaller pieces
+
+song1.csd
+  Lines: 1216, Tokens: ~11706
+  Opcodes: oscil, oscili, buzz, pluck, butterlp
+
+mltfxtxt.csd
+  Lines: 1136, Tokens: ~14767
+  Opcodes: oscil, pluck, butterlp, butterhp, butterbp
+
+tekbbl2.csd
+  Lines: 1051, Tokens: ~9785
+  Opcodes: oscil, oscili, buzz, foscil, grain
+
+terrain.csd
+  Lines: 1031, Tokens: ~10637
+  Opcodes: oscil, oscili, butterhp, balance, pan
+
+space2d.csd
+  Lines: 981, Tokens: ~10182
+  Opcodes: oscil, oscili, vco, foscil, pluck
+
+gardverb.csd
+  Lines: 930, Tokens: ~6898
+  Opcodes: oscil, buzz, butterlp, butterhp, butterbp
+
+bachy.csd
+  Lines: 907, Tokens: ~3248
+  Opcodes: oscil
+
+Guitar FX.csd
+  Lines: 906, Tokens: ~5735
+  Opcodes: oscil, sndwarp, pluck, mode, reson
+
+bachx.csd
+  Lines: 894, Tokens: ~3165
+  Opcodes: oscil
+
+physmtx4.csd
+  Lines: 883, Tokens: ~11038
+  Opcodes: oscil, butterlp, butterhp, reson, delay
+
+template.csd
+  Lines: 868, Tokens: ~15667
+  Opcodes: oscil, oscili, foscili, pan, linseg
+
+hallown.csd
+  Lines: 772, Tokens: ~5961
+  Opcodes: oscil, butterlp, butterhp, reson, reverb
+
+trapped.csd
+  Lines: 729, Tokens: ~8857
+  Opcodes: oscil, oscili, buzz, gbuzz, foscil
+
+milleretude.csd
+  Lines: 701, Tokens: ~5686
+  Opcodes: oscil, oscili, foscili, pluck, randi
+
+kim1.csd
+  Lines: 672, Tokens: ~4752
+  Opcodes: oscil, foscil, pluck, reson, rand
+
+pof3.csd
+  Lines: 664, Tokens: ~3217
+  Opcodes: oscil, fof, randi, linseg, expseg
+
+REZFLT4.csd
+  Lines: 655, Tokens: ~5003
+  Opcodes: oscil, buzz, foscil, rand, noise
+
+rezfiltr.csd
+  Lines: 655, Tokens: ~4842
+  Opcodes: oscil, buzz, foscil, rand, noise
+
+HURICAN2.csd
+  Lines: 635, Tokens: ~10046
+  Opcodes: oscil, oscili, expseg, pitch
+
+PHYSMOD2.csd
+  Lines: 618, Tokens: ~5952
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+BONGOS.csd
+  Lines: 611, Tokens: ~5903
+  Opcodes: oscil, oscili, reson, pan, randi
+
+ALIENS1.csd
+  Lines: 611, Tokens: ~8085
+  Opcodes: oscili, expseg, pitch
+
+reverbs.csd
+  Lines: 610, Tokens: ~4516
+  Opcodes: oscil, mode, butterlp, butterhp, pareq
+
+HURICAN1.csd
+  Lines: 609, Tokens: ~9747
+  Opcodes: oscili, expseg, pitch
+
+verb4.csd
+  Lines: 609, Tokens: ~4949
+  Opcodes: buzz, butterlp, butterhp, pareq, reverb
+
+verb3.csd
+  Lines: 600, Tokens: ~4883
+  Opcodes: buzz, butterlp, butterhp, pareq, reverb
+
+ALIENS2.csd
+  Lines: 600, Tokens: ~8122
+  Opcodes: oscili, expseg, pitch
+
+ALIENS3.csd
+  Lines: 600, Tokens: ~7746
+  Opcodes: oscili, expseg, pitch
+
+ALIENS4.csd
+  Lines: 600, Tokens: ~7747
+  Opcodes: oscili, expseg, pitch
+
+anbass3.csd
+  Lines: 595, Tokens: ~5380
+  Opcodes: oscil, buzz, butterlp, butterhp, delay
+
+anbass2.csd
+  Lines: 591, Tokens: ~5392
+  Opcodes: oscil, buzz, butterlp, butterhp, delay
+
+anbass1.csd
+  Lines: 562, Tokens: ~4803
+  Opcodes: oscil, buzz, butterlp, butterhp, delay
+
+temple.csd
+  Lines: 560, Tokens: ~5913
+  Opcodes: oscil, buzz, butterlp, butterhp, delay
+
+MOOG2.csd
+  Lines: 554, Tokens: ~5754
+  Opcodes: oscil, buzz, butterlp, butterhp, delay
+
+String_11.csd
+  Lines: 545, Tokens: ~3978
+  Opcodes: oscili, grain, fog, mode, butterlp
+
+String_10.csd
+  Lines: 544, Tokens: ~3973
+  Opcodes: oscili, grain, fog, mode, butterlp
+
+newrezfltxt.csd
+  Lines: 538, Tokens: ~2964
+  Opcodes: oscil, buzz, foscil, rand, noise
+
+rezfltxt.csd
+  Lines: 538, Tokens: ~3655
+  Opcodes: oscil, buzz, foscil, rand, noise
+
+dx730.csd
+  Lines: 537, Tokens: ~6140
+  Opcodes: oscil, oscili, linseg, pitch
+
+PitchDiscrim.csd
+  Lines: 524, Tokens: ~6633
+  Opcodes: oscili, delay, linen, pitch
+
+XEN1.csd
+  Lines: 510, Tokens: ~4950
+  Opcodes: oscil, foscili, reson, balance, pitch
+
+19fractal2.csd
+  Lines: 508, Tokens: ~2871
+  Opcodes: oscil, linseg
+
+MikelsonCurareverb.csd
+  Lines: 508, Tokens: ~3841
+  Opcodes: oscil, buzz, butterlp, butterhp, reverb
+
+surface2.csd
+  Lines: 505, Tokens: ~4201
+  Opcodes: oscil, oscili, balance, linseg, pitch
+
+XEN2.csd
+  Lines: 496, Tokens: ~4807
+  Opcodes: oscil, foscili, reson, balance, pitch
+
+fractals.csd
+  Lines: 489, Tokens: ~3100
+  Opcodes: oscil, linseg
+
+fract.csd
+  Lines: 489, Tokens: ~3082
+  Opcodes: oscil, linseg
+
+002BrtAcPiano.csd
+  Lines: 474, Tokens: ~4789
+  Opcodes: oscili, linseg
+
+003EGrand.csd
+  Lines: 470, Tokens: ~4749
+  Opcodes: oscili, linseg
+
+020Church.csd
+  Lines: 468, Tokens: ~4718
+  Opcodes: oscili, linseg
+
+CLARBONG.csd
+  Lines: 467, Tokens: ~4920
+  Opcodes: oscil, oscili, reson, pan, randi
+
+027JazzGuitar.csd
+  Lines: 467, Tokens: ~4461
+  Opcodes: oscili, linseg
+
+050Strings2.csd
+  Lines: 466, Tokens: ~4722
+  Opcodes: oscili, linseg
+
+021ReedOrgan.csd
+  Lines: 466, Tokens: ~4726
+  Opcodes: oscili, linseg
+
+012Vibraphone.csd
+  Lines: 464, Tokens: ~4452
+  Opcodes: oscili, linseg
+
+physmodl.csd
+  Lines: 459, Tokens: ~3161
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+018PercOrgan.csd
+  Lines: 458, Tokens: ~4656
+  Opcodes: oscili, linseg
+
+019RockOrgan.csd
+  Lines: 458, Tokens: ~4655
+  Opcodes: oscili, linseg
+
+017Drawbar.csd
+  Lines: 458, Tokens: ~4630
+  Opcodes: oscili, linseg
+
+025NylonGuit.csd
+  Lines: 456, Tokens: ~4623
+  Opcodes: oscili, linseg
+
+032SoftSolo.csd
+  Lines: 455, Tokens: ~4896
+  Opcodes: oscili, linseg
+
+041Violin.csd
+  Lines: 455, Tokens: ~4680
+  Opcodes: oscili, linseg
+
+029SynGuitar.csd
+  Lines: 454, Tokens: ~4878
+  Opcodes: oscili, linseg
+
+051SynStrings1.csd
+  Lines: 454, Tokens: ~4693
+  Opcodes: oscili, linseg
+
+028ElecGuitar1.csd
+  Lines: 454, Tokens: ~4876
+  Opcodes: oscili, linseg
+
+physmod1.csd
+  Lines: 454, Tokens: ~3180
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+pmod.csd
+  Lines: 454, Tokens: ~3210
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+026SteelStr.csd
+  Lines: 454, Tokens: ~4621
+  Opcodes: oscili, linseg
+
+19physmod1.csd
+  Lines: 454, Tokens: ~2979
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+001AcousticPno.csd
+  Lines: 452, Tokens: ~4781
+  Opcodes: oscili, linseg
+
+005ElecPiano1.csd
+  Lines: 452, Tokens: ~4770
+  Opcodes: oscili, linseg
+
+047Harp.csd
+  Lines: 451, Tokens: ~4641
+  Opcodes: oscili, linseg
+
+CLDRPS.csd
+  Lines: 450, Tokens: ~4871
+  Opcodes: oscil, oscili, reson, expseg
+
+042Viola.csd
+  Lines: 450, Tokens: ~4616
+  Opcodes: oscili, linseg
+
+052SynStrings2.csd
+  Lines: 450, Tokens: ~4628
+  Opcodes: oscili, linseg
+
+049Strings1.csd
+  Lines: 450, Tokens: ~4618
+  Opcodes: oscili, linseg
+
+008Clavinet.csd
+  Lines: 447, Tokens: ~4606
+  Opcodes: oscili, linseg
+
+013Marimba.csd
+  Lines: 444, Tokens: ~4618
+  Opcodes: oscili, marimba, linseg
+
+010Glockenspiel.csd
+  Lines: 444, Tokens: ~4374
+  Opcodes: oscili, linseg
+
+007Harpsichord.csd
+  Lines: 443, Tokens: ~4601
+  Opcodes: oscili, linseg
+
+063SynBrass1.csd
+  Lines: 443, Tokens: ~4354
+  Opcodes: oscili, linseg
+
+dx706.csd
+  Lines: 443, Tokens: ~4945
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx702.csd
+  Lines: 443, Tokens: ~4888
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx703.csd
+  Lines: 443, Tokens: ~4920
+  Opcodes: oscil, oscili, linseg, pitch
+
+053SynVocals1.csd
+  Lines: 443, Tokens: ~4583
+  Opcodes: oscili, linseg
+
+dx705.csd
+  Lines: 442, Tokens: ~4882
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx720.csd
+  Lines: 440, Tokens: ~4890
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx704.csd
+  Lines: 440, Tokens: ~4877
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx701.csd
+  Lines: 440, Tokens: ~4885
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx728.csd
+  Lines: 440, Tokens: ~4867
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx719.csd
+  Lines: 439, Tokens: ~4885
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx724.csd
+  Lines: 439, Tokens: ~4905
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx726.csd
+  Lines: 439, Tokens: ~4857
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx721.csd
+  Lines: 439, Tokens: ~4900
+  Opcodes: oscil, oscili, linseg, pitch
+
+064SynBrass2.csd
+  Lines: 439, Tokens: ~4296
+  Opcodes: oscili, linseg
+
+REZFILT3.csd
+  Lines: 439, Tokens: ~3449
+  Opcodes: oscil, foscil, delay, randi, linseg
+
+dx715.csd
+  Lines: 439, Tokens: ~4883
+  Opcodes: oscil, oscili, linseg, pitch
+
+031Distortion.csd
+  Lines: 439, Tokens: ~4550
+  Opcodes: oscili, linseg
+
+dx709.csd
+  Lines: 438, Tokens: ~4848
+  Opcodes: oscil, oscili, linseg, pitch
+
+030OvrdrvGuit.csd
+  Lines: 438, Tokens: ~4553
+  Opcodes: oscili, linseg
+
+dx711.csd
+  Lines: 438, Tokens: ~4847
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx707.csd
+  Lines: 438, Tokens: ~4878
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx716.csd
+  Lines: 438, Tokens: ~4840
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx714.csd
+  Lines: 438, Tokens: ~4843
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx718.csd
+  Lines: 437, Tokens: ~4870
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx722.csd
+  Lines: 437, Tokens: ~4858
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx708.csd
+  Lines: 437, Tokens: ~4874
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx717.csd
+  Lines: 437, Tokens: ~4841
+  Opcodes: oscil, oscili, linseg, pitch
+
+054SynVocals2.csd
+  Lines: 436, Tokens: ~4534
+  Opcodes: oscili, linseg
+
+dx712.csd
+  Lines: 436, Tokens: ~4869
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx731.csd
+  Lines: 435, Tokens: ~4836
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx713.csd
+  Lines: 435, Tokens: ~4850
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx729.csd
+  Lines: 435, Tokens: ~4848
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx727.csd
+  Lines: 434, Tokens: ~4848
+  Opcodes: oscil, oscili, linseg, pitch
+
+dx723.csd
+  Lines: 434, Tokens: ~4879
+  Opcodes: oscil, oscili, linseg, pitch
+
+006ElecPiano2.csd
+  Lines: 434, Tokens: ~4533
+  Opcodes: oscili, linseg
+
+dx725.csd
+  Lines: 433, Tokens: ~4866
+  Opcodes: oscil, oscili, linseg, pitch
+
+009Celeste.csd
+  Lines: 433, Tokens: ~4286
+  Opcodes: oscili, linseg
+
+dx710.csd
+  Lines: 433, Tokens: ~4807
+  Opcodes: oscil, oscili, linseg, pitch
+
+011MusicBox.csd
+  Lines: 433, Tokens: ~4266
+  Opcodes: oscili, linseg
+
+dx732.csd
+  Lines: 431, Tokens: ~4793
+  Opcodes: oscil, oscili, linseg, pitch
+
+014Xylophone.csd
+  Lines: 429, Tokens: ~4509
+  Opcodes: oscili, linseg
+
+TUNING.csd
+  Lines: 428, Tokens: ~3897
+  Opcodes: oscili, linen, pitch
+
+037SlapBass1.csd
+  Lines: 424, Tokens: ~4207
+  Opcodes: oscili, linseg
+
+PANER.csd
+  Lines: 424, Tokens: ~2219
+  Opcodes: oscil, oscili, foscil, pan, linseg
+
+035PluckBass.csd
+  Lines: 422, Tokens: ~4205
+  Opcodes: oscili, pluck, linseg
+
+Pitchstreaming.csd
+  Lines: 419, Tokens: ~3749
+  Opcodes: oscil, oscili, linen, pitch
+
+060Trumpet2.csd
+  Lines: 414, Tokens: ~4161
+  Opcodes: oscili, linseg
+
+076PanFlute.csd
+  Lines: 413, Tokens: ~4436
+  Opcodes: oscili, pan, linseg
+
+073Piccolo.csd
+  Lines: 412, Tokens: ~4401
+  Opcodes: oscili, linseg
+
+038SlapBass2.csd
+  Lines: 411, Tokens: ~4117
+  Opcodes: oscili, linseg
+
+verb2.csd
+  Lines: 410, Tokens: ~3765
+  Opcodes: buzz, butterlp, butterhp, reverb, delay
+
+040SynBass2.csd
+  Lines: 410, Tokens: ~4098
+  Opcodes: oscili, linseg
+
+039SynBass1.csd
+  Lines: 409, Tokens: ~4096
+  Opcodes: oscili, linseg
+
+033Bass1.csd
+  Lines: 408, Tokens: ~4379
+  Opcodes: oscili, linseg
+
+036Fretless.csd
+  Lines: 408, Tokens: ~4108
+  Opcodes: oscili, linseg
+
+057Trumpet.csd
+  Lines: 408, Tokens: ~4097
+  Opcodes: oscili, linseg
+
+074Flute.csd
+  Lines: 408, Tokens: ~4351
+  Opcodes: oscili, linseg
+
+044Contrabass.csd
+  Lines: 407, Tokens: ~4359
+  Opcodes: oscili, linseg
+
+062BrassSection.csd
+  Lines: 407, Tokens: ~4081
+  Opcodes: oscili, linseg
+
+043Cello.csd
+  Lines: 407, Tokens: ~4340
+  Opcodes: oscili, linseg
+
+058Trombone.csd
+  Lines: 407, Tokens: ~4096
+  Opcodes: oscili, linseg
+
+terrain4.csd
+  Lines: 407, Tokens: ~4163
+  Opcodes: oscil, oscili, butterhp, balance, pan
+
+059Tuba.csd
+  Lines: 407, Tokens: ~4096
+  Opcodes: oscili, linseg
+
+034FingerBass.csd
+  Lines: 406, Tokens: ~4091
+  Opcodes: oscili, linseg
+
+061FrHorn.csd
+  Lines: 404, Tokens: ~4059
+  Opcodes: oscili, linseg
+
+075Recorder.csd
+  Lines: 397, Tokens: ~4308
+  Opcodes: oscili, linseg
+
+124Bird.csd
+  Lines: 393, Tokens: ~4290
+  Opcodes: oscili, linseg
+
+slingpling.csd
+  Lines: 392, Tokens: ~1416
+  Opcodes: oscil, foscil, reson, rand, linseg
+
+WILLIAMS.csd
+  Lines: 391, Tokens: ~3362
+  Opcodes: oscili, rand, randi, linseg, adsr
+
+126Helicopter.csd
+  Lines: 389, Tokens: ~4261
+  Opcodes: oscili, linseg
+
+voice1.csd
+  Lines: 388, Tokens: ~1871
+  Opcodes: fog, butterlp, butterbp, delay, linseg
+
+verb.csd
+  Lines: 388, Tokens: ~3354
+  Opcodes: buzz, butterlp, butterhp, reverb, delay
+
+brReverb1.csd
+  Lines: 388, Tokens: ~2924
+  Opcodes: reverb, delay, delay1, delayr, delayw
+
+123Seashore.csd
+  Lines: 387, Tokens: ~4224
+  Opcodes: oscili, linseg
+
+015Bells.csd
+  Lines: 387, Tokens: ~4232
+  Opcodes: oscili, linseg
+
+Risset.csd
+  Lines: 385, Tokens: ~2693
+  Opcodes: oscil, oscili, randi, linen, linseg
+
+terrain3.csd
+  Lines: 381, Tokens: ~3946
+  Opcodes: oscil, oscili, butterhp, balance, pan
+
+terrain2.csd
+  Lines: 370, Tokens: ~3807
+  Opcodes: oscil, oscili, butterhp, balance, pan
+
+explode.csd
+  Lines: 366, Tokens: ~2388
+  Opcodes: oscil, reson, reverb, delayr, delayw
+
+delay.csd
+  Lines: 360, Tokens: ~3314
+  Opcodes: fmwurlie, pluck, delay, delayr, delayw
+
+VCS3.csd
+  Lines: 359, Tokens: ~5523
+  Opcodes: oscil, oscili, moogvcf, pareq, reverb
+
+reverb.csd
+  Lines: 358, Tokens: ~2460
+  Opcodes: buzz, butterlp, butterbp, reverb, delay
+
+plkguit.csd
+  Lines: 358, Tokens: ~2802
+  Opcodes: pluck, reson, balance, linseg
+
+DOPPL.csd
+  Lines: 350, Tokens: ~3463
+  Opcodes: oscili, buzz, reson, delay, delayr
+
+surface3.csd
+  Lines: 349, Tokens: ~2877
+  Opcodes: oscil, oscili, balance, pan, linseg
+
+drum_06.csd
+  Lines: 347, Tokens: ~2648
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+drum_06_01.csd
+  Lines: 346, Tokens: ~2642
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+MODULR2.csd
+  Lines: 345, Tokens: ~2992
+  Opcodes: oscil, vco, pan, linseg, pitch
+
+Masking.csd
+  Lines: 340, Tokens: ~3312
+  Opcodes: oscil, oscili, randi, noise, linen
+
+clarinetsoft.csd
+  Lines: 336, Tokens: ~3422
+  Opcodes: oscil, butterhp, delay, delayr, delayw
+
+drum_05_02.csd
+  Lines: 334, Tokens: ~2474
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+vocode.csd
+  Lines: 334, Tokens: ~2872
+  Opcodes: oscili, buzz, butterhp, butterbp, vdelay
+
+gardner.csd
+  Lines: 333, Tokens: ~2522
+  Opcodes: buzz, butterlp, butterbp, reverb, delay
+
+explosion.csd
+  Lines: 332, Tokens: ~1605
+  Opcodes: oscil, reson, reverb, delay, delayr
+
+GRAIN.csd
+  Lines: 332, Tokens: ~4526
+  Opcodes: oscil, grain, mode, delay, rand
+
+tekno.csd
+  Lines: 328, Tokens: ~2807
+  Opcodes: oscil, foscil, pluck, reson, balance
+
+19fractxt2.csd
+  Lines: 326, Tokens: ~2796
+  Opcodes: oscil, pan, linseg, pitch
+
+fractx2.csd
+  Lines: 326, Tokens: ~2895
+  Opcodes: oscil, pan, linseg, pitch
+
+drum_05_01.csd
+  Lines: 323, Tokens: ~2413
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+physmtxt.csd
+  Lines: 321, Tokens: ~2829
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+modular.csd
+  Lines: 320, Tokens: ~2888
+  Opcodes: oscil, vco, pan, linseg, pitch
+
+drum_05.csd
+  Lines: 317, Tokens: ~2369
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+fofchor.csd
+  Lines: 307, Tokens: ~3130
+  Opcodes: oscil, fof, randi, linseg, expseg
+
+newanalog.csd
+  Lines: 307, Tokens: ~3657
+  Opcodes: oscil, buzz, butterlp, delay, pan
+
+FmChowningA.csd
+  Lines: 305, Tokens: ~2165
+  Opcodes: oscil, oscili, randi, linen, adsr
+
+CookMultiFX2.csd
+  Lines: 300, Tokens: ~2522
+  Opcodes: oscili, marimba, butterlp, delay, delay1
+
+brmultitap.csd
+  Lines: 296, Tokens: ~2705
+  Opcodes: delay
+
+physmtx.csd
+  Lines: 295, Tokens: ~2639
+  Opcodes: oscil, butterlp, butterhp, reson, delay
+
+dopplr.csd
+  Lines: 294, Tokens: ~2774
+  Opcodes: buzz, reson, delay, delayr, delayw
+
+fmsynth.csd
+  Lines: 293, Tokens: ~2096
+  Opcodes: oscil, foscil, butterbp, rand, linseg
+
+fofrale.csd
+  Lines: 292, Tokens: ~2298
+  Opcodes: oscil, fof, randi, linseg, expseg
+
+mixer-10_stereo.csd
+  Lines: 289, Tokens: ~1521
+  Opcodes: mode, pareq, delay
+
+2GRAIN.csd
+  Lines: 286, Tokens: ~4227
+  Opcodes: oscil, grain, delay, rand, linseg
+
+MID.csd
+  Lines: 282, Tokens: ~1967
+  Opcodes: oscil, oscili, vdelay, balance, rand
+
+LMultitap.csd
+  Lines: 282, Tokens: ~2331
+  Opcodes: delay
+
+Lmultitap2.csd
+  Lines: 278, Tokens: ~2622
+  Opcodes: delay
+
+clarinet.csd
+  Lines: 276, Tokens: ~2707
+  Opcodes: oscil, butterlp, butterhp, delay, delayr
+
+grainvox.csd
+  Lines: 275, Tokens: ~3230
+  Opcodes: oscil, grain, randi, linseg, expseg
+
+4d.csd
+  Lines: 274, Tokens: ~1693
+  Opcodes: oscil, linseg
+
+julia.csd
+  Lines: 271, Tokens: ~2712
+  Opcodes: oscil, butterhp, balance, pan, linseg
+
+PLUCK15.csd
+  Lines: 271, Tokens: ~1494
+  Opcodes: pluck, pan, randi, linseg, expseg
+
+MaskingLevelDifferences.csd
+  Lines: 271, Tokens: ~3231
+  Opcodes: oscil, oscili, randi, noise, linen
+
+fractal.csd
+  Lines: 270, Tokens: ~1724
+  Opcodes: oscil, linseg
+
+hvyguit3.csd
+  Lines: 262, Tokens: ~2607
+  Opcodes: oscil, pluck, butterlp, reson, distort1
+
+anmod.csd
+  Lines: 259, Tokens: ~2941
+  Opcodes: oscil, vco, moogvcf, pareq, delay
+
+ROTORLSL.csd
+  Lines: 256, Tokens: ~2227
+  Opcodes: oscil, butterlp, butterbp, delay, delayr
+
+fbfilter.csd
+  Lines: 255, Tokens: ~1581
+  Opcodes: oscil, butterbp, reson, delay, delayr
+
+BinauralLaterization.csd
+  Lines: 253, Tokens: ~3316
+  Opcodes: oscili, linen, expseg
+
+cvocoder.csd
+  Lines: 251, Tokens: ~1799
+  Opcodes: buzz, butterhp, resonx, tonex, atonex
+
+eq.csd
+  Lines: 247, Tokens: ~2206
+  Opcodes: pareq, rand
+
+ROTORLS3.csd
+  Lines: 246, Tokens: ~2014
+  Opcodes: oscil, butterlp, butterbp, delay, delayr
+
+eastmarimba.csd
+  Lines: 244, Tokens: ~1460
+  Opcodes: oscili, foscili, marimba, randi, linseg
+
+csoundpiece.csd
+  Lines: 240, Tokens: ~2456
+  Opcodes: oscil, oscili, reverb, reverb2, delay
+
+bd10_01.csd
+  Lines: 239, Tokens: ~1557
+  Opcodes: buzz, butterlp, butterhp, butterbp, pareq
+
+303EMU.csd
+  Lines: 235, Tokens: ~2839
+  Opcodes: buzz, delay1, linen, linseg, expseg
+
+bd16_01.csd
+  Lines: 233, Tokens: ~1780
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+moogvco1.csd
+  Lines: 231, Tokens: ~2246
+  Opcodes: oscil, vco, linseg, expseg, pitch
+
+moogvco2.csd
+  Lines: 230, Tokens: ~2233
+  Opcodes: oscil, vco, linseg, expseg, pitch
+
+xanadu.csd
+  Lines: 230, Tokens: ~2136
+  Opcodes: oscil, pluck, delay, delayr, delayw
+
+BUZZTALK.csd
+  Lines: 229, Tokens: ~1567
+  Opcodes: buzz, reson, balance, linseg
+
+physmod.csd
+  Lines: 228, Tokens: ~1429
+  Opcodes: oscil, reson, delay, delayr, delayw
+
+0MultiFX1.csd
+  Lines: 226, Tokens: ~2065
+  Opcodes: oscili, moogvcf, butterlp, reson, delay
+
+addit.csd
+  Lines: 224, Tokens: ~1338
+  Opcodes: oscil, oscili, linseg, loscil
+
+ENVFILTR.csd
+  Lines: 223, Tokens: ~1280
+  Opcodes: oscil, linseg, expseg, pitch
+
+Soprano.csd
+  Lines: 220, Tokens: ~1842
+  Opcodes: oscil, delay, fof, randi, linseg
+
+alg4.csd
+  Lines: 217, Tokens: ~1874
+  Opcodes: oscil, reverb, chorus, pitch
+
+drums.csd
+  Lines: 217, Tokens: ~1131
+  Opcodes: foscil, pluck, reson, balance, rand
+
+bd4004m_04.csd
+  Lines: 217, Tokens: ~1602
+  Opcodes: buzz, butterlp, butterhp, butterbp, delay
+
+CHORUS.csd
+  Lines: 216, Tokens: ~1639
+  Opcodes: oscil, pluck, delay, vdelay, chorus
+
+molproject1.csd
+  Lines: 216, Tokens: ~3129
+  Opcodes: oscil, oscili, foscil, foscili, reson
+
+TossaMoog.csd
+  Lines: 215, Tokens: ~1331
+  Opcodes: oscili, pitch
+
+FILTDEMO.csd
+  Lines: 215, Tokens: ~1887
+  Opcodes: delay1, noise, expseg, pitch
+
+bd4004m_03.csd
+  Lines: 215, Tokens: ~1600
+  Opcodes: buzz, butterlp, butterhp, butterbp, delay
+
+bd4004m_02.csd
+  Lines: 215, Tokens: ~1598
+  Opcodes: buzz, butterlp, butterhp, butterbp, delay
+
+bd4004m_01.csd
+  Lines: 215, Tokens: ~1596
+  Opcodes: buzz, butterlp, butterhp, butterbp, delay
+
+PulsationThreshold.csd
+  Lines: 214, Tokens: ~1797
+  Opcodes: oscil, oscili, randi, noise, linen
+
+MaskingVirtualPitch.csd
+  Lines: 214, Tokens: ~1954
+  Opcodes: oscil, oscili, randi, noise, linen
+
+efx_2.csd
+  Lines: 213, Tokens: ~961
+  Opcodes: fog, butterlp, delay
+
+tanh2.csd
+  Lines: 212, Tokens: ~1968
+  Opcodes: oscil, pluck, linseg, pitch, rms
+
+tb305.csd
+  Lines: 211, Tokens: ~1830
+  Opcodes: oscil, pan, linseg, expseg, pitch
+
+granularnd4.csd
+  Lines: 211, Tokens: ~2656
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+pink3.csd
+  Lines: 209, Tokens: ~1344
+  Opcodes: oscili, butterlp, butterbp, pareq, rand
+
+drummach.csd
+  Lines: 209, Tokens: ~1419
+  Opcodes: foscil, pluck, reson, balance, rand
+
+Reverb2.csd
+  Lines: 206, Tokens: ~1651
+  Opcodes: butterlp, reverb, reverb2, delay, rand
+
+fractxt.csd
+  Lines: 205, Tokens: ~1602
+  Opcodes: oscil, linseg, pitch
+
+mikelfreakyfilt.csd
+  Lines: 203, Tokens: ~2493
+  Opcodes: oscili, vco, pan, linseg, expseg
+
+bd14.csd
+  Lines: 198, Tokens: ~1210
+  Opcodes: butterlp, butterhp, butterbp, delay, noise
+
+rotortxt.csd
+  Lines: 198, Tokens: ~2026
+  Opcodes: oscil, butterlp, butterbp, delay, delayr
+
+newrotortxt.csd
+  Lines: 198, Tokens: ~2028
+  Opcodes: oscil, butterlp, butterbp, delay, delayr
+
+drumsand.csd
+  Lines: 197, Tokens: ~1393
+  Opcodes: oscil, reverb, linenr, loscil
+
+tb304.csd
+  Lines: 197, Tokens: ~1587
+  Opcodes: oscil, pan, linseg, expseg, pitch
+
+rev8.csd
+  Lines: 196, Tokens: ~1640
+  Opcodes: oscil, reson, reverb
+
+granularnd6.csd
+  Lines: 196, Tokens: ~2240
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+JND.csd
+  Lines: 195, Tokens: ~1779
+  Opcodes: oscili, linen, pitch
+
+Experiment1Sones.csd
+  Lines: 194, Tokens: ~1633
+  Opcodes: oscil, oscili, randi, noise, linen
+
+bd4004m.csd
+  Lines: 194, Tokens: ~1832
+  Opcodes: buzz, butterlp, butterhp, butterbp, delay
+
+tb303.csd
+  Lines: 193, Tokens: ~1544
+  Opcodes: oscil, pan, linseg, expseg, pitch
+
+granularnd5.csd
+  Lines: 192, Tokens: ~2190
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+kingfof1.csd
+  Lines: 192, Tokens: ~996
+  Opcodes: oscil, pluck, fof, loscil
+
+CookMultiFX1.csd
+  Lines: 191, Tokens: ~1660
+  Opcodes: oscili, vco, marimba, moogvcf, butterlp
+
+indust3.csd
+  Lines: 190, Tokens: ~1829
+  Opcodes: oscil, foscil, butterbp, delay, balance
+
+FMSWEEP.csd
+  Lines: 189, Tokens: ~1052
+  Opcodes: oscil, foscil, linseg
+
+granularnd1.csd
+  Lines: 188, Tokens: ~2187
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+granularnd2.csd
+  Lines: 188, Tokens: ~2192
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+granularnd3.csd
+  Lines: 188, Tokens: ~2192
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+blit1.csd
+  Lines: 187, Tokens: ~1318
+  Opcodes: oscil, buzz, butterhp, pan, linseg
+
+RissetReed.csd
+  Lines: 187, Tokens: ~1030
+  Opcodes: oscil, oscili
+
+band.csd
+  Lines: 187, Tokens: ~874
+  Opcodes: oscil, buzz, pluck
+
+pink2.csd
+  Lines: 186, Tokens: ~1088
+  Opcodes: oscili, butterlp, butterbp, pareq, rand
+
+bd1601.csd
+  Lines: 186, Tokens: ~1858
+  Opcodes: buzz, mode, butterlp, pareq, noise
+
+FLARE.csd
+  Lines: 185, Tokens: ~1142
+  Opcodes: oscil, foscili, reson, reverb, pan
+
+carillon.csd
+  Lines: 185, Tokens: ~1559
+  Opcodes: oscili, foscili, reson, randi, linseg
+
+AuditoryIllusion.csd
+  Lines: 184, Tokens: ~2161
+  Opcodes: oscili, linen
+
+parosc.csd
+  Lines: 183, Tokens: ~1980
+  Opcodes: oscil, linseg, pitch
+
+pink1.csd
+  Lines: 182, Tokens: ~1007
+  Opcodes: oscili, butterlp, butterbp, pareq, rand
+
+pink.csd
+  Lines: 182, Tokens: ~1053
+  Opcodes: oscili, butterlp, butterbp, pareq, rand
+
+bdrum.csd
+  Lines: 182, Tokens: ~851
+  Opcodes: oscili
+
+PDETECT.csd
+  Lines: 182, Tokens: ~1074
+  Opcodes: oscil, pluck, delayr, delayw, pan
+
+granular4.csd
+  Lines: 180, Tokens: ~2183
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+WEB2.csd
+  Lines: 180, Tokens: ~2275
+  Opcodes: oscili, foscili, chorus, linen, pitch
+
+granular2.csd
+  Lines: 180, Tokens: ~2183
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+granular3.csd
+  Lines: 180, Tokens: ~2183
+  Opcodes: oscili, oscils, grain, reverb, delay
+
+circle02.csd
+  Lines: 179, Tokens: ~1787
+  Opcodes: foscil, reverb, reverb2, pan, locsig
+
+WEB3.csd
+  Lines: 179, Tokens: ~2385
+  Opcodes: oscili, foscili, chorus, linen, pitch
+
+covell.csd
+  Lines: 178, Tokens: ~1362
+  Opcodes: reverb, follow, linen, linseg
+
+comabdrum.csd
+  Lines: 178, Tokens: ~1030
+  Opcodes: oscili
+
+markov.csd
+  Lines: 177, Tokens: ~1743
+  Opcodes: oscili, reverb2, pan, linen, linseg
+
+rotorls.csd
+  Lines: 173, Tokens: ~1658
+  Opcodes: oscil, oscili, butterlp, butterbp, delay
+
+pm8.csd
+  Lines: 173, Tokens: ~1223
+  Opcodes: none detected
+
+TUBEAMP3.csd
+  Lines: 173, Tokens: ~1160
+  Opcodes: oscil, pluck, butterlp, butterhp, delay
+
+algocomp.csd
+  Lines: 169, Tokens: ~2018
+  Opcodes: oscili, linseg
+
+indust2.csd
+  Lines: 169, Tokens: ~1654
+  Opcodes: oscil, foscil, butterbp, delay, balance
+
+organ1.csd
+  Lines: 168, Tokens: ~954
+  Opcodes: oscil, oscili, delayr, delayw, doppler
+
+mikelruttamoog.csd
+  Lines: 168, Tokens: ~1431
+  Opcodes: vco, pan, linseg, expseg, pitch
+
+2NDTRIPL.csd
+  Lines: 167, Tokens: ~2254
+  Opcodes: oscil, grain, delay, rand, linseg
+
+test2.csd
+  Lines: 166, Tokens: ~1314
+  Opcodes: vco, buzz, moogvcf, linseg, expseg
+
+SubOctave.csd
+  Lines: 165, Tokens: ~954
+  Opcodes: balance
+
+303c.csd
+  Lines: 165, Tokens: ~1457
+  Opcodes: buzz, balance, linen, linseg, expseg
+
+envelop.csd
+  Lines: 163, Tokens: ~1831
+  Opcodes: oscil, linseg, expseg, pitch
+
+gator2.csd
+  Lines: 163, Tokens: ~1368
+  Opcodes: oscil, reson, delay
+
+moogvco3.csd
+  Lines: 162, Tokens: ~1425
+  Opcodes: oscil, vco, linseg, expseg, pitch
+
+girth.csd
+  Lines: 162, Tokens: ~1725
+  Opcodes: oscil, linseg
+
+birds.csd
+  Lines: 161, Tokens: ~1461
+  Opcodes: oscil, pan, linseg, pitch
+
+spirogr.csd
+  Lines: 161, Tokens: ~1194
+  Opcodes: oscil, linseg
+
+FMSTRINGS.csd
+  Lines: 160, Tokens: ~1573
+  Opcodes: oscil, oscili, randi, noise, linen
+
+WEBFIN.csd
+  Lines: 159, Tokens: ~1374
+  Opcodes: oscil, oscili, foscili, reverb, randi
+
+physical2.csd
+  Lines: 159, Tokens: ~1386
+  Opcodes: reson, rand, linseg
+
+alg5.csd
+  Lines: 159, Tokens: ~1115
+  Opcodes: oscil, chorus, pitch
+
+RZBOUNCE.csd
+  Lines: 159, Tokens: ~1593
+  Opcodes: oscil, linseg, expseg, pitch
+
+303f.csd
+  Lines: 159, Tokens: ~1687
+  Opcodes: buzz, balance, linen, linseg, expseg
+
+tanh1.csd
+  Lines: 158, Tokens: ~1578
+  Opcodes: oscil, pluck, linseg, pitch, rms
+
+FreqResponseOfEar.csd
+  Lines: 156, Tokens: ~1493
+  Opcodes: oscili, linen
+
+physmtx5.csd
+  Lines: 156, Tokens: ~1159
+  Opcodes: oscil, pluck, butterlp, butterhp, delay
+
+303b.csd
+  Lines: 156, Tokens: ~1415
+  Opcodes: buzz, balance, randh, linen, linseg
+
+pwm2.csd
+  Lines: 156, Tokens: ~933
+  Opcodes: oscil, linseg, expseg, adsr, pitch
+
+strum.csd
+  Lines: 154, Tokens: ~1454
+  Opcodes: oscil, foscil, pitch
+
+303a.csd
+  Lines: 154, Tokens: ~1462
+  Opcodes: buzz, balance, linen, linseg, expseg
+
+bd11.csd
+  Lines: 153, Tokens: ~901
+  Opcodes: buzz, butterlp, butterhp, butterbp, pareq
+
+dodgefig329.csd
+  Lines: 153, Tokens: ~682
+  Opcodes: oscil, linen, linseg
+
+xmas.csd
+  Lines: 153, Tokens: ~970
+  Opcodes: reson, rand, linseg
+
+moog0.csd
+  Lines: 152, Tokens: ~1162
+  Opcodes: buzz, rand, linen, linseg
+
+wguidecl.csd
+  Lines: 152, Tokens: ~1313
+  Opcodes: oscil, vdelay, rand, linseg, pitch
+
+analog3.csd
+  Lines: 152, Tokens: ~968
+  Opcodes: buzz, delay1, linen, expseg

@@ -1,0 +1,748 @@
+---
+source: csound-expression (Haskell)
+title: "BasicTypesTutorial"
+file: tutorial/chapters/BasicTypesTutorial.md
+category: Effects
+concepts: [osc, envelope, delay, sample, frequency, lfo, noise]
+type: tutorial
+---
+
+# BasicTypesTutorial
+
+**Category:** Effects
+**Concepts:** osc, envelope, delay, sample, frequency, lfo, noise
+**Original File:** `tutorial/chapters/BasicTypesTutorial.md`
+
+## Description
+
+What is the size of the table? We can create the table of the given size. By default it's 8196. The more size the better is precision. For efficiency reason the tables size in most cases should be equal to some degree of 2. We can set the table size with one of the functions:
+
+---
+
+Basic types
+=====================================
+
+Let's look at the basic types of the library.
+
+Signals (Sig)
+----------------------
+
+We are going to make an audio signal. So the most frequently used type is a signal. It's called `Sig`.
+The signal is a stream of numbers that is updated at a certain rate.
+Actually it's a stream of small arrays of doubles. For every cycle the audio-engine
+updates it. It can see only one frame at the given time.
+
+Conceptually we can think that signal is a list of numbers.
+A signal is an instance of type class `Num`, `Fractional` and `Floating`.
+So we can treat signals like numbers. We can create them with numeric
+constants, add them, multiply, subtract, divide, process with
+trigonometric functions.
+
+We assume that we are in ghci session and the module `Csound.Base` is loaded.
+
+~~~
+$ ghci
+> import Csound.Base
+~~~
+
+So let's create a couple of signals:
+
+~~~{.haskell}
+> x = 1 :: Sig
+> y = 2 :: Sig
+> z = (x + y) * 0.5
+~~~
+
+In the older versions of ghci we need to write `let`  in
+the interpreter to delcalre a variable or function in modern
+versions it can be omitted. So if it's not working for you, just
+include `let` keyword like this:
+
+~~~{.haskell}
+> let x = 1 :: Sig
+~~~
+
+Constants are pretty good but not that interesting as sounds.
+The sound is time varying signal. It should vary between -1 and 1.
+It's assumed that 1 is a maximum volume. Everything beyond the 1
+is clipped.
+
+Let's study the [simple waveforms](http://public.wsu.edu/~jkrug/MUS364/audio/Waveforms.htm):
+
+~~~{.haskell}
+osc, saw, tri, sqr :: Sig -> Sig
+~~~
+
+They produce sine, sawtooth, triangle and square waves.
+The output is band limited (no aliasing beyond [Nyquist](http://en.wikipedia.org/wiki/Nyquist_frequency)).
+The waveform function takes in a frequency (and it's also a signal) and produces
+a signal that contains wave of certain shape that is repeated with given frequency (in Hz).
+
+Let's hear a sound of the triangle wave at the rated of 220 Hz:
+
+~~~{.haskell}
+> dac $ tri 220
+~~~
+
+We can press `Ctrl+C` to stop the sound from playing. If we know the
+time in advance we can set it with the function `setDur`:
+
+~~~{.haskell}
+> dac $ setDur 2 $ tri 220
+~~~
+
+Right now the sound plays only for 2 seconds. The `setDur` function
+should be used only once. Right before the sending output to the `dac`.
+Please don't use it many times for example to set duation of notes,
+it's only for setting total duration of the whole track.
+
+We can vary the frequency with slowly moving oscillator:
+
+~~~{.haskell}
+> dac $ tri (220 + 100 * osc 0.5)
+~~~
+
+If we use the `saw` in place of `tri` we can get a more harsh
+siren-like sound.
+
+We can adjust the volume of the sound by multiplying it:
+
+~~~{.haskell}
+> dac $ mul 0.5 $ saw (220 + 100 * osc 0.5)
+~~~
+
+Here we used the special function `mul`. We could
+just use the normal Haskell's `*`. But `mul` is more
+convenient. It can work not only for signals but for
+tuples of signals (if we want a stereo playback)
+or signals that contain side effects (wrapped in the monad `SE`).
+So the `mul` is preferable.
+
+Constant numbers (D)
+----------------------------------------------
+
+Let's study two another useful functions:
+
+~~~{.haskell}
+leg, xeg :: D -> D -> D -> D -> Sig
+~~~
+
+They are Linear and eXponential Envelope Generators.
+They create [ADSR-envelopes](http://en.wikipedia.org/wiki/Synthesizer#ADSR_envelope).
+
+They take in a four arguments. They are:
+
+* **attack time**: time for signal to reach the 1 (in seconds)
+
+* **decay time**: time for signal to reach the sustain level (in seconds)
+
+* **sustain level**: the value for sustain level (between 0 and 1)
+
+* **release time**: how many seconds it takes to reach the zero after release.
+
+We can notice the new type `D` in the signature. It's for constant doubles.
+We can think that it's a normal value of type `Double`. It's a `Double` that is
+embedded in the Csound. From the point of implementation we don't calculate
+these doubles but use them to generate the Csound code.
+
+Let's create a signal that is gradually changes it's pitch:
+
+~~~{.haskell}
+> dac $ saw (50 + 150 * leg 2 2 0.5 1)
+~~~
+
+Notice that signal doesn't reaches the release phase. It's not a mistake!
+The release happens when we release a key on the midi keyboard.
+We don't use any midi here so the release never happens.
+
+But we can try the virtual midi device:
+
+~~~{.haskell}
+> vdac $ midi $ onMsg $ \x -> saw (x + 150 * leg 2 2 0.5 1)
+~~~
+
+Right now don't bother about the functions `midi` and `onMsg`.
+We are going to take a closer look at then in the chapter *User interaction*.
+That's how we plug in the midi-devices.
+
+The value of type `D` is just like a Haskell's `Double`. We can do all the
+Double's operations on it. It's useful to know how to convert doubles to `D`'s
+and how to convert `D`'s to signals:
+
+~~~{.haskell}
+double :: Double -> D
+int    :: Int    -> D
+sig    :: D      -> Sig
+~~~
+
+There are more generic functions:
+
+~~~{.haskell}
+linseg, expseg :: [D] -> Sig
+~~~
+
+They can construct the piecewise linear or exponential functions.
+The arguments are:
+
+~~~{.haskell}
+linseg [a, timeAB, b, timeBC, c, timeCD, d, ...]
+~~~
+
+They are alternating values and time stamps to progress
+continuously from one value to another. Values for `expseg`
+should be positive (above 0 and not 0).
+
+There are two more generic functions for midi notes:
+
+~~~{.haskell}
+linsegr, expsegr :: [D] -> D -> D -> Sig
+~~~
+
+The two last arguments are the release time and the final value for release stage.
+They are usefull for midi-instruments.
+
+Another frequently used functions are
+
+~~~{.haskell}
+fadeIn  :: D -> Sig
+fadeOut :: D -> Sig
+
+fades   :: D -> D -> Sig
+fades fadeInTime fadeOutTime = ...
+~~~
+
+They produce more simple envelopes. The `fadeIn` rises
+in the given amount of seconds form 0 to 1. The `fadeOut`
+does the opposite. It's 1 from the start and then it
+fades out to zero in given amount of seconds but only
+after release. The `fades` combines both functions.
+
+
+Strings (Str)
+-----------------------------------
+
+The friend of mine has made a wonderful track in Ableton.
+I have a wav-file from her and want to beep-along with it.
+I can use a `diskin2` opcode for it:
+
+~~~{.haskell}
+diskin2 :: Tuple a => Str -> a
+diskin2 fileName = ...
+~~~
+
+It takes in a name of the file and
+produces a tuple of signals. We should specify how many outputs
+are in the record by specifying precise the type of the tuple.
+There are handy helpers for this:
+
+~~~{.haskell}
+ar1 :: Sig -> Sig
+ar2 :: (Sig, Sig) -> (Sig, Sig)
+ar3 :: (Sig, Sig, Sig) -> (Sig, Sig, Sig)
+ar4 :: (Sig, Sig, Sig, Sig) -> (Sig, Sig, Sig, Sig)
+~~~
+
+Every function is an identity. It's here only to help the type inference.
+Let's say we have a file `Noise.wav`. With a mono wav-file we can use:
+
+~~~{.haskell}
+> sample = ar1 $ diskin2 (text "Noise.wav")
+~~~
+
+The first argument of the `diskin2` is not a Haskell's `String`.
+It's a Csound's string so it has a special name `Str`. It's just
+like `D`'s  for `Double`'s. We used a converter function to
+lift the Haskell string to Csound one:
+
+~~~{.haskell}
+text :: String -> Str
+~~~
+The function `text` converts the Haskell strings to Csound ones.
+The `Str` has instance of `IsString` so if we are using
+the extension `OverloadedStrings` we don't need to call the function `text`.
+
+For a stereo wav file "Composite.wav" we use:
+
+~~~{.haskell}
+> :set -XOverloadedStrings
+> sample = toMono $ ar2 $ diskin2 "Composite.wav"
+~~~
+
+We don't care right now about the stereo so we have converted
+everything to mono with function.
+
+~~~{.haskell}
+toMono :: (Sig, Sig) -> Sig
+~~~
+
+Ok, we are ready to play along with it:
+
+~~~{.haskell}
+> sample = toMono $ ar2 $ diskin2 (text "Composite.wav")
+> meOnKeys = midi $ onMsg osc
+> vdac $ mul 0.5 $ meOnKeys + pure sample
+~~~
+
+Notice how simple is the combining midi-devices output
+with the regular signals. The function `midi` produces
+a normal signal wrapped in `SE`-monad. We can use it anywhere.
+We use standard function `pure` to wrap ordinary value to `SE`-type.
+We do it so that types of values `meOnKeys` and `sample` match to each other
+and we can sum them up.
+
+There are useful shortcuts that let us use a normal Haskell strings:
+
+~~~{.haskell}
+readSnd :: String -> (Sig, Sig)
+loopSnd :: String -> (Sig, Sig)
+loopSndBy :: D -> String -> (Sig, Sig)
+readWav :: Sig -> String -> (Sig, Sig)
+loopWav :: Sig -> String -> (Sig, Sig)
+~~~
+
+The functions with `read` play the sound files only once.
+The functions with `loop` repeat over the sample over and over.
+With `loopSndBy` we can specify the time length of the loop period.
+The `readWav` and `loopWav` can read the file with given speed.
+The 1 is a normal speed. The -1 is playing in reverse.
+Negative speed works only for `loopWav`.
+
+So we can read our friends record like this:
+
+~~~{.haskell}
+sample = loopSnd "Composite.wav"
+~~~
+
+If we want only a portion of the sound to be played we can use the
+function:
+
+~~~{.haskell}
+takeSnd :: Sigs a => Sig -> a -> a
+~~~
+
+It takes only given amount of seconds from the input signal
+and fills the rest with silence.
+
+The first argument is signal, but often it's set with a constant
+or it's taken from signal on the moment of invocation (it's like a constant snapshot).
+the second type is a bit unusual: `Sigs a => a`.
+In Haskell notation it means anything which is signal-like.
+It means not only a signal but all sorts of tuples of signals.
+It's useful so that we can use the same function with mono and stereo or
+Dolby-surround audio signals.
+
+It's interesting that we can loop not
+only with samples but with regular signals too:
+
+~~~{.haskell}
+repeatSnd :: Sigs a => Sig -> a -> a
+~~~
+
+It loops the signal over given amount of time (in seconds).
+We can try it out:
+
+~~~{.haskell}
+> dac $ repeatSnd 3 $ leg 1 2 0 0 * osc 220
+~~~
+
+
+Tables (Tab)
+-------------------------------------
+
+We have studied the four main waveform functions: `osc`, `tri`, `saw`, `sqr`.
+But what if we want to create our own waveform. How can we do it?
+
+What if we want not a pure sine but two more partials. We want
+a sum of sine partials and a first harmonic with the amplitude of 1
+the second is with 0.5 and the third is with 0.125.
+
+We can do it with `osc`:
+
+~~~{.haskell}
+> wave x = mul (1/3) $ osc x + 0.5 * osc (2 * x) + 0.125 * osc (3 * x)
+> vdac $ midi $ onMsg $ mul (fades 0.1 0.5) . wave
+~~~
+
+But there is a better way for doing it. Actually the oscillator reads
+a table with a fixed waveform. It reads it with a given frequency and
+we can hear it as a pitch. Right now our function contains three `osc`.
+Each of them reads the same table. But the speed of reading is different.
+It would be much better if we could write the static waveform with
+three harmonics in it and read it with one oscillator. It would be much
+more efficient. Think about waveforms with more partials.
+
+We can achieve this with function:
+
+~~~{.haskell}
+oscBy :: Tab -> Sig -> Sig
+~~~
+
+It creates an oscillator with a custom waveform. The static waveform is encoded
+with value of type `Tab`. The `Tab` is for one dimensional table of doubles.
+In the Csound they are called functional tables. They can be created
+with GEN-routines. We don't need to create the tables directly. Like filling
+each cell with a value (going through the table in the loop). There are plenty
+of functions that can create specific tables.
+
+Right now we want to create a sum of partials or harmonic series.
+We can use the function sines:
+
+~~~{.haskell}
+sines :: [Double] -> Tab
+~~~
+
+Let's rewrite the example:
+
+~~~{.haskell}
+> wave x = oscBy (sines [1, 0.5, 0.125]) x
+> vdac $ midi $ onMsg $ mul (fades 0.1 0.5) . wave
+~~~
+
+You can appreciate the simplicity of these expressions
+if you try to make it directly in the Csound. But you don't
+need to! There are better ways and here is one of them.
+
+What if we want not 1, 2, and third partials but 1, 3, 7 and 11?
+We can use the function:
+
+~~~{.haskell}
+sines2 :: [(PartialNumber, PartialStrength)] -> Tab
+~~~
+
+It works like this:
+
+~~~{.haskell}
+> wave x = oscBy (sines2 [(1, 1), (3, 0.5), (7, 0.125), (11, 0.1)]) x
+~~~
+
+### The table size
+
+What is the size of the table? We can create the table of the given size.
+By default it's 8196. The more size the better is precision.
+For efficiency reason the tables size in most cases should be
+equal to some degree of 2. We can set the table size with one of the functions:
+
+~~~{.haskell}
+lllofi, llofi, lofi, midfi, hifi, hhifi, hhhifi :: Tab -> Tab
+~~~
+
+The `lllofi` is the lowest fidelity and the `hhhfi` is the highest fidelity.
+
+We can set the size explicitly with:
+
+~~~{.haskell}
+setSize :: Int -> Tab -> Tab
+~~~
+
+In many cases the table size should be the power of two, consult the
+corresponding docs for [Csound reference manual](http://csound.com/docs/manual/index.html)
+(see the section on GEN-routines).
+
+### The guard point
+
+If you are not familiar with Csound's conventions you are probably
+not aware of the fact that for efficiency reasons Csound requires
+that table size is equal to power of 2 or power of two plus one
+which stands for guard point (you do need guard point if your intention
+is to read the table once but you don't need the guard point if you
+read the table in many cycles, then the guard point is the the first point of your table).
+
+If we read the table once we have to set the guard point with function:
+
+~~~{.haskell}
+guardPoint :: Tab -> Tab
+~~~
+
+There is a short-cut called just `gp`. We should use it with `exps` or `lins`.
+
+### Specific tables
+
+There are a lot of GEN-routines [available](http://hackage.haskell.org/package/csound-expression/docs/Csound-Tab.html).
+Let's briefly discuss the most useful ones.
+
+We can write the specific numbers in the table if we want:
+
+~~~{.haskell}
+doubles :: [Double] -> Tab
+~~~
+
+Linear and exponential segments:
+
+~~~{.haskell}
+consts, lins, exps, cubes, splines :: [Double] -> Tab
+~~~
+
+Reads samples from files (the second argument is duration of an audio segment in seconds)
+
+~~~{.haskell}
+data WavChn = WavLeft | WavRight | WavAll
+data Mp3Chn = Mp3Mono | Mp3Stereo | Mp3Left | Mp3Right | Mp3All
+
+wavs :: String -> Double -> WavChn -> Tab
+mp3s :: String -> Double -> Mp3Chn
+~~~
+
+Harmonic series:
+
+~~~{.haskell}
+type PartialStrength = Double
+type PartialNumber   = Double
+type PartialPhase    = Double
+type PartialDC       = Double
+
+sines  :: [PartialStrength] -> Tab
+sines2 :: [(PartialNumber, PartialStrength)] -> Tab
+sines3 :: [(PartialNumber, PartialStrength, PartialPhase)] -> Tab
+sines4 :: [(PartialNumber, PartialStrength, PartialPhase, PartialDC)] -> Tab
+~~~
+
+Special cases for harmonic series:
+
+~~~{.haskell}
+sine, cosine, sigmoid :: Tab
+~~~
+
+There are other tables. We can find the complete list in the module [Csound.Tab](http://hackage.haskell.org/package/csound-expression/docs/Csound-Tab.html).
+In Csound the tables are created by specific integer identifiers but in CE they are defined with names (hopefully self-descriptive). If you are used
+to integer identifiers you can check out the names in the Appendix to the documentation of
+the [Csound.Tab](http://hackage.haskell.org/package/csound-expression/docs/Csound-Tab.html) module.
+
+Side effects (SE)
+------------------------------------------------
+
+The `SE`-type is for functions that work with side effects.
+They can produce effectful value or can be used just for the
+side effect.
+
+For example every function that generates random numbers
+uses the type `SE`.
+
+To get the white, pink or red (Brownian) noise we can use:
+
+~~~{.haskell}
+white :: SE Sig
+pink  :: SE Sig
+brown :: SE Sig
+~~~
+
+Let's listen to the white noise:
+
+~~~{.haskell}
+> dac $ mul 0.5 $ white
+~~~
+
+We can get the random numbers with linear interpolation.
+The output values lie in the range of -1 to 1:
+
+~~~{.haskell}
+rndi :: Sig -> SE Sig
+~~~
+
+The first argument is frequency of generated random numbers.
+We can get the constant random numbers (it's like sample and hold
+function with random numbers):
+
+~~~{.haskell}
+rndh :: Sig -> SE Sig
+~~~
+
+We can use the random number generators as LFO.
+The `SE` is a `Functor`, `Applicative` and `Monad`.
+Those are standard ways to manipulate values that are wrapped
+in some sort of behaviour or are containers.
+We rely on these properties to get the output.
+
+With `Functor` we can map over wrapped value:
+
+~~~{.haskell}
+> instr lfo = 0.5 * saw (440 + lfo)
+> dac $ mul 0.5 $ fmap instr (20 * rndi 5)
+~~~
+
+We use function `fmap`:
+
+~~~{.haskell}
+fmap :: Functor f => (a -> b) -> f a -> f b
+~~~
+
+There are unipolar variants: `urndh` and `urndi`.
+The output ranges form 0 to 1 for them.
+
+Note that the function `dac` can work not only signals but
+also on the signals that are wrapped in the type `SE`
+and also on all sorts signal-like or renderable values.
+
+Let's take a break and listen to the filtered pink noise:
+
+~~~haskell
+> dac $ mul 0.5 $ fmap (mlp (on 50 2500 $ tri 0.2) 0.3) $ pink
+~~~
+
+The function `on` is useful for mapping the range (-1, 1) to
+a different interval. In the expression `on 50 2500 $ tri 0.2`
+oscillation happens in the range `(50, 2500)`. There is another
+useful function `uon`. It's like `on` but it maps from the range `(0, 1)`.
+
+The essence of the `SE Sig` type lies in the usage of random values.
+In the pure code we can not distinguish between these two expressions:
+
+~~~haskell
+x1 =
+  let a = rndh 1
+  in a + a
+
+x2 = rndh 1 + rndh 1
+~~~
+
+For `x1` we want only one random value but
+for `x2` we want two random values.
+
+The value is just a tiny piece of code (we don't evaluate expressions
+but use them to generate Csound code).
+The renderer performs common subexpression elimination.
+So the examples above would be rendered in the same code.
+
+We need to tell to the renderer when we want two random values.
+Here comes the `SE` monad (Side Effects for short).
+
+~~~haskell
+x1 = do
+  a <- rndh 1
+  return $ a + a
+
+x2 = do
+  a1 <- rndh 1
+  a2 <- rndh 1
+  return $ a1 + a2
+~~~
+
+The SE was introduced to express the randomness.
+But then it was useful to express many other things.
+Procedures for instance. They don't produce signals
+but do something useful:
+
+~~~haskell
+procedure :: SE ()
+~~~
+
+The `SE` is used for allocation of delay buffers in the functions.
+
+~~~haskell
+deltap3 :: Sig -> SE Sig
+delayr :: D -> SE Sig
+delayw :: Sig -> SE ()
+~~~
+
+The `deltap3` is used to allocate the delay line. After allocation
+we can read and write to delay lines with `delayr` and `delayw`.
+
+The `SE` is used for allocation of local or global variables (see the type `SERef`
+in the module `Csound.Control.SE`).
+
+For convenience the `SE Sig` and `SE` of tuples of signals is instance of `Num`.
+We can sum and multiply the signals wrapped in the `SE`. The code is ok:
+
+~~~haskell
+> dac $ white + 0.5 * pink
+> dac $ white + return (osc 440)
+~~~
+
+
+Mutable values
+-------------------------------------------------
+
+We can create mutable variables. It works just like
+the normal Haskell mutable variables. We can create
+a reference and the we should use the functions
+on the reference to read and write values.
+
+There are two types of the variables: local and global variables.
+The local variables are visible only within one Csound instrument.
+The global variables are visible everywhere.
+
+
+We can create a reference to the mutable variable with functions:
+
+~~~{.haskell}
+newRef          :: Tuple a => a -> SE (Ref a)
+newGlobalRef    :: Tuple a => a -> SE (Ref a)
+~~~
+
+They take in an initial value and create a value of the type `Ref`:
+
+~~~{.haskell}
+data Ref a = Ref
+	{ writeRef :: a -> SE ()
+	, readRef  :: SE a
+	}
+~~~
+
+We can write and read values from reference.
+
+### Mutable values with control signals
+
+By default `newRef` or `newGlobalRef` create placeholders for audio-rate signals.
+But if we want them to hold control-rate signals we have to use special variants:
+
+~~~{.haskell}
+newCtrlRef          :: Tuple a => a -> SE (Ref a)
+newGlobalCtrlRef    :: Tuple a => a -> SE (Ref a)
+~~~
+
+If signals are created with them they are control-rate signals.
+
+Tuples (Tuple)
+-------------------------------------------------
+
+Some of the Csound functions are producing several outputs.
+Then the output is represented with `Tuple`. It's a special
+type class that contains all tuples of Csound values.
+
+There is a special case. The type `Unit`. It's Csound's alias
+for Haskell's `()`-type. It's here for implementation reasons.
+
+We have already encountered the tuples when we have studied
+the function `diskin2`.
+
+~~~{.haskell}
+diskin2 :: Tuple a => Str -> a
+~~~
+
+In Csound the functions can produce varied amount of arguments.
+The number of arguments is specified right in the code. But Haskell
+is different. The function can produce only certain number of arguments.
+To relax this rule we can use the special type class `Tuples`.
+Now we can return different number of arguments. But we have to
+specify them with type signature. There are helpers to make it easier:
+
+~~~{.haskell}
+ar1 :: Sig -> Sig
+ar2 :: (Sig, Sig) -> (Sig, Sig)
+ar3 :: (Sig, Sig, Sig) -> (Sig, Sig, Sig)
+ar4 :: (Sig, Sig, Sig, Sig) -> (Sig, Sig, Sig, Sig)
+~~~
+
+Also we can just specify the type of output:
+
+In the interpreter:
+
+~~~haskell
+> sample = diskin2 (text "fox.wav") :: Sig2
+> :t sample
+ sample :: Sig2
+~~~
+
+Or in the code:
+
+~~~haskell
+sample :: Sig2
+sample = diskin2 (text "fox.wav")
+~~~
+
+----------------------------------------------------
+
+* <= [Introduction](https://github.com/anton-k/csound-expression/blob/master/tutorial/chapters/Intro.md)
+
+* => [Signals everywhere](https://github.com/anton-k/csound-expression/blob/master/tutorial/chapters/SignalTfm.md)
+
+* [Home](https://github.com/anton-k/csound-expression/blob/master/tutorial/Index.md)

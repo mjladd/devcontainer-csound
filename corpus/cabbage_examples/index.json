@@ -1,0 +1,2814 @@
+{
+  "Effects": [
+    {
+      "name": "LoFi",
+      "file": "effects/LoFi.md",
+      "original": "Examples/Effects/Distortion/LoFi.csd"
+    },
+    {
+      "name": "Powershape",
+      "file": "effects/Powershape.md",
+      "original": "Examples/Effects/Distortion/Powershape.csd"
+    },
+    {
+      "name": "clip",
+      "file": "effects/clip.md",
+      "original": "Examples/Effects/Distortion/clip.csd"
+    },
+    {
+      "name": "pdclip",
+      "file": "effects/pdclip.md",
+      "original": "Examples/Effects/Distortion/pdclip.csd"
+    },
+    {
+      "name": "Compressor",
+      "file": "effects/Compressor.md",
+      "original": "Examples/Effects/Dynamics/Compressor.csd"
+    },
+    {
+      "name": "CompressorExpander",
+      "file": "effects/CompressorExpander.md",
+      "original": "Examples/Effects/Dynamics/CompressorExpander.csd"
+    },
+    {
+      "name": "Exciter",
+      "file": "effects/Exciter.md",
+      "original": "Examples/Effects/Dynamics/Exciter.csd"
+    },
+    {
+      "name": "Gate",
+      "file": "effects/Gate.md",
+      "original": "Examples/Effects/Dynamics/Gate.csd"
+    },
+    {
+      "name": "Limiter",
+      "file": "effects/Limiter.md",
+      "original": "Examples/Effects/Dynamics/Limiter.csd"
+    },
+    {
+      "name": "BandFilter",
+      "file": "effects/BandFilter.md",
+      "original": "Examples/Effects/Filters/BandFilter.csd"
+    },
+    {
+      "name": "BandFilterII",
+      "file": "effects/BandFilterII.md",
+      "original": "Examples/Effects/Filters/BandFilterII.csd"
+    },
+    {
+      "name": "CombFilters",
+      "file": "effects/CombFilters.md",
+      "original": "Examples/Effects/Filters/CombFilters.csd"
+    },
+    {
+      "name": "EnvelopeFollower",
+      "file": "effects/EnvelopeFollower.md",
+      "original": "Examples/Effects/Filters/EnvelopeFollower.csd"
+    },
+    {
+      "name": "FilterLFO",
+      "file": "effects/FilterLFO.md",
+      "original": "Examples/Effects/Filters/FilterLFO.csd"
+    },
+    {
+      "name": "FilterShaper",
+      "file": "effects/FilterShaper.md",
+      "original": "Examples/Effects/Filters/FilterShaper.csd"
+    },
+    {
+      "name": "FormantFilter",
+      "file": "effects/FormantFilter.md",
+      "original": "Examples/Effects/Filters/FormantFilter.csd"
+    },
+    {
+      "name": "HarpFilter",
+      "file": "effects/HarpFilter.md",
+      "original": "Examples/Effects/Filters/HarpFilter.csd"
+    },
+    {
+      "name": "HighpassFilter",
+      "file": "effects/HighpassFilter.md",
+      "original": "Examples/Effects/Filters/HighpassFilter.csd"
+    },
+    {
+      "name": "LowpassFilter",
+      "file": "effects/LowpassFilter.md",
+      "original": "Examples/Effects/Filters/LowpassFilter.csd"
+    },
+    {
+      "name": "Phaser1",
+      "file": "effects/Phaser1.md",
+      "original": "Examples/Effects/Filters/Phaser1.csd"
+    },
+    {
+      "name": "Phaser2",
+      "file": "effects/Phaser2.md",
+      "original": "Examples/Effects/Filters/Phaser2.csd"
+    },
+    {
+      "name": "Resonator",
+      "file": "effects/Resonator.md",
+      "original": "Examples/Effects/Filters/Resonator.csd"
+    },
+    {
+      "name": "Vocoder",
+      "file": "effects/Vocoder.md",
+      "original": "Examples/Effects/Filters/Vocoder.csd"
+    },
+    {
+      "name": "clfilt",
+      "file": "effects/clfilt.md",
+      "original": "Examples/Effects/Filters/clfilt.csd"
+    },
+    {
+      "name": "wguide1",
+      "file": "effects/wguide1.md",
+      "original": "Examples/Effects/Filters/wguide1.csd"
+    },
+    {
+      "name": "wguide2",
+      "file": "effects/wguide2.md",
+      "original": "Examples/Effects/Filters/wguide2.csd"
+    },
+    {
+      "name": "HRTF3D",
+      "file": "effects/HRTF3D.md",
+      "original": "Examples/Effects/Miscellaneous/HRTF3D.csd"
+    },
+    {
+      "name": "Tuner",
+      "file": "effects/Tuner.md",
+      "original": "Examples/Effects/Miscellaneous/Tuner.csd"
+    },
+    {
+      "name": "AutopanTremolo",
+      "file": "effects/AutopanTremolo.md",
+      "original": "Examples/Effects/Modulation/AutopanTremolo.csd"
+    },
+    {
+      "name": "Doppler",
+      "file": "effects/Doppler.md",
+      "original": "Examples/Effects/Modulation/Doppler.csd"
+    },
+    {
+      "name": "DopplerSpin",
+      "file": "effects/DopplerSpin.md",
+      "original": "Examples/Effects/Modulation/DopplerSpin.csd"
+    },
+    {
+      "name": "Flanger",
+      "file": "effects/Flanger.md",
+      "original": "Examples/Effects/Modulation/Flanger.csd"
+    },
+    {
+      "name": "FlutterChorus",
+      "file": "effects/FlutterChorus.md",
+      "original": "Examples/Effects/Modulation/FlutterChorus.csd"
+    },
+    {
+      "name": "LeslieSpeaker",
+      "file": "effects/LeslieSpeaker.md",
+      "original": "Examples/Effects/Modulation/LeslieSpeaker.csd"
+    },
+    {
+      "name": "PhaserLFO",
+      "file": "effects/PhaserLFO.md",
+      "original": "Examples/Effects/Modulation/PhaserLFO.csd"
+    },
+    {
+      "name": "Spatialiser",
+      "file": "effects/Spatialiser.md",
+      "original": "Examples/Effects/Modulation/Spatialiser.csd"
+    },
+    {
+      "name": "StereoChorus",
+      "file": "effects/StereoChorus.md",
+      "original": "Examples/Effects/Modulation/StereoChorus.csd"
+    },
+    {
+      "name": "Ball_in_a_Box",
+      "file": "effects/Ball_in_a_Box.md",
+      "original": "Examples/Effects/Reverbs/Ball_in_a_Box.csd"
+    },
+    {
+      "name": "ConvolutionReverb",
+      "file": "effects/ConvolutionReverb.md",
+      "original": "Examples/Effects/Reverbs/ConvolutionReverb.csd"
+    },
+    {
+      "name": "DistanceEmulator",
+      "file": "effects/DistanceEmulator.md",
+      "original": "Examples/Effects/Reverbs/DistanceEmulator.csd"
+    },
+    {
+      "name": "GateReverb",
+      "file": "effects/GateReverb.md",
+      "original": "Examples/Effects/Reverbs/GateReverb.csd"
+    },
+    {
+      "name": "MultiReverb",
+      "file": "effects/MultiReverb.md",
+      "original": "Examples/Effects/Reverbs/MultiReverb.csd"
+    },
+    {
+      "name": "ShimmerReverb",
+      "file": "effects/ShimmerReverb.md",
+      "original": "Examples/Effects/Reverbs/ShimmerReverb.csd"
+    },
+    {
+      "name": "BufferFreeze",
+      "file": "effects/BufferFreeze.md",
+      "original": "Examples/Effects/Spectral/BufferFreeze.csd"
+    },
+    {
+      "name": "FrequencyShifter",
+      "file": "effects/FrequencyShifter.md",
+      "original": "Examples/Effects/Spectral/FrequencyShifter.csd"
+    },
+    {
+      "name": "PitchShifter",
+      "file": "effects/PitchShifter.md",
+      "original": "Examples/Effects/Spectral/PitchShifter.csd"
+    },
+    {
+      "name": "RingModulator",
+      "file": "effects/RingModulator.md",
+      "original": "Examples/Effects/Spectral/RingModulator.csd"
+    },
+    {
+      "name": "Shredulator",
+      "file": "effects/Shredulator.md",
+      "original": "Examples/Effects/Spectral/Shredulator.csd"
+    },
+    {
+      "name": "SpectralEtcher",
+      "file": "effects/SpectralEtcher.md",
+      "original": "Examples/Effects/Spectral/SpectralEtcher.csd"
+    },
+    {
+      "name": "pvScale",
+      "file": "effects/pvScale.md",
+      "original": "Examples/Effects/Spectral/pvScale.csd"
+    },
+    {
+      "name": "pvShift",
+      "file": "effects/pvShift.md",
+      "original": "Examples/Effects/Spectral/pvShift.csd"
+    },
+    {
+      "name": "pvSmooth",
+      "file": "effects/pvSmooth.md",
+      "original": "Examples/Effects/Spectral/pvSmooth.csd"
+    },
+    {
+      "name": "pvsAdsyn",
+      "file": "effects/pvsAdsyn.md",
+      "original": "Examples/Effects/Spectral/pvsAdsyn.csd"
+    },
+    {
+      "name": "pvsBlur",
+      "file": "effects/pvsBlur.md",
+      "original": "Examples/Effects/Spectral/pvsBlur.csd"
+    },
+    {
+      "name": "pvsBuffer",
+      "file": "effects/pvsBuffer.md",
+      "original": "Examples/Effects/Spectral/pvsBuffer.csd"
+    },
+    {
+      "name": "pvsCross",
+      "file": "effects/pvsCross.md",
+      "original": "Examples/Effects/Spectral/pvsCross.csd"
+    },
+    {
+      "name": "pvsFreeze",
+      "file": "effects/pvsFreeze.md",
+      "original": "Examples/Effects/Spectral/pvsFreeze.csd"
+    },
+    {
+      "name": "pvsWarp",
+      "file": "effects/pvsWarp.md",
+      "original": "Examples/Effects/Spectral/pvsWarp.csd"
+    },
+    {
+      "name": "BounceDelay",
+      "file": "effects/BounceDelay.md",
+      "original": "Examples/Effects/Time/BounceDelay.csd"
+    },
+    {
+      "name": "BreakBeatCutter",
+      "file": "effects/BreakBeatCutter.md",
+      "original": "Examples/Effects/Time/BreakBeatCutter.csd"
+    },
+    {
+      "name": "CrossedDelays",
+      "file": "effects/CrossedDelays.md",
+      "original": "Examples/Effects/Time/CrossedDelays.csd"
+    },
+    {
+      "name": "DelayGrain",
+      "file": "effects/DelayGrain.md",
+      "original": "Examples/Effects/Time/DelayGrain.csd"
+    },
+    {
+      "name": "LiveSndwarp",
+      "file": "effects/LiveSndwarp.md",
+      "original": "Examples/Effects/Time/LiveSndwarp.csd"
+    },
+    {
+      "name": "ModulatingDelays",
+      "file": "effects/ModulatingDelays.md",
+      "original": "Examples/Effects/Time/ModulatingDelays.csd"
+    },
+    {
+      "name": "MultiModeDelay",
+      "file": "effects/MultiModeDelay.md",
+      "original": "Examples/Effects/Time/MultiModeDelay.csd"
+    },
+    {
+      "name": "MultitapDelay",
+      "file": "effects/MultitapDelay.md",
+      "original": "Examples/Effects/Time/MultitapDelay.csd"
+    },
+    {
+      "name": "NoWarpDelay",
+      "file": "effects/NoWarpDelay.md",
+      "original": "Examples/Effects/Time/NoWarpDelay.csd"
+    },
+    {
+      "name": "Peeaaoooh",
+      "file": "effects/Peeaaoooh.md",
+      "original": "Examples/Effects/Time/Peeaaoooh.csd"
+    },
+    {
+      "name": "Reverse",
+      "file": "effects/Reverse.md",
+      "original": "Examples/Effects/Time/Reverse.csd"
+    },
+    {
+      "name": "SpectralDelay",
+      "file": "effects/SpectralDelay.md",
+      "original": "Examples/Effects/Time/SpectralDelay.csd"
+    },
+    {
+      "name": "SpringReverb",
+      "file": "effects/SpringReverb.md",
+      "original": "Examples/Effects/Time/SpringReverb.csd"
+    },
+    {
+      "name": "StuckBuffer",
+      "file": "effects/StuckBuffer.md",
+      "original": "Examples/Effects/Time/StuckBuffer.csd"
+    },
+    {
+      "name": "TempoDelay",
+      "file": "effects/TempoDelay.md",
+      "original": "Examples/Effects/Time/TempoDelay.csd"
+    },
+    {
+      "name": "TimeSlip",
+      "file": "effects/TimeSlip.md",
+      "original": "Examples/Effects/Time/TimeSlip.csd"
+    },
+    {
+      "name": "TriggerDelay",
+      "file": "effects/TriggerDelay.md",
+      "original": "Examples/Effects/Time/TriggerDelay.csd"
+    },
+    {
+      "name": "UrsaMajorSpaceStationCabbage",
+      "file": "effects/UrsaMajorSpaceStationCabbage.md",
+      "original": "Examples/Effects/Time/UrsaMajorSpaceStationCabbage.csd"
+    },
+    {
+      "name": "waveset",
+      "file": "effects/waveset.md",
+      "original": "Examples/Effects/Time/waveset.csd"
+    },
+    {
+      "name": "FogFilePlayer",
+      "file": "effects/FogFilePlayer.md",
+      "original": "Examples/FilePlayers/FogFilePlayer.csd"
+    },
+    {
+      "name": "Grain3FilePlayer",
+      "file": "effects/Grain3FilePlayer.md",
+      "original": "Examples/FilePlayers/Grain3FilePlayer.csd"
+    },
+    {
+      "name": "TimeBandit",
+      "file": "effects/TimeBandit.md",
+      "original": "Examples/FilePlayers/TimeBandit.csd"
+    },
+    {
+      "name": "Air Raid Siren",
+      "file": "effects/Air Raid Siren.md",
+      "original": "Examples/FunAndGames/Air Raid Siren.csd"
+    },
+    {
+      "name": "Bubbles",
+      "file": "effects/Bubbles.md",
+      "original": "Examples/FunAndGames/Bubbles.csd"
+    },
+    {
+      "name": "Demolition",
+      "file": "effects/Demolition.md",
+      "original": "Examples/FunAndGames/Demolition.csd"
+    },
+    {
+      "name": "Electricity",
+      "file": "effects/Electricity.md",
+      "original": "Examples/FunAndGames/Electricity.csd"
+    },
+    {
+      "name": "PebblesInAPond",
+      "file": "effects/PebblesInAPond.md",
+      "original": "Examples/FunAndGames/PebblesInAPond.csd"
+    },
+    {
+      "name": "PianoPhase",
+      "file": "effects/PianoPhase.md",
+      "original": "Examples/FunAndGames/PianoPhase.csd"
+    },
+    {
+      "name": "PingClang",
+      "file": "effects/PingClang.md",
+      "original": "Examples/FunAndGames/PingClang.csd"
+    },
+    {
+      "name": "Rhythmicon",
+      "file": "effects/Rhythmicon.md",
+      "original": "Examples/FunAndGames/Rhythmicon.csd"
+    },
+    {
+      "name": "River",
+      "file": "effects/River.md",
+      "original": "Examples/FunAndGames/River.csd"
+    },
+    {
+      "name": "Shower",
+      "file": "effects/Shower.md",
+      "original": "Examples/FunAndGames/Shower.csd"
+    },
+    {
+      "name": "Splat!",
+      "file": "effects/Splat!.md",
+      "original": "Examples/FunAndGames/Splat!.csd"
+    },
+    {
+      "name": "sonic_lava_lamp",
+      "file": "effects/sonic_lava_lamp.md",
+      "original": "Examples/FunAndGames/sonic_lava_lamp.csd"
+    },
+    {
+      "name": "GEN02",
+      "file": "effects/GEN02.md",
+      "original": "Examples/GEN/GEN02.csd"
+    },
+    {
+      "name": "GEN08",
+      "file": "effects/GEN08.md",
+      "original": "Examples/GEN/GEN08.csd"
+    },
+    {
+      "name": "GEN16",
+      "file": "effects/GEN16.md",
+      "original": "Examples/GEN/GEN16.csd"
+    },
+    {
+      "name": "GEN17",
+      "file": "effects/GEN17.md",
+      "original": "Examples/GEN/GEN17.csd"
+    },
+    {
+      "name": "GEN19",
+      "file": "effects/GEN19.md",
+      "original": "Examples/GEN/GEN19.csd"
+    },
+    {
+      "name": "GEN33",
+      "file": "effects/GEN33.md",
+      "original": "Examples/GEN/GEN33.csd"
+    },
+    {
+      "name": "GEN41",
+      "file": "effects/GEN41.md",
+      "original": "Examples/GEN/GEN41.csd"
+    },
+    {
+      "name": "GEN42",
+      "file": "effects/GEN42.md",
+      "original": "Examples/GEN/GEN42.csd"
+    },
+    {
+      "name": "StormyWeather",
+      "file": "effects/StormyWeather.md",
+      "original": "Examples/ProceduralAudio/StormyWeather.csd"
+    },
+    {
+      "name": "LoFi",
+      "file": "effects/LoFi.md",
+      "original": "examples/Effects/Distortion/LoFi.csd"
+    },
+    {
+      "name": "Powershape",
+      "file": "effects/Powershape.md",
+      "original": "examples/Effects/Distortion/Powershape.csd"
+    },
+    {
+      "name": "clip",
+      "file": "effects/clip.md",
+      "original": "examples/Effects/Distortion/clip.csd"
+    },
+    {
+      "name": "pdclip",
+      "file": "effects/pdclip.md",
+      "original": "examples/Effects/Distortion/pdclip.csd"
+    },
+    {
+      "name": "Compressor",
+      "file": "effects/Compressor.md",
+      "original": "examples/Effects/Dynamics/Compressor.csd"
+    },
+    {
+      "name": "CompressorExpander",
+      "file": "effects/CompressorExpander.md",
+      "original": "examples/Effects/Dynamics/CompressorExpander.csd"
+    },
+    {
+      "name": "Exciter",
+      "file": "effects/Exciter.md",
+      "original": "examples/Effects/Dynamics/Exciter.csd"
+    },
+    {
+      "name": "Gate",
+      "file": "effects/Gate.md",
+      "original": "examples/Effects/Dynamics/Gate.csd"
+    },
+    {
+      "name": "Limiter",
+      "file": "effects/Limiter.md",
+      "original": "examples/Effects/Dynamics/Limiter.csd"
+    },
+    {
+      "name": "BandFilter",
+      "file": "effects/BandFilter.md",
+      "original": "examples/Effects/Filters/BandFilter.csd"
+    },
+    {
+      "name": "BandFilterII",
+      "file": "effects/BandFilterII.md",
+      "original": "examples/Effects/Filters/BandFilterII.csd"
+    },
+    {
+      "name": "CombFilters",
+      "file": "effects/CombFilters.md",
+      "original": "examples/Effects/Filters/CombFilters.csd"
+    },
+    {
+      "name": "EnvelopeFollower",
+      "file": "effects/EnvelopeFollower.md",
+      "original": "examples/Effects/Filters/EnvelopeFollower.csd"
+    },
+    {
+      "name": "FilterLFO",
+      "file": "effects/FilterLFO.md",
+      "original": "examples/Effects/Filters/FilterLFO.csd"
+    },
+    {
+      "name": "FilterShaper",
+      "file": "effects/FilterShaper.md",
+      "original": "examples/Effects/Filters/FilterShaper.csd"
+    },
+    {
+      "name": "FormantFilter",
+      "file": "effects/FormantFilter.md",
+      "original": "examples/Effects/Filters/FormantFilter.csd"
+    },
+    {
+      "name": "HarpFilter",
+      "file": "effects/HarpFilter.md",
+      "original": "examples/Effects/Filters/HarpFilter.csd"
+    },
+    {
+      "name": "HighpassFilter",
+      "file": "effects/HighpassFilter.md",
+      "original": "examples/Effects/Filters/HighpassFilter.csd"
+    },
+    {
+      "name": "LowpassFilter",
+      "file": "effects/LowpassFilter.md",
+      "original": "examples/Effects/Filters/LowpassFilter.csd"
+    },
+    {
+      "name": "Phaser1",
+      "file": "effects/Phaser1.md",
+      "original": "examples/Effects/Filters/Phaser1.csd"
+    },
+    {
+      "name": "Phaser2",
+      "file": "effects/Phaser2.md",
+      "original": "examples/Effects/Filters/Phaser2.csd"
+    },
+    {
+      "name": "Resonator",
+      "file": "effects/Resonator.md",
+      "original": "examples/Effects/Filters/Resonator.csd"
+    },
+    {
+      "name": "Vocoder",
+      "file": "effects/Vocoder.md",
+      "original": "examples/Effects/Filters/Vocoder.csd"
+    },
+    {
+      "name": "clfilt",
+      "file": "effects/clfilt.md",
+      "original": "examples/Effects/Filters/clfilt.csd"
+    },
+    {
+      "name": "wguide1",
+      "file": "effects/wguide1.md",
+      "original": "examples/Effects/Filters/wguide1.csd"
+    },
+    {
+      "name": "wguide2",
+      "file": "effects/wguide2.md",
+      "original": "examples/Effects/Filters/wguide2.csd"
+    },
+    {
+      "name": "HRTF3D",
+      "file": "effects/HRTF3D.md",
+      "original": "examples/Effects/Miscellaneous/HRTF3D.csd"
+    },
+    {
+      "name": "Tuner",
+      "file": "effects/Tuner.md",
+      "original": "examples/Effects/Miscellaneous/Tuner.csd"
+    },
+    {
+      "name": "AutopanTremolo",
+      "file": "effects/AutopanTremolo.md",
+      "original": "examples/Effects/Modulation/AutopanTremolo.csd"
+    },
+    {
+      "name": "Doppler",
+      "file": "effects/Doppler.md",
+      "original": "examples/Effects/Modulation/Doppler.csd"
+    },
+    {
+      "name": "DopplerSpin",
+      "file": "effects/DopplerSpin.md",
+      "original": "examples/Effects/Modulation/DopplerSpin.csd"
+    },
+    {
+      "name": "Flanger",
+      "file": "effects/Flanger.md",
+      "original": "examples/Effects/Modulation/Flanger.csd"
+    },
+    {
+      "name": "FlutterChorus",
+      "file": "effects/FlutterChorus.md",
+      "original": "examples/Effects/Modulation/FlutterChorus.csd"
+    },
+    {
+      "name": "LeslieSpeaker",
+      "file": "effects/LeslieSpeaker.md",
+      "original": "examples/Effects/Modulation/LeslieSpeaker.csd"
+    },
+    {
+      "name": "PhaserLFO",
+      "file": "effects/PhaserLFO.md",
+      "original": "examples/Effects/Modulation/PhaserLFO.csd"
+    },
+    {
+      "name": "Spatialiser",
+      "file": "effects/Spatialiser.md",
+      "original": "examples/Effects/Modulation/Spatialiser.csd"
+    },
+    {
+      "name": "StereoChorus",
+      "file": "effects/StereoChorus.md",
+      "original": "examples/Effects/Modulation/StereoChorus.csd"
+    },
+    {
+      "name": "Ball_in_a_Box",
+      "file": "effects/Ball_in_a_Box.md",
+      "original": "examples/Effects/Reverbs/Ball_in_a_Box.csd"
+    },
+    {
+      "name": "ConvolutionReverb",
+      "file": "effects/ConvolutionReverb.md",
+      "original": "examples/Effects/Reverbs/ConvolutionReverb.csd"
+    },
+    {
+      "name": "DistanceEmulator",
+      "file": "effects/DistanceEmulator.md",
+      "original": "examples/Effects/Reverbs/DistanceEmulator.csd"
+    },
+    {
+      "name": "GateReverb",
+      "file": "effects/GateReverb.md",
+      "original": "examples/Effects/Reverbs/GateReverb.csd"
+    },
+    {
+      "name": "MultiReverb",
+      "file": "effects/MultiReverb.md",
+      "original": "examples/Effects/Reverbs/MultiReverb.csd"
+    },
+    {
+      "name": "ShimmerReverb",
+      "file": "effects/ShimmerReverb.md",
+      "original": "examples/Effects/Reverbs/ShimmerReverb.csd"
+    },
+    {
+      "name": "BufferFreeze",
+      "file": "effects/BufferFreeze.md",
+      "original": "examples/Effects/Spectral/BufferFreeze.csd"
+    },
+    {
+      "name": "FrequencyShifter",
+      "file": "effects/FrequencyShifter.md",
+      "original": "examples/Effects/Spectral/FrequencyShifter.csd"
+    },
+    {
+      "name": "PitchShifter",
+      "file": "effects/PitchShifter.md",
+      "original": "examples/Effects/Spectral/PitchShifter.csd"
+    },
+    {
+      "name": "RingModulator",
+      "file": "effects/RingModulator.md",
+      "original": "examples/Effects/Spectral/RingModulator.csd"
+    },
+    {
+      "name": "Shredulator",
+      "file": "effects/Shredulator.md",
+      "original": "examples/Effects/Spectral/Shredulator.csd"
+    },
+    {
+      "name": "SpectralEtcher",
+      "file": "effects/SpectralEtcher.md",
+      "original": "examples/Effects/Spectral/SpectralEtcher.csd"
+    },
+    {
+      "name": "pvScale",
+      "file": "effects/pvScale.md",
+      "original": "examples/Effects/Spectral/pvScale.csd"
+    },
+    {
+      "name": "pvShift",
+      "file": "effects/pvShift.md",
+      "original": "examples/Effects/Spectral/pvShift.csd"
+    },
+    {
+      "name": "pvSmooth",
+      "file": "effects/pvSmooth.md",
+      "original": "examples/Effects/Spectral/pvSmooth.csd"
+    },
+    {
+      "name": "pvsAdsyn",
+      "file": "effects/pvsAdsyn.md",
+      "original": "examples/Effects/Spectral/pvsAdsyn.csd"
+    },
+    {
+      "name": "pvsBlur",
+      "file": "effects/pvsBlur.md",
+      "original": "examples/Effects/Spectral/pvsBlur.csd"
+    },
+    {
+      "name": "pvsBuffer",
+      "file": "effects/pvsBuffer.md",
+      "original": "examples/Effects/Spectral/pvsBuffer.csd"
+    },
+    {
+      "name": "pvsCross",
+      "file": "effects/pvsCross.md",
+      "original": "examples/Effects/Spectral/pvsCross.csd"
+    },
+    {
+      "name": "pvsFreeze",
+      "file": "effects/pvsFreeze.md",
+      "original": "examples/Effects/Spectral/pvsFreeze.csd"
+    },
+    {
+      "name": "pvsWarp",
+      "file": "effects/pvsWarp.md",
+      "original": "examples/Effects/Spectral/pvsWarp.csd"
+    },
+    {
+      "name": "BounceDelay",
+      "file": "effects/BounceDelay.md",
+      "original": "examples/Effects/Time/BounceDelay.csd"
+    },
+    {
+      "name": "BreakBeatCutter",
+      "file": "effects/BreakBeatCutter.md",
+      "original": "examples/Effects/Time/BreakBeatCutter.csd"
+    },
+    {
+      "name": "CrossedDelays",
+      "file": "effects/CrossedDelays.md",
+      "original": "examples/Effects/Time/CrossedDelays.csd"
+    },
+    {
+      "name": "DelayGrain",
+      "file": "effects/DelayGrain.md",
+      "original": "examples/Effects/Time/DelayGrain.csd"
+    },
+    {
+      "name": "LiveSndwarp",
+      "file": "effects/LiveSndwarp.md",
+      "original": "examples/Effects/Time/LiveSndwarp.csd"
+    },
+    {
+      "name": "ModulatingDelays",
+      "file": "effects/ModulatingDelays.md",
+      "original": "examples/Effects/Time/ModulatingDelays.csd"
+    },
+    {
+      "name": "MultiModeDelay",
+      "file": "effects/MultiModeDelay.md",
+      "original": "examples/Effects/Time/MultiModeDelay.csd"
+    },
+    {
+      "name": "MultitapDelay",
+      "file": "effects/MultitapDelay.md",
+      "original": "examples/Effects/Time/MultitapDelay.csd"
+    },
+    {
+      "name": "NoWarpDelay",
+      "file": "effects/NoWarpDelay.md",
+      "original": "examples/Effects/Time/NoWarpDelay.csd"
+    },
+    {
+      "name": "Peeaaoooh",
+      "file": "effects/Peeaaoooh.md",
+      "original": "examples/Effects/Time/Peeaaoooh.csd"
+    },
+    {
+      "name": "Reverse",
+      "file": "effects/Reverse.md",
+      "original": "examples/Effects/Time/Reverse.csd"
+    },
+    {
+      "name": "SpectralDelay",
+      "file": "effects/SpectralDelay.md",
+      "original": "examples/Effects/Time/SpectralDelay.csd"
+    },
+    {
+      "name": "SpringReverb",
+      "file": "effects/SpringReverb.md",
+      "original": "examples/Effects/Time/SpringReverb.csd"
+    },
+    {
+      "name": "StuckBuffer",
+      "file": "effects/StuckBuffer.md",
+      "original": "examples/Effects/Time/StuckBuffer.csd"
+    },
+    {
+      "name": "TempoDelay",
+      "file": "effects/TempoDelay.md",
+      "original": "examples/Effects/Time/TempoDelay.csd"
+    },
+    {
+      "name": "TimeSlip",
+      "file": "effects/TimeSlip.md",
+      "original": "examples/Effects/Time/TimeSlip.csd"
+    },
+    {
+      "name": "TriggerDelay",
+      "file": "effects/TriggerDelay.md",
+      "original": "examples/Effects/Time/TriggerDelay.csd"
+    },
+    {
+      "name": "UrsaMajorSpaceStationCabbage",
+      "file": "effects/UrsaMajorSpaceStationCabbage.md",
+      "original": "examples/Effects/Time/UrsaMajorSpaceStationCabbage.csd"
+    },
+    {
+      "name": "waveset",
+      "file": "effects/waveset.md",
+      "original": "examples/Effects/Time/waveset.csd"
+    },
+    {
+      "name": "FogFilePlayer",
+      "file": "effects/FogFilePlayer.md",
+      "original": "examples/FilePlayers/FogFilePlayer.csd"
+    },
+    {
+      "name": "Grain3FilePlayer",
+      "file": "effects/Grain3FilePlayer.md",
+      "original": "examples/FilePlayers/Grain3FilePlayer.csd"
+    },
+    {
+      "name": "TimeBandit",
+      "file": "effects/TimeBandit.md",
+      "original": "examples/FilePlayers/TimeBandit.csd"
+    },
+    {
+      "name": "Air Raid Siren",
+      "file": "effects/Air Raid Siren.md",
+      "original": "examples/FunAndGames/Air Raid Siren.csd"
+    },
+    {
+      "name": "Bubbles",
+      "file": "effects/Bubbles.md",
+      "original": "examples/FunAndGames/Bubbles.csd"
+    },
+    {
+      "name": "Demolition",
+      "file": "effects/Demolition.md",
+      "original": "examples/FunAndGames/Demolition.csd"
+    },
+    {
+      "name": "Electricity",
+      "file": "effects/Electricity.md",
+      "original": "examples/FunAndGames/Electricity.csd"
+    },
+    {
+      "name": "PebblesInAPond",
+      "file": "effects/PebblesInAPond.md",
+      "original": "examples/FunAndGames/PebblesInAPond.csd"
+    },
+    {
+      "name": "PianoPhase",
+      "file": "effects/PianoPhase.md",
+      "original": "examples/FunAndGames/PianoPhase.csd"
+    },
+    {
+      "name": "PingClang",
+      "file": "effects/PingClang.md",
+      "original": "examples/FunAndGames/PingClang.csd"
+    },
+    {
+      "name": "Rhythmicon",
+      "file": "effects/Rhythmicon.md",
+      "original": "examples/FunAndGames/Rhythmicon.csd"
+    },
+    {
+      "name": "River",
+      "file": "effects/River.md",
+      "original": "examples/FunAndGames/River.csd"
+    },
+    {
+      "name": "Shower",
+      "file": "effects/Shower.md",
+      "original": "examples/FunAndGames/Shower.csd"
+    },
+    {
+      "name": "Splat!",
+      "file": "effects/Splat!.md",
+      "original": "examples/FunAndGames/Splat!.csd"
+    },
+    {
+      "name": "sonic_lava_lamp",
+      "file": "effects/sonic_lava_lamp.md",
+      "original": "examples/FunAndGames/sonic_lava_lamp.csd"
+    },
+    {
+      "name": "GEN02",
+      "file": "effects/GEN02.md",
+      "original": "examples/GEN/GEN02.csd"
+    },
+    {
+      "name": "GEN08",
+      "file": "effects/GEN08.md",
+      "original": "examples/GEN/GEN08.csd"
+    },
+    {
+      "name": "GEN16",
+      "file": "effects/GEN16.md",
+      "original": "examples/GEN/GEN16.csd"
+    },
+    {
+      "name": "GEN17",
+      "file": "effects/GEN17.md",
+      "original": "examples/GEN/GEN17.csd"
+    },
+    {
+      "name": "GEN19",
+      "file": "effects/GEN19.md",
+      "original": "examples/GEN/GEN19.csd"
+    },
+    {
+      "name": "GEN33",
+      "file": "effects/GEN33.md",
+      "original": "examples/GEN/GEN33.csd"
+    },
+    {
+      "name": "GEN41",
+      "file": "effects/GEN41.md",
+      "original": "examples/GEN/GEN41.csd"
+    },
+    {
+      "name": "GEN42",
+      "file": "effects/GEN42.md",
+      "original": "examples/GEN/GEN42.csd"
+    },
+    {
+      "name": "StormyWeather",
+      "file": "effects/StormyWeather.md",
+      "original": "examples/ProceduralAudio/StormyWeather.csd"
+    }
+  ],
+  "General": [
+    {
+      "name": "DiskinFilePlayer",
+      "file": "general/DiskinFilePlayer.md",
+      "original": "Examples/FilePlayers/DiskinFilePlayer.csd"
+    },
+    {
+      "name": "FileRecorder",
+      "file": "general/FileRecorder.md",
+      "original": "Examples/FilePlayers/FileRecorder.csd"
+    },
+    {
+      "name": "FileStretcher",
+      "file": "general/FileStretcher.md",
+      "original": "Examples/FilePlayers/FileStretcher.csd"
+    },
+    {
+      "name": "FileVocoder",
+      "file": "general/FileVocoder.md",
+      "original": "Examples/FilePlayers/FileVocoder.csd"
+    },
+    {
+      "name": "Flooper2FilePlayer",
+      "file": "general/Flooper2FilePlayer.md",
+      "original": "Examples/FilePlayers/Flooper2FilePlayer.csd"
+    },
+    {
+      "name": "SoundwarpFilePlayer",
+      "file": "general/SoundwarpFilePlayer.md",
+      "original": "Examples/FilePlayers/SoundwarpFilePlayer.csd"
+    },
+    {
+      "name": "SyncgrainFilePlayer",
+      "file": "general/SyncgrainFilePlayer.md",
+      "original": "Examples/FilePlayers/SyncgrainFilePlayer.csd"
+    },
+    {
+      "name": "TemposcalFilePlayer",
+      "file": "general/TemposcalFilePlayer.md",
+      "original": "Examples/FilePlayers/TemposcalFilePlayer.csd"
+    },
+    {
+      "name": "granuleFilePlayer",
+      "file": "general/granuleFilePlayer.md",
+      "original": "Examples/FilePlayers/granuleFilePlayer.csd"
+    },
+    {
+      "name": "Windmills",
+      "file": "general/Windmills.md",
+      "original": "Examples/FunAndGames/Windmills.csd"
+    },
+    {
+      "name": "GEN05",
+      "file": "general/GEN05.md",
+      "original": "Examples/GEN/GEN05.csd"
+    },
+    {
+      "name": "GEN07",
+      "file": "general/GEN07.md",
+      "original": "Examples/GEN/GEN07.csd"
+    },
+    {
+      "name": "MouseSense",
+      "file": "general/MouseSense.md",
+      "original": "Examples/Instructional/MouseSense.csd"
+    },
+    {
+      "name": "RealtimeScoreEvents",
+      "file": "general/RealtimeScoreEvents.md",
+      "original": "Examples/Instructional/RealtimeScoreEvents.csd"
+    },
+    {
+      "name": "DiskRecPlay",
+      "file": "general/DiskRecPlay.md",
+      "original": "Examples/LiveSampling/DiskRecPlay.csd"
+    },
+    {
+      "name": "PvsRecPlay",
+      "file": "general/PvsRecPlay.md",
+      "original": "Examples/LiveSampling/PvsRecPlay.csd"
+    },
+    {
+      "name": "TabRecPlay",
+      "file": "general/TabRecPlay.md",
+      "original": "Examples/LiveSampling/TabRecPlay.csd"
+    },
+    {
+      "name": "EnGarde",
+      "file": "general/EnGarde.md",
+      "original": "Examples/ProceduralAudio/EnGarde.csd"
+    },
+    {
+      "name": "LogFire",
+      "file": "general/LogFire.md",
+      "original": "Examples/ProceduralAudio/LogFire.csd"
+    },
+    {
+      "name": "DiskinFilePlayer",
+      "file": "general/DiskinFilePlayer.md",
+      "original": "examples/FilePlayers/DiskinFilePlayer.csd"
+    },
+    {
+      "name": "FileRecorder",
+      "file": "general/FileRecorder.md",
+      "original": "examples/FilePlayers/FileRecorder.csd"
+    },
+    {
+      "name": "FileStretcher",
+      "file": "general/FileStretcher.md",
+      "original": "examples/FilePlayers/FileStretcher.csd"
+    },
+    {
+      "name": "FileVocoder",
+      "file": "general/FileVocoder.md",
+      "original": "examples/FilePlayers/FileVocoder.csd"
+    },
+    {
+      "name": "Flooper2FilePlayer",
+      "file": "general/Flooper2FilePlayer.md",
+      "original": "examples/FilePlayers/Flooper2FilePlayer.csd"
+    },
+    {
+      "name": "SoundwarpFilePlayer",
+      "file": "general/SoundwarpFilePlayer.md",
+      "original": "examples/FilePlayers/SoundwarpFilePlayer.csd"
+    },
+    {
+      "name": "SyncgrainFilePlayer",
+      "file": "general/SyncgrainFilePlayer.md",
+      "original": "examples/FilePlayers/SyncgrainFilePlayer.csd"
+    },
+    {
+      "name": "TemposcalFilePlayer",
+      "file": "general/TemposcalFilePlayer.md",
+      "original": "examples/FilePlayers/TemposcalFilePlayer.csd"
+    },
+    {
+      "name": "granuleFilePlayer",
+      "file": "general/granuleFilePlayer.md",
+      "original": "examples/FilePlayers/granuleFilePlayer.csd"
+    },
+    {
+      "name": "Windmills",
+      "file": "general/Windmills.md",
+      "original": "examples/FunAndGames/Windmills.csd"
+    },
+    {
+      "name": "GEN05",
+      "file": "general/GEN05.md",
+      "original": "examples/GEN/GEN05.csd"
+    },
+    {
+      "name": "GEN07",
+      "file": "general/GEN07.md",
+      "original": "examples/GEN/GEN07.csd"
+    },
+    {
+      "name": "MouseSense",
+      "file": "general/MouseSense.md",
+      "original": "examples/Instructional/MouseSense.csd"
+    },
+    {
+      "name": "RealtimeScoreEvents",
+      "file": "general/RealtimeScoreEvents.md",
+      "original": "examples/Instructional/RealtimeScoreEvents.csd"
+    },
+    {
+      "name": "DiskRecPlay",
+      "file": "general/DiskRecPlay.md",
+      "original": "examples/LiveSampling/DiskRecPlay.csd"
+    },
+    {
+      "name": "PvsRecPlay",
+      "file": "general/PvsRecPlay.md",
+      "original": "examples/LiveSampling/PvsRecPlay.csd"
+    },
+    {
+      "name": "TabRecPlay",
+      "file": "general/TabRecPlay.md",
+      "original": "examples/LiveSampling/TabRecPlay.csd"
+    },
+    {
+      "name": "EnGarde",
+      "file": "general/EnGarde.md",
+      "original": "examples/ProceduralAudio/EnGarde.csd"
+    },
+    {
+      "name": "LogFire",
+      "file": "general/LogFire.md",
+      "original": "examples/ProceduralAudio/LogFire.csd"
+    }
+  ],
+  "Synthesizers": [
+    {
+      "name": "LoscilFilePlayer",
+      "file": "synthesizers/LoscilFilePlayer.md",
+      "original": "Examples/FilePlayers/LoscilFilePlayer.csd"
+    },
+    {
+      "name": "MincerFilePlayer",
+      "file": "synthesizers/MincerFilePlayer.md",
+      "original": "Examples/FilePlayers/MincerFilePlayer.csd"
+    },
+    {
+      "name": "Table3FilePlayer",
+      "file": "synthesizers/Table3FilePlayer.md",
+      "original": "Examples/FilePlayers/Table3FilePlayer.csd"
+    },
+    {
+      "name": "GEN08_Envelopes",
+      "file": "synthesizers/GEN08_Envelopes.md",
+      "original": "Examples/GEN/GEN08_Envelopes.csd"
+    },
+    {
+      "name": "GEN09",
+      "file": "synthesizers/GEN09.md",
+      "original": "Examples/GEN/GEN09.csd"
+    },
+    {
+      "name": "GEN10",
+      "file": "synthesizers/GEN10.md",
+      "original": "Examples/GEN/GEN10.csd"
+    },
+    {
+      "name": "GEN11",
+      "file": "synthesizers/GEN11.md",
+      "original": "Examples/GEN/GEN11.csd"
+    },
+    {
+      "name": "GEN20",
+      "file": "synthesizers/GEN20.md",
+      "original": "Examples/GEN/GEN20.csd"
+    },
+    {
+      "name": "GEN21",
+      "file": "synthesizers/GEN21.md",
+      "original": "Examples/GEN/GEN21.csd"
+    },
+    {
+      "name": "GEN30",
+      "file": "synthesizers/GEN30.md",
+      "original": "Examples/GEN/GEN30.csd"
+    },
+    {
+      "name": "ADSR_Envelope",
+      "file": "synthesizers/ADSR_Envelope.md",
+      "original": "Examples/Instructional/ADSR_Envelope.csd"
+    },
+    {
+      "name": "DrumPads",
+      "file": "synthesizers/DrumPads.md",
+      "original": "Examples/Instruments/DrumMachines/DrumPads.csd"
+    },
+    {
+      "name": "MiniPops",
+      "file": "synthesizers/MiniPops.md",
+      "original": "Examples/Instruments/DrumMachines/MiniPops.csd"
+    },
+    {
+      "name": "TR-808",
+      "file": "synthesizers/TR-808.md",
+      "original": "Examples/Instruments/DrumMachines/TR-808.csd"
+    },
+    {
+      "name": "Bounce",
+      "file": "synthesizers/Bounce.md",
+      "original": "Examples/Instruments/Miscellaneous/Bounce.csd"
+    },
+    {
+      "name": "BouncingObject",
+      "file": "synthesizers/BouncingObject.md",
+      "original": "Examples/Instruments/Miscellaneous/BouncingObject.csd"
+    },
+    {
+      "name": "CellularAutomata",
+      "file": "synthesizers/CellularAutomata.md",
+      "original": "Examples/Instruments/Miscellaneous/CellularAutomata.csd"
+    },
+    {
+      "name": "ImageSliders",
+      "file": "synthesizers/ImageSliders.md",
+      "original": "Examples/Instruments/Miscellaneous/ImageSliders.csd"
+    },
+    {
+      "name": "ImageSwitches",
+      "file": "synthesizers/ImageSwitches.md",
+      "original": "Examples/Instruments/Miscellaneous/ImageSwitches.csd"
+    },
+    {
+      "name": "LorenzSynth",
+      "file": "synthesizers/LorenzSynth.md",
+      "original": "Examples/Instruments/Miscellaneous/LorenzSynth.csd"
+    },
+    {
+      "name": "Metronome",
+      "file": "synthesizers/Metronome.md",
+      "original": "Examples/Instruments/Miscellaneous/Metronome.csd"
+    },
+    {
+      "name": "Micropolyphony",
+      "file": "synthesizers/Micropolyphony.md",
+      "original": "Examples/Instruments/Miscellaneous/Micropolyphony.csd"
+    },
+    {
+      "name": "PendulumWaves",
+      "file": "synthesizers/PendulumWaves.md",
+      "original": "Examples/Instruments/Miscellaneous/PendulumWaves.csd"
+    },
+    {
+      "name": "Dust",
+      "file": "synthesizers/Dust.md",
+      "original": "Examples/Instruments/Noise/Dust.csd"
+    },
+    {
+      "name": "FractalNoise",
+      "file": "synthesizers/FractalNoise.md",
+      "original": "Examples/Instruments/Noise/FractalNoise.csd"
+    },
+    {
+      "name": "GaussianDust",
+      "file": "synthesizers/GaussianDust.md",
+      "original": "Examples/Instruments/Noise/GaussianDust.csd"
+    },
+    {
+      "name": "PinkNoise",
+      "file": "synthesizers/PinkNoise.md",
+      "original": "Examples/Instruments/Noise/PinkNoise.csd"
+    },
+    {
+      "name": "WhiteNoise",
+      "file": "synthesizers/WhiteNoise.md",
+      "original": "Examples/Instruments/Noise/WhiteNoise.csd"
+    },
+    {
+      "name": "BarModel",
+      "file": "synthesizers/BarModel.md",
+      "original": "Examples/Instruments/Physical Modelling/BarModel.csd"
+    },
+    {
+      "name": "BassGuitar",
+      "file": "synthesizers/BassGuitar.md",
+      "original": "Examples/Instruments/Physical Modelling/BassGuitar.csd"
+    },
+    {
+      "name": "Clavinet",
+      "file": "synthesizers/Clavinet.md",
+      "original": "Examples/Instruments/Physical Modelling/Clavinet.csd"
+    },
+    {
+      "name": "Glockenspiel",
+      "file": "synthesizers/Glockenspiel.md",
+      "original": "Examples/Instruments/Physical Modelling/Glockenspiel.csd"
+    },
+    {
+      "name": "GuitarChords",
+      "file": "synthesizers/GuitarChords.md",
+      "original": "Examples/Instruments/Physical Modelling/GuitarChords.csd"
+    },
+    {
+      "name": "Harmonics",
+      "file": "synthesizers/Harmonics.md",
+      "original": "Examples/Instruments/Physical Modelling/Harmonics.csd"
+    },
+    {
+      "name": "Honk",
+      "file": "synthesizers/Honk.md",
+      "original": "Examples/Instruments/Physical Modelling/Honk.csd"
+    },
+    {
+      "name": "Mellotron MkII Flute",
+      "file": "synthesizers/Mellotron MkII Flute.md",
+      "original": "Examples/Instruments/Physical Modelling/Mellotron MkII Flute.csd"
+    },
+    {
+      "name": "Parp",
+      "file": "synthesizers/Parp.md",
+      "original": "Examples/Instruments/Physical Modelling/Parp.csd"
+    },
+    {
+      "name": "PreparedPiano",
+      "file": "synthesizers/PreparedPiano.md",
+      "original": "Examples/Instruments/Physical Modelling/PreparedPiano.csd"
+    },
+    {
+      "name": "RubbedResonators",
+      "file": "synthesizers/RubbedResonators.md",
+      "original": "Examples/Instruments/Physical Modelling/RubbedResonators.csd"
+    },
+    {
+      "name": "Spiccato",
+      "file": "synthesizers/Spiccato.md",
+      "original": "Examples/Instruments/Physical Modelling/Spiccato.csd"
+    },
+    {
+      "name": "StringFeedback",
+      "file": "synthesizers/StringFeedback.md",
+      "original": "Examples/Instruments/Physical Modelling/StringFeedback.csd"
+    },
+    {
+      "name": "Strum",
+      "file": "synthesizers/Strum.md",
+      "original": "Examples/Instruments/Physical Modelling/Strum.csd"
+    },
+    {
+      "name": "Vibraphone",
+      "file": "synthesizers/Vibraphone.md",
+      "original": "Examples/Instruments/Physical Modelling/Vibraphone.csd"
+    },
+    {
+      "name": "BarModel",
+      "file": "synthesizers/BarModel.md",
+      "original": "Examples/Instruments/PhysicalModelling/BarModel.csd"
+    },
+    {
+      "name": "BassGuitar",
+      "file": "synthesizers/BassGuitar.md",
+      "original": "Examples/Instruments/PhysicalModelling/BassGuitar.csd"
+    },
+    {
+      "name": "Clavinet",
+      "file": "synthesizers/Clavinet.md",
+      "original": "Examples/Instruments/PhysicalModelling/Clavinet.csd"
+    },
+    {
+      "name": "GuitarChords",
+      "file": "synthesizers/GuitarChords.md",
+      "original": "Examples/Instruments/PhysicalModelling/GuitarChords.csd"
+    },
+    {
+      "name": "Harmonics",
+      "file": "synthesizers/Harmonics.md",
+      "original": "Examples/Instruments/PhysicalModelling/Harmonics.csd"
+    },
+    {
+      "name": "Honk",
+      "file": "synthesizers/Honk.md",
+      "original": "Examples/Instruments/PhysicalModelling/Honk.csd"
+    },
+    {
+      "name": "Parp",
+      "file": "synthesizers/Parp.md",
+      "original": "Examples/Instruments/PhysicalModelling/Parp.csd"
+    },
+    {
+      "name": "PreparedPiano",
+      "file": "synthesizers/PreparedPiano.md",
+      "original": "Examples/Instruments/PhysicalModelling/PreparedPiano.csd"
+    },
+    {
+      "name": "RubbedResonators",
+      "file": "synthesizers/RubbedResonators.md",
+      "original": "Examples/Instruments/PhysicalModelling/RubbedResonators.csd"
+    },
+    {
+      "name": "Spiccato",
+      "file": "synthesizers/Spiccato.md",
+      "original": "Examples/Instruments/PhysicalModelling/Spiccato.csd"
+    },
+    {
+      "name": "StringFeedback",
+      "file": "synthesizers/StringFeedback.md",
+      "original": "Examples/Instruments/PhysicalModelling/StringFeedback.csd"
+    },
+    {
+      "name": "Strum",
+      "file": "synthesizers/Strum.md",
+      "original": "Examples/Instruments/PhysicalModelling/Strum.csd"
+    },
+    {
+      "name": "Arpeggiator",
+      "file": "synthesizers/Arpeggiator.md",
+      "original": "Examples/Instruments/Synths/Arpeggiator.csd"
+    },
+    {
+      "name": "Bassline_TB-303",
+      "file": "synthesizers/Bassline_TB-303.md",
+      "original": "Examples/Instruments/Synths/Bassline_TB-303.csd"
+    },
+    {
+      "name": "CZSynth",
+      "file": "synthesizers/CZSynth.md",
+      "original": "Examples/Instruments/Synths/CZSynth.csd"
+    },
+    {
+      "name": "FM_Clang",
+      "file": "synthesizers/FM_Clang.md",
+      "original": "Examples/Instruments/Synths/FM_Clang.csd"
+    },
+    {
+      "name": "FOF Choir",
+      "file": "synthesizers/FOF Choir.md",
+      "original": "Examples/Instruments/Synths/FOF Choir.csd"
+    },
+    {
+      "name": "HardSyncSynth",
+      "file": "synthesizers/HardSyncSynth.md",
+      "original": "Examples/Instruments/Synths/HardSyncSynth.csd"
+    },
+    {
+      "name": "InharmonicAdditiveSynth",
+      "file": "synthesizers/InharmonicAdditiveSynth.md",
+      "original": "Examples/Instruments/Synths/InharmonicAdditiveSynth.csd"
+    },
+    {
+      "name": "MouseChord",
+      "file": "synthesizers/MouseChord.md",
+      "original": "Examples/Instruments/Synths/MouseChord.csd"
+    },
+    {
+      "name": "PadSynth",
+      "file": "synthesizers/PadSynth.md",
+      "original": "Examples/Instruments/Synths/PadSynth.csd"
+    },
+    {
+      "name": "PadSynthChoir",
+      "file": "synthesizers/PadSynthChoir.md",
+      "original": "Examples/Instruments/Synths/PadSynthChoir.csd"
+    },
+    {
+      "name": "RingModSynth",
+      "file": "synthesizers/RingModSynth.md",
+      "original": "Examples/Instruments/Synths/RingModSynth.csd"
+    },
+    {
+      "name": "WavetableSynth",
+      "file": "synthesizers/WavetableSynth.md",
+      "original": "Examples/Instruments/Synths/WavetableSynth.csd"
+    },
+    {
+      "name": "gbuzz_synth",
+      "file": "synthesizers/gbuzz_synth.md",
+      "original": "Examples/Instruments/Synths/gbuzz_synth.csd"
+    },
+    {
+      "name": "hsboscil_synth",
+      "file": "synthesizers/hsboscil_synth.md",
+      "original": "Examples/Instruments/Synths/hsboscil_synth.csd"
+    },
+    {
+      "name": "oscbnk_synth",
+      "file": "synthesizers/oscbnk_synth.md",
+      "original": "Examples/Instruments/Synths/oscbnk_synth.csd"
+    },
+    {
+      "name": "LiveLooper",
+      "file": "synthesizers/LiveLooper.md",
+      "original": "Examples/LiveSampling/LiveLooper.csd"
+    },
+    {
+      "name": "FirstSynth",
+      "file": "synthesizers/FirstSynth.md",
+      "original": "Examples/Miscellaneous/FirstSynth.csd"
+    },
+    {
+      "name": "SimpleSynthGainSlider",
+      "file": "synthesizers/SimpleSynthGainSlider.md",
+      "original": "Examples/Miscellaneous/SimpleSynthGainSlider.csd"
+    },
+    {
+      "name": "LoscilFilePlayer",
+      "file": "synthesizers/LoscilFilePlayer.md",
+      "original": "examples/FilePlayers/LoscilFilePlayer.csd"
+    },
+    {
+      "name": "MincerFilePlayer",
+      "file": "synthesizers/MincerFilePlayer.md",
+      "original": "examples/FilePlayers/MincerFilePlayer.csd"
+    },
+    {
+      "name": "Table3FilePlayer",
+      "file": "synthesizers/Table3FilePlayer.md",
+      "original": "examples/FilePlayers/Table3FilePlayer.csd"
+    },
+    {
+      "name": "GEN08_Envelopes",
+      "file": "synthesizers/GEN08_Envelopes.md",
+      "original": "examples/GEN/GEN08_Envelopes.csd"
+    },
+    {
+      "name": "GEN09",
+      "file": "synthesizers/GEN09.md",
+      "original": "examples/GEN/GEN09.csd"
+    },
+    {
+      "name": "GEN10",
+      "file": "synthesizers/GEN10.md",
+      "original": "examples/GEN/GEN10.csd"
+    },
+    {
+      "name": "GEN11",
+      "file": "synthesizers/GEN11.md",
+      "original": "examples/GEN/GEN11.csd"
+    },
+    {
+      "name": "GEN20",
+      "file": "synthesizers/GEN20.md",
+      "original": "examples/GEN/GEN20.csd"
+    },
+    {
+      "name": "GEN21",
+      "file": "synthesizers/GEN21.md",
+      "original": "examples/GEN/GEN21.csd"
+    },
+    {
+      "name": "GEN30",
+      "file": "synthesizers/GEN30.md",
+      "original": "examples/GEN/GEN30.csd"
+    },
+    {
+      "name": "ADSR_Envelope",
+      "file": "synthesizers/ADSR_Envelope.md",
+      "original": "examples/Instructional/ADSR_Envelope.csd"
+    },
+    {
+      "name": "DrumPads",
+      "file": "synthesizers/DrumPads.md",
+      "original": "examples/Instruments/DrumMachines/DrumPads.csd"
+    },
+    {
+      "name": "MiniPops",
+      "file": "synthesizers/MiniPops.md",
+      "original": "examples/Instruments/DrumMachines/MiniPops.csd"
+    },
+    {
+      "name": "TR-808",
+      "file": "synthesizers/TR-808.md",
+      "original": "examples/Instruments/DrumMachines/TR-808.csd"
+    },
+    {
+      "name": "Bounce",
+      "file": "synthesizers/Bounce.md",
+      "original": "examples/Instruments/Miscellaneous/Bounce.csd"
+    },
+    {
+      "name": "BouncingObject",
+      "file": "synthesizers/BouncingObject.md",
+      "original": "examples/Instruments/Miscellaneous/BouncingObject.csd"
+    },
+    {
+      "name": "CellularAutomata",
+      "file": "synthesizers/CellularAutomata.md",
+      "original": "examples/Instruments/Miscellaneous/CellularAutomata.csd"
+    },
+    {
+      "name": "ImageSliders",
+      "file": "synthesizers/ImageSliders.md",
+      "original": "examples/Instruments/Miscellaneous/ImageSliders.csd"
+    },
+    {
+      "name": "ImageSwitches",
+      "file": "synthesizers/ImageSwitches.md",
+      "original": "examples/Instruments/Miscellaneous/ImageSwitches.csd"
+    },
+    {
+      "name": "LorenzSynth",
+      "file": "synthesizers/LorenzSynth.md",
+      "original": "examples/Instruments/Miscellaneous/LorenzSynth.csd"
+    },
+    {
+      "name": "Metronome",
+      "file": "synthesizers/Metronome.md",
+      "original": "examples/Instruments/Miscellaneous/Metronome.csd"
+    },
+    {
+      "name": "Micropolyphony",
+      "file": "synthesizers/Micropolyphony.md",
+      "original": "examples/Instruments/Miscellaneous/Micropolyphony.csd"
+    },
+    {
+      "name": "PendulumWaves",
+      "file": "synthesizers/PendulumWaves.md",
+      "original": "examples/Instruments/Miscellaneous/PendulumWaves.csd"
+    },
+    {
+      "name": "Dust",
+      "file": "synthesizers/Dust.md",
+      "original": "examples/Instruments/Noise/Dust.csd"
+    },
+    {
+      "name": "FractalNoise",
+      "file": "synthesizers/FractalNoise.md",
+      "original": "examples/Instruments/Noise/FractalNoise.csd"
+    },
+    {
+      "name": "GaussianDust",
+      "file": "synthesizers/GaussianDust.md",
+      "original": "examples/Instruments/Noise/GaussianDust.csd"
+    },
+    {
+      "name": "PinkNoise",
+      "file": "synthesizers/PinkNoise.md",
+      "original": "examples/Instruments/Noise/PinkNoise.csd"
+    },
+    {
+      "name": "WhiteNoise",
+      "file": "synthesizers/WhiteNoise.md",
+      "original": "examples/Instruments/Noise/WhiteNoise.csd"
+    },
+    {
+      "name": "BarModel",
+      "file": "synthesizers/BarModel.md",
+      "original": "examples/Instruments/Physical Modelling/BarModel.csd"
+    },
+    {
+      "name": "BassGuitar",
+      "file": "synthesizers/BassGuitar.md",
+      "original": "examples/Instruments/Physical Modelling/BassGuitar.csd"
+    },
+    {
+      "name": "Clavinet",
+      "file": "synthesizers/Clavinet.md",
+      "original": "examples/Instruments/Physical Modelling/Clavinet.csd"
+    },
+    {
+      "name": "Glockenspiel",
+      "file": "synthesizers/Glockenspiel.md",
+      "original": "examples/Instruments/Physical Modelling/Glockenspiel.csd"
+    },
+    {
+      "name": "GuitarChords",
+      "file": "synthesizers/GuitarChords.md",
+      "original": "examples/Instruments/Physical Modelling/GuitarChords.csd"
+    },
+    {
+      "name": "Harmonics",
+      "file": "synthesizers/Harmonics.md",
+      "original": "examples/Instruments/Physical Modelling/Harmonics.csd"
+    },
+    {
+      "name": "Honk",
+      "file": "synthesizers/Honk.md",
+      "original": "examples/Instruments/Physical Modelling/Honk.csd"
+    },
+    {
+      "name": "Mellotron MkII Flute",
+      "file": "synthesizers/Mellotron MkII Flute.md",
+      "original": "examples/Instruments/Physical Modelling/Mellotron MkII Flute.csd"
+    },
+    {
+      "name": "Parp",
+      "file": "synthesizers/Parp.md",
+      "original": "examples/Instruments/Physical Modelling/Parp.csd"
+    },
+    {
+      "name": "PreparedPiano",
+      "file": "synthesizers/PreparedPiano.md",
+      "original": "examples/Instruments/Physical Modelling/PreparedPiano.csd"
+    },
+    {
+      "name": "RubbedResonators",
+      "file": "synthesizers/RubbedResonators.md",
+      "original": "examples/Instruments/Physical Modelling/RubbedResonators.csd"
+    },
+    {
+      "name": "Spiccato",
+      "file": "synthesizers/Spiccato.md",
+      "original": "examples/Instruments/Physical Modelling/Spiccato.csd"
+    },
+    {
+      "name": "StringFeedback",
+      "file": "synthesizers/StringFeedback.md",
+      "original": "examples/Instruments/Physical Modelling/StringFeedback.csd"
+    },
+    {
+      "name": "Strum",
+      "file": "synthesizers/Strum.md",
+      "original": "examples/Instruments/Physical Modelling/Strum.csd"
+    },
+    {
+      "name": "Vibraphone",
+      "file": "synthesizers/Vibraphone.md",
+      "original": "examples/Instruments/Physical Modelling/Vibraphone.csd"
+    },
+    {
+      "name": "BarModel",
+      "file": "synthesizers/BarModel.md",
+      "original": "examples/Instruments/PhysicalModelling/BarModel.csd"
+    },
+    {
+      "name": "BassGuitar",
+      "file": "synthesizers/BassGuitar.md",
+      "original": "examples/Instruments/PhysicalModelling/BassGuitar.csd"
+    },
+    {
+      "name": "Clavinet",
+      "file": "synthesizers/Clavinet.md",
+      "original": "examples/Instruments/PhysicalModelling/Clavinet.csd"
+    },
+    {
+      "name": "GuitarChords",
+      "file": "synthesizers/GuitarChords.md",
+      "original": "examples/Instruments/PhysicalModelling/GuitarChords.csd"
+    },
+    {
+      "name": "Harmonics",
+      "file": "synthesizers/Harmonics.md",
+      "original": "examples/Instruments/PhysicalModelling/Harmonics.csd"
+    },
+    {
+      "name": "Honk",
+      "file": "synthesizers/Honk.md",
+      "original": "examples/Instruments/PhysicalModelling/Honk.csd"
+    },
+    {
+      "name": "Parp",
+      "file": "synthesizers/Parp.md",
+      "original": "examples/Instruments/PhysicalModelling/Parp.csd"
+    },
+    {
+      "name": "PreparedPiano",
+      "file": "synthesizers/PreparedPiano.md",
+      "original": "examples/Instruments/PhysicalModelling/PreparedPiano.csd"
+    },
+    {
+      "name": "RubbedResonators",
+      "file": "synthesizers/RubbedResonators.md",
+      "original": "examples/Instruments/PhysicalModelling/RubbedResonators.csd"
+    },
+    {
+      "name": "Spiccato",
+      "file": "synthesizers/Spiccato.md",
+      "original": "examples/Instruments/PhysicalModelling/Spiccato.csd"
+    },
+    {
+      "name": "StringFeedback",
+      "file": "synthesizers/StringFeedback.md",
+      "original": "examples/Instruments/PhysicalModelling/StringFeedback.csd"
+    },
+    {
+      "name": "Strum",
+      "file": "synthesizers/Strum.md",
+      "original": "examples/Instruments/PhysicalModelling/Strum.csd"
+    },
+    {
+      "name": "Arpeggiator",
+      "file": "synthesizers/Arpeggiator.md",
+      "original": "examples/Instruments/Synths/Arpeggiator.csd"
+    },
+    {
+      "name": "Bassline_TB-303",
+      "file": "synthesizers/Bassline_TB-303.md",
+      "original": "examples/Instruments/Synths/Bassline_TB-303.csd"
+    },
+    {
+      "name": "CZSynth",
+      "file": "synthesizers/CZSynth.md",
+      "original": "examples/Instruments/Synths/CZSynth.csd"
+    },
+    {
+      "name": "FM_Clang",
+      "file": "synthesizers/FM_Clang.md",
+      "original": "examples/Instruments/Synths/FM_Clang.csd"
+    },
+    {
+      "name": "FOF Choir",
+      "file": "synthesizers/FOF Choir.md",
+      "original": "examples/Instruments/Synths/FOF Choir.csd"
+    },
+    {
+      "name": "HardSyncSynth",
+      "file": "synthesizers/HardSyncSynth.md",
+      "original": "examples/Instruments/Synths/HardSyncSynth.csd"
+    },
+    {
+      "name": "InharmonicAdditiveSynth",
+      "file": "synthesizers/InharmonicAdditiveSynth.md",
+      "original": "examples/Instruments/Synths/InharmonicAdditiveSynth.csd"
+    },
+    {
+      "name": "MouseChord",
+      "file": "synthesizers/MouseChord.md",
+      "original": "examples/Instruments/Synths/MouseChord.csd"
+    },
+    {
+      "name": "PadSynth",
+      "file": "synthesizers/PadSynth.md",
+      "original": "examples/Instruments/Synths/PadSynth.csd"
+    },
+    {
+      "name": "PadSynthChoir",
+      "file": "synthesizers/PadSynthChoir.md",
+      "original": "examples/Instruments/Synths/PadSynthChoir.csd"
+    },
+    {
+      "name": "RingModSynth",
+      "file": "synthesizers/RingModSynth.md",
+      "original": "examples/Instruments/Synths/RingModSynth.csd"
+    },
+    {
+      "name": "WavetableSynth",
+      "file": "synthesizers/WavetableSynth.md",
+      "original": "examples/Instruments/Synths/WavetableSynth.csd"
+    },
+    {
+      "name": "gbuzz_synth",
+      "file": "synthesizers/gbuzz_synth.md",
+      "original": "examples/Instruments/Synths/gbuzz_synth.csd"
+    },
+    {
+      "name": "hsboscil_synth",
+      "file": "synthesizers/hsboscil_synth.md",
+      "original": "examples/Instruments/Synths/hsboscil_synth.csd"
+    },
+    {
+      "name": "oscbnk_synth",
+      "file": "synthesizers/oscbnk_synth.md",
+      "original": "examples/Instruments/Synths/oscbnk_synth.csd"
+    },
+    {
+      "name": "LiveLooper",
+      "file": "synthesizers/LiveLooper.md",
+      "original": "examples/LiveSampling/LiveLooper.csd"
+    },
+    {
+      "name": "FirstSynth",
+      "file": "synthesizers/FirstSynth.md",
+      "original": "examples/Miscellaneous/FirstSynth.csd"
+    },
+    {
+      "name": "SimpleSynthGainSlider",
+      "file": "synthesizers/SimpleSynthGainSlider.md",
+      "original": "examples/Miscellaneous/SimpleSynthGainSlider.csd"
+    }
+  ],
+  "Widgets": [
+    {
+      "name": "ModifyingWidgetAppearance",
+      "file": "widgets/ModifyingWidgetAppearance.md",
+      "original": "Examples/Instructional/ModifyingWidgetAppearance.csd"
+    },
+    {
+      "name": "LotsOfWidgets",
+      "file": "widgets/LotsOfWidgets.md",
+      "original": "Examples/Miscellaneous/LotsOfWidgets.csd"
+    },
+    {
+      "name": "ModifyingWidgetAppearance",
+      "file": "widgets/ModifyingWidgetAppearance.md",
+      "original": "Examples/Miscellaneous/ModifyingWidgetAppearance.csd"
+    },
+    {
+      "name": "cabbageGetWidgetChannels",
+      "file": "widgets/cabbageGetWidgetChannels.md",
+      "original": "Examples/Miscellaneous/cabbageGetWidgetChannels.csd"
+    },
+    {
+      "name": "button",
+      "file": "widgets/button.md",
+      "original": "Examples/Widgets/button.csd"
+    },
+    {
+      "name": "button_file",
+      "file": "widgets/button_file.md",
+      "original": "Examples/Widgets/button_file.csd"
+    },
+    {
+      "name": "button_info",
+      "file": "widgets/button_info.md",
+      "original": "Examples/Widgets/button_info.csd"
+    },
+    {
+      "name": "button_option",
+      "file": "widgets/button_option.md",
+      "original": "Examples/Widgets/button_option.csd"
+    },
+    {
+      "name": "checkbox",
+      "file": "widgets/checkbox.md",
+      "original": "Examples/Widgets/checkbox.csd"
+    },
+    {
+      "name": "combobox",
+      "file": "widgets/combobox.md",
+      "original": "Examples/Widgets/combobox.csd"
+    },
+    {
+      "name": "csound_output",
+      "file": "widgets/csound_output.md",
+      "original": "Examples/Widgets/csound_output.csd"
+    },
+    {
+      "name": "encoder",
+      "file": "widgets/encoder.md",
+      "original": "Examples/Widgets/encoder.csd"
+    },
+    {
+      "name": "form",
+      "file": "widgets/form.md",
+      "original": "Examples/Widgets/form.csd"
+    },
+    {
+      "name": "gentable",
+      "file": "widgets/gentable.md",
+      "original": "Examples/Widgets/gentable.csd"
+    },
+    {
+      "name": "groupbox",
+      "file": "widgets/groupbox.md",
+      "original": "Examples/Widgets/groupbox.csd"
+    },
+    {
+      "name": "hrange",
+      "file": "widgets/hrange.md",
+      "original": "Examples/Widgets/hrange.csd"
+    },
+    {
+      "name": "image",
+      "file": "widgets/image.md",
+      "original": "Examples/Widgets/image.csd"
+    },
+    {
+      "name": "keyboard",
+      "file": "widgets/keyboard.md",
+      "original": "Examples/Widgets/keyboard.csd"
+    },
+    {
+      "name": "label",
+      "file": "widgets/label.md",
+      "original": "Examples/Widgets/label.csd"
+    },
+    {
+      "name": "listbox",
+      "file": "widgets/listbox.md",
+      "original": "Examples/Widgets/listbox.csd"
+    },
+    {
+      "name": "meter",
+      "file": "widgets/meter.md",
+      "original": "Examples/Widgets/meter.csd"
+    },
+    {
+      "name": "numberbox",
+      "file": "widgets/numberbox.md",
+      "original": "Examples/Widgets/numberbox.csd"
+    },
+    {
+      "name": "signaldisplay",
+      "file": "widgets/signaldisplay.md",
+      "original": "Examples/Widgets/signaldisplay.csd"
+    },
+    {
+      "name": "sliders",
+      "file": "widgets/sliders.md",
+      "original": "Examples/Widgets/sliders.csd"
+    },
+    {
+      "name": "soundfiler",
+      "file": "widgets/soundfiler.md",
+      "original": "Examples/Widgets/soundfiler.csd"
+    },
+    {
+      "name": "texteditor",
+      "file": "widgets/texteditor.md",
+      "original": "Examples/Widgets/texteditor.csd"
+    },
+    {
+      "name": "xypad",
+      "file": "widgets/xypad.md",
+      "original": "Examples/Widgets/xypad.csd"
+    },
+    {
+      "name": "ModifyingWidgetAppearance",
+      "file": "widgets/ModifyingWidgetAppearance.md",
+      "original": "examples/Instructional/ModifyingWidgetAppearance.csd"
+    },
+    {
+      "name": "LotsOfWidgets",
+      "file": "widgets/LotsOfWidgets.md",
+      "original": "examples/Miscellaneous/LotsOfWidgets.csd"
+    },
+    {
+      "name": "ModifyingWidgetAppearance",
+      "file": "widgets/ModifyingWidgetAppearance.md",
+      "original": "examples/Miscellaneous/ModifyingWidgetAppearance.csd"
+    },
+    {
+      "name": "cabbageGetWidgetChannels",
+      "file": "widgets/cabbageGetWidgetChannels.md",
+      "original": "examples/Miscellaneous/cabbageGetWidgetChannels.csd"
+    },
+    {
+      "name": "button",
+      "file": "widgets/button.md",
+      "original": "examples/Widgets/button.csd"
+    },
+    {
+      "name": "button_file",
+      "file": "widgets/button_file.md",
+      "original": "examples/Widgets/button_file.csd"
+    },
+    {
+      "name": "button_info",
+      "file": "widgets/button_info.md",
+      "original": "examples/Widgets/button_info.csd"
+    },
+    {
+      "name": "button_option",
+      "file": "widgets/button_option.md",
+      "original": "examples/Widgets/button_option.csd"
+    },
+    {
+      "name": "checkbox",
+      "file": "widgets/checkbox.md",
+      "original": "examples/Widgets/checkbox.csd"
+    },
+    {
+      "name": "combobox",
+      "file": "widgets/combobox.md",
+      "original": "examples/Widgets/combobox.csd"
+    },
+    {
+      "name": "csound_output",
+      "file": "widgets/csound_output.md",
+      "original": "examples/Widgets/csound_output.csd"
+    },
+    {
+      "name": "encoder",
+      "file": "widgets/encoder.md",
+      "original": "examples/Widgets/encoder.csd"
+    },
+    {
+      "name": "form",
+      "file": "widgets/form.md",
+      "original": "examples/Widgets/form.csd"
+    },
+    {
+      "name": "gentable",
+      "file": "widgets/gentable.md",
+      "original": "examples/Widgets/gentable.csd"
+    },
+    {
+      "name": "groupbox",
+      "file": "widgets/groupbox.md",
+      "original": "examples/Widgets/groupbox.csd"
+    },
+    {
+      "name": "hrange",
+      "file": "widgets/hrange.md",
+      "original": "examples/Widgets/hrange.csd"
+    },
+    {
+      "name": "image",
+      "file": "widgets/image.md",
+      "original": "examples/Widgets/image.csd"
+    },
+    {
+      "name": "keyboard",
+      "file": "widgets/keyboard.md",
+      "original": "examples/Widgets/keyboard.csd"
+    },
+    {
+      "name": "label",
+      "file": "widgets/label.md",
+      "original": "examples/Widgets/label.csd"
+    },
+    {
+      "name": "listbox",
+      "file": "widgets/listbox.md",
+      "original": "examples/Widgets/listbox.csd"
+    },
+    {
+      "name": "meter",
+      "file": "widgets/meter.md",
+      "original": "examples/Widgets/meter.csd"
+    },
+    {
+      "name": "numberbox",
+      "file": "widgets/numberbox.md",
+      "original": "examples/Widgets/numberbox.csd"
+    },
+    {
+      "name": "signaldisplay",
+      "file": "widgets/signaldisplay.md",
+      "original": "examples/Widgets/signaldisplay.csd"
+    },
+    {
+      "name": "sliders",
+      "file": "widgets/sliders.md",
+      "original": "examples/Widgets/sliders.csd"
+    },
+    {
+      "name": "soundfiler",
+      "file": "widgets/soundfiler.md",
+      "original": "examples/Widgets/soundfiler.csd"
+    },
+    {
+      "name": "texteditor",
+      "file": "widgets/texteditor.md",
+      "original": "examples/Widgets/texteditor.csd"
+    },
+    {
+      "name": "xypad",
+      "file": "widgets/xypad.md",
+      "original": "examples/Widgets/xypad.csd"
+    }
+  ],
+  "MIDI": [
+    {
+      "name": "FunctionGenerator",
+      "file": "midi/FunctionGenerator.md",
+      "original": "Examples/MIDI/FunctionGenerator.csd"
+    },
+    {
+      "name": "MIDI_Arpeggiator",
+      "file": "midi/MIDI_Arpeggiator.md",
+      "original": "Examples/MIDI/MIDI_Arpeggiator.csd"
+    },
+    {
+      "name": "MIDI_Delay",
+      "file": "midi/MIDI_Delay.md",
+      "original": "Examples/MIDI/MIDI_Delay.csd"
+    },
+    {
+      "name": "MIDI_Monitor",
+      "file": "midi/MIDI_Monitor.md",
+      "original": "Examples/MIDI/MIDI_Monitor.csd"
+    },
+    {
+      "name": "MIDI_Note_Recorder",
+      "file": "midi/MIDI_Note_Recorder.md",
+      "original": "Examples/MIDI/MIDI_Note_Recorder.csd"
+    },
+    {
+      "name": "CabbageMidiFileOpcodes",
+      "file": "midi/CabbageMidiFileOpcodes.md",
+      "original": "Examples/Miscellaneous/CabbageMidiFileOpcodes.csd"
+    },
+    {
+      "name": "IncomingMIDI",
+      "file": "midi/IncomingMIDI.md",
+      "original": "Examples/Miscellaneous/IncomingMIDI.csd"
+    },
+    {
+      "name": "MIDI-CC-Out",
+      "file": "midi/MIDI-CC-Out.md",
+      "original": "Examples/Miscellaneous/MIDI-CC-Out.csd"
+    },
+    {
+      "name": "MidiArpSimple",
+      "file": "midi/MidiArpSimple.md",
+      "original": "Examples/Miscellaneous/MidiArpSimple.csd"
+    },
+    {
+      "name": "MidifileReader",
+      "file": "midi/MidifileReader.md",
+      "original": "Examples/Miscellaneous/MidifileReader.csd"
+    },
+    {
+      "name": "cabbageMidiListener",
+      "file": "midi/cabbageMidiListener.md",
+      "original": "Examples/Miscellaneous/cabbageMidiListener.csd"
+    },
+    {
+      "name": "FunctionGenerator",
+      "file": "midi/FunctionGenerator.md",
+      "original": "examples/MIDI/FunctionGenerator.csd"
+    },
+    {
+      "name": "MIDI_Arpeggiator",
+      "file": "midi/MIDI_Arpeggiator.md",
+      "original": "examples/MIDI/MIDI_Arpeggiator.csd"
+    },
+    {
+      "name": "MIDI_Delay",
+      "file": "midi/MIDI_Delay.md",
+      "original": "examples/MIDI/MIDI_Delay.csd"
+    },
+    {
+      "name": "MIDI_Monitor",
+      "file": "midi/MIDI_Monitor.md",
+      "original": "examples/MIDI/MIDI_Monitor.csd"
+    },
+    {
+      "name": "MIDI_Note_Recorder",
+      "file": "midi/MIDI_Note_Recorder.md",
+      "original": "examples/MIDI/MIDI_Note_Recorder.csd"
+    },
+    {
+      "name": "CabbageMidiFileOpcodes",
+      "file": "midi/CabbageMidiFileOpcodes.md",
+      "original": "examples/Miscellaneous/CabbageMidiFileOpcodes.csd"
+    },
+    {
+      "name": "IncomingMIDI",
+      "file": "midi/IncomingMIDI.md",
+      "original": "examples/Miscellaneous/IncomingMIDI.csd"
+    },
+    {
+      "name": "MIDI-CC-Out",
+      "file": "midi/MIDI-CC-Out.md",
+      "original": "examples/Miscellaneous/MIDI-CC-Out.csd"
+    },
+    {
+      "name": "MidiArpSimple",
+      "file": "midi/MidiArpSimple.md",
+      "original": "examples/Miscellaneous/MidiArpSimple.csd"
+    },
+    {
+      "name": "MidifileReader",
+      "file": "midi/MidifileReader.md",
+      "original": "examples/Miscellaneous/MidifileReader.csd"
+    },
+    {
+      "name": "cabbageMidiListener",
+      "file": "midi/cabbageMidiListener.md",
+      "original": "examples/Miscellaneous/cabbageMidiListener.csd"
+    }
+  ],
+  "Utilities": [
+    {
+      "name": "AlphaFade",
+      "file": "utilities/AlphaFade.md",
+      "original": "Examples/Miscellaneous/AlphaFade.csd"
+    },
+    {
+      "name": "CabbageOSCRec",
+      "file": "utilities/CabbageOSCRec.md",
+      "original": "Examples/Miscellaneous/CabbageOSCRec.csd"
+    },
+    {
+      "name": "CabbageOSCSend",
+      "file": "utilities/CabbageOSCSend.md",
+      "original": "Examples/Miscellaneous/CabbageOSCSend.csd"
+    },
+    {
+      "name": "CompressSidechain",
+      "file": "utilities/CompressSidechain.md",
+      "original": "Examples/Miscellaneous/CompressSidechain.csd"
+    },
+    {
+      "name": "CsoundFiltersWobble",
+      "file": "utilities/CsoundFiltersWobble.md",
+      "original": "Examples/Miscellaneous/CsoundFiltersWobble.csd"
+    },
+    {
+      "name": "CustomPresets",
+      "file": "utilities/CustomPresets.md",
+      "original": "Examples/Miscellaneous/CustomPresets.csd"
+    },
+    {
+      "name": "Euclidean",
+      "file": "utilities/Euclidean.md",
+      "original": "Examples/Miscellaneous/Euclidean.csd"
+    },
+    {
+      "name": "FileRecord",
+      "file": "utilities/FileRecord.md",
+      "original": "Examples/Miscellaneous/FileRecord.csd"
+    },
+    {
+      "name": "FunctionTablesAsGrid",
+      "file": "utilities/FunctionTablesAsGrid.md",
+      "original": "Examples/Miscellaneous/FunctionTablesAsGrid.csd"
+    },
+    {
+      "name": "HostInfo",
+      "file": "utilities/HostInfo.md",
+      "original": "Examples/Miscellaneous/HostInfo.csd"
+    },
+    {
+      "name": "KnobManSliders",
+      "file": "utilities/KnobManSliders.md",
+      "original": "Examples/Miscellaneous/KnobManSliders.csd"
+    },
+    {
+      "name": "KnobManSliders2",
+      "file": "utilities/KnobManSliders2.md",
+      "original": "Examples/Miscellaneous/KnobManSliders2.csd"
+    },
+    {
+      "name": "KnobmanMinimal",
+      "file": "utilities/KnobmanMinimal.md",
+      "original": "Examples/Miscellaneous/KnobmanMinimal.csd"
+    },
+    {
+      "name": "MouseSense",
+      "file": "utilities/MouseSense.md",
+      "original": "Examples/Miscellaneous/MouseSense.csd"
+    },
+    {
+      "name": "NewPresets",
+      "file": "utilities/NewPresets.md",
+      "original": "Examples/Miscellaneous/NewPresets.csd"
+    },
+    {
+      "name": "PluginStateOpcodes",
+      "file": "utilities/PluginStateOpcodes.md",
+      "original": "Examples/Miscellaneous/PluginStateOpcodes.csd"
+    },
+    {
+      "name": "PopupPlant",
+      "file": "utilities/PopupPlant.md",
+      "original": "Examples/Miscellaneous/PopupPlant.csd"
+    },
+    {
+      "name": "Presets",
+      "file": "utilities/Presets.md",
+      "original": "Examples/Miscellaneous/Presets.csd"
+    },
+    {
+      "name": "PresetsChannels",
+      "file": "utilities/PresetsChannels.md",
+      "original": "Examples/Miscellaneous/PresetsChannels.csd"
+    },
+    {
+      "name": "PresetsNamed",
+      "file": "utilities/PresetsNamed.md",
+      "original": "Examples/Miscellaneous/PresetsNamed.csd"
+    },
+    {
+      "name": "RadioButtons",
+      "file": "utilities/RadioButtons.md",
+      "original": "Examples/Miscellaneous/RadioButtons.csd"
+    },
+    {
+      "name": "RandomCheckbox",
+      "file": "utilities/RandomCheckbox.md",
+      "original": "Examples/Miscellaneous/RandomCheckbox.csd"
+    },
+    {
+      "name": "RealtimeScoreEvents",
+      "file": "utilities/RealtimeScoreEvents.md",
+      "original": "Examples/Miscellaneous/RealtimeScoreEvents.csd"
+    },
+    {
+      "name": "ResizingPlugin",
+      "file": "utilities/ResizingPlugin.md",
+      "original": "Examples/Miscellaneous/ResizingPlugin.csd"
+    },
+    {
+      "name": "SVGExample",
+      "file": "utilities/SVGExample.md",
+      "original": "Examples/Miscellaneous/SVGExample.csd"
+    },
+    {
+      "name": "SampleLoadAndPlayback",
+      "file": "utilities/SampleLoadAndPlayback.md",
+      "original": "Examples/Miscellaneous/SampleLoadAndPlayback.csd"
+    },
+    {
+      "name": "TogglingPlants",
+      "file": "utilities/TogglingPlants.md",
+      "original": "Examples/Miscellaneous/TogglingPlants.csd"
+    },
+    {
+      "name": "TooManySliders",
+      "file": "utilities/TooManySliders.md",
+      "original": "Examples/Miscellaneous/TooManySliders.csd"
+    },
+    {
+      "name": "cabbageChanged",
+      "file": "utilities/cabbageChanged.md",
+      "original": "Examples/Miscellaneous/cabbageChanged.csd"
+    },
+    {
+      "name": "cabbageCreateColours",
+      "file": "utilities/cabbageCreateColours.md",
+      "original": "Examples/Miscellaneous/cabbageCreateColours.csd"
+    },
+    {
+      "name": "cabbageFileOpcodes",
+      "file": "utilities/cabbageFileOpcodes.md",
+      "original": "Examples/Miscellaneous/cabbageFileOpcodes.csd"
+    },
+    {
+      "name": "cabbageFindFiles",
+      "file": "utilities/cabbageFindFiles.md",
+      "original": "Examples/Miscellaneous/cabbageFindFiles.csd"
+    },
+    {
+      "name": "cabbageProfilerOpcodes",
+      "file": "utilities/cabbageProfilerOpcodes.md",
+      "original": "Examples/Miscellaneous/cabbageProfilerOpcodes.csd"
+    },
+    {
+      "name": "simpleReverbExample",
+      "file": "utilities/simpleReverbExample.md",
+      "original": "Examples/Miscellaneous/simpleReverbExample.csd"
+    },
+    {
+      "name": "svgElements",
+      "file": "utilities/svgElements.md",
+      "original": "Examples/Miscellaneous/svgElements.csd"
+    },
+    {
+      "name": "svgFFT",
+      "file": "utilities/svgFFT.md",
+      "original": "Examples/Miscellaneous/svgFFT.csd"
+    },
+    {
+      "name": "svgInterface",
+      "file": "utilities/svgInterface.md",
+      "original": "Examples/Miscellaneous/svgInterface.csd"
+    },
+    {
+      "name": "svgTable",
+      "file": "utilities/svgTable.md",
+      "original": "Examples/Miscellaneous/svgTable.csd"
+    },
+    {
+      "name": "svyQuadratic",
+      "file": "utilities/svyQuadratic.md",
+      "original": "Examples/Miscellaneous/svyQuadratic.csd"
+    },
+    {
+      "name": "webUITest",
+      "file": "utilities/webUITest.md",
+      "original": "Examples/Miscellaneous/webUI/webUITest.csd"
+    },
+    {
+      "name": "Calculated_F_Tables",
+      "file": "utilities/Calculated_F_Tables.md",
+      "original": "Examples/Utilities/Calculated_F_Tables.csd"
+    },
+    {
+      "name": "FFTSpectrum",
+      "file": "utilities/FFTSpectrum.md",
+      "original": "Examples/Utilities/FFTSpectrum.csd"
+    },
+    {
+      "name": "Lissajous",
+      "file": "utilities/Lissajous.md",
+      "original": "Examples/Utilities/Lissajous.csd"
+    },
+    {
+      "name": "Log_Curves",
+      "file": "utilities/Log_Curves.md",
+      "original": "Examples/Utilities/Log_Curves.csd"
+    },
+    {
+      "name": "Oscilloscope",
+      "file": "utilities/Oscilloscope.md",
+      "original": "Examples/Utilities/Oscilloscope.csd"
+    },
+    {
+      "name": "OscilloscopeOpcodeExplorer",
+      "file": "utilities/OscilloscopeOpcodeExplorer.md",
+      "original": "Examples/Utilities/OscilloscopeOpcodeExplorer.csd"
+    },
+    {
+      "name": "RandomNumberGenerators",
+      "file": "utilities/RandomNumberGenerators.md",
+      "original": "Examples/Utilities/RandomNumberGenerators.csd"
+    },
+    {
+      "name": "Spectrogram",
+      "file": "utilities/Spectrogram.md",
+      "original": "Examples/Utilities/Spectrogram.csd"
+    },
+    {
+      "name": "Spectroscope",
+      "file": "utilities/Spectroscope.md",
+      "original": "Examples/Utilities/Spectroscope.csd"
+    },
+    {
+      "name": "AlphaFade",
+      "file": "utilities/AlphaFade.md",
+      "original": "examples/Miscellaneous/AlphaFade.csd"
+    },
+    {
+      "name": "CabbageOSCRec",
+      "file": "utilities/CabbageOSCRec.md",
+      "original": "examples/Miscellaneous/CabbageOSCRec.csd"
+    },
+    {
+      "name": "CabbageOSCSend",
+      "file": "utilities/CabbageOSCSend.md",
+      "original": "examples/Miscellaneous/CabbageOSCSend.csd"
+    },
+    {
+      "name": "CompressSidechain",
+      "file": "utilities/CompressSidechain.md",
+      "original": "examples/Miscellaneous/CompressSidechain.csd"
+    },
+    {
+      "name": "CsoundFiltersWobble",
+      "file": "utilities/CsoundFiltersWobble.md",
+      "original": "examples/Miscellaneous/CsoundFiltersWobble.csd"
+    },
+    {
+      "name": "CustomPresets",
+      "file": "utilities/CustomPresets.md",
+      "original": "examples/Miscellaneous/CustomPresets.csd"
+    },
+    {
+      "name": "Euclidean",
+      "file": "utilities/Euclidean.md",
+      "original": "examples/Miscellaneous/Euclidean.csd"
+    },
+    {
+      "name": "FileRecord",
+      "file": "utilities/FileRecord.md",
+      "original": "examples/Miscellaneous/FileRecord.csd"
+    },
+    {
+      "name": "FunctionTablesAsGrid",
+      "file": "utilities/FunctionTablesAsGrid.md",
+      "original": "examples/Miscellaneous/FunctionTablesAsGrid.csd"
+    },
+    {
+      "name": "HostInfo",
+      "file": "utilities/HostInfo.md",
+      "original": "examples/Miscellaneous/HostInfo.csd"
+    },
+    {
+      "name": "KnobManSliders",
+      "file": "utilities/KnobManSliders.md",
+      "original": "examples/Miscellaneous/KnobManSliders.csd"
+    },
+    {
+      "name": "KnobManSliders2",
+      "file": "utilities/KnobManSliders2.md",
+      "original": "examples/Miscellaneous/KnobManSliders2.csd"
+    },
+    {
+      "name": "KnobmanMinimal",
+      "file": "utilities/KnobmanMinimal.md",
+      "original": "examples/Miscellaneous/KnobmanMinimal.csd"
+    },
+    {
+      "name": "MouseSense",
+      "file": "utilities/MouseSense.md",
+      "original": "examples/Miscellaneous/MouseSense.csd"
+    },
+    {
+      "name": "NewPresets",
+      "file": "utilities/NewPresets.md",
+      "original": "examples/Miscellaneous/NewPresets.csd"
+    },
+    {
+      "name": "PluginStateOpcodes",
+      "file": "utilities/PluginStateOpcodes.md",
+      "original": "examples/Miscellaneous/PluginStateOpcodes.csd"
+    },
+    {
+      "name": "PopupPlant",
+      "file": "utilities/PopupPlant.md",
+      "original": "examples/Miscellaneous/PopupPlant.csd"
+    },
+    {
+      "name": "Presets",
+      "file": "utilities/Presets.md",
+      "original": "examples/Miscellaneous/Presets.csd"
+    },
+    {
+      "name": "PresetsChannels",
+      "file": "utilities/PresetsChannels.md",
+      "original": "examples/Miscellaneous/PresetsChannels.csd"
+    },
+    {
+      "name": "PresetsNamed",
+      "file": "utilities/PresetsNamed.md",
+      "original": "examples/Miscellaneous/PresetsNamed.csd"
+    },
+    {
+      "name": "RadioButtons",
+      "file": "utilities/RadioButtons.md",
+      "original": "examples/Miscellaneous/RadioButtons.csd"
+    },
+    {
+      "name": "RandomCheckbox",
+      "file": "utilities/RandomCheckbox.md",
+      "original": "examples/Miscellaneous/RandomCheckbox.csd"
+    },
+    {
+      "name": "RealtimeScoreEvents",
+      "file": "utilities/RealtimeScoreEvents.md",
+      "original": "examples/Miscellaneous/RealtimeScoreEvents.csd"
+    },
+    {
+      "name": "ResizingPlugin",
+      "file": "utilities/ResizingPlugin.md",
+      "original": "examples/Miscellaneous/ResizingPlugin.csd"
+    },
+    {
+      "name": "SVGExample",
+      "file": "utilities/SVGExample.md",
+      "original": "examples/Miscellaneous/SVGExample.csd"
+    },
+    {
+      "name": "SampleLoadAndPlayback",
+      "file": "utilities/SampleLoadAndPlayback.md",
+      "original": "examples/Miscellaneous/SampleLoadAndPlayback.csd"
+    },
+    {
+      "name": "TogglingPlants",
+      "file": "utilities/TogglingPlants.md",
+      "original": "examples/Miscellaneous/TogglingPlants.csd"
+    },
+    {
+      "name": "TooManySliders",
+      "file": "utilities/TooManySliders.md",
+      "original": "examples/Miscellaneous/TooManySliders.csd"
+    },
+    {
+      "name": "cabbageChanged",
+      "file": "utilities/cabbageChanged.md",
+      "original": "examples/Miscellaneous/cabbageChanged.csd"
+    },
+    {
+      "name": "cabbageCreateColours",
+      "file": "utilities/cabbageCreateColours.md",
+      "original": "examples/Miscellaneous/cabbageCreateColours.csd"
+    },
+    {
+      "name": "cabbageFileOpcodes",
+      "file": "utilities/cabbageFileOpcodes.md",
+      "original": "examples/Miscellaneous/cabbageFileOpcodes.csd"
+    },
+    {
+      "name": "cabbageFindFiles",
+      "file": "utilities/cabbageFindFiles.md",
+      "original": "examples/Miscellaneous/cabbageFindFiles.csd"
+    },
+    {
+      "name": "cabbageProfilerOpcodes",
+      "file": "utilities/cabbageProfilerOpcodes.md",
+      "original": "examples/Miscellaneous/cabbageProfilerOpcodes.csd"
+    },
+    {
+      "name": "simpleReverbExample",
+      "file": "utilities/simpleReverbExample.md",
+      "original": "examples/Miscellaneous/simpleReverbExample.csd"
+    },
+    {
+      "name": "svgElements",
+      "file": "utilities/svgElements.md",
+      "original": "examples/Miscellaneous/svgElements.csd"
+    },
+    {
+      "name": "svgFFT",
+      "file": "utilities/svgFFT.md",
+      "original": "examples/Miscellaneous/svgFFT.csd"
+    },
+    {
+      "name": "svgInterface",
+      "file": "utilities/svgInterface.md",
+      "original": "examples/Miscellaneous/svgInterface.csd"
+    },
+    {
+      "name": "svgTable",
+      "file": "utilities/svgTable.md",
+      "original": "examples/Miscellaneous/svgTable.csd"
+    },
+    {
+      "name": "svyQuadratic",
+      "file": "utilities/svyQuadratic.md",
+      "original": "examples/Miscellaneous/svyQuadratic.csd"
+    },
+    {
+      "name": "webUITest",
+      "file": "utilities/webUITest.md",
+      "original": "examples/Miscellaneous/webUI/webUITest.csd"
+    },
+    {
+      "name": "Calculated_F_Tables",
+      "file": "utilities/Calculated_F_Tables.md",
+      "original": "examples/Utilities/Calculated_F_Tables.csd"
+    },
+    {
+      "name": "FFTSpectrum",
+      "file": "utilities/FFTSpectrum.md",
+      "original": "examples/Utilities/FFTSpectrum.csd"
+    },
+    {
+      "name": "Lissajous",
+      "file": "utilities/Lissajous.md",
+      "original": "examples/Utilities/Lissajous.csd"
+    },
+    {
+      "name": "Log_Curves",
+      "file": "utilities/Log_Curves.md",
+      "original": "examples/Utilities/Log_Curves.csd"
+    },
+    {
+      "name": "Oscilloscope",
+      "file": "utilities/Oscilloscope.md",
+      "original": "examples/Utilities/Oscilloscope.csd"
+    },
+    {
+      "name": "OscilloscopeOpcodeExplorer",
+      "file": "utilities/OscilloscopeOpcodeExplorer.md",
+      "original": "examples/Utilities/OscilloscopeOpcodeExplorer.csd"
+    },
+    {
+      "name": "RandomNumberGenerators",
+      "file": "utilities/RandomNumberGenerators.md",
+      "original": "examples/Utilities/RandomNumberGenerators.csd"
+    },
+    {
+      "name": "Spectrogram",
+      "file": "utilities/Spectrogram.md",
+      "original": "examples/Utilities/Spectrogram.csd"
+    },
+    {
+      "name": "Spectroscope",
+      "file": "utilities/Spectroscope.md",
+      "original": "examples/Utilities/Spectroscope.csd"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<CsoundSynthesizer>
+<CsOptions>
+-odac -d
+</CsOptions>
+<CsInstruments>
+; Converted from 45_01_6c.orc and 45_01_6c.sco
+; Original files preserved in same directory
+
+sr = 44100
+kr  =  441
+ksmps =100
+nchnls = 1
+
+; *****************************************************************************
+; ACCCI:        45_01_6C.ORC
+; synthesis:    FOF (45)
+;               Tutorial FOF(01)
+;               FM of formant frequency(6C)
+;               ifmode = 1.
+; coded:        jpg 3/94
+
+
+instr 1; **********************************************************************
+idur   = p3
+ifqm   = 400
+imax   = 2
+
+   aform line 400, idur, 800              ; contour of formant
+   amod  oscili imax*ifqm, ifqm, 1        ; FM modulator stable at 400 Hz
+
+   ;                            koct                       ifna  idur ifmode
+   ;          xamp  xfund  xform  kband kris kdur kdec iolaps ifnb  iphs
+   a1 fof     15000, 5,aform+amod,0, 1, .003, .5,  .1,  3,  1,19,idur,0, 1
+      out     a1
+
+endin
+
+
+
+</CsInstruments>
+<CsScore>
+; ************************************************************************
+; ACCCI:     45_01_6C.SCO
+; coded:     jpg 3/94
+
+
+; GEN functions **********************************************************
+f1  0 4096  10  1
+f19 0 1024  19 .5 .5 270 .5
+
+; score ******************************************************************
+
+;  istart idur
+
+i1  0      10
+
+e
+
+
+</CsScore>
+</CsoundSynthesizer>

@@ -15,7 +15,7 @@ repos:
       - id: editorconfig-checker
         alias: ec
         args: ["--config", ".editorconfig-checker.json"]
-        files: ^(csound_rag|scripts|scores)/
+        files: ^(csound_assist|scripts|scores)/
         # Optional: exclude generated folders if needed
         # args: ["--exclude", "^renders/|^logs_tmp/"]
 

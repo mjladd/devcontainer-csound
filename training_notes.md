@@ -11,6 +11,16 @@
 - RAG: keep a small base model but retrieve relevant CSound snippits and docs at query time
 - Fine-tune: update the model weights with the corpus
 
+
+### RAG Rules
+
+- never split mid paragraph
+- never split code blocks
+- use headlines as boundaries
+- chunk-size target: 400-600 tokens
+- split by: headings, paragraphs, logical sections
+- add metadata: document name, section title
+
 ## Steps
 
 - collect working `.csd` files, docs, and tutorials

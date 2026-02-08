@@ -1,40 +1,42 @@
 [project]
-name = "csound-rag"
-version = "0.1.0"
-description = "A RAG-based Csound programming assistant"
+name = "csound-assist"
+version = "0.2.0"
+description = "AI-powered Csound programming assistant with RAG"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     # Vector database
     "chromadb>=0.4.0",
-    # Local embeddings
-    "sentence-transformers>=2.2.0",
-    # LLM client
+    # LLM client and embeddings (via Ollama)
     "ollama>=0.1.0",
     # CLI framework
-    "click>=8.0.0",
+    "typer>=0.12.0",
     # Terminal formatting
     "rich>=13.0.0",
-    # YAML parsing (for markdown front matter)
+    # Interactive REPL
+    "prompt-toolkit>=3.0.0",
+    # Syntax highlighting
+    "pygments>=2.17.0",
+    # YAML config parsing
     "pyyaml>=6.0",
-    # Dev tools moved to core deps per request
-    "pytest>=7.0.0",
-    "ruff>=0.1.0",
-    "pre-commit>=3.7.0",
+    # BM25 keyword search
+    "rank-bm25>=0.2.2",
 ]
 
 [project.optional-dependencies]
-dev = []
+dev = ["pytest>=7.0.0", "ruff>=0.1.0", "pre-commit>=3.7.0"]
+mcp = ["mcp>=1.0.0"]
+finetune = ["unsloth", "datasets", "trl"]
 
 [project.scripts]
-csound-rag = "csound_rag.cli:main"
+csound-assist = "csound_assist.cli:app"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["csound_rag"]
+packages = ["csound_assist"]
 
 [tool.ruff]
 line-length = 100

@@ -8,7 +8,9 @@ chunks them intelligently, and stores them in ChromaDB with embeddings.
 Usage:
     python scripts/index_corpus.py [--reset]
 
-The index is stored in .cache/csound_rag_db/
+The index is stored in .cache/csound_assist_db/
+
+Note: Prefer using the CLI instead: csound-assist index [--reset]
 """
 
 import argparse
@@ -19,7 +21,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from csound_rag.indexer import CsoundIndexer
+from csound_assist.indexer import CsoundIndexer
 
 
 def main():
@@ -40,7 +42,7 @@ def main():
     parser.add_argument(
         "--db-path",
         type=Path,
-        default=project_root / ".cache" / "csound_rag_db",
+        default=project_root / ".cache" / "csound_assist_db",
         help="Path to ChromaDB database",
     )
     args = parser.parse_args()
@@ -83,7 +85,7 @@ def main():
     print(f"Sources: {', '.join(result['sources'])}")
     print()
     print("You can now use the assistant:")
-    print("  python -m csound_rag.cli query 'how do I create an oscillator?'")
+    print("  csound-assist search 'how do I create an oscillator?'")
 
     return 0
 

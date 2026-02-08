@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
   apt-get upgrade -y && \
   apt-get install -y --no-install-recommends \
     fontconfig ca-certificates curl unzip git make zsh \
-    git cmake g++ vim wget \
+    git cmake g++ vim wget eza \
     libsndfile1-dev libjack-dev portaudio19-dev \
     libportmidi-dev libpulse-dev swig liblua5.1-0-dev default-jdk libfluidsynth-dev \
     liblo-dev fluid ladspa-sdk libpng-dev dssi-dev libgmm++-dev \

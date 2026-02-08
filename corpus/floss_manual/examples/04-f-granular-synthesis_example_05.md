@@ -1,0 +1,64 @@
+# 04 F. GRANULAR SYNTHESIS - Code Example 6
+
+## Metadata
+
+- **Source:** FLOSS Manual for Csound
+- **Chapter:** 04-f-granular-synthesis
+- **Section:** Synthesis of Dynamic Sound Spectra: grain3
+- **Category:** Reference / Tutorial
+- **Tags:** `floss-manual`, `tutorial`, `04`
+
+---
+
+## Code
+
+```csound
+<CsoundSynthesizer>
+<CsOptions>
+-odac
+</CsOptions>
+<CsInstruments>
+sr = 44100
+ksmps = 16
+nchnls = 1
+0dbfs = 1
+
+;waveforms used for granulation
+giBuzz  ftgen 1,0,4096,11,40,1,0.9
+
+;window function - used as an amplitude envelope for each grain
+;(bartlett window)
+giWFn   ftgen 2,0,16384,20,3,1
+
+instr 1
+  kCPS    =       100
+  kPhs    =       0
+  kFmd    transeg 0,21,0,0, 10,4,15, 10,-4,0
+  kPmd    transeg 0,1,0,0,  10,4,1,  10,-4,0
+  kGDur   =       0.8
+  kDens   =       20
+  iMaxOvr =       1000
+  kFn     =       1
+  ;print info. to the terminal
+          printks "Random Phase:%5.2F%TPitch Random:%5.2F%n",1,kPmd,kFmd
+  aSig grain3 kCPS, kPhs, kFmd, kPmd, kGDur, kDens, iMaxOvr, kFn, giWFn, 0, 0
+          out     aSig*0.06
+endin
+
+</CsInstruments>
+<CsScore>
+i 1 0 51
+e
+</CsScore>
+</CsoundSynthesizer>
+;example by Iain McCurdy
+```
+
+---
+
+## Context
+
+This code example is from the FLOSS Manual chapter "04 F. GRANULAR SYNTHESIS".
+See the full chapter for detailed explanation and context.
+
+**Full chapter:** [corpus/floss_manual/chapters/04-f-granular-synthesis.md](../chapters/04-f-granular-synthesis.md)

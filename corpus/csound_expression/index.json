@@ -1,0 +1,408 @@
+{
+  "tutorials": {
+    "Synthesis": [
+      {
+        "title": "README",
+        "file": "synthesis/README.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "filter",
+          "delay",
+          "granular",
+          "subtractive",
+          "distortion",
+          "sampler",
+          "frequency",
+          "modulation",
+          "noise",
+          "fft"
+        ],
+        "description": ""
+      },
+      {
+        "title": "Index",
+        "file": "synthesis/Index.md",
+        "concepts": [
+          "osc",
+          "granular",
+          "modulation"
+        ],
+        "description": ""
+      },
+      {
+        "title": "GranularSynthesisTutorial",
+        "file": "synthesis/GranularSynthesisTutorial.md",
+        "concepts": [
+          "envelope",
+          "reverb",
+          "granular",
+          "note",
+          "modulation",
+          "noise"
+        ],
+        "description": ""
+      },
+      {
+        "title": "InstrumentsShowCase",
+        "file": "synthesis/InstrumentsShowCase.md",
+        "concepts": [
+          "granular"
+        ],
+        "description": ""
+      },
+      {
+        "title": "ModArg",
+        "file": "synthesis/ModArg.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "filter",
+          "delay",
+          "granular",
+          "frequency",
+          "lfo",
+          "noise"
+        ],
+        "description": "Sometimes we want the modulation to start aftter some initial delay. Take the vibrato for instance. Often there s no vibrato at the attack and then it starts to rise. We can simulate it with the funct"
+      },
+      {
+        "title": "Padsynth",
+        "file": "synthesis/Padsynth.md",
+        "concepts": [
+          "oscillator",
+          "filter",
+          "reverb",
+          "granular",
+          "note",
+          "lfo",
+          "random",
+          "spectrum"
+        ],
+        "description": "There are versions of standard audio waves: pure sine, triangle, square, sawtooth that are enriched by padsynth algorithm. They have the same prefix `bw`:"
+      },
+      {
+        "title": "SignalTfm",
+        "file": "synthesis/SignalTfm.md",
+        "concepts": [
+          "envelope",
+          "filter",
+          "frequency",
+          "noise"
+        ],
+        "description": "By default `newRef` or `newGlobalRef` create placeholders for audio-rate signals. But if we want them to hold control-rate signals we have to use special variants:"
+      },
+      {
+        "title": "SoundFontsTutorial",
+        "file": "synthesis/SoundFontsTutorial.md",
+        "concepts": [
+          "midi"
+        ],
+        "description": "We can read soundfonts that are encoded in sf2 format. The function `sfMsg` can turn sound font file in midi instrument:"
+      },
+      {
+        "title": "SynthTutorial",
+        "file": "synthesis/SynthTutorial.md",
+        "concepts": [
+          "oscillator",
+          "envelope",
+          "filter",
+          "delay",
+          "subtractive",
+          "distortion",
+          "sample",
+          "midi",
+          "lfo",
+          "noise",
+          "spectrum"
+        ],
+        "description": "Envelope generators produce piecewise functions. Most often they are linear or exponential. In csound-expression we can produce piecewise functions with two function: `linseg` and `expseg`."
+      },
+      {
+        "title": "UserInteractionTutorial",
+        "file": "synthesis/UserInteractionTutorial.md",
+        "concepts": [
+          "osc",
+          "filter",
+          "sample",
+          "midi"
+        ],
+        "description": "So far every midi-instrument has triggered the instrument in the separate note instance. In the end we get the sum of all notes. It's polyphonic mode. But what if we want to use synth in monophonic mo"
+      },
+      {
+        "title": "Library-overview",
+        "file": "synthesis/Library-overview.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "filter",
+          "delay",
+          "sample",
+          "frequency",
+          "noise"
+        ],
+        "description": "~~~ double :: Double -> D int    :: Int    -> D text   :: String -> Str sig    :: D -> Sig ~~~"
+      }
+    ],
+    "General": [
+      {
+        "title": "UpcomingReleaseNotes",
+        "file": "general/UpcomingReleaseNotes.md",
+        "concepts": [
+          "sample",
+          "midi"
+        ],
+        "description": ""
+      },
+      {
+        "title": "CabbageTutorial",
+        "file": "general/CabbageTutorial.md",
+        "concepts": [
+          "osc"
+        ],
+        "description": ""
+      },
+      {
+        "title": "ImperativeInstruments",
+        "file": "general/ImperativeInstruments.md",
+        "concepts": [
+          "osc",
+          "note"
+        ],
+        "description": "There is a special opaque data type for instrument names (or references). It's called `InstrRef`:"
+      },
+      {
+        "title": "Tuning",
+        "file": "general/Tuning.md",
+        "concepts": [
+          "note"
+        ],
+        "description": ""
+      },
+      {
+        "title": "01-play-file",
+        "file": "general/01-play-file.md",
+        "concepts": [
+          "echo",
+          "distortion",
+          "sample",
+          "note"
+        ],
+        "description": "The most simple way to play a file is to use `diskin` function:"
+      }
+    ],
+    "Events and Scores": [
+      {
+        "title": "Arrays",
+        "file": "events_and_scores/Arrays.md",
+        "concepts": [
+          "spectral"
+        ],
+        "description": "Arrays can be global and local. Local arrays are accessible only within the body of single Csound instrument where they are created. The scope translated to Haskell is somewhat obscure. The global arr"
+      }
+    ],
+    "Effects": [
+      {
+        "title": "BasicTypesTutorial",
+        "file": "effects/BasicTypesTutorial.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "delay",
+          "sample",
+          "frequency",
+          "lfo",
+          "noise"
+        ],
+        "description": "What is the size of the table? We can create the table of the given size. By default it's 8196. The more size the better is precision. For efficiency reason the tables size in most cases should be equ"
+      },
+      {
+        "title": "CsoundAPI",
+        "file": "effects/CsoundAPI.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "delay",
+          "frequency",
+          "lfo"
+        ],
+        "description": "With channel we can update specific value inside Csound code. We can create a global channel and then send write or read values with another program."
+      },
+      {
+        "title": "EventsTutorial",
+        "file": "effects/EventsTutorial.md",
+        "concepts": [
+          "osc",
+          "filter",
+          "delay",
+          "sampler",
+          "frequency",
+          "noise"
+        ],
+        "description": "Event stream is a `Monoid`. The `mempty` is an event stream that has no events and `mappend` combines to event streams into a single event stream that contains events from both streams. Reminder: `mco"
+      },
+      {
+        "title": "FxFamily",
+        "file": "effects/FxFamily.md",
+        "concepts": [
+          "envelope",
+          "filter",
+          "delay",
+          "distortion",
+          "frequency",
+          "modulation"
+        ],
+        "description": ""
+      },
+      {
+        "title": "LiveWidgetsTutorial",
+        "file": "effects/LiveWidgetsTutorial.md",
+        "concepts": [
+          "osc",
+          "distortion",
+          "sampler",
+          "note"
+        ],
+        "description": ""
+      },
+      {
+        "title": "Patches",
+        "file": "effects/Patches.md",
+        "concepts": [
+          "osc",
+          "adsr",
+          "filter",
+          "reverb",
+          "midi"
+        ],
+        "description": "The Gen-prefix for instruments and effects refers to one peculiarity of the Patch data type. I'd like to be able to change some common parameters of the instrument after it's already constructed. Righ"
+      },
+      {
+        "title": "ProducingTheOutputTutorial",
+        "file": "effects/ProducingTheOutputTutorial.md",
+        "concepts": [
+          "osc",
+          "delay",
+          "sample",
+          "midi",
+          "noise"
+        ],
+        "description": ""
+      },
+      {
+        "title": "ScoresTutorial",
+        "file": "effects/ScoresTutorial.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "delay",
+          "note"
+        ],
+        "description": "Let's start with primitive functions:"
+      },
+      {
+        "title": "SignalSegmentsTutorial",
+        "file": "effects/SignalSegmentsTutorial.md",
+        "concepts": [
+          "osc",
+          "delay",
+          "sampler",
+          "note"
+        ],
+        "description": "Let's create a mini mix board for a DJ. The first thing we need is a cool dance drone:"
+      },
+      {
+        "title": "02-play-notes",
+        "file": "effects/02-play-notes.md",
+        "concepts": [
+          "delay",
+          "note"
+        ],
+        "description": "In Csound we can trigger instruments with notes. A note has three components:"
+      },
+      {
+        "title": "Quickstart-guide",
+        "file": "effects/Quickstart-guide.md",
+        "concepts": [
+          "osc",
+          "envelope",
+          "filter",
+          "reverb",
+          "distortion",
+          "midi",
+          "random",
+          "spectrum"
+        ],
+        "description": ""
+      }
+    ],
+    "Introduction": [
+      {
+        "title": "Intro",
+        "file": "introduction/Intro.md",
+        "concepts": [
+          "osc",
+          "granular",
+          "frequency"
+        ],
+        "description": "~~~ > cabal update > cabal install csound-expression --lib ~~~"
+      },
+      {
+        "title": "00-Intro",
+        "file": "introduction/00-Intro.md",
+        "concepts": [
+          "osc",
+          "sampler",
+          "midi"
+        ],
+        "description": "We are going to work with library `csound-core` and compiler `csound`. The Csound is an audio programming language. It's super powerful and great for our needs. It is a language and compiler.  The com"
+      }
+    ],
+    "Sampling": [
+      {
+        "title": "SamplesTutorial",
+        "file": "sampling/SamplesTutorial.md",
+        "concepts": [
+          "sampler"
+        ],
+        "description": ""
+      }
+    ],
+    "Signal Processing": [
+      {
+        "title": "Spectrums",
+        "file": "signal_processing/Spectrums.md",
+        "concepts": [
+          "frequency",
+          "spectrum"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  "concepts": [
+    "adsr",
+    "delay",
+    "distortion",
+    "echo",
+    "envelope",
+    "fft",
+    "filter",
+    "frequency",
+    "granular",
+    "lfo",
+    "midi",
+    "modulation",
+    "noise",
+    "note",
+    "osc",
+    "oscillator",
+    "random",
+    "reverb",
+    "sample",
+    "sampler",
+    "spectral",
+    "spectrum",
+    "subtractive"
+  ]
+}

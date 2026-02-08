@@ -1,0 +1,314 @@
+---
+source: Csound Journal
+issue: 5
+title: "HPKComposer"
+author: "the UPIC tool"
+url: https://csoundjournal.com/issue5/HPKcomposer.html
+---
+
+# HPKComposer
+
+**Author:** the UPIC tool
+**Issue:** 5
+**Source:** [Csound Journal](https://csoundjournal.com/issue5/HPKcomposer.html)
+
+---
+
+CSOUND JOURNAL: [Home](https://csoundjournal.com/../index.html) | [Issue 5](https://csoundjournal.com/index.html)
+## HPKComposer
+
+### A Csound 5.0 based Audio Video Composition Tool
+ Jean-Pierre Lemoine
+ Email: lemoine.jp AT gmail.com
+## Introduction
+
+
+ HPKComposer is an integrated composition tool for creating Audio/Video pieces. It is in fact a test bed project for experimenting with relationships between the two media and has evolved over the years, either because of the changes in technology or because of the composition paradigms I pursue which change.
+
+ Here is a summary of the different versions, the different technology and the functionalities covered.     HPKComposer version 2
+   Csound, VRML97
+ Java Swing
+   Sound batch generation, Csound language not exposed
+
+ Score based evolution using CMask structures
+
+ Real time performance through a VRML97 browser plugin, sounds are static wav files embedded in the world definition
+     HPKComposer version 3
+   Csound, VRML97
+ Java Swing
+   Sound batch generation, Csound language exploitation
+
+ Score based evolution using CMask structures
+
+ Real time performance through a VRML97 browser plugin, sounds are static wav files embedded in the world definition
+     HPKComposerAV
+   CsoundAV
+ Eclipse Rich Client Platform (RCP) application
+   Real time execution of the composition by CsoundAV
+
+ Csound language exploitation
+
+ Linear segments based evolution
+
+ Csound syntax assist editor
+     HPKComposer version 5.0
+   Csound 5.0
+ Pixel shader OpenGL engine, using Lightweight Java Game Library (LWJGL )
+ Eclipse Rich Client Platform (RCP) application
+   Real time execution of the composition by a specific viewer
+
+ Linear segments based evolution
+
+ Csound language exploitation and encapsulation
+
+
+##
+ I. HPKComposer Composition Concepts
+
+
+ HPKComposer is in fact two tools: one is an editor for creating Audio/Video Compositions, the other is a run time execution engine for playing these compositions independently from the editor. One key advantage of the player is the capability to play compositions in real full screen mode.
+
+ The most important decision made for the development of this version was to keep the composition process as simple as possible. This is always a challenge: is it possible to produce satisfying results with a small set of tools or do we need more? What is the balance between creativity and tools complexity?
+
+ In fact, I have been influenced by the UPIC tool. I attended a presentation made by Xenakis in the 1980s and this first contact with computer generated music was really nice. The graphical representation of the score was not classical: it was made of curves and seemed to be like a painting. The sound texture was different from what I was familiar with from synthesizers.
+
+
+
+![image](images/dfq5sj5w_29rbz4wb.jpg)
+
+ **Figure 1: UPIC-page from Myc�nes Alpha (1978)**
+ [ (http://membres.lycos.fr/musicand/INSTRUMENT/DIGITAL/UPIC/UPIC.htm)](http://membres.lycos.fr/musicand/INSTRUMENT/DIGITAL/UPIC/UPIC.htm)
+
+
+
+I have tried to keep such a simplicity (and also in some way the paradigm) by just using linear segments to drive the evolution of graphical and sound parameters and not using score event or complex value generators. A composition is structured in layers, each layer combining image processing and sound synthesis. Linear segments are the synchronization tool between the two different media. The sound volume can also be used to control a graphical parameter and is in fact mainly used to control the Layer transparency. This is a very simple and effective way of assembling an audio/image layer. [![image](images/dfq5sj5w_31c9ks7q.png)](https://csoundjournal.com/images/dfq5sj5w_31c9ks7q.png)
+ **Figure 2: Structure of a Layer****
+ ** Click image to see the full size version
+
+ Simplicity is fine but some form of complexity is required, or at least to give an impression of complexity (like evolving patterns, predictable chaos). This is proposed through two tools:
+-  Each linear segment curve loops when the last point is reached. By choosing different lengths, the composition will have a global unity, but with many differences due to the non-synchronicity of parameter values.
+-  Csound provides many opcodes for bringing diversity, and accidents, even if there is no notion of score. For example, I use a lot the *randomh* and *randomi *opcodes for adding variations. The *waveset* and *phaser* opcodes can create astonishing non-continuous sounds, and there are many other opcodes to explore in this area. The Csound concept of a User Defined Opcode is also a great tool, and the software Cabel for building csound instruments is also very inspiring in this area.
+
+ HPKcomposer provides easy access to some sound transformations made using Csound, but the decision to mainly use a syntax-assisting editor for creating sounds is the key. Csound is rich, and continues to be extended, so it is very restrictive to design a specific synthesizer on top of Csound. I have tried several paradigms in the past like a specific design or modular approach using wires to connect modules. The conclusion, for now, is that I prefer the use of text for describing a Csound instrument. It creates less limitations in sound creation and I like the idea of "writing your sound".
+
+ Writing a Csound instrument is not easy so several tools are added to the editor: colored syntax, opcode name choice completion and dialog boxes for editing the parameters. A specific syntax is available to ease the integration with the linear segments evolution while staying within the text environment: <ev2 10 100> affects the evolution2 with a range from 10 to 100. Csound GEN tables are defined with an editor and are then used with the following syntax <fx>, where x is the table number entered in the editor. These expressions will be parsed for producing the correct Csound CSD file.
+
+ But as this process is not so easy, thus I have also added the capability to describe the basic GUI inside the Csound source. The following syntax - <rt name value min max evolutionNumber> - is used to describe a parameter that can be manipulated through the User Interface.
+
+  ![image](images/dfq5sj5w_46hktbt7.png)
+ **
+  Figure 3: Csound Instrument Source parameter definition
+ **
+
+
+
+The source is analyzed by HPKComposer to generate the following GUI. The slider changes the parameter value (the source will be updated), and is working during the real time execution of the composition, when using the viewer embedded inside HPKComposer or when individually playing the sound of a layer.
+
+
+
+[![image](images/dfq5sj5w_47gc93xv.png)](https://csoundjournal.com/images/dfq5sj5w_47gc93xv.png)
+ **Figure 4 - Csound Instrument parameters list
+ **Click image to see the full size version**
+ **
+
+
+
+If a parameter value is driven by an evolution, a graphical editor is available for editing the segments.
+
+  [![image](images/dfq5sj5w_48dk492w.png)](https://csoundjournal.com/images/dfq5sj5w_48dk492w.png)
+ **Figure 5 - Csound Instrument Source parameter evolution
+ **Click image to see the full size version
+###
+ Image processing
+
+
+ Previous versions of HPKComposer have worked with 3D scenes. This version is working exclusively with images or with sequences of images. The reasons are both artistic and technological. The concept of image processing is easier to manage than the building of an animated 3D scene, and it is also very difficult to design a complete but simple User Interface around 3D. The other reason is technological: performance is a key issue. The difficulty in coding a 3D engine implies the use of an existing engine. 3D graphics are often very feature rich, and the scene management takes many cpu cycles, much more than an engine for processing image using pixel shaders.
+
+ The shader will include all the graphical attributes, like texture, light position, and eye position. Twenty-One shader types are available, and for each shader a different lighting model can be set, as well as a contrast effect. The lighting models are Phong, enforced Phong, Sheen, Flash and Goosh. This allows many combinations, and as any layer is independent from each other, complex lighting can be created.
+
+##  II. HPKComposer Internal Design
+
+
+ The HPKComposer Composition editor is an Eclipse Rich Client Platform(RCP) Java application. Since RCP version 3.2, it is possible to use OpenGL libraries (LWJGL or jogl) inside a SWT window (SWT is the base GUI library of Eclipse). This important capability allows the rendering of openGL shaders in a specific window. It is also possible to execute the composition in real time without leaving the editor. The top pane of the editor (see below) is used for the navigation through the layer, and is also used to display the output of the composition running in real time.
+
+
+
+[![image](images/dfq5sj5w_49zwmxp3.png)](https://csoundjournal.com/images/dfq5sj5w_49zwmxp3.png)
+ **Figure 6 - HPKComposer editor
+ **Click image to see the full size version
+
+
+
+The other key technology is the Csound 5.0 API. It is used when designing the sound part of a layer for immediately hearing it without waiting for a lengthy compilation as well as when playing the whole composition in real time, either inside the HPKComposer editor or by using the independent Real Time Performance Viewer. The Real Time Performance Viewer is differentiated by its capabilities to run in true OpenGL full screen mode and to generate a picture file for each frame, and by its optimized internal structure.
+
+ In each case, the process is very simple: a CSD file is generated (containing a layer or all the active layers). It is then compiled and performed using the Csound API. The new Csound software bus structure is used to pass information between the host program and the Csound engine.
+###  Thread architecture
+
+
+ The graphical engine is based on a loop running forever until the end of the composition is reached or a GUI action requires to stop operation. This loop iterates through the different layers, reading values from the Csound software bus, setting the shader attributes and running the geometry (basic rectangle). All the work is done on the graphics card using its powerful GPU, but the loop could take all the CPU cycles if running without thread yield. A specific LWJGL API - Display.sync(FPS) - is used for pausing the loop thread, therefore keeping a constant frame rate. It has been set to 30 frames per second, which provides sufficient quality.
+
+ The Csound engine runs in its own thread. It might have been done inside the graphical loop thread using the PerformKsmps() function from the API, but, as the real time execution values are all coming from Csound, avoiding any synchronization issue between the threads that are refreshed at different rates, and as processor architectures become more and more multi-core, a decision was made to use a separate thread.
+
+###  CSD example
+
+
+ Here is a small example showing the use of the software bus, how the linear segments evolution are converted to *loopseg*, and how the sound volume is calculated and set in the software bus.
+```csound
+<CsoundSynthesizer>
+<CsOptions>
+-d -g -m0 -odac1 -b256 -B4096 -M0 temp.orc temp.sco
+</CsOptions>
+<CsInstruments>
+sr = 44100.0
+kr = 44100.0
+ksmps = 1.0
+nchnls = 2
+
+zakinit 2, 2
+
+gkchrms20 chnexport "CHRMS20",2 ; RMS
+gkch20_1 chnexport "CH10_1",2 ; Evolution 1
+gkch20_2 chnexport "CH10_2",2 ; Evolution 2
+gkch20_3 chnexport "CH10_3",2 ; Evolution 3
+
+instr 20
+gkch20_1 loopseg 0.0354,0 , 0.0,0.0, 0.0956,1.0, 0.6071,0.0378, 0.2973,0.0
+gkch20_2 loopseg 0.0255,0 , 0.0,0.0, 0.5179,0.9874, 0.4821,0.0
+gkch20_3 loopseg 0.0342,0 , 0.0,0.0, 0.3043,0.0781, \
+                 0.0376,1.0, 0.1726,0.4232, 0.4855,0.0
+
+kn1 randomi 10, 400, 10
+an1 oscil 1, kn1,1
+an1 pinkish an1, 1, 10
+af1 moogladder an1, ( gkch20_3 * 1000.0 + 1000.0 ) , .8
+
+asigel = af1
+asiger = af1
+
+kvol = gkch20_1 * 1.0+0.0
+kamp = kvol * 25000
+kouts = 0.0125
+kampout = kamp * kouts
+outs asigel * kampout, asiger * kampout
+krins = 0.2725
+kampreverb = kamp * krins
+zawm asigel * kampreverb, 1
+zawm asiger * kampreverb, 2
+krmsc = 5000.0
+krms rms ( (asigel+asiger)* kampout + (asigel+asiger)* kampreverb )
+krms portk krms, 0.5
+gkchrms20 = krms / krmsc
+endin
+
+instr 100
+asigl zar 1
+asigr zar 2
+ao1, ao2 reverbsc asigl, asigr, .92, 7680, sr, .2, 0
+asigld dcblock ao1
+asigrd dcblock ao2
+asigl clip asigld, 2, 32000
+asigr clip asigrd, 2, 32000
+kdclick linseg 0, .01, 1, p3-.02, 1, .01, 0
+outs asigl * kdclick, asigr * kdclick
+zacl 0, 2
+endin
+
+</CsInstruments>
+
+<CsScore>
+f1 0.0 65536 10 1
+i20 0 20.0
+i100 0 20.0
+</CsScore>
+
+</CsoundSynthesizer>
+
+```
+
+###
+ Creating a video from an HPKComposer Composition
+
+
+ The Real Time Viewer has the capability to capture each frame and to write it as a TGA file on disk, but as the shader attributes are controlled by values coming from the Csound engine, it is mandatory to also run the Csound engine for obtaining the correct frame content. This is done using the Csound API.
+
+ Here is the code loop for generating the picture files:
+```csound
+// We work at 30 frames per second, frameBySec = 1/30
+// which gives an int. sr = 44100, kr = 44100
+int ns = (int)(44100 * frameBySec);
+
+Csound c = new Csound();
+c.Compile( csdFile );
+time = 0;
+workGLayer = firstGLayer;
+while( workGLayer != null ) {
+    workGLayer.shader.initForActivation();
+    workGLayer = workGLayer.next;
+}
+while( time <= renderingLentgh ) {
+    handleIO(); // Trap the ESC key for leaving the Viewer
+    if ( run == false ) {
+        break;
+    }
+    GL11.glClear( GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT );
+    // Execute the Csound engine for ns samples, sr = 44100, kr = 44100
+    for ( int i = 0; i< ns; i++ ) {
+        c.PerformKsmps();
+    }
+
+    // This structure has been initialized when reading
+    // the HPKComposer composition file
+    SoundBus w = CsoundThread.firstSoundBus;
+    while( w != null ) {
+        w.v = (float)c.GetChannel(w.name);
+        w = w.next;
+    }
+    workGLayer = firstGLayer;
+
+    // For each layer, set the shader attributes and render it
+    while( workGLayer != null ) {
+        workGLayer.render();
+        workGLayer = workGLayer.next;
+    }
+    if ( fullScreen == false ) {
+        Display.setTitle( "HPKComposer Viewer " + "Time="  + time );
+    }
+    takeScreenShot( renderPath + frameNumber + ".tga" );
+    time += frameBySec;
+    frameNumber++;
+    if ( Display.isCloseRequested() ) {
+        break;
+    }
+    Display.update();
+    Thread.sleep( 0L );
+}
+c.delete();
+```
+
+
+ The next steps are to generate the sound file by compiling the composition's CSD file, and then to create the video using a tool like VirtualDub by importing the sequence of picture files and the WAV file.
+
+###  Conclusion
+
+
+ Developing with these libraries, LWJGL and the Csound 5.0 APIs, is very smooth. The HPKComposer editor and the Real Time Performance Viewer are very stable in this environment. Using Java for making the main logic has not resulted in any performance issues, and it should be the same with other languages like Python. In general, I worked on compositions made of three layers, using the double precision version of Csound, and running with *ksmps* equal to 1. My machine is a Pentium 4 3.0 Ghz with an ATI x1600 on AGP bus. This is not a top performance configuration, thus the new laptop models with Core 2 Duo processors and ATI x1600 or Nvidia 7600 GPU should be great machines for HPKComposer.
+
+ HPKComposer is running on Windows XP, but it is written exclusively with cross-platform libraries, thus has the potential to run on other systems.
+##
+
+## Acknowledgements
+
+
+ Special acknowledgments to the whole Csound community. People are very keen to help and to share their experiences or works. I often forget to write the origin of Csound code I am using in the CSD generated files... but I never forget that I am reusing the works of others.
+
+ Congratulations to the Csound developers. They are modernizing it in such a way that new complex utilizations such as HPKComposer are possible.
+## References
+
+
+Video pieces created using HPKComposer version 5.0 - [Audio Video Synthesis blog](http://avsynthesis.blogspot.com/)
+
+ Eclipse, development tool and frameworks
+- [Eclipse](http://www.eclipse.org/)
+- [Rich Client Platform](http://wiki.eclipse.org/index.php/Rich_Client_Platform)
+- [Using OpenGL in SWT](http://www.eclipse.org/swt/opengl/)
+- [LWJGL](http://lwjgl.org/)

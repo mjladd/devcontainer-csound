@@ -1,0 +1,32 @@
+<CsoundSynthesizer>
+<CsOptions>
+-odac -d
+</CsOptions>
+<CsInstruments>
+; Converted from grain3.orc and grain3.sco
+; Original files preserved in same directory
+
+sr		=		44100
+kr		=		4410
+ksmps	=		10
+nchnls	=		1
+
+
+		instr 1
+a1 		grain	4000, 1000, 10, 100, 100, .2, 1, 2, .2
+a2 		grain	4000, 600, 80, 100, 100, .2, 1, 2, .2
+a3 		grain	4000, 200, 130, 100, 100, .2, 1, 2, .2
+		out 	a1+a2+a3
+		endin
+
+</CsInstruments>
+<CsScore>
+f1 0 1024 10 1
+f2 0 1024 20 3
+
+i1 0 2
+;i1 0 1
+;i1 0 1
+
+</CsScore>
+</CsoundSynthesizer>

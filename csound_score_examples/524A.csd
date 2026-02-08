@@ -1,0 +1,51 @@
+<CsoundSynthesizer>
+<CsOptions>
+-odac -d
+</CsOptions>
+<CsInstruments>
+; Converted from 524A.ORC and 524A.SCO
+; Original files preserved in same directory
+
+sr        =         44100
+kr        =         4410
+ksmps     =         10
+nchnls    =         1
+
+; FIG 5.24a.orc
+
+
+          instr 1
+i1        =         cpspch(p4)
+i2        =         int((8000/i1)+.5)
+i3        =         1/32767
+
+a1        linen     p5,p6,p3,p7
+k1        linen     p5,p6,p3,p7
+a2        buzz      a1,i1,i2,5
+k1        =         (k1*i3)*5000.
+a1        reson     a2,0.,k1,1,0
+
+          out       a1
+          endin
+
+</CsInstruments>
+<CsScore>
+c fig 5.24.a.scr
+f 1 0 512 7 0 512 1
+f 4 0 512 5 1 512 3
+f 5 0 1025 9 .25 1 90
+f 2 0 512 9 .5 1 0
+  i1 0.000 0.500 7.00 3000 0.010 0.450
+  i1 1.000 0.500 9.00 3000 0.010 0.450
+  i1 2.000 0.500 7.00 6000 0.010 0.450
+  i1 3.000 0.500 9.00 6000 0.010 0.450
+  i1 4.000 0.500 7.00 12000 0.010 0.450
+  i1 5.000 0.500 9.00 12000 0.010 0.450
+  i1 6.000 0.500 7.00 24000 0.010 0.450
+  i1 7.000 0.500 9.00 24000 0.010 0.450
+  i1 8.000 0.500 7.00 32000 0.010 0.450
+  i1 9.000 0.500 9.00 32000 0.010 0.450
+end of score
+
+</CsScore>
+</CsoundSynthesizer>

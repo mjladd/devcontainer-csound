@@ -5,6 +5,9 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 autoload -U compinit; compinit
 
+# setup eza
+alias ls='eza --icons --group-directories-first'
+
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats '(%F{yellow}%b%f%u%c) '
